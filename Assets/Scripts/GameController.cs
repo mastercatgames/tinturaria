@@ -1,50 +1,76 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UIElements;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject bottleInk;
-    public GameObject formInk;
-
+    // Start is called before the first frame update    
+    private GameObject inkLiquidClone;
+    private Transform inkMask;
     public float inkfillAmount;
     public float formfillAmount;
     public float limitToFill;
     public float paintSpeed;
+    public bool isPainting;
+    public GameObject currentBottle;
+    public GameObject currentForm;
 
     void Start()
     {
-        inkfillAmount = 1f;
-        formfillAmount = 0f;
-        limitToFill = 0.25f;
-        //Debug.Log(bottleInk.GetComponent<Image>());
-        //inkfillAmount = bottleInk.GetComponent<Image>().fillAmount * 100f;
-        
+        //Initialize values
+        inkMask = currentBottle.transform.Find("InkMask");
+        inkfillAmount = inkMask.transform.localScale.y;
+        limitToFill = 0.75f; //init value. After we can subtract 0.25f of each print until get 0, that means the ink of the bottle is over
+        paintSpeed = 3f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButton("Jump"))
+        {
+            if (inkfillAmount > 0f)
+                        isPainting = true;
+        }
+
+        if (isPainting)
             Paint();
-        
+
     }
 
     void Paint()
     {
-        //bottleInk.GetComponent<Image>().fillAmount -= Time.deltaTime * paintSpeed;
-        
-        if (formfillAmount <= limitToFill){
-            inkfillAmount -= Time.deltaTime * paintSpeed;
-            formfillAmount += Time.deltaTime * paintSpeed;
+        if (inkfillAmount >= limitToFill && inkfillAmount > 0f)
+        {
+            inkfillAmount = inkMask.localScale.y;
 
-            bottleInk.GetComponent<Image>().fillAmount = inkfillAmount;
-            formInk.GetComponent<Image>().fillAmount = formfillAmount;
+            inkMask.localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy
 
-            //Debug.Log(inkfillAmount);
+            if (inkLiquidClone == null)
+            {
+
+                inkLiquidClone = Instantiate(currentBottle.transform.Find("InkLiquid").gameObject, currentBottle.transform.Find("InkLiquid"), true);
+                inkLiquidClone.transform.parent = null;
+            }
+
+            inkLiquidClone.transform.Find("LiquidLeft").GetComponent<SpriteRenderer>().size += Vector2.up * paintSpeed * 0.035f;
+            inkLiquidClone.transform.Find("LiquidRight").GetComponent<SpriteRenderer>().size += Vector2.up * paintSpeed * 0.035f;
+
         }
+        else
+        {
+            if (inkLiquidClone != null)
+            {
+                inkLiquidClone.transform.localPosition += Vector3.down * paintSpeed * 0.006f;
+                PaintForm();
+            }
+        }
+    }
+
+    void PaintForm()
+    {
+        currentForm.transform.Find("InkMask").localScale += Vector3.up * paintSpeed * 0.001f;
     }
 }
