@@ -29,10 +29,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") || Input.touchCount > 0)
         {
             if (inkfillAmount > 0f)
-                        isPainting = true;
+                isPainting = true;
         }
 
         if (isPainting)
@@ -71,6 +71,6 @@ public class GameController : MonoBehaviour
 
     void PaintForm()
     {
-        currentForm.transform.Find("InkMask").localScale += Vector3.up * paintSpeed * 0.001f;
+        currentForm.transform.Find("InkMask").Find("Mask").localScale += Vector3.up * paintSpeed * 0.001f;
     }
 }
