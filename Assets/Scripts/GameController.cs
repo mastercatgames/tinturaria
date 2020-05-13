@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     public GameObject currentBottle;
     public GameObject currentForm;
 
+    //public GameObject InkShopButton; // *** M ***
+
     void Start()
     {
         //Initialize values
@@ -37,6 +39,9 @@ public class GameController : MonoBehaviour
 
         if (isPainting)
             Paint();
+
+        //InkShopButton.SetActive(true); // *** M ***
+
 
     }
 
