@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -77,5 +78,10 @@ public class GameController : MonoBehaviour
     void PaintForm()
     {
         currentForm.transform.Find("InkMask").Find("Mask").localScale += Vector3.up * paintSpeed * 0.001f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
