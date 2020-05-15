@@ -32,10 +32,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Jump") || Input.touchCount > 0)
+        if (Input.GetButtonDown("Jump") || Input.touchCount > 0)
         {
-            if (inkfillAmount > 0f)
-                isPainting = true;
+            // if (inkfillAmount > 0f)
+            //     isPainting = true;
+            //Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
         }
 
         if (isPainting)
@@ -44,6 +45,10 @@ public class GameController : MonoBehaviour
         //InkShopButton.SetActive(true); // *** M ***
 
 
+    }
+
+    public void NewPaintFluid(){
+        Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
     }
 
     void Paint()
