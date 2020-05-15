@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35648741dd5b14baa82bec08abfe7457, type: 3}
   m_Name: Hourglass_Ink_SVG
   m_EditorClassIdentifier: 
-  _lastTimeModified: 637250285516950052
-  _documentAsset: {fileID: 114967211370009150}
-  _sharedMesh: {fileID: 43157259583760848}
+  _lastTimeModified: 637250286509204909
+  _documentAsset: {fileID: 114532533609618102}
+  _sharedMesh: {fileID: 43572353990746694}
   _antialiasing: 1
   _generateCollider: 0
   _keepSVGFile: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
     height: 10.8
   _useLayers: 0
   _layers: []
---- !u!43 &43157259583760848
+--- !u!43 &43572353990746694
 Mesh:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,7 +205,7 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &114967211370009150
+--- !u!114 &114532533609618102
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
