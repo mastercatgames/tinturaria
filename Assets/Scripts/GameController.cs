@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public float limitToFill;
     public float paintSpeed;
     public bool isPainting;
-    public GameObject currentBottle;
+    public GameObject currentRepository;
     public GameObject currentForm;
 
     //public GameObject InkShopButton; // *** M ***
@@ -22,21 +22,19 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //Initialize values
-        inkMask = currentBottle.transform.Find("InkMask");
+        inkMask = currentRepository.transform.Find("InkMask").Find("Mask");
         inkfillAmount = inkMask.transform.localScale.y;
         limitToFill = 0.75f; //init value. After we can subtract 0.25f of each print until get 0, that means the ink of the bottle is over
-        paintSpeed = 3f;
+        paintSpeed = 1.3f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") || Input.touchCount > 0)
+        if (Input.GetButtonDown("Jump"))
         {
-            // if (inkfillAmount > 0f)
-            //     isPainting = true;
-            //Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
+            NewPaintFluid();
         }
 
         if (isPainting)
@@ -47,8 +45,14 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void NewPaintFluid(){
-        Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
+    public void NewPaintFluid()
+    {
+        if (inkfillAmount > 0f && !isPainting)
+        {
+            isPainting = true;
+            Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
+        }
+
     }
 
     void Paint()
@@ -57,33 +61,45 @@ public class GameController : MonoBehaviour
         {
             inkfillAmount = inkMask.localScale.y;
 
-            inkMask.localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy
-
-            if (inkLiquidClone == null)
-            {
-
-                inkLiquidClone = Instantiate(currentBottle.transform.Find("InkLiquid").gameObject, currentBottle.transform.Find("InkLiquid"), true);
-                inkLiquidClone.transform.parent = null;
-            }
-
-            inkLiquidClone.transform.Find("LiquidLeft").GetComponent<SpriteRenderer>().size += Vector2.up * paintSpeed * 0.035f;
-            inkLiquidClone.transform.Find("LiquidRight").GetComponent<SpriteRenderer>().size += Vector2.up * paintSpeed * 0.035f;
-
+            inkMask.localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy            
         }
         else
         {
-            if (inkLiquidClone != null)
-            {
-                inkLiquidClone.transform.localPosition += Vector3.down * paintSpeed * 0.006f;
-                PaintForm();
-            }
+            isPainting = false;
+            limitToFill -= 0.25f; //TODO: I think that limitToFill could be in other script, like BottleController, to keep the value of each bottle
         }
+        //Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
+        // if (inkfillAmount >= limitToFill && inkfillAmount > 0f)
+        // {
+        //     inkfillAmount = inkMask.localScale.y;
+
+        //     inkMask.localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy
+
+        //     if (inkLiquidClone == null)
+        //     {
+
+        //         inkLiquidClone = Instantiate(currentRepository.transform.Find("InkLiquid").gameObject, currentRepository.transform.Find("InkLiquid"), true);
+        //         inkLiquidClone.transform.parent = null;
+        //     }
+
+        //     inkLiquidClone.transform.Find("LiquidLeft").GetComponent<SpriteRenderer>().size += Vector2.up * paintSpeed * 0.035f;
+        //     inkLiquidClone.transform.Find("LiquidRight").GetComponent<SpriteRenderer>().size += Vector2.up * paintSpeed * 0.035f;
+
+        // }
+        // else
+        // {
+        //     if (inkLiquidClone != null)
+        //     {
+        //         inkLiquidClone.transform.localPosition += Vector3.down * paintSpeed * 0.006f;
+        //         PaintForm();
+        //     }
+        // }
     }
 
-    void PaintForm()
-    {
-        currentForm.transform.Find("InkMask").Find("Mask").localScale += Vector3.up * paintSpeed * 0.001f;
-    }
+    // void PaintForm()
+    // {
+    //     currentForm.transform.Find("InkMask").Find("Mask").localScale += Vector3.up * paintSpeed * 0.001f;
+    // }
 
     public void RestartGame()
     {
