@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentForm;
+    public AudioClip[] liquidClips;
+    public AudioSource audioSource_sfx;
 
     //public GameObject InkShopButton; // *** M ***
 
@@ -51,6 +53,9 @@ public class GameController : MonoBehaviour
         {
             isPainting = true;
             Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
+
+            audioSource_sfx.clip = liquidClips[Random.Range(0,2)];
+            audioSource_sfx.Play();
         }
 
     }
