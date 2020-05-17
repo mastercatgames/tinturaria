@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6609430}
   - component: {fileID: 6609431}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bucket2.0_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 54028362}
   - component: {fileID: 54028363}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Moon2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145573792}
   - component: {fileID: 145573793}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Star2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 312256005}
   - component: {fileID: 312256006}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bucket2.0_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390851855}
   - component: {fileID: 390851856}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Shelves2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,7 +1456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468142290}
   - component: {fileID: 468142291}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Square2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,38 +1525,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!84 &500073984
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1080
-  m_Height: 2160
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &503537833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 646208514}
   - component: {fileID: 646208515}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bucket2.0_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2268,7 +2236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879882477}
   - component: {fileID: 879882478}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bucket2.0_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3247,6 +3215,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
+--- !u!1 &1219236121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219236122}
+  m_Layer: 0
+  m_Name: Augusto_teste
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219236122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219236121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9193555, y: 1.030677, z: 135.45303}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236370557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,7 +3411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1318987270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3557,6 +3555,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334931908}
   m_CullTransparentMesh: 0
+--- !u!84 &1345846392
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1080
+  m_Height: 2160
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1429459851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3877,7 +3907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1536155183}
   - component: {fileID: 1536155184}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Cross2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4243,7 +4273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648364831}
   - component: {fileID: 1648364832}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bucket2.0_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4577,38 +4607,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!84 &1767030519
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1080
-  m_Height: 2160
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1772729791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,7 +4617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1772729792}
   - component: {fileID: 1772729793}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bucket2.0_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4828,6 +4826,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!84 &1985393769
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1080
+  m_Height: 2160
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &2003718430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5035,6 +5065,36 @@ Transform:
   m_Father: {fileID: 386231237}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2010904233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2010904234}
+  m_Layer: 0
+  m_Name: Marta_teste
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2010904234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010904233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.11311506, y: -0.18916464, z: -5.1915045}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025339322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,7 +5105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025339323}
   - component: {fileID: 2025339324}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5124,7 +5184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2038220454}
   - component: {fileID: 2038220455}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Circle2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5389,7 +5449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097640878}
   - component: {fileID: 2097640879}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Triangle2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6169,11 +6229,11 @@ Camera:
     serializedVersion: 2
     m_Bits: 256
   m_RenderingPath: -1
-<<<<<<< HEAD
-  m_TargetTexture: {fileID: 1767030519}
+<<<<<<< .merge_file_a08968
+  m_TargetTexture: {fileID: 1985393769}
 =======
-  m_TargetTexture: {fileID: 500073984}
->>>>>>> 435df66f3f5cc4cb104233956a07d76d2c94fa92
+  m_TargetTexture: {fileID: 1345846392}
+>>>>>>> .merge_file_a19180
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
