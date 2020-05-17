@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6609430}
   - component: {fileID: 6609431}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bucket2.0_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,38 +898,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!84 &148431838
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 280
-  m_Height: 635
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &222247685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 312256005}
   - component: {fileID: 312256006}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bucket2.0_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390851855}
   - component: {fileID: 390851856}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Shelves2.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1759,7 +1727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 646208514}
   - component: {fileID: 646208515}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bucket2.0_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2268,7 +2236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 879882477}
   - component: {fileID: 879882478}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bucket2.0_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2607,6 +2575,38 @@ MonoBehaviour:
   m_Spacing: {x: 40, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 3
+--- !u!84 &947909195
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 663
+  m_Height: 361
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1028818523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,7 +4243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648364831}
   - component: {fileID: 1648364832}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bucket2.0_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4587,7 +4587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1772729792}
   - component: {fileID: 1772729793}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bucket2.0_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6137,7 +6137,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 256
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 148431838}
+  m_TargetTexture: {fileID: 947909195}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
