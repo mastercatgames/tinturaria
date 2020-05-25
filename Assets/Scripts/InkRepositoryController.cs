@@ -7,7 +7,7 @@ public class InkRepositoryController : MonoBehaviour
     public float inkfillAmount;
     public float limitToFill;
     private GameController gameController;
-    
+
     void Start()
     {
         //TODO: Each hourglass can be initialized "broken" or "empty"
@@ -21,10 +21,21 @@ public class InkRepositoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         gameController.currentRepository = gameObject;
+        //Change to current color
+        // Water2D.Water2D_Spawner.instance.FillColor = Water2D.Water2D_Spawner.instance.StrokeColor = gameObject.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
+        // //StrokeColor To lighten by 20%
+        // Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
+
+        // if (gameObject.name == "Blue")
+		// 	Water2D.Water2D_Spawner.instance.WaterMaterial = Water2D.Water2D_Spawner.instance.WaterMaterials[0];
+		// 	else
+		// 	Water2D.Water2D_Spawner.instance.WaterMaterial = Water2D.Water2D_Spawner.instance.WaterMaterials[1];
+
     }
 }

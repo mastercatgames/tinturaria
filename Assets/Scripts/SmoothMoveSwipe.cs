@@ -13,11 +13,13 @@ public class SmoothMoveSwipe : MonoBehaviour
     private float maxScreenPositionX = 5f; //Added by Augusto Polonio
     AudioSource audioSource; //Added by Augusto Polonio
     public bool downPitch; //Added by Augusto Polonio
+    private GameController gameController; //Added by Augusto Polonio
     public float targetPitch;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,7 @@ public class SmoothMoveSwipe : MonoBehaviour
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             startTouchPosition = Input.GetTouch(0).position;
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        if (!gameController.isPainting && !audioSource.isPlaying && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             endTouchPosition = Input.GetTouch(0).position;
 

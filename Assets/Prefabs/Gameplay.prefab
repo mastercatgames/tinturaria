@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 154389204}
   - component: {fileID: 154389205}
   m_Layer: 0
-  m_Name: Hourglass_Ink
+  m_Name: Ink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: edbeaff166ab78248a758739ab761be3, type: 3}
-  m_Color: {r: 0, g: 0.4392157, b: 1, a: 1}
+  m_Color: {r: 0.8962264, g: 0.3931559, b: 0.39793438, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 1529274529}
   - component: {fileID: 1529274530}
   m_Layer: 0
-  m_Name: InkRepository (1)
+  m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,6 +1049,36 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &6028808753163637437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7460922571001169769}
+  m_Layer: 0
+  m_Name: InsideBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7460922571001169769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028808753163637437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 7532979733237506886}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6939216142362476814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,12 +1408,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88f84fbfa107b24bb7e56d8f403d505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkfillAmount: 0
-  limitToFill: 0
   paintSpeed: 0
   isPainting: 0
   currentRepository: {fileID: 7532979731736102445}
-  currentForm: {fileID: 7532979733237506887}
+  currentBox: {fileID: 7532979733237506887}
   liquidClips:
   - {fileID: 8300000, guid: 77ebd6161383c064199063500e9e31a0, type: 3}
   - {fileID: 8300000, guid: f0a50fd2e6851df4495f7c948f70c125, type: 3}
@@ -1498,7 +1526,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3332b2741ede231478e2968bcfe204c2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.086
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1833,7 +1861,7 @@ GameObject:
   - component: {fileID: 1047839393}
   - component: {fileID: 1047839395}
   m_Layer: 0
-  m_Name: InkRepository
+  m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4567,7 +4595,7 @@ GameObject:
   - component: {fileID: 7532979733094032309}
   - component: {fileID: 7532979733094032308}
   m_Layer: 0
-  m_Name: Hourglass_Ink
+  m_Name: Ink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4625,7 +4653,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: edbeaff166ab78248a758739ab761be3, type: 3}
-  m_Color: {r: 0, g: 0.4392157, b: 1, a: 1}
+  m_Color: {r: 0.39607847, g: 0.4374292, b: 0.8980392, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4960,7 +4988,7 @@ GameObject:
   - component: {fileID: 7532979733237506890}
   - component: {fileID: 7532979733237506885}
   m_Layer: 0
-  m_Name: Form
+  m_Name: Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4979,6 +5007,7 @@ Transform:
   m_Children:
   - {fileID: 7532979733212387051}
   - {fileID: 7532979733252971862}
+  - {fileID: 7460922571001169769}
   m_Father: {fileID: 7532979733067269771}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

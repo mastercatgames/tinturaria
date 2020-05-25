@@ -59,7 +59,7 @@
 		/// </summary>
 
 		[Header("Material & color")]
-		public Material WaterMaterial;
+		public Material WaterMaterial;		
 		public Color FillColor = new Color(0f,112/255f,1f);
 		public Color StrokeColor = new Color(4/255f,156/255f,1f);
 
@@ -92,7 +92,7 @@
 		[ButtonAttribute("Spaw Once!", "Water2D.Water2D_Spawner", "SpawOnce")]public bool btn_2;
 		static void SpawOnce()
 		{
-            instance.RunSpawnerOnce();
+            instance.RunSpawnerOnce(null, null);
 
         }
 
@@ -187,20 +187,20 @@
 			}
         }
 
-		public void RunSpawnerOnce()
+		public void RunSpawnerOnce(GameObject parentBox, GameObject currentRepository)
 		{
 			//Application.targetFrameRate = 60;
 
-			_parent = new GameObject ("_metaBalls");
+			//_parent = new GameObject ("_metaBalls");
 			//_parent.hideFlags = HideFlags.HideInHierarchy;
-			WaterDropsObjects [0].transform.SetParent (_parent.transform);
+			WaterDropsObjects [0].transform.SetParent (parentBox.transform);
 			WaterDropsObjects [0].transform.localScale = new Vector3 (size, size, 1f);
 			//WaterDropsObjects [0].GetComponent<MetaballParticleClass>().Active = false;
 
             for (int i = 1; i < WaterDropsObjects.Length; i++) {
 				WaterDropsObjects[i] = Instantiate(WaterDropsObjects[0], gameObject.transform.position, new Quaternion(0,0,0,0)) as GameObject;
 				//WaterDropsObjects [i].GetComponent<MetaballParticleClass>().Active = false;
-				WaterDropsObjects [i].transform.SetParent (_parent.transform);
+				WaterDropsObjects [i].transform.SetParent (parentBox.transform);
 				WaterDropsObjects [i].transform.localScale = new Vector3 (size, size, 1f);
                 WaterDropsObjects[i].layer = WaterDropsObjects[0].layer;
                 //WaterDropsObjects[i].SetActive(false);
@@ -425,8 +425,10 @@
 
         public void SetWaterColor(Color fill, Color stroke)
 		{
+			//Edited by Augusto Polonio
 			WaterMaterial.SetColor ("_Color", fill);
 			WaterMaterial.SetColor ("_StrokeColor", stroke);
+
 
 		}
 
