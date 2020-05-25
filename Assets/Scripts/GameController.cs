@@ -10,7 +10,6 @@ public class GameController : MonoBehaviour
     private GameObject inkLiquidClone;
     private Transform inkMask;
     public float inkfillAmount;
-    public float formfillAmount;
     public float limitToFill;
     public float paintSpeed;
     public bool isPainting;
@@ -25,10 +24,9 @@ public class GameController : MonoBehaviour
     {
         //Initialize values
         inkMask = currentRepository.transform.Find("InkMask").Find("Mask");
-        inkfillAmount = inkMask.transform.localScale.y;
-        limitToFill = 0.75f; //init value. After we can subtract 0.25f of each print until get 0, that means the ink of the bottle is over
-        paintSpeed = 1.3f;
-
+        //inkfillAmount = inkMask.transform.localScale.y;
+        // limitToFill = 0.75f; //init value. After we can subtract 0.25f of each print until get 0, that means the ink of the bottle is over
+         paintSpeed = 1.3f;
     }
 
     // Update is called once per frame
@@ -49,7 +47,7 @@ public class GameController : MonoBehaviour
 
     public void NewPaintFluid()
     {
-        if (inkfillAmount > 0f && !isPainting)
+        if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f && !isPainting)
         {
             isPainting = true;
             Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
@@ -62,16 +60,16 @@ public class GameController : MonoBehaviour
 
     void Paint()
     {
-        if (inkfillAmount >= limitToFill && inkfillAmount > 0f)
+        if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount >= currentRepository.GetComponent<InkRepositoryController>().limitToFill && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
         {
-            inkfillAmount = inkMask.localScale.y;
+            currentRepository.GetComponent<InkRepositoryController>().inkfillAmount = currentRepository.transform.Find("InkMask").Find("Mask").localScale.y;
 
-            inkMask.localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy            
+            currentRepository.transform.Find("InkMask").Find("Mask").localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy            
         }
         else
         {
             isPainting = false;
-            limitToFill -= 0.25f; //TODO: I think that limitToFill could be in other script, like BottleController, to keep the value of each bottle
+            currentRepository.GetComponent<InkRepositoryController>().limitToFill -= 0.25f; //TODO: I think that limitToFill could be in other script, like BottleController, to keep the value of each bottle
         }
         //Water2D.Water2D_Spawner.instance.RunSpawnerOnce();
         // if (inkfillAmount >= limitToFill && inkfillAmount > 0f)
