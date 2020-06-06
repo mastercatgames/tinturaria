@@ -10,7 +10,8 @@ public class SmoothMoveSwipe : MonoBehaviour
     private float flyTime;
     public float flightDuration = 0.1f; //Move speed (We can modify as a special power in the game)
     private float maxMovePositionX = 2.42f; //Added by Augusto Polonio
-    private float maxScreenPositionX = 5f; //Added by Augusto Polonio
+    private float maxLeftScreenPositionX = 5f; //Added by Augusto Polonio
+    private float maxRightScreenPositionX = 4f; //Added by Augusto Polonio
     AudioSource audioSource; //Added by Augusto Polonio
     public bool downPitch; //Added by Augusto Polonio
     private GameController gameController; //Added by Augusto Polonio
@@ -33,10 +34,10 @@ public class SmoothMoveSwipe : MonoBehaviour
             gameController.isChangingRepository = true;
             endTouchPosition = Input.GetTouch(0).position;
 
-            if ((endTouchPosition.x < startTouchPosition.x) && transform.position.x > -maxScreenPositionX)
+            if ((endTouchPosition.x < startTouchPosition.x) && transform.position.x > -maxLeftScreenPositionX)
                 StartCoroutine(Fly("left"));
 
-            if ((endTouchPosition.x > startTouchPosition.x) && transform.position.x < maxScreenPositionX)
+            if ((endTouchPosition.x > startTouchPosition.x) && transform.position.x < maxRightScreenPositionX)
                 StartCoroutine(Fly("right"));
         }
     }
