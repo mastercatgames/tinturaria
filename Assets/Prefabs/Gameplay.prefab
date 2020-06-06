@@ -1412,6 +1412,7 @@ MonoBehaviour:
   isPainting: 0
   currentRepository: {fileID: 7532979731736102445}
   currentBox: {fileID: 7532979733237506887}
+  lastColorUsed: {fileID: 0}
   liquidClips:
   - {fileID: 8300000, guid: 77ebd6161383c064199063500e9e31a0, type: 3}
   - {fileID: 8300000, guid: f0a50fd2e6851df4495f7c948f70c125, type: 3}

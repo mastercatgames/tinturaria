@@ -28,9 +28,9 @@ public class InkRepositoryController : MonoBehaviour
     {
         gameController.currentRepository = gameObject;
         //Change to current color
-        // Water2D.Water2D_Spawner.instance.FillColor = Water2D.Water2D_Spawner.instance.StrokeColor = gameObject.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
-        // //StrokeColor To lighten by 20%
-        // Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
+        Water2D.Water2D_Spawner.instance.FillColor = Water2D.Water2D_Spawner.instance.StrokeColor = gameObject.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
+        //StrokeColor To lighten by 20%
+        Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
 
         // if (gameObject.name == "Blue")
 		// 	Water2D.Water2D_Spawner.instance.WaterMaterial = Water2D.Water2D_Spawner.instance.WaterMaterials[0];

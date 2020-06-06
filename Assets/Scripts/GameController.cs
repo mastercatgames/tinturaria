@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
+    public GameObject lastColorUsed;
     public AudioClip[] liquidClips;
     public AudioSource audioSource_sfx;
 
@@ -19,7 +20,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         //Initialize values
-         paintSpeed = 2.3f;
+        paintSpeed = 2.3f;
     }
 
     // Update is called once per frame
@@ -40,21 +41,34 @@ public class GameController : MonoBehaviour
 
     public void NewPaintFluid()
     {
+        if (lastColorUsed != null)
+        {
+            if (lastColorUsed.name != currentRepository.name)
+            {      
+                //Destroy all metaballs inside the box (because the color was changed)
+                //Destroy only clones, keeping the original
+                foreach (Transform item in currentBox.transform.Find("InsideBox").transform)
+                {
+                    if (item.GetSiblingIndex() > 0)
+                        GameObject.Destroy(item.gameObject);
+                }
+            }
+        }
         if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f && !isPainting)
         {
             isPainting = true;
             Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+            lastColorUsed = currentRepository;
 
-            audioSource_sfx.clip = liquidClips[Random.Range(0,2)];
+            audioSource_sfx.clip = liquidClips[Random.Range(0, 2)];
             audioSource_sfx.Play();
         }
-
     }
 
     void Paint()
     {
         if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount >= currentRepository.GetComponent<InkRepositoryController>().limitToFill && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
-        {            
+        {
             currentRepository.GetComponent<InkRepositoryController>().inkfillAmount = currentRepository.transform.Find("InkMask").Find("Mask").localScale.y;
             currentRepository.transform.Find("InkMask").Find("Mask").localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy            
         }
