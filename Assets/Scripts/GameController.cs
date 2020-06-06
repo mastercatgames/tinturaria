@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject lastColorUsed;
     public AudioClip[] liquidClips;
     public AudioSource audioSource_sfx;
+    public bool isChangingRepository;
 
     //public GameObject InkShopButton; // *** M ***
 
@@ -41,27 +42,30 @@ public class GameController : MonoBehaviour
 
     public void NewPaintFluid()
     {
-        if (lastColorUsed != null)
+        if (!isChangingRepository)
         {
-            if (lastColorUsed.name != currentRepository.name)
-            {      
-                //Destroy all metaballs inside the box (because the color was changed)
-                //Destroy only clones, keeping the original
-                foreach (Transform item in currentBox.transform.Find("InsideBox").transform)
+            if (lastColorUsed != null)
+            {
+                if (lastColorUsed.name != currentRepository.name)
                 {
-                    if (item.GetSiblingIndex() > 0)
-                        GameObject.Destroy(item.gameObject);
+                    //Destroy all metaballs inside the box (because the color was changed)
+                    //Destroy only clones, keeping the original
+                    foreach (Transform item in currentBox.transform.Find("InsideBox").transform)
+                    {
+                        if (item.GetSiblingIndex() > 0)
+                            GameObject.Destroy(item.gameObject);
+                    }
                 }
             }
-        }
-        if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f && !isPainting)
-        {
-            isPainting = true;
-            Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
-            lastColorUsed = currentRepository;
+            if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f && !isPainting)
+            {
+                isPainting = true;
+                Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+                lastColorUsed = currentRepository;
 
-            audioSource_sfx.clip = liquidClips[Random.Range(0, 2)];
-            audioSource_sfx.Play();
+                audioSource_sfx.clip = liquidClips[Random.Range(0, 2)];
+                audioSource_sfx.Play();
+            }
         }
     }
 
