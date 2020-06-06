@@ -3717,10 +3717,12 @@ MonoBehaviour:
   isPainting: 0
   currentRepository: {fileID: 7532979731736102445}
   currentBox: {fileID: 7532979733237506887}
+  lastColorUsed: {fileID: 0}
   liquidClips:
   - {fileID: 8300000, guid: 77ebd6161383c064199063500e9e31a0, type: 3}
   - {fileID: 8300000, guid: f0a50fd2e6851df4495f7c948f70c125, type: 3}
   audioSource_sfx: {fileID: 7532979732208852720}
+  isChangingRepository: 0
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,7 +3737,7 @@ GameObject:
   - component: {fileID: 1308357117}
   m_Layer: 0
   m_Name: Rail
-  m_TagString: Untagged
+  m_TagString: Rail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

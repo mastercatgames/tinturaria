@@ -30,6 +30,7 @@ public class SmoothMoveSwipe : MonoBehaviour
 
         if (!gameController.isPainting && !audioSource.isPlaying && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
+            gameController.isChangingRepository = true;
             endTouchPosition = Input.GetTouch(0).position;
 
             if ((endTouchPosition.x < startTouchPosition.x) && transform.position.x > -maxScreenPositionX)
@@ -62,6 +63,7 @@ public class SmoothMoveSwipe : MonoBehaviour
                 downPitch = false;
                 audioSource.pitch = 1f;
                 audioSource.Stop();
+                gameController.isChangingRepository = false;
                 break;
 
             case "right":
@@ -82,6 +84,7 @@ public class SmoothMoveSwipe : MonoBehaviour
                 downPitch = false;
                 audioSource.pitch = 1f;
                 audioSource.Stop();
+                gameController.isChangingRepository = false;
                 break;
         }
 
