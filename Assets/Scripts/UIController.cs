@@ -4,37 +4,17 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject inkPanel;
-    public GameObject formsPanel;
     public GameObject ButtonsGrid;
 
-    public void OpenPanel(string panel)
-    {        
-        if (panel == "ink")
-        {            
-            inkPanel.SetActive(true);                       
-        }
-
-        if (panel == "form")
-        {            
-            formsPanel.SetActive(true);                       
-        }
-
+    public void OpenPanel(GameObject panel)
+    {
+        panel.SetActive(true);
         ButtonsGrid.SetActive(false);
     }
 
-    public void ClosePanel(string panel)
-    {        
-        if (panel == "ink")
-        {            
-            inkPanel.SetActive(false);                       
-        }
-
-        if (panel == "form")
-        {            
-            formsPanel.SetActive(false);                       
-        }
-
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
         ButtonsGrid.SetActive(true);
     }
 }
