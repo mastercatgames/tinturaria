@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public AudioClip[] liquidClips;
     public AudioSource audioSource_sfx;
     public bool isChangingRepository;
+    private UIController uiController;
+    public GameObject PanelForms;
 
     //public GameObject InkShopButton; // *** M ***
 
@@ -21,6 +23,7 @@ public class GameController : MonoBehaviour
     {
         //Initialize values
         paintSpeed = 2.3f;
+        uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
     }
 
     // Update is called once per frame
@@ -50,7 +53,7 @@ public class GameController : MonoBehaviour
                 //Destroy only clones, keeping the original
                 foreach (Transform item in currentBox.transform.Find("InsideBox").transform)
                 {
-                    if (item.GetSiblingIndex() > 0)
+                    if (item.name.Contains("Clone"))
                         GameObject.Destroy(item.gameObject);
                 }
 
@@ -88,5 +91,14 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void ChangeCurrentBox(GameObject newBox)
+    {
+        currentBox.SetActive(false);
+        Water2D.Water2D_Spawner.instance.SetWaterColor(newBox.GetComponent<BoxController>().currentColor, Color.Lerp(newBox.GetComponent<BoxController>().currentColor, Color.white, .2f));
+        newBox.SetActive(true);
+        currentBox = newBox;    
+        uiController.ClosePanel(PanelForms);  
     }
 }
