@@ -93,8 +93,14 @@
 		static void SpawOnce()
 		{
             instance.RunSpawnerOnce(null, null);
-
         }
+		[ButtonAttribute("Change Color!", "Water2D.Water2D_Spawner", "ChangeColorTest")]public bool btn_3;
+		static void ChangeColorTest()
+		{
+            instance.SetWaterColor(Color.black, Color.blue);
+        }
+
+		[Separator()]
 
         [Space(20f)]
         [Header("Runtime actions")]

@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
-    public GameObject lastColorUsed;
     public AudioClip[] liquidClips;
     public AudioSource audioSource_sfx;
     public bool isChangingRepository;
@@ -44,24 +43,24 @@ public class GameController : MonoBehaviour
     {
         if (!isChangingRepository)
         {
-            if (lastColorUsed != null)
+            if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
+             && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
             {
-                if (lastColorUsed.name != currentRepository.name)
+                //Destroy all metaballs inside the box (because the color was changed)
+                //Destroy only clones, keeping the original
+                foreach (Transform item in currentBox.transform.Find("InsideBox").transform)
                 {
-                    //Destroy all metaballs inside the box (because the color was changed)
-                    //Destroy only clones, keeping the original
-                    foreach (Transform item in currentBox.transform.Find("InsideBox").transform)
-                    {
-                        if (item.GetSiblingIndex() > 0)
-                            GameObject.Destroy(item.gameObject);
-                    }
+                    if (item.GetSiblingIndex() > 0)
+                        GameObject.Destroy(item.gameObject);
                 }
+
+                //Reset percentage
+                currentBox.GetComponent<BoxController>().percentage = 0f;
             }
             if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f && !isPainting)
             {
                 isPainting = true;
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
-                lastColorUsed = currentRepository;
 
                 audioSource_sfx.clip = liquidClips[Random.Range(0, 2)];
                 audioSource_sfx.Play();
@@ -71,7 +70,8 @@ public class GameController : MonoBehaviour
 
     void Paint()
     {
-        if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount >= currentRepository.GetComponent<InkRepositoryController>().limitToFill && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
+        if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount >= currentRepository.GetComponent<InkRepositoryController>().limitToFill
+        && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
         {
             currentRepository.GetComponent<InkRepositoryController>().inkfillAmount = currentRepository.transform.Find("InkMask").Find("Mask").localScale.y;
             currentRepository.transform.Find("InkMask").Find("Mask").localScale += Vector3.down * paintSpeed * 0.001f; //0.001f to more accuracy            
@@ -79,7 +79,9 @@ public class GameController : MonoBehaviour
         else
         {
             isPainting = false;
-            currentRepository.GetComponent<InkRepositoryController>().limitToFill -= 0.25f; //TODO: I think that limitToFill could be in other script, like BottleController, to keep the value of each bottle
+            currentRepository.GetComponent<InkRepositoryController>().limitToFill -= 0.25f;
+            currentBox.GetComponent<BoxController>().percentage += 0.25f;
+            currentBox.GetComponent<BoxController>().currentColor = Water2D.Water2D_Spawner.instance.WaterMaterial.color;
         }
     }
 
