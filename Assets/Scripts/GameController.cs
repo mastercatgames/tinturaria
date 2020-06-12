@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
 
     public void NewPaintFluid()
     {
-        if (!isChangingRepository)
+        if (!isChangingRepository && !isPainting)
         {
             if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
              && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
                 //Reset percentage
                 currentBox.GetComponent<BoxController>().percentage = 0f;
             }
-            if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f && !isPainting)
+            if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
             {
                 isPainting = true;
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);

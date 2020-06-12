@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Metaball_liquid
   - Music
+  - Rail
+  - UIController
   layers:
   - Default
   - TransparentFX
