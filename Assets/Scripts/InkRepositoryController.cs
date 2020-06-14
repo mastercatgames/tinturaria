@@ -7,13 +7,18 @@ public class InkRepositoryController : MonoBehaviour
     [Range (0f,1f)]public float inkfillAmount;
     [Range (0f,1f)]public float limitToFill;
     private GameController gameController;
+    public float [] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f};
 
     void Start()
     {
         //TODO: Each hourglass can be initialized "broken" or "empty"
+        int range = Random.Range(0, 5);
+        Debug.Log(range);
 
-        inkfillAmount = 1;
-        limitToFill = 0.75f; //init value. After we can subtract 0.25f of each print until get 0, that means the ink of the bottle is over
+        inkfillAmount = startInkfillAmount[range];
+        limitToFill = inkfillAmount - 0.25f; //init value. After we can subtract 0.25f of each print until get 0, that means the ink of the bottle is over
+
+        transform.Find("InkMask").Find("Mask").localScale = new Vector3(1, inkfillAmount, 1f);
 
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
