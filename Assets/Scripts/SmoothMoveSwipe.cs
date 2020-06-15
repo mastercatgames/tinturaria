@@ -31,10 +31,10 @@ public class SmoothMoveSwipe : MonoBehaviour
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             startTouchPosition = Input.GetTouch(0).position;
 
-        if (!gameController.isPainting 
-        && !audioSource.isPlaying 
+        if (!gameController.isPainting
+        && !audioSource.isPlaying
         && !uiController.somePanelIsOpen
-        && Input.touchCount > 0 
+        && Input.touchCount > 0
         && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             gameController.isChangingRepository = true;
@@ -42,10 +42,11 @@ public class SmoothMoveSwipe : MonoBehaviour
 
             if ((endTouchPosition.x < startTouchPosition.x) && transform.position.x > -maxLeftScreenPositionX)
                 StartCoroutine(Fly("left"));
-
-            if ((endTouchPosition.x > startTouchPosition.x) && transform.position.x < maxRightScreenPositionX)
+            else if ((endTouchPosition.x > startTouchPosition.x) && transform.position.x < maxRightScreenPositionX)
                 StartCoroutine(Fly("right"));
-        }        
+            else
+                gameController.isChangingRepository = false;
+        }
     }
 
     private IEnumerator Fly(string whereToFly)
