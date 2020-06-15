@@ -4883,6 +4883,13 @@ MonoBehaviour:
   audioSource_sfx: {fileID: 7532979732208852720}
   isChangingRepository: 0
   PanelForms: {fileID: 0}
+  repositoryXPositions:
+  - -160
+  - -80
+  - 0
+  - 80
+  - 160
+  - 240
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
