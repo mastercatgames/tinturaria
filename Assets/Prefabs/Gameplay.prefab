@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 1529274530}
   m_Layer: 0
   m_Name: Red
-  m_TagString: Untagged
+  m_TagString: Repository
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -880,12 +880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  startInkfillAmount:
-  - 0
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
 --- !u!1 &1602047069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,7 +2738,7 @@ GameObject:
   - component: {fileID: 7078491301859752141}
   m_Layer: 0
   m_Name: Purple
-  m_TagString: Untagged
+  m_TagString: Repository
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2827,12 +2821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  startInkfillAmount:
-  - 0
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
 --- !u!1 &3325180215947214418
 GameObject:
   m_ObjectHideFlags: 0
@@ -4298,7 +4286,7 @@ GameObject:
   - component: {fileID: 8243355085910807068}
   m_Layer: 0
   m_Name: Yellow
-  m_TagString: Untagged
+  m_TagString: Repository
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4381,12 +4369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  startInkfillAmount:
-  - 0
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
 --- !u!1 &6549085975828843230
 GameObject:
   m_ObjectHideFlags: 0
@@ -4732,7 +4714,7 @@ GameObject:
   - component: {fileID: 3633181416303830662}
   m_Layer: 0
   m_Name: Pink
-  m_TagString: Untagged
+  m_TagString: Repository
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4815,12 +4797,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  startInkfillAmount:
-  - 0
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
 --- !u!1 &7532979731509707784
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,7 +5125,7 @@ GameObject:
   - component: {fileID: 1047839395}
   m_Layer: 0
   m_Name: Blue
-  m_TagString: Untagged
+  m_TagString: Repository
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5232,12 +5208,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  startInkfillAmount:
-  - 0
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
 --- !u!1 &7532979731849284013
 GameObject:
   m_ObjectHideFlags: 0
@@ -6809,7 +6779,7 @@ GameObject:
   - component: {fileID: 483268585993638357}
   m_Layer: 0
   m_Name: Green
-  m_TagString: Untagged
+  m_TagString: Repository
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6892,12 +6862,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  startInkfillAmount:
-  - 0
-  - 0.25
-  - 0.5
-  - 0.75
-  - 1
 --- !u!1 &8265457078197691834
 GameObject:
   m_ObjectHideFlags: 0

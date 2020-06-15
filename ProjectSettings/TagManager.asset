@@ -8,6 +8,7 @@ TagManager:
   - Music
   - Rail
   - UIController
+  - Repository
   layers:
   - Default
   - TransparentFX

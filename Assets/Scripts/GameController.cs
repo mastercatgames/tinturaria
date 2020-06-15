@@ -16,14 +16,24 @@ public class GameController : MonoBehaviour
     public bool isChangingRepository;
     private UIController uiController;
     public GameObject PanelForms;
+    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f};
 
-    //public GameObject InkShopButton; // *** M ***
+    //public GameObject InkShopButton; // *** M ***   
 
     void Start()
-    {
+    {        
         //Initialize values
         paintSpeed = 2.3f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+
+        //Load repository position randomically
+        ShuffleArray(repositoryXPositions);
+        
+        GameObject[] repositories = GameObject.FindGameObjectsWithTag("Repository");
+        for (int i = 0; i < repositories.Length; i++)
+        {
+            repositories[i].transform.localPosition = new Vector3(repositoryXPositions[i] , repositories[i].transform.localPosition.y, repositories[i].transform.localPosition.z);
+        }
     }
 
     // Update is called once per frame
@@ -38,8 +48,6 @@ public class GameController : MonoBehaviour
             Paint();
 
         //InkShopButton.SetActive(true); // *** M ***
-
-
     }
 
     public void NewPaintFluid()
@@ -100,5 +108,14 @@ public class GameController : MonoBehaviour
         newBox.SetActive(true);
         currentBox = newBox;    
         uiController.ClosePanel(PanelForms);  
+    }
+
+    void ShuffleArray<T>(T[] arr) {
+        for (int i = arr.Length - 1; i > 0; i--) {
+            int r = Random.Range(0, i);
+            T tmp = arr[i];
+            arr[i] = arr[r];
+            arr[r] = tmp;
+        }
     }
 }
