@@ -880,6 +880,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
+  BucketPanel: {fileID: 0}
+  isFilling: 0
+  fillSpeed: 0.3
 --- !u!1 &1602047069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,6 +2824,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
+  BucketPanel: {fileID: 0}
+  isFilling: 0
+  fillSpeed: 0.3
 --- !u!1 &3325180215947214418
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,6 +4375,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
+  BucketPanel: {fileID: 0}
+  isFilling: 0
+  fillSpeed: 0.3
 --- !u!1 &6549085975828843230
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,9 +4503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaterDropsObjects:
   - {fileID: 7532979731892934033}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -4797,6 +4803,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
+  BucketPanel: {fileID: 0}
+  isFilling: 0
+  fillSpeed: 0.3
 --- !u!1 &7532979731509707784
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,6 +5224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
+  BucketPanel: {fileID: 0}
+  isFilling: 0
+  fillSpeed: 0.3
 --- !u!1 &7532979731849284013
 GameObject:
   m_ObjectHideFlags: 0
@@ -6869,6 +6881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
+  BucketPanel: {fileID: 0}
+  isFilling: 0
+  fillSpeed: 0.3
 --- !u!1 &8265457078197691834
 GameObject:
   m_ObjectHideFlags: 0

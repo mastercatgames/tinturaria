@@ -52,7 +52,9 @@ public class GameController : MonoBehaviour
 
     public void NewPaintFluid()
     {
-        if (!isChangingRepository && !isPainting)
+        if (!isChangingRepository 
+        && !isPainting 
+        && !currentRepository.GetComponent<InkRepositoryController>().isFilling)
         {
             if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
              && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)

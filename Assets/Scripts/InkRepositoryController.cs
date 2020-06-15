@@ -7,15 +7,20 @@ public class InkRepositoryController : MonoBehaviour
     [Range (0f,1f)]public float inkfillAmount;
     [Range (0f,1f)]public float limitToFill;
     private GameController gameController;
+    private UIController uiController;
+    public GameObject BucketPanel;
     private float [] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f};
+    public bool isFilling = false;
+    [Range (0.3f,3f)]public float fillSpeed = 0.3f;
 
     void Start()
     {
+        uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         //TODO: Each hourglass can be initialized "broken" or "empty"
         inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
         limitToFill = inkfillAmount - 0.25f;
 
-        transform.Find("InkMask").Find("Mask").localScale = new Vector3(1, inkfillAmount, 1f);
+        transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
@@ -23,7 +28,18 @@ public class InkRepositoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isFilling)
+        {
+            inkfillAmount += Time.deltaTime * 0.1f * fillSpeed;
+            transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
+            if (inkfillAmount >= 1f)
+            {
+                isFilling = false;
+                inkfillAmount = 1f; //fix the value to 1 instead of 1.054f, e.g.
+                limitToFill = inkfillAmount - 0.25f;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,5 +50,11 @@ public class InkRepositoryController : MonoBehaviour
         //StrokeColor To lighten by 20%
         Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
 
+    }
+
+    public void FillRepository()
+    {
+        isFilling = true;
+        uiController.ClosePanel(BucketPanel);
     }
 }
