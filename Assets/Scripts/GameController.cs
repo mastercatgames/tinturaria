@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update  
-    public float paintSpeed;
+    private float paintSpeed;
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     void Start()
     {        
         //Initialize values
-        paintSpeed = 2.3f;
+        paintSpeed = 1.5f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
 
         //Load repository position randomically
