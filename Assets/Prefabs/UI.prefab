@@ -211,6 +211,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  DeliveryFailed_AS: {fileID: 0}
+  DeliverySuccessful_AS: {fileID: 0}
 --- !u!1 &2329179274397913228
 GameObject:
   m_ObjectHideFlags: 0

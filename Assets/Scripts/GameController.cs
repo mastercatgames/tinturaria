@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
-    public AudioClip[] liquidClips;
-    public AudioSource audioSource_sfx;
+    public AudioClip[] liquidClips;    
+    public AudioSource InkMachine_AS;
     public bool isChangingRepository;
     private UIController uiController;
     public GameObject PanelForms;
@@ -76,8 +76,8 @@ public class GameController : MonoBehaviour
                 isPainting = true;
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
 
-                audioSource_sfx.clip = liquidClips[Random.Range(0, 2)];
-                audioSource_sfx.Play();
+                InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
+                InkMachine_AS.Play();
             }
         }
     }

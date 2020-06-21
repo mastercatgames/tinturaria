@@ -12,6 +12,8 @@ public class RequestPanelController : MonoBehaviour
     public Color YellowColor;
     public GameObject[] boxes;
     public GameObject[] colors;    
+    public AudioSource DeliveryFailed_AS;
+    public AudioSource DeliverySuccessful_AS;
     // Start is called before the first frame update
     void Start()
     {

@@ -51,6 +51,7 @@ public class RequestBox : MonoBehaviour
                 maskColor.color = tempColor;
 
                 GetComponent<Animator>().Play("deliveryFailed");
+                requestPanelController.DeliveryFailed_AS.Play();
             }
         }
     }
