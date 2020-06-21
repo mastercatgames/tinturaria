@@ -4883,7 +4883,7 @@ MonoBehaviour:
   paintSpeed: 0
   isPainting: 0
   currentRepository: {fileID: 7532979731736102445}
-  currentBox: {fileID: 7532979733237506887}
+  currentBox: {fileID: 0}
   liquidClips:
   - {fileID: 8300000, guid: 77ebd6161383c064199063500e9e31a0, type: 3}
   - {fileID: 8300000, guid: f0a50fd2e6851df4495f7c948f70c125, type: 3}
@@ -6063,7 +6063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7532979733237506886
 Transform:
   m_ObjectHideFlags: 0

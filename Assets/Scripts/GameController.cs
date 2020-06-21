@@ -54,7 +54,8 @@ public class GameController : MonoBehaviour
     {
         if (!isChangingRepository 
         && !isPainting 
-        && !currentRepository.GetComponent<InkRepositoryController>().isFilling)
+        && !currentRepository.GetComponent<InkRepositoryController>().isFilling
+        && currentBox)
         {
             if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
              && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
@@ -105,7 +106,9 @@ public class GameController : MonoBehaviour
 
     public void ChangeCurrentBox(GameObject newBox)
     {
-        currentBox.SetActive(false);
+        if (currentBox)
+            currentBox.SetActive(false);
+
         Water2D.Water2D_Spawner.instance.SetWaterColor(newBox.GetComponent<BoxController>().currentColor, Color.Lerp(newBox.GetComponent<BoxController>().currentColor, Color.white, .2f));
         newBox.SetActive(true);
         currentBox = newBox;    
