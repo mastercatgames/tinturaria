@@ -11,7 +11,7 @@ public class InkRepositoryController : MonoBehaviour
     public GameObject BucketPanel;
     private float [] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f};
     public bool isFilling = false;
-    [Range (0.3f,3f)]public float fillSpeed = 0.3f;
+    [Range (0.3f,3f)]public float fillSpeed = 0.03f;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class InkRepositoryController : MonoBehaviour
     {
         if (isFilling)
         {
-            inkfillAmount += Time.deltaTime * 0.1f * fillSpeed;
+            inkfillAmount += Time.deltaTime * fillSpeed;
             transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
             if (inkfillAmount >= 1f)

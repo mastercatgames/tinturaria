@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update  
-    public float paintSpeed;
+    private float paintSpeed;
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
-    public AudioClip[] liquidClips;
-    public AudioSource audioSource_sfx;
+    public AudioClip[] liquidClips;    
+    public AudioSource InkMachine_AS;
     public bool isChangingRepository;
     private UIController uiController;
     public GameObject PanelForms;
@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     void Start()
     {        
         //Initialize values
-        paintSpeed = 2.3f;
+        paintSpeed = 1.5f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
 
         //Load repository position randomically
@@ -54,7 +54,8 @@ public class GameController : MonoBehaviour
     {
         if (!isChangingRepository 
         && !isPainting 
-        && !currentRepository.GetComponent<InkRepositoryController>().isFilling)
+        && !currentRepository.GetComponent<InkRepositoryController>().isFilling
+        && currentBox)
         {
             if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
              && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
@@ -75,8 +76,8 @@ public class GameController : MonoBehaviour
                 isPainting = true;
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
 
-                audioSource_sfx.clip = liquidClips[Random.Range(0, 2)];
-                audioSource_sfx.Play();
+                InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
+                InkMachine_AS.Play();
             }
         }
     }
@@ -105,7 +106,9 @@ public class GameController : MonoBehaviour
 
     public void ChangeCurrentBox(GameObject newBox)
     {
-        currentBox.SetActive(false);
+        if (currentBox)
+            currentBox.SetActive(false);
+
         Water2D.Water2D_Spawner.instance.SetWaterColor(newBox.GetComponent<BoxController>().currentColor, Color.Lerp(newBox.GetComponent<BoxController>().currentColor, Color.white, .2f));
         newBox.SetActive(true);
         currentBox = newBox;    
