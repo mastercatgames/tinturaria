@@ -9,7 +9,7 @@ public class RequestBox : MonoBehaviour
     private RequestPanelController requestPanelController;
     public bool isDestroyingBox;
     private Image maskColor;
-    private float barSpeed;    
+    private float barSpeed;
     public Color colorRequested;
     public Sprite boxRequested;
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class RequestBox : MonoBehaviour
             {
                 bar.color = requestPanelController.YellowColor;
             }
-            
+
             if (bar.fillAmount < 0.2f)
             {
                 bar.color = requestPanelController.RedColor;
@@ -62,5 +62,16 @@ public class RequestBox : MonoBehaviour
         //TODO: Discount coins
         transform.parent.GetComponent<RequestPanelController>().numOfRequests--;
         Destroy(this.gameObject);
+    }
+
+    public void DeliveryBox()
+    {
+        maskColor.color = requestPanelController.GreenColor;
+        var tempColor = maskColor.color;
+        tempColor.a = 0.5f;
+        maskColor.color = tempColor;
+
+        GetComponent<Animator>().Play("deliverySuccess");
+        requestPanelController.DeliverySuccessful_AS.Play();
     }
 }
