@@ -9,7 +9,7 @@ public class SmoothMoveSwipe : MonoBehaviour
     private Vector3 startRocketPosition, endRocketPosition;
     private float flyTime;
     public float flightDuration = 0.1f; //Move speed (We can modify as a special power in the game)
-    private float maxMovePositionX = 2.42f; //Added by Augusto Polonio
+    private float maxMovePositionX = 2.40f; //Added by Augusto Polonio
     private float maxLeftScreenPositionX = 5f; //Added by Augusto Polonio
     private float maxRightScreenPositionX = 4f; //Added by Augusto Polonio
     AudioSource audioSource; //Added by Augusto Polonio
@@ -51,6 +51,8 @@ public class SmoothMoveSwipe : MonoBehaviour
 
     private IEnumerator Fly(string whereToFly)
     {
+        transform.parent.Find("Machine").Find("Borders").GetComponent<Animator>().Play("MoveMachineBorders");
+
         switch (whereToFly)
         {
             case "left":
