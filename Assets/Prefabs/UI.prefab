@@ -620,7 +620,7 @@ MonoBehaviour:
   timerIsRunning: 0
   timeText: {fileID: 571382136}
   backgrounds:
-  - {fileID: 21300000, guid: 01eaab186dbc57540aa1a874fefa22bc, type: 3}
+  - {fileID: 21300000, guid: 87f52a717bcff6d44b283e8fcdcbfea3, type: 3}
   - {fileID: 21300000, guid: 6a066587599f44546b20bff970c27eaf, type: 3}
   - {fileID: 21300000, guid: 795ff51385365d246a8d97594551bd03, type: 3}
   - {fileID: 21300000, guid: 9cfca3a41d83bb84aba062ed42e41b8d, type: 3}
