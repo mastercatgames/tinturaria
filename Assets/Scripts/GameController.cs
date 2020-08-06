@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     public GameObject PanelForms;
     public GameObject RequestPanel;
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
+    public GameObject lights;
+    public int currentLight;
 
     //public GameObject InkShopButton; // *** M ***   
 
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
         //Initialize values
         paintSpeed = 1.5f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        currentLight = 1;
 
         //Load repository position randomically
         ShuffleArray(repositoryXPositions);
@@ -73,6 +76,10 @@ public class GameController : MonoBehaviour
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.Play();
+
+                StartCoroutine(TurnOnLight(currentLight));
+
+                currentLight++;
             }
         }
     }
@@ -116,7 +123,7 @@ public class GameController : MonoBehaviour
                 else
                 {
                     Debug.Log("Doesn't Match!");
-                }                
+                }
 
                 DestroyAllMetaballs();
                 currentBox.GetComponent<BoxController>().percentage = 0;
@@ -124,7 +131,7 @@ public class GameController : MonoBehaviour
                 currentBox = null;
             }
 
-            isPainting = false;            
+            isPainting = false;
         }
     }
 
@@ -163,6 +170,20 @@ public class GameController : MonoBehaviour
             T tmp = arr[i];
             arr[i] = arr[r];
             arr[r] = tmp;
+        }
+    }
+
+    IEnumerator TurnOnLight(int lightNum)
+    {
+        SpriteRenderer lightSprite = lights.transform.Find("Light_" + lightNum).GetComponent<SpriteRenderer>();
+        //Color newColor = spriteRenderer.color;
+        for (float alphaValue = 0f; alphaValue >= 0; alphaValue += 0.2f)
+        {
+            //newColor.a = f;
+            //renderer.material.color = newColor;
+            lightSprite.color = new Color(1f,1f,1f, alphaValue);
+            Debug.Log(lightNum);
+            yield return new WaitForSeconds(.1f);
         }
     }
 }
