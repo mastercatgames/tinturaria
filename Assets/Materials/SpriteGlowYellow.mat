@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AlphaCutout
-  m_Shader: {fileID: 4800000, guid: 1927ba03d373e714da05efebdae2316f, type: 3}
+  m_Name: SpriteGlowYellow
+  m_Shader: {fileID: 4800000, guid: 8f5b4834acdbe034d98deaeaaa298177, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
-  m_LightmapFlags: 5
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,10 +20,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CutTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -60,22 +56,34 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlphaIntensity_Fade_1: 1.7
+    - _AlphaIntensity_Fade_2: 1
     - _BumpScale: 1
-    - _Cutoff: 0.128
+    - _ColorMask: 15
+    - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Frecuency: 200
+    - _GlossMapScale: 1
     - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OperationBlend_Fade_1: 1
     - _Parallax: 0.02
-    - _RefractOffset: 0.0421
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpriteFade: 1
     - _SrcBlend: 1
-    - _Stroke: 0.238
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.62352943, b: 0.95294124, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _StrokeColor: {r: 1, g: 0.6988236, b: 0.962353, a: 1}
+    - _TintRGBA_Color_1: {r: 0.9811321, g: 0.963483, b: 0.63403344, a: 1}
+    - _TintRGBA_Color_2: {r: 0.9914521, g: 1, b: 0, a: 1}

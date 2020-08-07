@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class InkRepositoryController : MonoBehaviour
 {
-    [Range (0f,1f)]public float inkfillAmount;
-    [Range (0f,1f)]public float limitToFill;
+    [Range(0f, 1f)] public float inkfillAmount;
+    [Range(0f, 1f)] public float limitToFill;
     private GameController gameController;
     private UIController uiController;
     public GameObject BucketPanel;
-    private float [] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f};
+    private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
     public bool isFilling = false;
-    [Range (0.3f,3f)]public float fillSpeed = 0.03f;
+    [Range(0.3f, 3f)] public float fillSpeed = 0.03f;
+    public int currentLight;
 
     void Start()
     {
@@ -19,6 +20,17 @@ public class InkRepositoryController : MonoBehaviour
         //TODO: Each hourglass can be initialized "broken" or "empty"
         inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
         limitToFill = inkfillAmount - 0.25f;
+
+        if (inkfillAmount == 1f)
+            currentLight = 0;
+        else if (inkfillAmount == 0.75f)
+            currentLight = 1;
+        else if (inkfillAmount == 0.5f)
+            currentLight = 2;
+        else if (inkfillAmount == 0.25f)
+            currentLight = 3;
+        else if (inkfillAmount == 0f)
+            currentLight = 4;
 
         transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
@@ -49,7 +61,7 @@ public class InkRepositoryController : MonoBehaviour
         Water2D.Water2D_Spawner.instance.FillColor = Water2D.Water2D_Spawner.instance.StrokeColor = gameObject.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
         //StrokeColor To lighten by 20%
         Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
-
+        //gameController.ChangeLightColor();
     }
 
     public void FillRepository()

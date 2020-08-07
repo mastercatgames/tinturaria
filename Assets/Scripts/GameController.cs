@@ -19,7 +19,8 @@ public class GameController : MonoBehaviour
     public GameObject RequestPanel;
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public GameObject lights;
-    public int currentLight;
+    public Material[] lightMaterials;
+    public int currentLightsOn;
 
     //public GameObject InkShopButton; // *** M ***   
 
@@ -28,7 +29,6 @@ public class GameController : MonoBehaviour
         //Initialize values
         paintSpeed = 1.5f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        currentLight = 1;
 
         //Load repository position randomically
         ShuffleArray(repositoryXPositions);
@@ -77,9 +77,8 @@ public class GameController : MonoBehaviour
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.Play();
 
-                StartCoroutine(TurnOnLight(currentLight));
-
-                currentLight++;
+                // StartCoroutine(TurnOnLight(currentRepository.GetComponent<InkRepositoryController>().currentLight));
+                // currentRepository.GetComponent<InkRepositoryController>().currentLight++;
             }
         }
     }
@@ -181,9 +180,34 @@ public class GameController : MonoBehaviour
         {
             //newColor.a = f;
             //renderer.material.color = newColor;
-            lightSprite.color = new Color(1f,1f,1f, alphaValue);
+            lightSprite.color = new Color(1f, 1f, 1f, alphaValue);
             Debug.Log(lightNum);
             yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    public void ChangeLightColor()
+    {
+        Material currentMaterial = null;
+
+        foreach (Material lightMaterial in lightMaterials)
+        {
+            if (lightMaterial.name.Contains(currentRepository.name))
+                currentMaterial = lightMaterial;
+        }
+
+        foreach (Transform light in lights.transform)
+        {
+            light.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+            light.GetComponent<SpriteRenderer>().material = currentMaterial;
+        }
+
+        if (currentRepository.GetComponent<InkRepositoryController>().currentLight > 0)
+        {
+            for (currentLightsOn = 0; currentLightsOn < currentRepository.GetComponent<InkRepositoryController>().currentLight; currentLightsOn++)
+            {
+                StartCoroutine(TurnOnLight(currentLightsOn + 1));
+            }
         }
     }
 }

@@ -6898,6 +6898,13 @@ MonoBehaviour:
   - 240
   lights: {fileID: 589568724}
   currentLight: 0
+  lightMaterials:
+  - {fileID: 2100000, guid: 11fa0a5ff42543e4f90b0149acd56184, type: 2}
+  - {fileID: 2100000, guid: 0ce95d4c7d869164c8dc40cdbdbedf0f, type: 2}
+  - {fileID: 2100000, guid: 8eb5156600956a945b6b86ab24117aa5, type: 2}
+  - {fileID: 2100000, guid: 1220fc9714ddd5a48b20123b1174faf2, type: 2}
+  - {fileID: 2100000, guid: 219f842f7c11cf54daa3b1ab52d43b51, type: 2}
+  - {fileID: 2100000, guid: 2555028020abc5d4ea349da3a706ea63, type: 2}
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
