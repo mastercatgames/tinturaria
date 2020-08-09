@@ -1667,7 +1667,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.15}
+  m_Offset: {x: 0, y: 2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1678,7 +1678,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3891989}
+  m_Size: {x: 1, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &1529274529
 Rigidbody2D:
@@ -1718,6 +1718,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
+  currentLightToTurnOn: 0
 --- !u!1 &1553451857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,7 +2413,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.3}
+  m_Offset: {x: 0, y: 2.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2423,7 +2424,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.99}
+  m_Size: {x: 1, y: 0.91}
   m_EdgeRadius: 0
 --- !u!1 &226323685115137608
 GameObject:
@@ -4296,7 +4297,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.15}
+  m_Offset: {x: 0, y: 2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4307,7 +4308,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3891989}
+  m_Size: {x: 1, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &6074607350259233
 Rigidbody2D:
@@ -4347,6 +4348,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
+  currentLightToTurnOn: 0
 --- !u!1 &3325180215947214418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6245,7 +6247,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.15}
+  m_Offset: {x: 0, y: 2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6256,7 +6258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3891989}
+  m_Size: {x: 1, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &1092247744661890359
 Rigidbody2D:
@@ -6296,6 +6298,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
+  currentLightToTurnOn: 0
 --- !u!1 &6549085975828843230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6752,7 +6755,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.15}
+  m_Offset: {x: 0, y: 2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6763,7 +6766,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3891989}
+  m_Size: {x: 1, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &2345000179524706033
 Rigidbody2D:
@@ -6803,6 +6806,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
+  currentLightToTurnOn: 0
 --- !u!1 &7532979731509707784
 GameObject:
   m_ObjectHideFlags: 0
@@ -6897,7 +6901,6 @@ MonoBehaviour:
   - 160
   - 240
   lights: {fileID: 589568724}
-  currentLight: 0
   lightMaterials:
   - {fileID: 2100000, guid: 11fa0a5ff42543e4f90b0149acd56184, type: 2}
   - {fileID: 2100000, guid: 0ce95d4c7d869164c8dc40cdbdbedf0f, type: 2}
@@ -6905,6 +6908,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1220fc9714ddd5a48b20123b1174faf2, type: 2}
   - {fileID: 2100000, guid: 219f842f7c11cf54daa3b1ab52d43b51, type: 2}
   - {fileID: 2100000, guid: 2555028020abc5d4ea349da3a706ea63, type: 2}
+  TurnOnLightSpeed: 0
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
@@ -7182,7 +7186,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.15}
+  m_Offset: {x: 0, y: 2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7193,7 +7197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3891989}
+  m_Size: {x: 1, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &1047839393
 Rigidbody2D:
@@ -7233,6 +7237,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
+  currentLightToTurnOn: 0
 --- !u!1 &7532979731849284013
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,7 +8626,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.15}
+  m_Offset: {x: 0, y: 2.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8632,7 +8637,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3891989}
+  m_Size: {x: 1, y: 0.46}
   m_EdgeRadius: 0
 --- !u!50 &5885709796652980386
 Rigidbody2D:
@@ -8672,6 +8677,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
+  currentLightToTurnOn: 0
 --- !u!1 &8265457078197691834
 GameObject:
   m_ObjectHideFlags: 0

@@ -460,7 +460,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 1044122462}
+      objectReference: {fileID: 1146793868}
     - target: {fileID: 7532979733303678744, guid: e1b5b754d1ebd0b458aacaccf6674d94,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -755,7 +755,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 505418010}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1044122462
+--- !u!84 &1146793868
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -768,7 +768,7 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   m_Width: 300
-  m_Height: 728
+  m_Height: 724
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 7

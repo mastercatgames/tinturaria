@@ -20,12 +20,13 @@ public class GameController : MonoBehaviour
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public GameObject lights;
     public Material[] lightMaterials;
-    public int currentLightsOn;
+    public float lightSpeed;    
 
     //public GameObject InkShopButton; // *** M ***   
 
     void Start()
     {
+        lightSpeed = 0.2f;
         //Initialize values
         paintSpeed = 1.5f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
@@ -77,8 +78,8 @@ public class GameController : MonoBehaviour
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.Play();
 
-                // StartCoroutine(TurnOnLight(currentRepository.GetComponent<InkRepositoryController>().currentLight));
-                // currentRepository.GetComponent<InkRepositoryController>().currentLight++;
+                StartCoroutine(TurnOnLight(currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn));
+                currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn++;
             }
         }
     }
@@ -174,40 +175,59 @@ public class GameController : MonoBehaviour
 
     IEnumerator TurnOnLight(int lightNum)
     {
+        print("Turning On the Light: " + lightNum);
         SpriteRenderer lightSprite = lights.transform.Find("Light_" + lightNum).GetComponent<SpriteRenderer>();
-        //Color newColor = spriteRenderer.color;
-        for (float alphaValue = 0f; alphaValue >= 0; alphaValue += 0.2f)
+        for (float alphaValue = 0f; alphaValue <= 1f; alphaValue += lightSpeed)
         {
-            //newColor.a = f;
-            //renderer.material.color = newColor;
+            //print("Working in progress...");
             lightSprite.color = new Color(1f, 1f, 1f, alphaValue);
-            Debug.Log(lightNum);
-            yield return new WaitForSeconds(.1f);
+            yield return null;
         }
+        yield return new WaitForSeconds(0.5f);
+        print("Finished Coroutine");
+    }
+
+    public IEnumerator TurnOffLight(int lightNum)
+    {
+        print("Turning Off the Light: " + lightNum);
+        SpriteRenderer lightSprite = lights.transform.Find("Light_" + lightNum).GetComponent<SpriteRenderer>();
+        for (float alphaValue = 1f; alphaValue >= 0f; alphaValue -= lightSpeed)
+        {
+            //print("Working in progress...");
+            lightSprite.color = new Color(1f, 1f, 1f, alphaValue);
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        print("Finished Coroutine");
     }
 
     public void ChangeLightColor()
     {
+        print("ChangeLightColor");
+
         Material currentMaterial = null;
 
+        //Find the material according to current color
         foreach (Material lightMaterial in lightMaterials)
         {
             if (lightMaterial.name.Contains(currentRepository.name))
                 currentMaterial = lightMaterial;
         }
 
+        //Turn off all lights
         foreach (Transform light in lights.transform)
         {
             light.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
             light.GetComponent<SpriteRenderer>().material = currentMaterial;
         }
 
-        if (currentRepository.GetComponent<InkRepositoryController>().currentLight > 0)
-        {
-            for (currentLightsOn = 0; currentLightsOn < currentRepository.GetComponent<InkRepositoryController>().currentLight; currentLightsOn++)
+        //Turn on the lights according to inkfillAmount variable
+        //if (currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn < 5)
+        //{
+            for (int i = 1; i < currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn; i++)
             {
-                StartCoroutine(TurnOnLight(currentLightsOn + 1));
+                StartCoroutine(TurnOnLight(i));
             }
-        }
+        //}
     }
 }

@@ -12,7 +12,7 @@ public class InkRepositoryController : MonoBehaviour
     private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
     public bool isFilling = false;
     [Range(0.3f, 3f)] public float fillSpeed = 0.03f;
-    public int currentLight;
+    public int currentLightToTurnOn;
 
     void Start()
     {
@@ -22,15 +22,15 @@ public class InkRepositoryController : MonoBehaviour
         limitToFill = inkfillAmount - 0.25f;
 
         if (inkfillAmount == 1f)
-            currentLight = 0;
+            currentLightToTurnOn = 1;
         else if (inkfillAmount == 0.75f)
-            currentLight = 1;
+            currentLightToTurnOn = 2;
         else if (inkfillAmount == 0.5f)
-            currentLight = 2;
+            currentLightToTurnOn = 3;
         else if (inkfillAmount == 0.25f)
-            currentLight = 3;
+            currentLightToTurnOn = 4;
         else if (inkfillAmount == 0f)
-            currentLight = 4;
+            currentLightToTurnOn = 5;
 
         transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
@@ -44,6 +44,8 @@ public class InkRepositoryController : MonoBehaviour
         {
             inkfillAmount += Time.deltaTime * fillSpeed;
             transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
+
+            //AutoTurnOnLightsOnFill(inkfillAmount);
 
             if (inkfillAmount >= 1f)
             {
@@ -61,12 +63,46 @@ public class InkRepositoryController : MonoBehaviour
         Water2D.Water2D_Spawner.instance.FillColor = Water2D.Water2D_Spawner.instance.StrokeColor = gameObject.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
         //StrokeColor To lighten by 20%
         Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
-        //gameController.ChangeLightColor();
+
+        gameController.ChangeLightColor();
     }
 
     public void FillRepository()
     {
         isFilling = true;
         uiController.ClosePanel(BucketPanel);
+
+        StartCoroutine(AutoTurnOffLightsOnFill());
+    }
+
+    IEnumerator AutoTurnOffLightsOnFill()
+    {
+        while (currentLightToTurnOn > 1)
+        {
+            if (inkfillAmount >= 1f && currentLightToTurnOn > 1)
+            {
+                currentLightToTurnOn = 1;
+                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+            }
+            else if (inkfillAmount >= 0.75f && currentLightToTurnOn > 2)
+            {
+                currentLightToTurnOn = 2;
+                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+            }
+            else if (inkfillAmount >= 0.5f && currentLightToTurnOn > 3)
+            {
+                currentLightToTurnOn = 3;
+                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+            }
+            else if (inkfillAmount >= 0.25f && currentLightToTurnOn > 4)
+            {
+                currentLightToTurnOn = 4;
+                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+            }
+            
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        print("Finished Coroutine");
     }
 }
