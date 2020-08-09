@@ -12,7 +12,7 @@ public class InkRepositoryController : MonoBehaviour
     private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
     public bool isFilling = false;
     [Range(0.3f, 3f)] public float fillSpeed = 0.03f;
-    public int currentLightToTurnOn;
+    public int currentLight;
 
     void Start()
     {
@@ -22,15 +22,15 @@ public class InkRepositoryController : MonoBehaviour
         limitToFill = inkfillAmount - 0.25f;
 
         if (inkfillAmount == 1f)
-            currentLightToTurnOn = 1;
+            currentLight = 4;
         else if (inkfillAmount == 0.75f)
-            currentLightToTurnOn = 2;
+            currentLight = 3;
         else if (inkfillAmount == 0.5f)
-            currentLightToTurnOn = 3;
+            currentLight = 2;
         else if (inkfillAmount == 0.25f)
-            currentLightToTurnOn = 4;
+            currentLight = 1;
         else if (inkfillAmount == 0f)
-            currentLightToTurnOn = 5;
+            currentLight = 0;
 
         transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
@@ -38,7 +38,7 @@ public class InkRepositoryController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (isFilling)
         {
@@ -72,32 +72,32 @@ public class InkRepositoryController : MonoBehaviour
         isFilling = true;
         uiController.ClosePanel(BucketPanel);
 
-        StartCoroutine(AutoTurnOffLightsOnFill());
+        StartCoroutine(AutoTurnOnLightsOnFill());
     }
 
-    IEnumerator AutoTurnOffLightsOnFill()
+    IEnumerator AutoTurnOnLightsOnFill()
     {
-        while (currentLightToTurnOn > 1)
+        while (currentLight < 4)
         {
-            if (inkfillAmount >= 1f && currentLightToTurnOn > 1)
+            if (inkfillAmount >= 0.25f && currentLight < 1)
             {
-                currentLightToTurnOn = 1;
-                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+                currentLight = 1;
+                StartCoroutine(gameController.TurnOnLight(currentLight));
             }
-            else if (inkfillAmount >= 0.75f && currentLightToTurnOn > 2)
+            else if (inkfillAmount >= 0.5f && currentLight < 2)
             {
-                currentLightToTurnOn = 2;
-                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+                currentLight = 2;
+                StartCoroutine(gameController.TurnOnLight(currentLight));
             }
-            else if (inkfillAmount >= 0.5f && currentLightToTurnOn > 3)
+            else if (inkfillAmount >= 0.75f && currentLight < 3)
             {
-                currentLightToTurnOn = 3;
-                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+                currentLight = 3;
+                StartCoroutine(gameController.TurnOnLight(currentLight));
             }
-            else if (inkfillAmount >= 0.25f && currentLightToTurnOn > 4)
+            else if (inkfillAmount >= 1f && currentLight < 4)
             {
-                currentLightToTurnOn = 4;
-                StartCoroutine(gameController.TurnOffLight(currentLightToTurnOn));
+                currentLight = 4;
+                StartCoroutine(gameController.TurnOnLight(currentLight));
             }
             
             yield return null;

@@ -78,8 +78,8 @@ public class GameController : MonoBehaviour
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.Play();
 
-                StartCoroutine(TurnOnLight(currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn));
-                currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn++;
+                StartCoroutine(TurnOffLight(currentRepository.GetComponent<InkRepositoryController>().currentLight));
+                currentRepository.GetComponent<InkRepositoryController>().currentLight--;
             }
         }
     }
@@ -173,7 +173,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    IEnumerator TurnOnLight(int lightNum)
+    public IEnumerator TurnOnLight(int lightNum)
     {
         print("Turning On the Light: " + lightNum);
         SpriteRenderer lightSprite = lights.transform.Find("Light_" + lightNum).GetComponent<SpriteRenderer>();
@@ -224,7 +224,7 @@ public class GameController : MonoBehaviour
         //Turn on the lights according to inkfillAmount variable
         //if (currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn < 5)
         //{
-            for (int i = 1; i < currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn; i++)
+            for (int i = 1; i <= currentRepository.GetComponent<InkRepositoryController>().currentLight; i++)
             {
                 StartCoroutine(TurnOnLight(i));
             }

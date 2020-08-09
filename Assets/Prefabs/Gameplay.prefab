@@ -1718,7 +1718,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
-  currentLightToTurnOn: 0
+  currentLight: 0
 --- !u!1 &1553451857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,7 +4348,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
-  currentLightToTurnOn: 0
+  currentLight: 0
 --- !u!1 &3325180215947214418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,7 +6298,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
-  currentLightToTurnOn: 0
+  currentLight: 0
 --- !u!1 &6549085975828843230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6806,7 +6806,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
-  currentLightToTurnOn: 0
+  currentLight: 0
 --- !u!1 &7532979731509707784
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,7 +6908,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 1220fc9714ddd5a48b20123b1174faf2, type: 2}
   - {fileID: 2100000, guid: 219f842f7c11cf54daa3b1ab52d43b51, type: 2}
   - {fileID: 2100000, guid: 2555028020abc5d4ea349da3a706ea63, type: 2}
-  TurnOnLightSpeed: 0
+  lightSpeed: 0
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
@@ -7237,7 +7237,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
-  currentLightToTurnOn: 0
+  currentLight: 0
 --- !u!1 &7532979731849284013
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,7 +8677,7 @@ MonoBehaviour:
   BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
-  currentLightToTurnOn: 0
+  currentLight: 0
 --- !u!1 &8265457078197691834
 GameObject:
   m_ObjectHideFlags: 0
