@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject currentRepository;
     public GameObject currentBox;
     public AudioClip[] liquidClips;
+    public AudioClip glitchClip;
     public AudioSource InkMachine_AS;
     public bool isChangingRepository;
     private UIController uiController;
@@ -20,7 +21,7 @@ public class GameController : MonoBehaviour
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public GameObject lights;
     public Material[] lightMaterials;
-    public float lightSpeed;    
+    public float lightSpeed;
 
     //public GameObject InkShopButton; // *** M ***   
 
@@ -76,10 +77,27 @@ public class GameController : MonoBehaviour
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
+                InkMachine_AS.volume = 1f;
                 InkMachine_AS.Play();
 
                 StartCoroutine(TurnOffLight(currentRepository.GetComponent<InkRepositoryController>().currentLight));
                 currentRepository.GetComponent<InkRepositoryController>().currentLight--;
+            }
+            else
+            {
+                print("Empty!");
+                // for (int i = 1; i <= 4; i++)
+                // {
+                //     StartCoroutine(TurnOnLight(i));
+                // }
+                // for (int i = 1; i <= 4; i++)
+                // {
+                //     StartCoroutine(TurnOffLight(i));
+                // }
+                StartCoroutine(EmptyRepositoryIndicator());
+                InkMachine_AS.clip = glitchClip;
+                InkMachine_AS.volume = 0.08f;
+                InkMachine_AS.Play();
             }
         }
     }
@@ -224,10 +242,35 @@ public class GameController : MonoBehaviour
         //Turn on the lights according to inkfillAmount variable
         //if (currentRepository.GetComponent<InkRepositoryController>().currentLightToTurnOn < 5)
         //{
-            for (int i = 1; i <= currentRepository.GetComponent<InkRepositoryController>().currentLight; i++)
-            {
-                StartCoroutine(TurnOnLight(i));
-            }
+        for (int i = 1; i <= currentRepository.GetComponent<InkRepositoryController>().currentLight; i++)
+        {
+            StartCoroutine(TurnOnLight(i));
+        }
         //}
+    }
+
+    IEnumerator EmptyRepositoryIndicator()
+    {
+        print("Empty Repo Indicator!");
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOnLight(i));            
+        }
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOffLight(i));
+        }
+        
+        yield return new WaitForSeconds(0.4f);
+
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOnLight(i));            
+        }
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOffLight(i));
+        }
+        print("Finished Coroutine");
     }
 }

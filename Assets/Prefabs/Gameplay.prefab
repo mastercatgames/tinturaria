@@ -6889,6 +6889,7 @@ MonoBehaviour:
   liquidClips:
   - {fileID: 8300000, guid: 77ebd6161383c064199063500e9e31a0, type: 3}
   - {fileID: 8300000, guid: f0a50fd2e6851df4495f7c948f70c125, type: 3}
+  glitchClip: {fileID: 8300000, guid: af43735e540686947afde8c9e7ee0c51, type: 3}
   InkMachine_AS: {fileID: 7532979732208852720}
   isChangingRepository: 0
   PanelForms: {fileID: 0}
