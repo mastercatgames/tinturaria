@@ -13,9 +13,11 @@ public class InkRepositoryController : MonoBehaviour
     public bool isFilling = false;
     [Range(0.3f, 3f)] public float fillSpeed = 0.03f;
     public int currentLight;
+    public float lightSpeed;
 
     void Start()
     {
+        lightSpeed = 0.2f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         //TODO: Each hourglass can be initialized "broken" or "empty"
         inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
@@ -35,6 +37,17 @@ public class InkRepositoryController : MonoBehaviour
         transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
+        initLights();
+    }
+
+    private void initLights()
+    {
+        //Turn on the lights according to inkfillAmount variable
+        for (int i = 1; i <= currentLight; i++)
+        {
+            StartCoroutine(TurnOnLight(i));
+        }
     }
 
     // Update is called once per frame
@@ -63,8 +76,6 @@ public class InkRepositoryController : MonoBehaviour
         Water2D.Water2D_Spawner.instance.FillColor = Water2D.Water2D_Spawner.instance.StrokeColor = gameObject.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
         //StrokeColor To lighten by 20%
         Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
-
-        gameController.ChangeLightColor();
     }
 
     public void FillRepository()
@@ -82,27 +93,86 @@ public class InkRepositoryController : MonoBehaviour
             if (inkfillAmount >= 0.25f && currentLight < 1)
             {
                 currentLight = 1;
-                StartCoroutine(gameController.TurnOnLight(currentLight));
+                StartCoroutine(TurnOnLight(currentLight));
             }
             else if (inkfillAmount >= 0.5f && currentLight < 2)
             {
                 currentLight = 2;
-                StartCoroutine(gameController.TurnOnLight(currentLight));
+                StartCoroutine(TurnOnLight(currentLight));
             }
             else if (inkfillAmount >= 0.75f && currentLight < 3)
             {
                 currentLight = 3;
-                StartCoroutine(gameController.TurnOnLight(currentLight));
+                StartCoroutine(TurnOnLight(currentLight));
             }
             else if (inkfillAmount >= 1f && currentLight < 4)
             {
                 currentLight = 4;
-                StartCoroutine(gameController.TurnOnLight(currentLight));
+                StartCoroutine(TurnOnLight(currentLight));
             }
             
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
         print("Finished Coroutine");
+    }
+
+    public IEnumerator TurnOnLight(int lightNum)
+    {
+        //print("Turning On the Light: " + lightNum);
+        SpriteRenderer lightSprite = transform.Find("Lights").Find("Light_" + lightNum).GetComponent<SpriteRenderer>();
+        for (float alphaValue = 0f; alphaValue <= 1f; alphaValue += lightSpeed)
+        {
+            //print("Working in progress...");
+            lightSprite.color = new Color(1f, 1f, 1f, alphaValue);
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        //print("Finished Coroutine");
+    }
+
+    public void CallTurnOffLight()
+    {
+        StartCoroutine(TurnOffLight(currentLight));
+        currentLight--;
+    }
+
+    IEnumerator TurnOffLight(int lightNum)
+    {
+        //print("Turning Off the Light: " + lightNum);
+        SpriteRenderer lightSprite = transform.Find("Lights").Find("Light_" + lightNum).GetComponent<SpriteRenderer>();
+        for (float alphaValue = 1f; alphaValue >= 0f; alphaValue -= lightSpeed)
+        {
+            //print("Working in progress...");
+            lightSprite.color = new Color(1f, 1f, 1f, alphaValue);
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        //print("Finished Coroutine");
+    }
+
+    public IEnumerator EmptyRepositoryIndicator()
+    {
+        //print("Empty Repo Indicator!");
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOnLight(i));            
+        }
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOffLight(i));
+        }
+
+        yield return new WaitForSeconds(0.4f);
+
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOnLight(i));            
+        }
+        for (int i = 1; i <= 4; i++)
+        {
+            StartCoroutine(TurnOffLight(i));
+        }
+        //print("Finished Coroutine");
     }
 }
