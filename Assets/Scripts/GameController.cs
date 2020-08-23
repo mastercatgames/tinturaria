@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
                 InkMachine_AS.volume = 1f;
                 InkMachine_AS.Play();
                 currentRepository.GetComponent<InkRepositoryController>().CallTurnOffLight();
+                InvokeRepeating("Vibrate", 1.0f, 0.2f);
             }
             else
             {
@@ -136,6 +137,8 @@ public class GameController : MonoBehaviour
             }
 
             isPainting = false;
+
+            CancelInvoke("Vibrate");
         }
     }
 
@@ -175,5 +178,10 @@ public class GameController : MonoBehaviour
             arr[i] = arr[r];
             arr[r] = tmp;
         }
+    }
+
+    public void Vibrate()
+    {
+        Vibration.Vibrate(20);
     }
 }
