@@ -96,21 +96,20 @@ public class InkRepositoryController : MonoBehaviour
         Water2D.Water2D_Spawner.instance.StrokeColor = Color.Lerp(Water2D.Water2D_Spawner.instance.StrokeColor, Color.white, .2f);
     }
 
-    public void FillRepository()
+    public void FillOrFixRepository()
     {
         //Fill repository if it isn't broken
         if (!isBroken)
         {
             isFilling = true;
-            uiController.ClosePanel(BucketPanel);
             StartCoroutine(AutoTurnOnLightsOnFill());
         }
         else
         {
-            //TODO: Maybe we add a red alert here...
-            //or think if its better to repair here (repair the selected button)
-            print("This repository is broken!");
+            //Fix repository!
+            gameController.FixRepository(gameObject);
         }
+        uiController.ClosePanel(BucketPanel);
     }    
 
     IEnumerator AutoTurnOnLightsOnFill()

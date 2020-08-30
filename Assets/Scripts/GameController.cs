@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     //private GameObject[] brokenRepositories = new GameObject[3];
-    private List<GameObject> brokenRepositories = new List<GameObject>();
+    //private List<GameObject> brokenRepositories = new List<GameObject>();
 
     //public GameObject InkShopButton; // *** M ***   
 
@@ -88,12 +88,28 @@ public class GameController : MonoBehaviour
 
     public void NewPaintFluid()
     {
+        // if (currentBox && currentRepository.GetComponent<InkRepositoryController>().isBroken)
+        // {
+        //     print("Its broken!");
+        //     currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");
+        // }
         if (!isChangingRepository
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
-        && !currentRepository.GetComponent<InkRepositoryController>().isBroken
+        //&& !currentRepository.GetComponent<InkRepositoryController>().isBroken
         && currentBox)
         {
+            if (currentRepository.GetComponent<InkRepositoryController>().isBroken)
+            {
+                print("Its broken!");
+                currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");    
+                //StartCoroutine(currentRepository.GetComponent<InkRepositoryController>().EmptyRepositoryIndicator());
+                InkMachine_AS.clip = glitchClip;
+                InkMachine_AS.volume = 0.08f;
+                InkMachine_AS.Play();
+                return;
+            }
+
             if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
              && currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
             {
@@ -233,16 +249,12 @@ public class GameController : MonoBehaviour
         numCoinsText.text = numCoins.ToString();
     }
 
-    public void FixRepository()
-    {    
-        if (brokenRepositories.Count > 0)
-        {
-            GameObject brokenRepository = brokenRepositories[0];
-            brokenRepositories.RemoveAt(0);
-            brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
-            brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
-            print("Fixing the *" + brokenRepository.name + "* repository!");
-        }
+    public void FixRepository(GameObject brokenRepository)
+    { 
+        brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
+        brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
+
+        print("Fixing the *" + brokenRepository.name + "* repository!");
     }
 
     public void BrokeRepository(GameObject repositoryToBroke)
@@ -261,7 +273,7 @@ public class GameController : MonoBehaviour
         repositoryToBroke.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(true);
         
 
-        brokenRepositories.Add(repositoryToBroke);
+        // brokenRepoksitories.Add(repositoryToBroke);
     }
 
     public void FinishRepair(GameObject FixedRepository)

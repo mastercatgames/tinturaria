@@ -2745,7 +2745,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162484164059569999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4640,6 +4640,7 @@ GameObject:
   - component: {fileID: 7025844445797214336}
   - component: {fileID: 5428297574469061288}
   - component: {fileID: 5958964888292502720}
+  - component: {fileID: 1782498067}
   m_Layer: 0
   m_Name: HourGlass_Broken_SVG
   m_TagString: Untagged
@@ -4729,6 +4730,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1782498067
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596562195171114971}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95062a021d7a97044b08e295629ca956, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1600029971473420368
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,6 +5901,7 @@ GameObject:
   - component: {fileID: 8492245597009887556}
   - component: {fileID: 3868514842545203339}
   - component: {fileID: 7450024331080797281}
+  - component: {fileID: 976042700}
   m_Layer: 0
   m_Name: HourGlass_Broken_SVG
   m_TagString: Untagged
@@ -5970,6 +5991,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &976042700
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698639193377053110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95062a021d7a97044b08e295629ca956, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2730776259347605336
 GameObject:
   m_ObjectHideFlags: 0
@@ -6879,6 +6919,7 @@ GameObject:
   - component: {fileID: 163748285390931057}
   - component: {fileID: 1603762205786518923}
   - component: {fileID: 644636429628118473}
+  - component: {fileID: 459813746}
   m_Layer: 0
   m_Name: HourGlass_Broken_SVG
   m_TagString: Untagged
@@ -6968,6 +7009,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &459813746
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337106567535229625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95062a021d7a97044b08e295629ca956, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4346120510181408357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8644,6 +8704,7 @@ GameObject:
   - component: {fileID: 8195740789476236371}
   - component: {fileID: 5829406712114566557}
   - component: {fileID: 9191569846502396981}
+  - component: {fileID: 748469155}
   m_Layer: 0
   m_Name: HourGlass_Broken_SVG
   m_TagString: Untagged
@@ -8733,6 +8794,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &748469155
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516659965995985461}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95062a021d7a97044b08e295629ca956, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5641080745646750303
 GameObject:
   m_ObjectHideFlags: 0
@@ -10705,7 +10785,6 @@ MonoBehaviour:
   - 240
   numCoinsText: {fileID: 0}
   numCoins: 0
-  brokenRepositories: []
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
@@ -13027,6 +13106,7 @@ GameObject:
   - component: {fileID: 2714593200501594080}
   - component: {fileID: 175390826956835762}
   - component: {fileID: 7284078303976787018}
+  - component: {fileID: 1432744292}
   m_Layer: 0
   m_Name: HourGlass_Broken_SVG
   m_TagString: Untagged
@@ -13116,6 +13196,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1432744292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120597473261597174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95062a021d7a97044b08e295629ca956, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8187672713320128282
 GameObject:
   m_ObjectHideFlags: 0
@@ -13411,6 +13510,7 @@ GameObject:
   - component: {fileID: 7597479069265308099}
   - component: {fileID: 5799394958949679443}
   - component: {fileID: 923018744541630659}
+  - component: {fileID: 1203838037}
   m_Layer: 0
   m_Name: HourGlass_Broken_SVG
   m_TagString: Untagged
@@ -13500,6 +13600,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &1203838037
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405129997235138269}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95062a021d7a97044b08e295629ca956, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8426508285160992472
 GameObject:
   m_ObjectHideFlags: 0
