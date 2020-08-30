@@ -14,6 +14,8 @@ public class RequestPanelController : MonoBehaviour
     public GameObject[] colors;    
     public AudioSource DeliveryFailed_AS;
     public AudioSource DeliverySuccessful_AS;
+    public List<GameObject> colorsRequested;
+    public int TotalRequests;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +29,23 @@ public class RequestPanelController : MonoBehaviour
             GameObject box = Instantiate(requestBoxPrefab);
 
             box.GetComponent<RequestBox>().boxRequested = boxes[Random.Range(0,6)].transform.Find("Box").GetComponent<SpriteRenderer>().sprite;
-            box.GetComponent<RequestBox>().colorRequested = colors[Random.Range(0,6)].transform.Find("Ink").GetComponent<SpriteRenderer>().color;
+
+            GameObject colorRepositoryObj = colors[Random.Range(0,6)];
+
+            colorsRequested.Add(colorRepositoryObj);
+
+            box.GetComponent<RequestBox>().colorRequested = colorRepositoryObj.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
 
             box.transform.Find("Form").GetComponent<Image>().sprite = box.GetComponent<RequestBox>().boxRequested;
             box.transform.Find("Color").GetComponent<Image>().color = box.GetComponent<RequestBox>().colorRequested;
+
+            //print(GameObject.FindGameObjectWithTag("Rail").transform.Find(colorRepositoryObj.name));
+            //print(box.GetComponent<RequestBox>().colorRequested);
             
             //Instantiate the requested box inside the RequestPanel
             box.transform.SetParent(transform);
             numOfRequests++;
+            TotalRequests++;
         }
     }
 

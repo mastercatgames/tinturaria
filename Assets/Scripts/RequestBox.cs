@@ -7,6 +7,7 @@ public class RequestBox : MonoBehaviour
 {
     private Image bar;
     private RequestPanelController requestPanelController;
+    private GameController gameController;
     public bool isDestroyingBox;
     private Image maskColor;
     private float barSpeed;
@@ -18,8 +19,14 @@ public class RequestBox : MonoBehaviour
         bar = transform.Find("BarBG").Find("Bar").GetComponent<Image>();
         maskColor = transform.Find("MaskColor").GetComponent<Image>();
         requestPanelController = transform.parent.GetComponent<RequestPanelController>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         //TODO: Test the best time to fit in gameplay
-        barSpeed = 0.02f;
+        //0.01f = 01:40m
+        //0.02f = 00:50m (50 sec)
+        //0.015f = 01:07m
+        //0.016f = 01:02m
+        //0.0166f = //01:00m (1/60 = 0.0166)
+        barSpeed = 0.0166f; //(1/60) 
     }
 
     // Update is called once per frame
@@ -52,6 +59,7 @@ public class RequestBox : MonoBehaviour
 
                 GetComponent<Animator>().Play("deliveryFailed");
                 requestPanelController.DeliveryFailed_AS.Play();
+                gameController.DiscountCoins();
             }
         }
     }
@@ -73,5 +81,16 @@ public class RequestBox : MonoBehaviour
 
         GetComponent<Animator>().Play("deliverySuccess");
         requestPanelController.DeliverySuccessful_AS.Play();
+
+        gameController.EarnCoins();
+
+// print(transform.parent);
+// print(transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count);
+        //Broke a repository
+        GameObject repositoryToBroke = transform.parent.GetComponent<RequestPanelController>().colorsRequested[transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count -1];
+        
+        gameController.BrokeRepository(repositoryToBroke);
+        print("Must broke the *" + repositoryToBroke.name + "*");
+
     }
 }

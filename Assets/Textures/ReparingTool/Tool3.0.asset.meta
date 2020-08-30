@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: ae5b1158d7933ce43a9ae9cf3912c4b1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<!-- Generator: Adobe Illustrator
+    24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\r\n<svg version=\"1.1\"
+    xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"
+    x=\"0px\" y=\"0px\"\r\n\t viewBox=\"0 0 1920 1080\" style=\"enable-background:new
+    0 0 1920 1080;\" xml:space=\"preserve\">\r\n<style type=\"text/css\">\r\n\t.st0{display:none;}\r\n\t.st1{display:inline;fill:#63D67B;}\r\n\t.st2{display:inline;}\r\n\t.st3{fill:#9AA09B;}\r\n\t.st4{fill:#313532;}\r\n\t.st5{fill:#5E5A60;}\r\n\t.st6{fill:#DDDDDD;stroke:#313532;stroke-width:26;stroke-miterlimit:10;}\r\n\t.st7{fill:#DDDDDD;}\r\n</style>\r\n<g
+    id=\"Layer_4\" class=\"st0\">\r\n\t<rect class=\"st1\" width=\"1920\" height=\"1080\"/>\r\n</g>\r\n<g
+    id=\"Layer_1\" class=\"st0\">\r\n\t<g>\r\n\t\t<rect x=\"200.7\" y=\"306\" class=\"st2\"
+    width=\"147.3\" height=\"529\"/>\r\n\t\t<g class=\"st2\">\r\n\t\t\t<path d=\"M344.3,33c0.2,2,0.3,4.1,0.3,6.1v147.7c0,38.7-31.4,70.1-70.1,70.1h0c-38.7,0-70.1-31.4-70.1-70.1V39.1\r\n\t\t\t\tc0-2.1,0.1-4.1,0.3-6.1C132.2,61,80.9,131.3,80.9,213.5c0,106.9,86.6,193.5,193.5,193.5s193.5-86.6,193.5-193.5\r\n\t\t\t\tC467.9,131.3,416.6,61,344.3,33z\"/>\r\n\t\t</g>\r\n\t\t<g
+    class=\"st2\">\r\n\t\t\t<path d=\"M274.4,690c-106.9,0-193.5,86.6-193.5,193.5c0,82.3,51.3,152.5,123.7,180.5c-0.2-2.4-0.4-4.7-0.4-7.2V909.1\r\n\t\t\t\tc0-38.7,31.4-70.1,70.1-70.1h0c38.7,0,70.1,31.4,70.1,70.1v147.7c0,2.4-0.1,4.8-0.4,7.2c72.4-28,123.7-98.3,123.7-180.5\r\n\t\t\t\tC467.9,776.6,381.3,690,274.4,690z\"/>\r\n\t\t</g>\r\n\t</g>\r\n</g>\r\n<g
+    id=\"Button_x5F_Tool\" class=\"st0\">\r\n\t<path class=\"st3\" d=\"M1027.4,1077.2H83.9c-36.5,0-66-29.5-66-66V67.7c0-36.5,29.5-66,66-66h943.5c36.5,0,66,29.5,66,66v943.5\r\n\t\tC1093.4,1047.7,1063.9,1077.2,1027.4,1077.2z\"/>\r\n\t<g
+    class=\"st2\">\r\n\t\t\r\n\t\t\t<rect x=\"466.9\" y=\"258.9\" transform=\"matrix(-0.7294
+    0.684 -0.684 -0.7294 1292.9496 535.433)\" class=\"st4\" width=\"147.3\" height=\"529\"/>\r\n\t\t<path
+    class=\"st4\" d=\"M857.3,963.3c-1.5-1.4-3-2.8-4.4-4.3l-101-107.7c-26.5-28.3-25.1-72.7,3.2-99.2l0,0\r\n\t\t\tc28.3-26.5,72.7-25.1,99.2,3.2l101,107.7c1.4,1.5,2.7,3.1,4,4.7c33.6-69.9,23-156.2-33.3-216.2c-73.1-78-195.6-81.9-273.5-8.8\r\n\t\t\tc-78,73.1-81.9,195.6-8.8,273.5C699.9,976.2,785.4,992.3,857.3,963.3z\"/>\r\n\t\t<path
+    class=\"st4\" d=\"M458.8,436.2c78-73.1,81.9-195.6,8.8-273.5c-56.3-60-141.8-76.1-213.7-47.1c1.8,1.6,3.5,3.2,5.2,5l101,107.7\r\n\t\t\tc26.5,28.3,25.1,72.7-3.2,99.2l0,0c-28.3,26.5-72.7,25.1-99.2-3.2l-101-107.7c-1.7-1.8-3.2-3.6-4.6-5.5\r\n\t\t\tc-33.6,69.9-23,156.3,33.2,216.3C258.4,505.4,380.9,509.4,458.8,436.2z\"/>\r\n\t</g>\r\n\t<rect
+    x=\"1247\" y=\"242\" class=\"st4\" width=\"167\" height=\"167\"/>\r\n\t<rect x=\"1437\"
+    y=\"242\" class=\"st5\" width=\"167\" height=\"167\"/>\r\n\t<rect x=\"1627\" y=\"242\"
+    class=\"st3\" width=\"167\" height=\"167\"/>\r\n</g>\r\n<g id=\"Tool\">\r\n\t<g>\r\n\t\t\r\n\t\t\t<rect
+    x=\"923\" y=\"303.8\" transform=\"matrix(-0.7294 0.684 -0.684 -0.7294 2133.7964
+    202.186)\" class=\"st4\" width=\"207.8\" height=\"438.6\"/>\r\n\t\t<path class=\"st6\"
+    d=\"M1343.6,962.9c-1.5-1.4-3-2.8-4.4-4.3l-101-107.7c-26.5-28.3-25.1-72.7,3.2-99.2l0,0\r\n\t\t\tc28.3-26.5,72.7-25.1,99.2,3.2l101,107.7c1.4,1.5,2.7,3.1,4,4.7c33.6-69.9,23-156.2-33.3-216.2c-73.1-78-195.6-81.9-273.5-8.8\r\n\t\t\ts-81.9,195.6-8.8,273.5C1186.2,975.8,1271.7,992,1343.6,962.9z\"/>\r\n\t\t<path
+    class=\"st6\" d=\"M945.2,435.9c78-73.1,81.9-195.6,8.8-273.5c-56.3-60-141.8-76.1-213.7-47.1c1.8,1.6,3.5,3.2,5.2,5l101,107.7\r\n\t\t\tc26.5,28.3,25.1,72.7-3.2,99.2l0,0c-28.3,26.5-72.7,25.1-99.2-3.2l-101-107.7c-1.7-1.8-3.2-3.6-4.6-5.5\r\n\t\t\tc-33.6,69.9-23,156.3,33.2,216.3C744.8,505.1,867.2,509,945.2,435.9z\"/>\r\n\t\t\r\n\t\t\t<rect
+    x=\"953.2\" y=\"303.4\" transform=\"matrix(-0.7294 0.684 -0.684 -0.7294 2133.7964
+    202.186)\" class=\"st7\" width=\"147.3\" height=\"439.3\"/>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n\t<g>\r\n\t</g>\r\n</g>\r\n</svg>\r\n"
+  assetBundleName: 
+  assetBundleVariant: 
