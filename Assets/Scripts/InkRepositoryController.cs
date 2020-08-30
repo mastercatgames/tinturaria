@@ -14,6 +14,10 @@ public class InkRepositoryController : MonoBehaviour
     [Range(0.3f, 3f)] public float fillSpeed = 0.03f;
     public int currentLight;
     public float lightSpeed;
+    public bool isBroken;
+    public bool isFixing;
+    public float OriginalTimeInSeconds;
+    public float FixingTimeInSeconds;
 
     void Start()
     {
@@ -22,6 +26,7 @@ public class InkRepositoryController : MonoBehaviour
         //TODO: Each hourglass can be initialized "broken" or "empty"
         inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
         limitToFill = inkfillAmount - 0.25f;
+        FixingTimeInSeconds = OriginalTimeInSeconds = 6f;
 
         if (inkfillAmount == 1f)
             currentLight = 4;
@@ -67,6 +72,19 @@ public class InkRepositoryController : MonoBehaviour
                 limitToFill = inkfillAmount - 0.25f;
             }
         }
+
+        if (isFixing)
+        {
+            if (FixingTimeInSeconds > 0)
+            {
+                FixingTimeInSeconds -= Time.deltaTime;
+            }
+            //If fixing time is over
+            else
+            {                
+                gameController.FinishRepair(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -80,11 +98,20 @@ public class InkRepositoryController : MonoBehaviour
 
     public void FillRepository()
     {
-        isFilling = true;
-        uiController.ClosePanel(BucketPanel);
-
-        StartCoroutine(AutoTurnOnLightsOnFill());
-    }
+        //Fill repository if it isn't broken
+        if (!isBroken)
+        {
+            isFilling = true;
+            uiController.ClosePanel(BucketPanel);
+            StartCoroutine(AutoTurnOnLightsOnFill());
+        }
+        else
+        {
+            //TODO: Maybe we add a red alert here...
+            //or think if its better to repair here (repair the selected button)
+            print("This repository is broken!");
+        }
+    }    
 
     IEnumerator AutoTurnOnLightsOnFill()
     {
@@ -110,7 +137,7 @@ public class InkRepositoryController : MonoBehaviour
                 currentLight = 4;
                 StartCoroutine(TurnOnLight(currentLight));
             }
-            
+
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
@@ -156,7 +183,7 @@ public class InkRepositoryController : MonoBehaviour
         //print("Empty Repo Indicator!");
         for (int i = 1; i <= 4; i++)
         {
-            StartCoroutine(TurnOnLight(i));            
+            StartCoroutine(TurnOnLight(i));
         }
         for (int i = 1; i <= 4; i++)
         {
@@ -167,7 +194,7 @@ public class InkRepositoryController : MonoBehaviour
 
         for (int i = 1; i <= 4; i++)
         {
-            StartCoroutine(TurnOnLight(i));            
+            StartCoroutine(TurnOnLight(i));
         }
         for (int i = 1; i <= 4; i++)
         {

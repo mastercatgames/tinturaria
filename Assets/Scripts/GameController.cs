@@ -17,8 +17,15 @@ public class GameController : MonoBehaviour
     public bool isChangingRepository;
     private UIController uiController;
     public GameObject PanelForms;
+    public GameObject Panel_Ink_Buckets;
     public GameObject RequestPanel;
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
+    public Text numCoinsText;
+    public int numCoins;
+
+    [SerializeField]
+    //private GameObject[] brokenRepositories = new GameObject[3];
+    private List<GameObject> brokenRepositories = new List<GameObject>();
 
     //public GameObject InkShopButton; // *** M ***   
 
@@ -35,6 +42,33 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < repositories.Length; i++)
         {
             repositories[i].transform.localPosition = new Vector3(repositoryXPositions[i], repositories[i].transform.localPosition.y, repositories[i].transform.localPosition.z);
+        }
+
+        //Init broken repositories array
+        //TODO: Specify which levels will be have broken repositoies and how much
+        // if (SceneManager.GetActiveScene().name == "SampleScene")
+        // {
+        //     brokenRepositories = new GameObject[3];
+
+        //     GameObject[] ramdomRepositories = repositories;
+        //     ShuffleArray(ramdomRepositories);
+
+        //     for (int i = 0; i < brokenRepositories.Length; i++)
+        //     {
+        //         brokenRepositories[i] = repositories[i];//repositories[Random.Range(0, 6)];
+        //         brokenRepositories[i].GetComponent<InkRepositoryController>().isBroken = true;
+        //     }
+        // }
+
+        //Ramdom Resository Broken
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            int ramdomRepositoryIndex = Random.Range(0, 6); //0 - 5
+            BrokeRepository(repositories[ramdomRepositoryIndex]);
+
+            //teste
+            // repositories[1].GetComponent<InkRepositoryController>().isBroken = true;
+            // brokenRepositories.Add(repositories[1]);
         }
     }
 
@@ -57,6 +91,7 @@ public class GameController : MonoBehaviour
         if (!isChangingRepository
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
+        && !currentRepository.GetComponent<InkRepositoryController>().isBroken
         && currentBox)
         {
             if (currentBox.GetComponent<BoxController>().currentColor != currentRepository.transform.Find("Ink").GetComponent<SpriteRenderer>().color
@@ -128,6 +163,7 @@ public class GameController : MonoBehaviour
                 else
                 {
                     Debug.Log("Doesn't Match!");
+                    DiscountCoins();
                 }
 
                 DestroyAllMetaballs();
@@ -183,5 +219,71 @@ public class GameController : MonoBehaviour
     public void Vibrate()
     {
         Vibration.Vibrate(20);
+    }
+
+    public void EarnCoins()
+    {
+        numCoins += 100;
+        numCoinsText.text = numCoins.ToString();
+    }
+
+    public void DiscountCoins()
+    {
+        numCoins -= 150;
+        numCoinsText.text = numCoins.ToString();
+    }
+
+    public void FixRepository()
+    {    
+        if (brokenRepositories.Count > 0)
+        {
+            GameObject brokenRepository = brokenRepositories[0];
+            brokenRepositories.RemoveAt(0);
+            brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
+            brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
+            print("Fixing the *" + brokenRepository.name + "* repository!");
+        }
+    }
+
+    public void BrokeRepository(GameObject repositoryToBroke)
+    {
+        repositoryToBroke.GetComponent<InkRepositoryController>().isBroken = true;
+
+        //Panel_Ink_Buckets - management
+        GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(repositoryToBroke.name).gameObject;        
+        bucketButton.GetComponent<Button>().interactable = false;
+        Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
+        bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0.6f);
+        bucketButton.transform.Find("Tool").gameObject.SetActive(true);
+
+        repositoryToBroke.transform.Find("HourGlass_SVG").gameObject.SetActive(false);
+        repositoryToBroke.transform.Find("InkMask").gameObject.SetActive(false);
+        repositoryToBroke.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(true);
+        
+
+        brokenRepositories.Add(repositoryToBroke);
+    }
+
+    public void FinishRepair(GameObject FixedRepository)
+    {
+        Debug.Log("Repository *" + FixedRepository.name + "* was fixed!");
+
+        FixedRepository.GetComponent<InkRepositoryController>().isFixing = false;
+        FixedRepository.GetComponent<InkRepositoryController>().isBroken = false;
+        FixedRepository.GetComponent<InkRepositoryController>().FixingTimeInSeconds = FixedRepository.GetComponent<InkRepositoryController>().OriginalTimeInSeconds;
+        FixedRepository.GetComponent<InkRepositoryController>().transform.Find("Tool").gameObject.SetActive(false);
+
+        //Panel_Ink_Buckets - management
+        GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(FixedRepository.name).gameObject;
+        bucketButton.GetComponent<Button>().interactable = true;
+        Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
+        bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 1f);
+        bucketButton.transform.Find("Tool").gameObject.SetActive(false);
+        //brokenRepositories.Remove(FixedRepository);
+
+        FixedRepository.transform.Find("HourGlass_SVG").gameObject.SetActive(true);
+        FixedRepository.transform.Find("InkMask").gameObject.SetActive(true);
+        FixedRepository.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(false);
+
     }
 }
