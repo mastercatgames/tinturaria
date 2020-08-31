@@ -87,10 +87,10 @@ public class RequestBox : MonoBehaviour
 // print(transform.parent);
 // print(transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count);
         //Broke a repository
-        GameObject repositoryToBroke = transform.parent.GetComponent<RequestPanelController>().colorsRequested[transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count -1];
+        // GameObject repositoryToBroke = transform.parent.GetComponent<RequestPanelController>().colorsRequested[transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count -1];
         
-        gameController.BrokeRepository(repositoryToBroke);
-        print("Must broke the *" + repositoryToBroke.name + "*");
+        // gameController.BrokeRepository(repositoryToBroke);
+        // print("Must broke the *" + repositoryToBroke.name + "*");
 
     }
 }

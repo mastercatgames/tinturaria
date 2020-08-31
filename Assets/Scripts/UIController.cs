@@ -10,18 +10,13 @@ public class UIController : MonoBehaviour
     public float timeRemaining;
     public bool timerIsRunning = false;
     public Text timeText;
-    public List<Sprite> backgrounds;
-    public int currentBGIndex;
-    public SpriteRenderer mainBackground;
 
     void Start()
     {
-        timeRemaining = 120;
+        //timeRemaining = 120;
         // Starts the timer automatically
-        timerIsRunning = true;
-
-        //TODO: It's just a test, we can remove this in future
-        currentBGIndex = 0;
+        //TODO: Start after 3 seconds
+        //timerIsRunning = true;
     }
 
     void Update()
@@ -64,14 +59,5 @@ public class UIController : MonoBehaviour
         panel.SetActive(false);
         ButtonsGrid.SetActive(true);
         somePanelIsOpen = false;
-    }
-
-    public void ChangeBackgroundClick_TestBtn()
-    {
-        mainBackground.sprite = backgrounds[currentBGIndex];
-        currentBGIndex++;
-
-        if (currentBGIndex == backgrounds.Count)
-            currentBGIndex = 0;
     }
 }

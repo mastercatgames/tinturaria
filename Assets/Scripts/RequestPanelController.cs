@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class RequestPanelController : MonoBehaviour
 {
+    private LevelManager levelManager;
+    private GameController gameController;
     public GameObject requestBoxPrefab;
     public int numOfRequests;
     public Color RedColor;
@@ -19,6 +21,8 @@ public class RequestPanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         InvokeRepeating("RequestBox", 1f, 15f);
     }
 
@@ -46,6 +50,17 @@ public class RequestPanelController : MonoBehaviour
             box.transform.SetParent(transform);
             numOfRequests++;
             TotalRequests++;
+
+            //Verify if has to broke a repository
+            foreach (int position in levelManager.requestedColorsPosition)
+            {
+                if (position == TotalRequests)
+                {
+                    gameController.BrokeRepository(colorRepositoryObj);
+                    break;
+                }
+            }
+
         }
     }
 

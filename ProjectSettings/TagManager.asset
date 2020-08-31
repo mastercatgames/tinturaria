@@ -9,6 +9,7 @@ TagManager:
   - Rail
   - UIController
   - Repository
+  - LevelManager
   layers:
   - Default
   - TransparentFX

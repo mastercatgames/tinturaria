@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public AudioSource InkMachine_AS;
     public bool isChangingRepository;
     private UIController uiController;
+    private LevelManager levelManager;
     public GameObject PanelForms;
     public GameObject Panel_Ink_Buckets;
     public GameObject RequestPanel;
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
         //Initialize values
         paintSpeed = 1.5f;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
 
         //Load repository position randomically
         ShuffleArray(repositoryXPositions);
@@ -59,17 +61,6 @@ public class GameController : MonoBehaviour
         //         brokenRepositories[i].GetComponent<InkRepositoryController>().isBroken = true;
         //     }
         // }
-
-        //Ramdom Resository Broken
-        if (SceneManager.GetActiveScene().name == "SampleScene")
-        {
-            int ramdomRepositoryIndex = Random.Range(0, 6); //0 - 5
-            BrokeRepository(repositories[ramdomRepositoryIndex]);
-
-            //teste
-            // repositories[1].GetComponent<InkRepositoryController>().isBroken = true;
-            // brokenRepositories.Add(repositories[1]);
-        }
     }
 
     // Update is called once per frame
