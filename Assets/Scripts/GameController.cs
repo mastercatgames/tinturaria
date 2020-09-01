@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public Text numCoinsText;
     public int numCoins;
+    public int numDeliveredBoxes;
+    public int numFailedBoxes;
 
     [SerializeField]
     //private GameObject[] brokenRepositories = new GameObject[3];
@@ -185,10 +187,11 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+    //Now its in UIController
+    // public void RestartGame()
+    // {
+    //     SceneManager.LoadScene("SampleScene");
+    // }
 
     public void ChangeCurrentBox(GameObject newBox)
     {
@@ -232,12 +235,14 @@ public class GameController : MonoBehaviour
     {
         numCoins += 100;
         numCoinsText.text = numCoins.ToString();
+        numDeliveredBoxes++;
     }
 
     public void DiscountCoins()
     {
         numCoins -= 150;
         numCoinsText.text = numCoins.ToString();
+        numFailedBoxes++;
     }
 
     public void FixRepository(GameObject brokenRepository)

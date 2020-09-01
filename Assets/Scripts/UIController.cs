@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+    private GameController gameController;
+    private LevelManager levelManager;
     public GameObject ButtonsGrid;
     public bool somePanelIsOpen = false;
     public float timeRemaining;
     public bool timerIsRunning = false;
     public Text timeText;
+    public GameObject gameOverPanel;
+    public Text titleText;
+    public Text boxesDeliveredText;
+    public Text boxesFailedText;
+    public Text totalText;
 
     void Start()
     {
@@ -17,6 +25,8 @@ public class UIController : MonoBehaviour
         // Starts the timer automatically
         //TODO: Start after 3 seconds
         //timerIsRunning = true;
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
     void Update()
@@ -30,9 +40,7 @@ public class UIController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
-                timeRemaining = 0;
-                timerIsRunning = false;
+                GameOver();
             }
         }
     }
@@ -59,5 +67,31 @@ public class UIController : MonoBehaviour
         panel.SetActive(false);
         ButtonsGrid.SetActive(true);
         somePanelIsOpen = false;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Time has run out!");
+        timeRemaining = 0;
+        timerIsRunning = false;
+        gameOverPanel.SetActive(true);
+
+        //Set Title
+        titleText.text = levelManager.world + "-" + levelManager.level;
+
+        boxesDeliveredText.text += " " + gameController.numDeliveredBoxes;
+        boxesFailedText.text += " " + gameController.numFailedBoxes;
+
+        //Num Coins
+        boxesDeliveredText.transform.Find("num").GetComponent<Text>().text = (gameController.numDeliveredBoxes * 100).ToString();
+        boxesFailedText.transform.Find("num").GetComponent<Text>().text = (gameController.numFailedBoxes * 150).ToString();
+
+        //Total
+        totalText.transform.Find("num").GetComponent<Text>().text = gameController.numCoins.ToString();
     }
 }
