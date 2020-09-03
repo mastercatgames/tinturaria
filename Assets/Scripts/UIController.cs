@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     public Text boxesDeliveredText;
     public Text boxesFailedText;
     public Text totalText;
+    public Text quoteText;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class UIController : MonoBehaviour
     {
         timeToDisplay += 1;
 
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60); 
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -84,6 +85,32 @@ public class UIController : MonoBehaviour
         //Set Title
         titleText.text = levelManager.world + "-" + levelManager.level;
 
+        //Stars animation
+        //.Play("Stars_GameOver");
+        Transform star1 = gameOverPanel.transform.Find("Stars").Find("1").Find("Star");
+        Transform star2 = gameOverPanel.transform.Find("Stars").Find("2").Find("Star");
+        Transform star3 = gameOverPanel.transform.Find("Stars").Find("3").Find("Star");
+
+        int numStarsWon = 0;
+
+        if (gameController.numCoins >= levelManager.oneStarCoins)
+        {
+            StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
+            numStarsWon = 1;
+        }
+        if (gameController.numCoins >= levelManager.twoStarCoins)
+        {
+            StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
+            numStarsWon = 2;
+        }
+        if (gameController.numCoins >= levelManager.threeStarCoins)
+        {
+            StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
+            numStarsWon = 3;
+        }
+
+        ShowFinalQuote(numStarsWon);
+
         boxesDeliveredText.text += " " + gameController.numDeliveredBoxes;
         boxesFailedText.text += " " + gameController.numFailedBoxes;
 
@@ -93,5 +120,39 @@ public class UIController : MonoBehaviour
 
         //Total
         totalText.transform.Find("num").GetComponent<Text>().text = gameController.numCoins.ToString();
+    }
+
+    private void ShowFinalQuote(int numStarsWon)
+    {
+        float delay = 0f;
+
+        if (numStarsWon == 0)
+            delay = 0.5f;
+        if (numStarsWon == 1)
+            delay = 1.4f;
+        else if (numStarsWon == 2)
+            delay = 2.2f;
+        else if (numStarsWon == 3)
+            delay = 2.8f;
+
+        if (numStarsWon == 0)
+            quoteText.text = "Keep trying!";
+        else if (numStarsWon == 1)
+            quoteText.text = "Nice job!";
+        else if (numStarsWon == 2)
+            quoteText.text = "Awesome!";
+        else if (numStarsWon == 3)
+            quoteText.text = "Perfect!";
+
+        StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", delay, 1.2f));
+    }
+
+    private IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)
+    {
+        yield return new WaitForSeconds(delay);
+        animator.Play(animationName);
+        if (speed > 0)
+            animator.speed = speed;
+        print("Finish Animation!");
     }
 }
