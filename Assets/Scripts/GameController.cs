@@ -25,12 +25,7 @@ public class GameController : MonoBehaviour
     public int numCoins;
     public int numDeliveredBoxes;
     public int numFailedBoxes;
-
-    [SerializeField]
-    //private GameObject[] brokenRepositories = new GameObject[3];
-    //private List<GameObject> brokenRepositories = new List<GameObject>();
-
-    //public GameObject InkShopButton; // *** M ***   
+    private SmoothMoveSwipe inputManager; 
 
     void Start()
     {
@@ -48,44 +43,39 @@ public class GameController : MonoBehaviour
             repositories[i].transform.localPosition = new Vector3(repositoryXPositions[i], repositories[i].transform.localPosition.y, repositories[i].transform.localPosition.z);
         }
 
-        //Init broken repositories array
-        //TODO: Specify which levels will be have broken repositoies and how much
-        // if (SceneManager.GetActiveScene().name == "SampleScene")
-        // {
-        //     brokenRepositories = new GameObject[3];
-
-        //     GameObject[] ramdomRepositories = repositories;
-        //     ShuffleArray(ramdomRepositories);
-
-        //     for (int i = 0; i < brokenRepositories.Length; i++)
-        //     {
-        //         brokenRepositories[i] = repositories[i];//repositories[Random.Range(0, 6)];
-        //         brokenRepositories[i].GetComponent<InkRepositoryController>().isBroken = true;
-        //     }
-        // }
+        inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (uiController.timeRemaining > 0)
         {
-            NewPaintFluid();
+            if (isPainting)
+                Paint();
+
+            #region PC Input            
+            if (Input.GetButtonDown("Jump"))
+                NewPaintFluid();
+
+            if (Input.GetButtonDown("Horizontal")
+               && !isChangingRepository)
+            {
+                if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f ){
+                    inputManager.CallFly("right");
+                    isChangingRepository = true;
+                }
+                else if (Input.GetAxisRaw("Horizontal") < 0 && inputManager.transform.position.x > -7f){
+                    inputManager.CallFly("left");
+                    isChangingRepository = true;
+                }
+            }
+            #endregion            
         }
-
-        if (isPainting)
-            Paint();
-
-        //InkShopButton.SetActive(true); // *** M ***
     }
 
     public void NewPaintFluid()
     {
-        // if (currentBox && currentRepository.GetComponent<InkRepositoryController>().isBroken)
-        // {
-        //     print("Its broken!");
-        //     currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");
-        // }
         if (!isChangingRepository
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
@@ -95,8 +85,7 @@ public class GameController : MonoBehaviour
             if (currentRepository.GetComponent<InkRepositoryController>().isBroken)
             {
                 print("Its broken!");
-                currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");    
-                //StartCoroutine(currentRepository.GetComponent<InkRepositoryController>().EmptyRepositoryIndicator());
+                currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");
                 InkMachine_AS.clip = glitchClip;
                 InkMachine_AS.volume = 0.08f;
                 InkMachine_AS.Play();
@@ -182,16 +171,9 @@ public class GameController : MonoBehaviour
             }
 
             isPainting = false;
-
             CancelInvoke("Vibrate");
         }
     }
-
-    //Now its in UIController
-    // public void RestartGame()
-    // {
-    //     SceneManager.LoadScene("SampleScene");
-    // }
 
     public void ChangeCurrentBox(GameObject newBox)
     {
@@ -246,7 +228,7 @@ public class GameController : MonoBehaviour
     }
 
     public void FixRepository(GameObject brokenRepository)
-    { 
+    {
         brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
         brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
 
@@ -258,7 +240,7 @@ public class GameController : MonoBehaviour
         repositoryToBroke.GetComponent<InkRepositoryController>().isBroken = true;
 
         //Panel_Ink_Buckets - management
-        GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(repositoryToBroke.name).gameObject;        
+        GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(repositoryToBroke.name).gameObject;
         bucketButton.GetComponent<Button>().interactable = false;
         Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
         bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0.6f);
@@ -267,9 +249,6 @@ public class GameController : MonoBehaviour
         repositoryToBroke.transform.Find("HourGlass_SVG").gameObject.SetActive(false);
         repositoryToBroke.transform.Find("InkMask").gameObject.SetActive(false);
         repositoryToBroke.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(true);
-        
-
-        // brokenRepoksitories.Add(repositoryToBroke);
     }
 
     public void FinishRepair(GameObject FixedRepository)
@@ -287,7 +266,6 @@ public class GameController : MonoBehaviour
         Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
         bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 1f);
         bucketButton.transform.Find("Tool").gameObject.SetActive(false);
-        //brokenRepositories.Remove(FixedRepository);
 
         FixedRepository.transform.Find("HourGlass_SVG").gameObject.SetActive(true);
         FixedRepository.transform.Find("InkMask").gameObject.SetActive(true);

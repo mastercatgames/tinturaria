@@ -113,4 +113,9 @@ public class SmoothMoveSwipe : MonoBehaviour
 
         audioSource.pitch = Mathf.Lerp(audioSource.pitch, targetPitch, flightDuration * Time.deltaTime);
     }
+
+    public void CallFly(string direction)
+    {
+        StartCoroutine(Fly(direction));
+    }
 }
