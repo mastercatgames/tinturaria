@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     public Text quoteText;
 
     void Start()
-    {
+    {        
         //timeRemaining = 120;
         // Starts the timer automatically
         //TODO: Start after 3 seconds
@@ -119,7 +119,20 @@ public class UIController : MonoBehaviour
         boxesFailedText.transform.Find("num").GetComponent<Text>().text = (gameController.numFailedBoxes * 150).ToString();
 
         //Total
-        totalText.transform.Find("num").GetComponent<Text>().text = gameController.numCoins.ToString();
+        totalText.transform.Find("num").GetComponent<Text>().text = gameController.numCoinsText.text;
+
+        HideGameplayObjects();
+    }
+
+    private void HideGameplayObjects()
+    {
+        gameController.transform.parent.Find("TopInkMachine").gameObject.SetActive(false);
+        gameController.transform.parent.Find("BottomInkMachine").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Timer").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(false);
     }
 
     private void ShowFinalQuote(int numStarsWon)
