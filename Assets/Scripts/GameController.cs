@@ -110,6 +110,8 @@ public class GameController : MonoBehaviour
                 InkMachine_AS.Play();
                 currentRepository.GetComponent<InkRepositoryController>().CallTurnOffLight();
                 InvokeRepeating("Vibrate", 1.0f, 0.2f);
+                //Block Box Chganging
+                uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = false;
             }
             else
             {
@@ -172,6 +174,7 @@ public class GameController : MonoBehaviour
 
             isPainting = false;
             CancelInvoke("Vibrate");
+            uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = true;
         }
     }
 
