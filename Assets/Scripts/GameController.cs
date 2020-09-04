@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public int numCoins;
     public int numDeliveredBoxes;
     public int numFailedBoxes;
-    private SmoothMoveSwipe inputManager; 
+    private SmoothMoveSwipe inputManager;
 
     void Start()
     {
@@ -61,11 +61,13 @@ public class GameController : MonoBehaviour
             if (Input.GetButtonDown("Horizontal")
                && !isChangingRepository)
             {
-                if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f ){
+                if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f)
+                {
                     inputManager.CallFly("right");
                     isChangingRepository = true;
                 }
-                else if (Input.GetAxisRaw("Horizontal") < 0 && inputManager.transform.position.x > -7f){
+                else if (Input.GetAxisRaw("Horizontal") < 0 && inputManager.transform.position.x > -7f)
+                {
                     inputManager.CallFly("left");
                     isChangingRepository = true;
                 }
@@ -187,6 +189,15 @@ public class GameController : MonoBehaviour
         newBox.SetActive(true);
         currentBox = newBox;
         uiController.ClosePanel(PanelForms);
+
+        //Avoid the ink (metadata) out of the box when change
+        currentBox.transform.Find("InsideBox").gameObject.SetActive(false);
+        Invoke("ActiveInsideBox", 0.8f);
+    }
+
+    void ActiveInsideBox()
+    {
+        currentBox.transform.Find("InsideBox").gameObject.SetActive(true);
     }
 
     void DestroyAllMetaballs()
