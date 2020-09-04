@@ -13,6 +13,7 @@ public class RequestBox : MonoBehaviour
     private float barSpeed;
     public Color colorRequested;
     public Sprite boxRequested;
+    public GameObject colorRepositoryObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +71,13 @@ public class RequestBox : MonoBehaviour
         //TODO: Discount coins
         transform.parent.GetComponent<RequestPanelController>().numOfRequests--;
         Destroy(this.gameObject);
+        bool removed = requestPanelController.colorsRequested.Remove(colorRepositoryObj);
+
+        if (removed)
+            print(colorRepositoryObj + " was removed from ColorsRequested list!");
+        else
+            print("(BUG)" + colorRepositoryObj + " wasn't removed from ColorsRequested list!");
+
     }
 
     public void DeliveryBox()
@@ -84,11 +92,11 @@ public class RequestBox : MonoBehaviour
 
         gameController.EarnCoins();
 
-// print(transform.parent);
-// print(transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count);
+        // print(transform.parent);
+        // print(transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count);
         //Broke a repository
         // GameObject repositoryToBroke = transform.parent.GetComponent<RequestPanelController>().colorsRequested[transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count -1];
-        
+
         // gameController.BrokeRepository(repositoryToBroke);
         // print("Must broke the *" + repositoryToBroke.name + "*");
 

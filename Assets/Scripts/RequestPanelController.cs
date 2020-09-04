@@ -34,11 +34,14 @@ public class RequestPanelController : MonoBehaviour
 
             box.GetComponent<RequestBox>().boxRequested = boxes[Random.Range(0,6)].transform.Find("Box").GetComponent<SpriteRenderer>().sprite;
 
-            GameObject colorRepositoryObj = colors[Random.Range(0,6)];
+            //GameObject colorRepositoryObj = colors[Random.Range(0,6)];
 
-            colorsRequested.Add(colorRepositoryObj);
+            box.GetComponent<RequestBox>().colorRepositoryObj = RequestRamdomColor();
+            print(box.GetComponent<RequestBox>().colorRepositoryObj.name + " requested!");
 
-            box.GetComponent<RequestBox>().colorRequested = colorRepositoryObj.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
+            colorsRequested.Add(box.GetComponent<RequestBox>().colorRepositoryObj);
+
+            box.GetComponent<RequestBox>().colorRequested = box.GetComponent<RequestBox>().colorRepositoryObj.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
 
             box.transform.Find("Form").GetComponent<Image>().sprite = box.GetComponent<RequestBox>().boxRequested;
             box.transform.Find("Color").GetComponent<Image>().color = box.GetComponent<RequestBox>().colorRequested;
@@ -56,7 +59,7 @@ public class RequestPanelController : MonoBehaviour
             {
                 if (position == TotalRequests)
                 {
-                    gameController.BrokeRepository(colorRepositoryObj);
+                    gameController.BrokeRepository(box.GetComponent<RequestBox>().colorRepositoryObj);
                     break;
                 }
             }
@@ -64,8 +67,19 @@ public class RequestPanelController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private GameObject RequestRamdomColor()
     {
+        GameObject repositoryToRequest = colors[Random.Range(0,6)];
+        foreach (GameObject colorObj in colorsRequested)
+        {
+            //Verify if color already requested 
+            //(It will not repeat itself if the color already on screen)
+            if (repositoryToRequest.name == colorObj.name)
+            {
+                print(repositoryToRequest.name + " already requested. Requesting again...");
+                return RequestRamdomColor();
+            }
+        }        
+        return repositoryToRequest;
     }
 }
