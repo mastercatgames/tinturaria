@@ -19,9 +19,12 @@ public class UIController : MonoBehaviour
     public Text boxesFailedText;
     public Text totalText;
     public Text quoteText;
+    public Text numCoinsText;
+    public GameObject menu;
+    public Text readyGo;
 
     void Start()
-    {        
+    {
         //timeRemaining = 120;
         // Starts the timer automatically
         //TODO: Start after 3 seconds
@@ -31,6 +34,9 @@ public class UIController : MonoBehaviour
 
         //Increase music volume
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
+
+        HideGameplayObjects();
+        ShowMenu();
     }
 
     void Update()
@@ -122,7 +128,7 @@ public class UIController : MonoBehaviour
         boxesFailedText.transform.Find("num").GetComponent<Text>().text = (gameController.numFailedBoxes * 150).ToString();
 
         //Total
-        totalText.transform.Find("num").GetComponent<Text>().text = gameController.numCoinsText.text;
+        totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
 
         HideGameplayObjects();
     }
@@ -136,6 +142,27 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(false);
+    }
+
+    public void ShowAllGameplayObjects()
+    {
+        gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
+//        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
+        // gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
+        // gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(true);
+    }
+
+    private void ShowInkMachine()
+    {
+        gameController.transform.parent.Find("TopInkMachine").gameObject.SetActive(true);
+        gameController.transform.parent.Find("BottomInkMachine").gameObject.SetActive(true);
+        //Call Auto Animation
+
+        //Call other objects
+        gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
     }
 
     private void ShowFinalQuote(int numStarsWon)
@@ -170,5 +197,22 @@ public class UIController : MonoBehaviour
         if (speed > 0)
             animator.speed = speed;
         print("Finish Animation!");
+    }
+
+    public void TapToPlay()
+    {
+        //When showing ink machine here, it has an animation that calls TapToPlay script events
+        ShowInkMachine();
+        HideMenu();
+    }
+
+    private void ShowMenu()
+    {
+        menu.SetActive(true);
+    }
+
+    private void HideMenu()
+    {
+        menu.SetActive(false);
     }
 }

@@ -17,11 +17,10 @@ public class GameController : MonoBehaviour
     public bool isChangingRepository;
     private UIController uiController;
     private LevelManager levelManager;
-    public GameObject PanelForms;
-    public GameObject Panel_Ink_Buckets;
-    public GameObject RequestPanel;
-    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
-    public Text numCoinsText;
+    private GameObject PanelForms;
+    private GameObject Panel_Ink_Buckets;
+    private GameObject RequestPanel;
+    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };    
     public int numCoins;
     public int numDeliveredBoxes;
     public int numFailedBoxes;
@@ -44,6 +43,13 @@ public class GameController : MonoBehaviour
         }
 
         inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
+
+        //Init UI variables
+        Transform UI = uiController.transform.parent;
+
+        PanelForms = UI.Find("Panel_Forms").gameObject;
+        Panel_Ink_Buckets = UI.Find("Panel_Ink_Buckets").gameObject;
+        RequestPanel = UI.Find("RequestPanel").gameObject;
     }
 
     // Update is called once per frame
@@ -230,14 +236,14 @@ public class GameController : MonoBehaviour
     public void EarnCoins()
     {
         numCoins += 100;
-        numCoinsText.text = numCoins.ToString();
+        uiController.numCoinsText.text = numCoins.ToString();
         numDeliveredBoxes++;
     }
 
     public void DiscountCoins()
     {
         numCoins -= 150;
-        numCoinsText.text = numCoins.ToString();
+        uiController.numCoinsText.text = numCoins.ToString();
         numFailedBoxes++;
     }
 

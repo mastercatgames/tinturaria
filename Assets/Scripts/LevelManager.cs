@@ -25,8 +25,6 @@ public class LevelManager : MonoBehaviour
 
     private void SetLevelVariables()
     {
-        uiController.timerIsRunning = true;
-
         if (world == 1)
         {
             oneStarCoins = twoStarCoins = threeStarCoins = 100;
@@ -39,7 +37,6 @@ public class LevelManager : MonoBehaviour
             {
                 //1-1 is a tutorial
                 //TODO: Make a tutorial design
-                uiController.timerIsRunning = false;
                 print("Tutorial Level!");
                 uiController.timeText.gameObject.SetActive(false);
             }
