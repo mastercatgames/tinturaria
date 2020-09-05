@@ -28,6 +28,9 @@ public class UIController : MonoBehaviour
         //timerIsRunning = true;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+
+        //Increase music volume
+        GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
     }
 
     void Update()
