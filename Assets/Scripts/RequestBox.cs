@@ -20,7 +20,7 @@ public class RequestBox : MonoBehaviour
         bar = transform.Find("BarBG").Find("Bar").GetComponent<Image>();
         maskColor = transform.Find("MaskColor").GetComponent<Image>();
         requestPanelController = transform.parent.GetComponent<RequestPanelController>();
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         //TODO: Test the best time to fit in gameplay
         //0.01f = 01:40m
         //0.02f = 00:50m (50 sec)

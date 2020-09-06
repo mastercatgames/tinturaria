@@ -32,13 +32,13 @@ public class UIController : MonoBehaviour
         // Starts the timer automatically
         //TODO: Start after 3 seconds
         //timerIsRunning = true;
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
 
         //Increase music volume
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
 
-        HideGameplayObjects();
+        //HideGameplayObjects();
         ShowMenu();
 
         //World
@@ -51,7 +51,6 @@ public class UIController : MonoBehaviour
                 CreateLevelButton(i + "_" + j);
             }
         }
-
     }
 
     void Update()
@@ -160,10 +159,10 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowAllGameplayObjects()
-    {
+    {        
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
         //        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
         // gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         // gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
     }
@@ -230,6 +229,7 @@ public class UIController : MonoBehaviour
 
     public void TapToPlay()
     {
+        GameObject.Find("Gameplay").transform.Find("GameController").gameObject.SetActive(true);
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();

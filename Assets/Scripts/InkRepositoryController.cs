@@ -41,9 +41,11 @@ public class InkRepositoryController : MonoBehaviour
 
         transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
 
         initLights();
+
+        print("Ink Repository Controller");
     }
 
     private void initLights()

@@ -23,6 +23,7 @@ public class TapToPlay : MonoBehaviour
 
     public void StartGame()
     {
+        //Shoot this event at the end of the ZoonInkMachine animation
         uiController.readyGo.gameObject.SetActive(false);
         uiController.ShowAllGameplayObjects();
         uiController.isInGamePlay = true;
