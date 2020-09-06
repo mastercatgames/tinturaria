@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     public int numCoins;
     public int numDeliveredBoxes;
     public int numFailedBoxes;
-    private SmoothMoveSwipe inputManager;
+    public SmoothMoveSwipe inputManager;
 
     void Start()
     {
@@ -40,9 +40,7 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < repositories.Length; i++)
         {
             repositories[i].transform.localPosition = new Vector3(repositoryXPositions[i], repositories[i].transform.localPosition.y, repositories[i].transform.localPosition.z);
-        }
-
-        inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
+        }        
 
         //Init UI variables
         Transform UI = uiController.transform.parent;

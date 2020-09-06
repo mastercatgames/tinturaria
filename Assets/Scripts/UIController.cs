@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     public Text numCoinsText;
     public GameObject menu;
     public Text readyGo;
+    public Button LevelButton;
+    public bool isInGamePlay;
 
     void Start()
     {
@@ -37,6 +39,18 @@ public class UIController : MonoBehaviour
 
         HideGameplayObjects();
         ShowMenu();
+
+        //World
+        for (int i = 1; i <= 14; i++)
+        {
+            //Level
+            for (int j = 1; j <= 3; j++)
+            {
+                // i = 1; j = i
+                CreateLevelButton(i + "_" + j);
+            }
+        }
+
     }
 
     void Update()
@@ -141,28 +155,38 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Timer").gameObject.SetActive(false);
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
-        gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(false);
     }
 
     public void ShowAllGameplayObjects()
     {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
-//        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
+        //        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
         // gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
-        // gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(true);
+        // gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
     {
+        //Call Auto Animation when active
         gameController.transform.parent.Find("TopInkMachine").gameObject.SetActive(true);
         gameController.transform.parent.Find("BottomInkMachine").gameObject.SetActive(true);
-        //Call Auto Animation
+
+        //Load inputManager here because when gameplay script start, the ink machine comes hidden
+        //and this code returns null there. Then, here works fine
+        gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));        
 
         //Call other objects
-        gameObject.transform.parent.Find("Restart_Button").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
+
+        if (!isInGamePlay)
+        {
+            gameObject.transform.parent.Find("ReadyGo").gameObject.SetActive(true);
+        }
     }
 
     private void ShowFinalQuote(int numStarsWon)
@@ -204,6 +228,15 @@ public class UIController : MonoBehaviour
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
+        //ShowAllGameplayObjects();
+        if (isInGamePlay)
+        {
+            timerIsRunning = true;
+            ShowAllGameplayObjects();
+            Time.timeScale = 1f;
+        }       
+
+        //isInGamePlay = true; 
     }
 
     private void ShowMenu()
@@ -214,5 +247,54 @@ public class UIController : MonoBehaviour
     private void HideMenu()
     {
         menu.SetActive(false);
+    }
+
+    public void CreateLevelButton(string levelName)
+    {
+        var button = Instantiate(LevelButton) as Button;
+        button.name = levelName;
+        button.gameObject.transform.Find("Text").GetComponent<Text>().text = levelName;
+
+        var rectTransform = button.GetComponent<RectTransform>();
+        rectTransform.SetParent(menu.transform.Find("Levels").Find("ButtonsGrid"));
+        button.onClick.AddListener(delegate { LoadLevel(button.name); });
+    }
+
+    public void LoadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+        Time.timeScale = 1f;
+    }
+
+    public void BackToMainMenu()
+    {
+        menu.transform.Find("Levels").gameObject.SetActive(false);
+        menu.transform.Find("Settings").gameObject.SetActive(false);
+        menu.transform.Find("ButtonsGridBack").gameObject.SetActive(false);
+        menu.transform.Find("Main").gameObject.SetActive(true);
+    }
+
+    public void OpenSettings()
+    {
+        menu.transform.Find("Main").gameObject.SetActive(false);
+        menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
+        menu.transform.Find("Settings").gameObject.SetActive(true);
+    }
+
+    public void OpenLevels()
+    {
+        menu.transform.Find("Main").gameObject.SetActive(false);
+        menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
+        menu.transform.Find("Levels").gameObject.SetActive(true);
+    }
+
+    public void PauseGame()
+    {
+        print("Pause!");
+        menu.gameObject.SetActive(true);
+        //gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(false);
+        timerIsRunning = false;
+
+        Time.timeScale = 0f;
     }
 }
