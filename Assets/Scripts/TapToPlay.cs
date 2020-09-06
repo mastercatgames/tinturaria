@@ -25,7 +25,11 @@ public class TapToPlay : MonoBehaviour
     {
         uiController.readyGo.gameObject.SetActive(false);
         uiController.ShowAllGameplayObjects();
-        uiController.timerIsRunning = true;
-        uiController.isInGamePlay = true;                
+        uiController.isInGamePlay = true;
+
+        if (!uiController.isTutorial)
+        {
+            uiController.timerIsRunning = true;
+        }        
     }
 }

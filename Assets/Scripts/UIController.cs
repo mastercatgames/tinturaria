@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
     public Text readyGo;
     public Button LevelButton;
     public bool isInGamePlay;
+    public bool isTutorial;
 
     void Start()
     {
@@ -175,13 +176,17 @@ public class UIController : MonoBehaviour
 
         //Load inputManager here because when gameplay script start, the ink machine comes hidden
         //and this code returns null there. Then, here works fine
-        gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));        
+        gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
 
         //Call other objects
         gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
-        gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
-        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);        
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
+
+        if (!isTutorial)
+        {
+            gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
+        }
 
         if (!isInGamePlay)
         {
@@ -228,15 +233,22 @@ public class UIController : MonoBehaviour
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
-        //ShowAllGameplayObjects();
         if (isInGamePlay)
         {
-            timerIsRunning = true;
+            if (!isTutorial)
+            {
+                timerIsRunning = true;
+            }
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
-        }       
-
-        //isInGamePlay = true; 
+        }
+        //If is the TUTORIAL level
+        // if (levelManager.world == 1 && levelManager.level == 1)
+        // {
+        //     timerIsRunning = false;
+        //     isTutorial = true;
+        //     print("Tutorial Level!");
+        // }
     }
 
     private void ShowMenu()

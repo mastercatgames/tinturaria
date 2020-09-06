@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
             {
                 //1-1 is a tutorial
                 //TODO: Make a tutorial design
-                print("Tutorial Level!");
+                uiController.isTutorial = true;
                 uiController.timeText.gameObject.SetActive(false);
             }
         }
