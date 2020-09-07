@@ -21,7 +21,7 @@ public class SmoothMoveSwipe : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
     }
 

@@ -32,13 +32,13 @@ public class UIController : MonoBehaviour
         // Starts the timer automatically
         //TODO: Start after 3 seconds
         //timerIsRunning = true;
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
 
         //Increase music volume
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
 
-        HideGameplayObjects();
+        //HideGameplayObjects();
         ShowMenu();
 
         //World
@@ -51,7 +51,6 @@ public class UIController : MonoBehaviour
                 CreateLevelButton(i + "_" + j);
             }
         }
-
     }
 
     void Update()
@@ -160,10 +159,10 @@ public class UIController : MonoBehaviour
     }
 
     public void ShowAllGameplayObjects()
-    {
+    {        
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
         //        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
         // gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         // gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
     }
@@ -230,6 +229,7 @@ public class UIController : MonoBehaviour
 
     public void TapToPlay()
     {
+        GameObject.Find("Gameplay").transform.Find("GameController").gameObject.SetActive(true);
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
@@ -242,6 +242,8 @@ public class UIController : MonoBehaviour
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
         }
+
+        RefreshToolsCount();
         //If is the TUTORIAL level
         // if (levelManager.world == 1 && levelManager.level == 1)
         // {
@@ -308,5 +310,15 @@ public class UIController : MonoBehaviour
         timerIsRunning = false;
 
         Time.timeScale = 0f;
+    }
+
+    public void RefreshToolsCount()
+    {
+        Transform bucketsButtons = gameObject.transform.parent.Find("Panel_Ink_Buckets").Find("Buckets");
+        foreach (Transform bucket in bucketsButtons)
+        {
+            print(bucket.Find("Tool"));
+            bucket.Find("Tool").Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("toolsCount").ToString();
+        }
     }
 }

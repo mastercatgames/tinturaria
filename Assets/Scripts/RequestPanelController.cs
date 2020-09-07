@@ -22,7 +22,7 @@ public class RequestPanelController : MonoBehaviour
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         InvokeRepeating("RequestBox", 1f, 15f);
     }
 
