@@ -83,7 +83,7 @@ public class InkRepositoryController : MonoBehaviour
             }
             //If fixing time is over
             else
-            {                
+            {
                 gameController.FinishRepair(gameObject);
             }
         }
@@ -105,14 +105,29 @@ public class InkRepositoryController : MonoBehaviour
         {
             isFilling = true;
             StartCoroutine(AutoTurnOnLightsOnFill());
+            uiController.ClosePanel(BucketPanel);
         }
         else
         {
             //Fix repository!
-            gameController.FixRepository(gameObject);
+            int toolsCount = PlayerPrefs.GetInt("toolsCount");
+
+            if (toolsCount > 0 && !isFixing)
+            {
+                uiController.ClosePanel(BucketPanel);
+                gameController.FixRepository(gameObject);
+
+                //Discount toolsCount
+                PlayerPrefs.SetInt("toolsCount", toolsCount - 1);
+                uiController.RefreshToolsCount();
+            }
+            else
+            {
+                print("You have no fixing tools!");
+                //TODO: Alert
+            }
         }
-        uiController.ClosePanel(BucketPanel);
-    }    
+    }
 
     IEnumerator AutoTurnOnLightsOnFill()
     {

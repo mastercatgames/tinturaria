@@ -242,6 +242,8 @@ public class UIController : MonoBehaviour
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
         }
+
+        RefreshToolsCount();
         //If is the TUTORIAL level
         // if (levelManager.world == 1 && levelManager.level == 1)
         // {
@@ -308,5 +310,15 @@ public class UIController : MonoBehaviour
         timerIsRunning = false;
 
         Time.timeScale = 0f;
+    }
+
+    public void RefreshToolsCount()
+    {
+        Transform bucketsButtons = gameObject.transform.parent.Find("Panel_Ink_Buckets").Find("Buckets");
+        foreach (Transform bucket in bucketsButtons)
+        {
+            print(bucket.Find("Tool"));
+            bucket.Find("Tool").Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("toolsCount").ToString();
+        }
     }
 }
