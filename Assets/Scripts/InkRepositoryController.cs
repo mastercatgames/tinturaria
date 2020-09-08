@@ -8,10 +8,12 @@ public class InkRepositoryController : MonoBehaviour
     [Range(0f, 1f)] public float limitToFill;
     private GameController gameController;
     private UIController uiController;
+    private PowerUpsController powerUpsController;
     public GameObject BucketPanel;
     private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
     public bool isFilling = false;
-    [Range(0.3f, 3f)] public float fillSpeed = 0.03f;
+    /*[Range(0.05f, 3f)]*/ public float fillSpeed;
+    /*[Range(0.05f, 3f)]*/ private float originalFillSpeed;
     public int currentLight;
     public float lightSpeed;
     public bool isBroken;
@@ -21,7 +23,9 @@ public class InkRepositoryController : MonoBehaviour
 
     void Start()
     {
-        lightSpeed = 0.2f;
+        originalFillSpeed = 0.2f;
+        lightSpeed = originalFillSpeed;
+        fillSpeed = 0.15f; //TODO: Think if its better to make the fill slower, like 0.1f (then you can use the power up to fill faster)
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         //TODO: Each hourglass can be initialized "broken" or "empty"
         inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
@@ -45,7 +49,9 @@ public class InkRepositoryController : MonoBehaviour
 
         initLights();
 
-        print("Ink Repository Controller");
+        //powerUpsController = GameObject.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+
+        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
     }
 
     private void initLights()
@@ -72,6 +78,8 @@ public class InkRepositoryController : MonoBehaviour
                 isFilling = false;
                 inkfillAmount = 1f; //fix the value to 1 instead of 1.054f, e.g.
                 limitToFill = inkfillAmount - 0.25f;
+                fillSpeed = originalFillSpeed;
+                powerUpsController.BoosterFilling_OneBottle_Flag = false;
             }
         }
 
@@ -106,6 +114,13 @@ public class InkRepositoryController : MonoBehaviour
             isFilling = true;
             StartCoroutine(AutoTurnOnLightsOnFill());
             uiController.ClosePanel(BucketPanel);
+
+            uiController.InkBtn_BoosterFilling_Icon_SetActive(false);
+
+            if (powerUpsController.BoosterFilling_OneBottle_Flag)
+            {
+                fillSpeed = 2f;
+            }
         }
         else
         {
