@@ -244,6 +244,7 @@ public class UIController : MonoBehaviour
         }
 
         RefreshToolsCount();
+        RefreshPowerUpsCount();
         //If is the TUTORIAL level
         // if (levelManager.world == 1 && levelManager.level == 1)
         // {
@@ -320,5 +321,20 @@ public class UIController : MonoBehaviour
             print(bucket.Find("Tool"));
             bucket.Find("Tool").Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("toolsCount").ToString();
         }
+    }
+
+    public void RefreshPowerUpsCount()
+    {
+        Transform powerUpsButtons = gameObject.transform.parent.Find("Panel_PowerUps").Find("PowerUps");
+        foreach (Transform powerUp in powerUpsButtons)
+        {
+            powerUp.Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("PowerUp_" + powerUp.name).ToString();
+        }
+    }
+
+    public void InkBtn_BoosterFilling_Icon_SetActive(bool active)
+    {
+        GameObject InkBtn_BoosterFilling_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("BoosterFilling_Icon").gameObject;
+        InkBtn_BoosterFilling_Icon.SetActive(active);
     }
 }
