@@ -63,7 +63,8 @@ public class GameController : MonoBehaviour
                 NewPaintFluid();
 
             if (Input.GetButtonDown("Horizontal")
-               && !isChangingRepository)
+               && !isChangingRepository
+               && !isPainting)
             {
                 if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f)
                 {
