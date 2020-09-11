@@ -341,6 +341,12 @@ public class UIController : MonoBehaviour
     {
         GameObject InkBtn_BoosterFillingBox_Icon = gameController.transform.parent.Find("BottomInkMachine").Find("BoosterFillingBoxIcon").gameObject;
         InkBtn_BoosterFillingBox_Icon.SetActive(active);
+
+        //Fix animation when show icon
+        if (active == false)
+        {
+            InkBtn_BoosterFillingBox_Icon.transform.localScale = Vector3.zero;
+        }
     }
 
     public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)

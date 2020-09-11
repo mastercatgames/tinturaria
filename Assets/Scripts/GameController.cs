@@ -214,6 +214,7 @@ public class GameController : MonoBehaviour
         uiController.ClosePanel(PanelForms);
 
         uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
+        uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
 
         //Avoid the ink (metadata) out of the box when change
         currentBox.transform.Find("InsideBox").gameObject.SetActive(false);
