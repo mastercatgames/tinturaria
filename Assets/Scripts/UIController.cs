@@ -337,4 +337,14 @@ public class UIController : MonoBehaviour
         GameObject InkBtn_BoosterFilling_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("BoosterFilling_Icon").gameObject;
         InkBtn_BoosterFilling_Icon.SetActive(active);
     }
+    public void InkBtn_BoosterFillingBox_Icon_SetActive(bool active)
+    {
+        GameObject InkBtn_BoosterFillingBox_Icon = gameController.transform.parent.Find("BottomInkMachine").Find("BoosterFillingBoxIcon").gameObject;
+        InkBtn_BoosterFillingBox_Icon.SetActive(active);
+    }
+
+    public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)
+    {
+        gameObject.transform.parent.Find("Panel_PowerUps").Find("PowerUps").Find(buttonName).GetComponent<Button>().interactable = interactable;
+    }
 }

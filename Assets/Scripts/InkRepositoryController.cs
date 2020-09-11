@@ -72,6 +72,8 @@ public class InkRepositoryController : MonoBehaviour
             transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
             //AutoTurnOnLightsOnFill(inkfillAmount);
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
 
             if (inkfillAmount >= 1f)
             {
@@ -79,7 +81,10 @@ public class InkRepositoryController : MonoBehaviour
                 inkfillAmount = 1f; //fix the value to 1 instead of 1.054f, e.g.
                 limitToFill = inkfillAmount - 0.25f;
                 fillSpeed = originalFillSpeed;
+                //Reset power up status (reactivate button and hide icon)
                 powerUpsController.BoosterFilling_OneBottle_Flag = false;
+                uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", true);
+                uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", true);
             }
         }
 
