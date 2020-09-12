@@ -18,37 +18,46 @@ public class PowerUpsController : MonoBehaviour
     public void BoosterFilling_OneBottle()
     {
         int boosterFilling_OneBottle = PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle");
-        PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", boosterFilling_OneBottle - 1);
 
-        uiController.InkBtn_BoosterFilling_Icon_SetActive(true);
-
-        uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
-        uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
-
-        BoosterFilling_OneBottle_Flag = true;
-
-        uiController.RefreshPowerUpsCount();
-        uiController.ClosePanel(gameObject);
+        if (boosterFilling_OneBottle > 0)
+        {
+            BoosterFilling_OneBottle_Flag = true;
+            PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", boosterFilling_OneBottle - 1);            
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);
+            uiController.InkBtn_BoosterFilling_Icon_SetActive(true);
+        }
+        else
+        {
+            print("You have to buy this power up!");
+        }
     }
 
     public void BoosterFilling_Box()
     {
-        Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, -10f);
-        gameController.paintSpeed = 2f;
-
         int boosterFilling_OneBottle = PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box");
-        PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", boosterFilling_OneBottle - 1);
 
-        if (gameController.currentBox != null)
-        {
-            uiController.InkBtn_BoosterFillingBox_Icon_SetActive(true);
+        if (boosterFilling_OneBottle > 0)
+        {            
+            BoosterFilling_Box_Flag = true;
+            PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", boosterFilling_OneBottle - 1);
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);
+            
+            if (gameController.currentBox != null)
+            {
+                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(true);
+            }
+
+            Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, -10f);
+            gameController.paintSpeed = 2f;
         }
-
-        uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", false);
-
-        BoosterFilling_Box_Flag = true;
-
-        uiController.RefreshPowerUpsCount();
-        uiController.ClosePanel(gameObject);
+        else
+        {
+            print("You have to buy this power up!");
+        }
     }
 }
