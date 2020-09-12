@@ -8,6 +8,7 @@ public class PowerUpsController : MonoBehaviour
     private GameController gameController;
     public bool BoosterFilling_OneBottle_Flag;
     public bool BoosterFilling_Box_Flag;
+    public bool NoBrokenBottles_Flag;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +84,25 @@ public class PowerUpsController : MonoBehaviour
 
             Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, -10f);
             gameController.paintSpeed = 2f;
+        }
+        else
+        {
+            print("You have to buy this power up!");
+        }
+    }
+
+    public void NoBrokenBottles()
+    {
+        int noBrokenBottles = PlayerPrefs.GetInt("PowerUp_NoBrokenBottles");
+
+        if (noBrokenBottles > 0)
+        {
+            NoBrokenBottles_Flag = true;
+            PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", noBrokenBottles - 1);
+            uiController.Panel_PowerUps_SetInteractable("NoBrokenBottles", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);
+            uiController.InkBtn_NoBrokenBottles_Icon_SetActive(true);
         }
         else
         {
