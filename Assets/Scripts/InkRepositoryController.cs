@@ -12,8 +12,10 @@ public class InkRepositoryController : MonoBehaviour
     public GameObject BucketPanel;
     private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
     public bool isFilling = false;
-    /*[Range(0.05f, 3f)]*/ public float fillSpeed;
-    /*[Range(0.05f, 3f)]*/ private float originalFillSpeed;
+    /*[Range(0.05f, 3f)]*/
+    public float fillSpeed;
+    /*[Range(0.05f, 3f)]*/
+    private float originalFillSpeed;
     public int currentLight;
     public float lightSpeed;
     public bool isBroken;
@@ -129,22 +131,26 @@ public class InkRepositoryController : MonoBehaviour
         }
         else
         {
-            //Fix repository!
-            int toolsCount = PlayerPrefs.GetInt("toolsCount");
-
-            if (toolsCount > 0 && !isFixing)
+            //If using the power up to fill all bottles, ignore..
+            if (!powerUpsController.BoosterFilling_OneBottle_Flag)
             {
-                uiController.ClosePanel(BucketPanel);
-                gameController.FixRepository(gameObject);
+                //Fix repository!
+                int toolsCount = PlayerPrefs.GetInt("toolsCount");
 
-                //Discount toolsCount
-                PlayerPrefs.SetInt("toolsCount", toolsCount - 1);
-                uiController.RefreshToolsCount();
-            }
-            else
-            {
-                print("You have no fixing tools!");
-                //TODO: Alert
+                if (toolsCount > 0 && !isFixing)
+                {
+                    uiController.ClosePanel(BucketPanel);
+                    gameController.FixRepository(gameObject);
+
+                    //Discount toolsCount
+                    PlayerPrefs.SetInt("toolsCount", toolsCount - 1);
+                    uiController.RefreshToolsCount();
+                }
+                else
+                {
+                    print("You have no fixing tools!");
+                    //TODO: Alert
+                }
             }
         }
     }

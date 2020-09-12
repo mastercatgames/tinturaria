@@ -22,7 +22,7 @@ public class PowerUpsController : MonoBehaviour
         if (boosterFilling_OneBottle > 0)
         {
             BoosterFilling_OneBottle_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", boosterFilling_OneBottle - 1);            
+            PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", boosterFilling_OneBottle - 1);
             uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
             uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
             uiController.RefreshPowerUpsCount();
@@ -35,18 +35,47 @@ public class PowerUpsController : MonoBehaviour
         }
     }
 
+    public void BoosterFilling_AllBottles()
+    {
+        int boosterFilling_AllBottles = PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles");
+
+        if (boosterFilling_AllBottles > 0)
+        {
+            BoosterFilling_OneBottle_Flag = true; // Activate the flag to fill one bottle faster
+            PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", boosterFilling_AllBottles - 1);
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
+            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);
+
+            foreach (Transform bottle in GameObject.FindGameObjectWithTag("Rail").transform)
+            {
+                //Reset all Bottles to fill at the same time (ignoring the broken ones)
+                if (!bottle.GetComponent<InkRepositoryController>().isBroken)
+                {
+                    bottle.GetComponent<InkRepositoryController>().inkfillAmount = 0f;
+                    bottle.GetComponent<InkRepositoryController>().FillOrFixRepository();
+                }
+            }
+        }
+        else
+        {
+            print("You have to buy this power up!");
+        }
+    }
+
     public void BoosterFilling_Box()
     {
         int boosterFilling_OneBottle = PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box");
 
         if (boosterFilling_OneBottle > 0)
-        {            
+        {
             BoosterFilling_Box_Flag = true;
             PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", boosterFilling_OneBottle - 1);
             uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", false);
             uiController.RefreshPowerUpsCount();
             uiController.ClosePanel(gameObject);
-            
+
             if (gameController.currentBox != null)
             {
                 uiController.InkBtn_BoosterFillingBox_Icon_SetActive(true);
