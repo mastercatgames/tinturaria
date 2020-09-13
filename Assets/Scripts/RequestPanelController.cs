@@ -7,13 +7,14 @@ public class RequestPanelController : MonoBehaviour
 {
     private LevelManager levelManager;
     private GameController gameController;
+    private PowerUpsController powerUpsController;
     public GameObject requestBoxPrefab;
     public int numOfRequests;
     public Color RedColor;
     public Color GreenColor;
     public Color YellowColor;
     public GameObject[] boxes;
-    public GameObject[] colors;    
+    public GameObject[] colors;
     public AudioSource DeliveryFailed_AS;
     public AudioSource DeliverySuccessful_AS;
     public List<GameObject> colorsRequested;
@@ -23,6 +24,7 @@ public class RequestPanelController : MonoBehaviour
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
+        powerUpsController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>().transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
         InvokeRepeating("RequestBox", 1f, 15f);
     }
 
@@ -32,7 +34,7 @@ public class RequestPanelController : MonoBehaviour
         {
             GameObject box = Instantiate(requestBoxPrefab);
 
-            box.GetComponent<RequestBox>().boxRequested = boxes[Random.Range(0,6)].transform.Find("Box").GetComponent<SpriteRenderer>().sprite;
+            box.GetComponent<RequestBox>().boxRequested = boxes[Random.Range(0, 6)].transform.Find("Box").GetComponent<SpriteRenderer>().sprite;
 
             //GameObject colorRepositoryObj = colors[Random.Range(0,6)];
 
@@ -48,28 +50,30 @@ public class RequestPanelController : MonoBehaviour
 
             //print(GameObject.FindGameObjectWithTag("Rail").transform.Find(colorRepositoryObj.name));
             //print(box.GetComponent<RequestBox>().colorRequested);
-            
+
             //Instantiate the requested box inside the RequestPanel
             box.transform.SetParent(transform);
             numOfRequests++;
             TotalRequests++;
 
             //Verify if has to broke a repository
-            foreach (int position in levelManager.requestedColorsPosition)
+            if (powerUpsController.NoBrokenBottles_Flag == false)
             {
-                if (position == TotalRequests)
+                foreach (int position in levelManager.requestedColorsPosition)
                 {
-                    gameController.BrokeRepository(box.GetComponent<RequestBox>().colorRepositoryObj);
-                    break;
+                    if (position == TotalRequests)
+                    {
+                        gameController.BrokeRepository(box.GetComponent<RequestBox>().colorRepositoryObj);
+                        break;
+                    }
                 }
             }
-
         }
     }
 
     private GameObject RequestRamdomColor()
     {
-        GameObject repositoryToRequest = colors[Random.Range(0,6)];
+        GameObject repositoryToRequest = colors[Random.Range(0, 6)];
         foreach (GameObject colorObj in colorsRequested)
         {
             //Verify if color already requested 
@@ -79,7 +83,7 @@ public class RequestPanelController : MonoBehaviour
                 print(repositoryToRequest.name + " already requested. Requesting again...");
                 return RequestRamdomColor();
             }
-        }        
+        }
         return repositoryToRequest;
     }
 }

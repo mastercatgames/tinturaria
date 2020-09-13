@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update  
-    private float paintSpeed;
+    public float paintSpeed;
+    public float originalPaintSpeed;
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
@@ -20,16 +21,18 @@ public class GameController : MonoBehaviour
     private GameObject PanelForms;
     private GameObject Panel_Ink_Buckets;
     private GameObject RequestPanel;
-    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };    
+    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public int numCoins;
     public int numDeliveredBoxes;
     public int numFailedBoxes;
     public SmoothMoveSwipe inputManager;
+    private PowerUpsController powerUpsController;
 
     void Start()
     {
         //Initialize values
-        paintSpeed = 1.5f;
+        originalPaintSpeed = 1.5f;
+        paintSpeed = originalPaintSpeed;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
 
@@ -40,7 +43,7 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < repositories.Length; i++)
         {
             repositories[i].transform.localPosition = new Vector3(repositoryXPositions[i], repositories[i].transform.localPosition.y, repositories[i].transform.localPosition.z);
-        }        
+        }
 
         //Init UI variables
         Transform UI = uiController.transform.parent;
@@ -48,6 +51,8 @@ public class GameController : MonoBehaviour
         PanelForms = UI.Find("Panel_Forms").gameObject;
         Panel_Ink_Buckets = UI.Find("Panel_Ink_Buckets").gameObject;
         RequestPanel = UI.Find("RequestPanel").gameObject;
+
+        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
     }
 
     // Update is called once per frame
@@ -177,11 +182,24 @@ public class GameController : MonoBehaviour
                 currentBox.GetComponent<BoxController>().percentage = 0;
                 currentBox.SetActive(false);
                 currentBox = null;
+                //Reset to default paint speed
+                Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, 2f);
+                paintSpeed = originalPaintSpeed;
+                //Reset power up status (reactivate button and hide icon)
+                powerUpsController.BoosterFilling_Box_Flag = false;
+                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
+                uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }
 
             isPainting = false;
             CancelInvoke("Vibrate");
             uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = true;
+
+            if (powerUpsController.BoosterFilling_Box_Flag)
+            {
+                NewPaintFluid();
+                print("Power up to fill box faster!");
+            }
         }
     }
 
@@ -194,6 +212,9 @@ public class GameController : MonoBehaviour
         newBox.SetActive(true);
         currentBox = newBox;
         uiController.ClosePanel(PanelForms);
+
+        uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
+        //uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
 
         //Avoid the ink (metadata) out of the box when change
         currentBox.transform.Find("InsideBox").gameObject.SetActive(false);
@@ -248,10 +269,18 @@ public class GameController : MonoBehaviour
 
     public void FixRepository(GameObject brokenRepository)
     {
-        brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
-        brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
+        if (powerUpsController.FixInTime_Flag == true)
+        {
+            //Fix In time if using power up
+            FinishRepair(brokenRepository);
+        }
+        else
+        {
+            brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
+            brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
 
-        print("Fixing the *" + brokenRepository.name + "* repository!");
+            print("Fixing the *" + brokenRepository.name + "* repository!");
+        }
     }
 
     public void BrokeRepository(GameObject repositoryToBroke)
@@ -290,5 +319,7 @@ public class GameController : MonoBehaviour
         FixedRepository.transform.Find("InkMask").gameObject.SetActive(true);
         FixedRepository.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(false);
 
+        powerUpsController.FixInTime_Flag = false;
+        uiController.InkBtn_FixInTime_Icon_SetActive(false);
     }
 }

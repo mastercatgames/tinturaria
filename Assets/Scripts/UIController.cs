@@ -334,7 +334,36 @@ public class UIController : MonoBehaviour
 
     public void InkBtn_BoosterFilling_Icon_SetActive(bool active)
     {
-        GameObject InkBtn_BoosterFilling_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("BoosterFilling_Icon").gameObject;
+        GameObject InkBtn_BoosterFilling_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling").gameObject;
         InkBtn_BoosterFilling_Icon.SetActive(active);
+    }
+
+    public void InkBtn_NoBrokenBottles_Icon_SetActive(bool active)
+    {
+        GameObject InkBtn_NoBrokenBottles_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("NoBrokenBottles").gameObject;
+        InkBtn_NoBrokenBottles_Icon.SetActive(active);
+    }
+
+    public void InkBtn_FixInTime_Icon_SetActive(bool active)
+    {
+        GameObject InkBtn_FixInTime_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject;
+        InkBtn_FixInTime_Icon.SetActive(active);
+    }
+
+    public void InkBtn_BoosterFillingBox_Icon_SetActive(bool active)
+    {
+        GameObject InkBtn_BoosterFillingBox_Icon = gameController.transform.parent.Find("BottomInkMachine").Find("BoosterFillingBoxIcon").gameObject;
+        InkBtn_BoosterFillingBox_Icon.SetActive(active);
+
+        //Fix animation when show icon
+        if (active == false)
+        {
+            InkBtn_BoosterFillingBox_Icon.transform.localScale = Vector3.zero;
+        }
+    }
+
+    public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)
+    {
+        gameObject.transform.parent.Find("Panel_PowerUps").Find("PowerUps").Find(buttonName).GetComponent<Button>().interactable = interactable;
     }
 }
