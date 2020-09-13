@@ -132,7 +132,7 @@ public class InkRepositoryController : MonoBehaviour
         else
         {
             //If using the power up to fill all bottles, ignore..
-            if (!powerUpsController.BoosterFilling_OneBottle_Flag)
+            if (!powerUpsController.BoosterFilling_AllBottles_Flag)
             {
                 //Fix repository!
                 int toolsCount = PlayerPrefs.GetInt("toolsCount");

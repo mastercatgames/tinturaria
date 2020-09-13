@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     private GameObject PanelForms;
     private GameObject Panel_Ink_Buckets;
     private GameObject RequestPanel;
-    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };    
+    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public int numCoins;
     public int numDeliveredBoxes;
     public int numFailedBoxes;
@@ -43,16 +43,16 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < repositories.Length; i++)
         {
             repositories[i].transform.localPosition = new Vector3(repositoryXPositions[i], repositories[i].transform.localPosition.y, repositories[i].transform.localPosition.z);
-        }        
+        }
 
         //Init UI variables
         Transform UI = uiController.transform.parent;
 
         PanelForms = UI.Find("Panel_Forms").gameObject;
         Panel_Ink_Buckets = UI.Find("Panel_Ink_Buckets").gameObject;
-        RequestPanel = UI.Find("RequestPanel").gameObject;   
+        RequestPanel = UI.Find("RequestPanel").gameObject;
 
-        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();     
+        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
     }
 
     // Update is called once per frame
@@ -187,7 +187,7 @@ public class GameController : MonoBehaviour
                 paintSpeed = originalPaintSpeed;
                 //Reset power up status (reactivate button and hide icon)
                 powerUpsController.BoosterFilling_Box_Flag = false;
-                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);                
+                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
                 uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }
 
@@ -269,10 +269,18 @@ public class GameController : MonoBehaviour
 
     public void FixRepository(GameObject brokenRepository)
     {
-        brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
-        brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
+        if (powerUpsController.FixInTime_Flag == true)
+        {
+            //Fix In time if using power up
+            FinishRepair(brokenRepository);
+        }
+        else
+        {
+            brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
+            brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
 
-        print("Fixing the *" + brokenRepository.name + "* repository!");
+            print("Fixing the *" + brokenRepository.name + "* repository!");
+        }
     }
 
     public void BrokeRepository(GameObject repositoryToBroke)
@@ -310,5 +318,8 @@ public class GameController : MonoBehaviour
         FixedRepository.transform.Find("HourGlass_SVG").gameObject.SetActive(true);
         FixedRepository.transform.Find("InkMask").gameObject.SetActive(true);
         FixedRepository.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(false);
+
+        powerUpsController.FixInTime_Flag = false;
+        uiController.InkBtn_FixInTime_Icon_SetActive(false);
     }
 }

@@ -344,6 +344,12 @@ public class UIController : MonoBehaviour
         InkBtn_NoBrokenBottles_Icon.SetActive(active);
     }
 
+    public void InkBtn_FixInTime_Icon_SetActive(bool active)
+    {
+        GameObject InkBtn_FixInTime_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject;
+        InkBtn_FixInTime_Icon.SetActive(active);
+    }
+
     public void InkBtn_BoosterFillingBox_Icon_SetActive(bool active)
     {
         GameObject InkBtn_BoosterFillingBox_Icon = gameController.transform.parent.Find("BottomInkMachine").Find("BoosterFillingBoxIcon").gameObject;

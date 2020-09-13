@@ -7,8 +7,10 @@ public class PowerUpsController : MonoBehaviour
     private UIController uiController;
     private GameController gameController;
     public bool BoosterFilling_OneBottle_Flag;
+    public bool BoosterFilling_AllBottles_Flag;
     public bool BoosterFilling_Box_Flag;
     public bool NoBrokenBottles_Flag;
+    public bool FixInTime_Flag;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public class PowerUpsController : MonoBehaviour
         if (boosterFilling_AllBottles > 0)
         {
             BoosterFilling_OneBottle_Flag = true; // Activate the flag to fill one bottle faster
+            BoosterFilling_AllBottles_Flag = true;
             PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", boosterFilling_AllBottles - 1);
             uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
             uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
@@ -103,6 +106,25 @@ public class PowerUpsController : MonoBehaviour
             uiController.RefreshPowerUpsCount();
             uiController.ClosePanel(gameObject);
             uiController.InkBtn_NoBrokenBottles_Icon_SetActive(true);
+        }
+        else
+        {
+            print("You have to buy this power up!");
+        }
+    }
+
+    public void FixInTime()
+    {
+        int FixInTime = PlayerPrefs.GetInt("PowerUp_FixInTime");
+
+        if (FixInTime > 0)
+        {
+            FixInTime_Flag = true;
+            PlayerPrefs.SetInt("PowerUp_FixInTime", FixInTime - 1);
+            uiController.Panel_PowerUps_SetInteractable("FixInTime", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);
+            uiController.InkBtn_FixInTime_Icon_SetActive(true);
         }
         else
         {
