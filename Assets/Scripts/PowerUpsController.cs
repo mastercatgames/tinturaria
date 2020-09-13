@@ -11,6 +11,7 @@ public class PowerUpsController : MonoBehaviour
     public bool BoosterFilling_Box_Flag;
     public bool NoBrokenBottles_Flag;
     public bool FixInTime_Flag;
+    public bool DoubleCash_Flag;
     // Start is called before the first frame update
     void Start()
     {
@@ -125,6 +126,32 @@ public class PowerUpsController : MonoBehaviour
             uiController.RefreshPowerUpsCount();
             uiController.ClosePanel(gameObject);
             uiController.InkBtn_FixInTime_Icon_SetActive(true);
+        }
+        else
+        {
+            print("You have to buy this power up!");
+        }
+    }
+
+    public void DoubleCash()
+    {
+        int DoubleCash = PlayerPrefs.GetInt("PowerUp_DoubleCash");
+
+        if (DoubleCash > 0)
+        {
+            DoubleCash_Flag = true;
+            PlayerPrefs.SetInt("PowerUp_DoubleCash", DoubleCash - 1);
+            uiController.Panel_PowerUps_SetInteractable("DoubleCash", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);
+            uiController.DoubleCash_Icon_SetActive(true);
+
+            //Double the current value
+            if (gameController.numCoins > 0)
+            {
+                gameController.numCoins = gameController.numCoins * 2;
+                uiController.numCoinsText.text = gameController.numCoins.ToString();
+            }
         }
         else
         {
