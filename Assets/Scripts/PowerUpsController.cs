@@ -12,6 +12,7 @@ public class PowerUpsController : MonoBehaviour
     public bool NoBrokenBottles_Flag;
     public bool FixInTime_Flag;
     public bool DoubleCash_Flag;
+    public bool FreezingTime_Flag;
     // Start is called before the first frame update
     void Start()
     {
@@ -158,4 +159,37 @@ public class PowerUpsController : MonoBehaviour
             print("You have to buy this power up!");
         }
     }
+
+    public void FreezingTime()
+    {
+        int FreezingTime = PlayerPrefs.GetInt("PowerUp_FreezingTime");
+
+        if (FreezingTime > 0)
+        {
+            DoubleCash_Flag = true;
+            PlayerPrefs.SetInt("PowerUp_FreezingTime", FreezingTime - 1);
+            uiController.Panel_PowerUps_SetInteractable("FreezingTime", false);
+            uiController.RefreshPowerUpsCount();
+            uiController.ClosePanel(gameObject);            
+
+            //Freeze time, then start the countdown
+            uiController.timerIsRunning = false;
+
+            //Activating this gameObject will start the FreezingTime script (that controls the bar)
+            uiController.FreezingTime_Icon_SetActive(true);  
+            //Invoke("FreezingTimeEndCountdown", 5f);          
+        }
+        else
+        {
+            print("You have to buy this power up!");
+        }
+    }
+
+    // private void FreezingTimeEndCountdown()
+    // {   
+    //     uiController.timerIsRunning = true;
+    //     uiController.FreezingTime_Icon_SetActive(false);  
+    //     uiController.Panel_PowerUps_SetInteractable("FreezingTime", true);
+    //     print("FreezingTime is Over!");
+    // }    
 }

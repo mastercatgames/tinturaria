@@ -323,7 +323,6 @@ public class UIController : MonoBehaviour
         Transform bucketsButtons = gameObject.transform.parent.Find("Panel_Ink_Buckets").Find("Buckets");
         foreach (Transform bucket in bucketsButtons)
         {
-            print(bucket.Find("Tool"));
             bucket.Find("Tool").Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("toolsCount").ToString();
         }
     }
@@ -372,6 +371,12 @@ public class UIController : MonoBehaviour
         GameObject DoubleCash_Icon = gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject;
         DoubleCash_Icon.SetActive(active);
     }
+
+    public void FreezingTime_Icon_SetActive(bool active)
+    {
+        GameObject FreezingTime_Icon = gameObject.transform.parent.Find("Timer").Find("FreezingTime").gameObject;
+        FreezingTime_Icon.SetActive(active); 
+    }    
 
     public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)
     {
