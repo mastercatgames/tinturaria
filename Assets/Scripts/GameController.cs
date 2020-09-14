@@ -115,7 +115,14 @@ public class GameController : MonoBehaviour
             if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
             {
                 isPainting = true;
-                Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+
+                //If isn't using power up, spawn the metaballs normally
+                //But if is using power up, allows spawn the metaballs only once time
+                if (powerUpsController.BoosterFilling_Box_Flag == false
+                || (powerUpsController.BoosterFilling_Box_Flag == true && currentBox.GetComponent<BoxController>().percentage <= 0.25f))
+                {
+                    Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+                }
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.volume = 1f;
@@ -187,6 +194,7 @@ public class GameController : MonoBehaviour
                 paintSpeed = originalPaintSpeed;
                 //Reset power up status (reactivate button and hide icon)
                 powerUpsController.BoosterFilling_Box_Flag = false;
+                Water2D.Water2D_Spawner.instance.size = 0.15f;
                 uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
                 uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }

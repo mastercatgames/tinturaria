@@ -88,7 +88,8 @@ public class PowerUpsController : MonoBehaviour
             }
 
             Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, -10f);
-            gameController.paintSpeed = 2f;
+            Water2D.Water2D_Spawner.instance.size = 0.25f;
+            gameController.paintSpeed = 10f;
         }
         else
         {
