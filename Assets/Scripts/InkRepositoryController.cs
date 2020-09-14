@@ -85,6 +85,7 @@ public class InkRepositoryController : MonoBehaviour
                 fillSpeed = originalFillSpeed;
                 //Reset power up status (reactivate button and hide icon)
                 powerUpsController.BoosterFilling_OneBottle_Flag = false;
+                powerUpsController.BoosterFilling_AllBottles_Flag = false;                
                 uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", true);
                 uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", true);
             }

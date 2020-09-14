@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour
     public Button LevelButton;
     public bool isInGamePlay;
     public bool isTutorial;
+    private PowerUpsController powerUpsController;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class UIController : MonoBehaviour
         //timerIsRunning = true;
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        powerUpsController = transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
 
         //Increase music volume
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
@@ -138,11 +140,14 @@ public class UIController : MonoBehaviour
         boxesFailedText.text += " " + gameController.numFailedBoxes;
 
         //Num Coins
-        boxesDeliveredText.transform.Find("num").GetComponent<Text>().text = (gameController.numDeliveredBoxes * 100).ToString();
-        boxesFailedText.transform.Find("num").GetComponent<Text>().text = (gameController.numFailedBoxes * 150).ToString();
+        int numDeliveredBoxesValue = gameController.numDeliveredBoxes * 100 * (powerUpsController.DoubleCash_Flag ? 2 : 1);
+        int numFailedBoxesValue = gameController.numFailedBoxes * 150;
+        boxesDeliveredText.transform.Find("num").GetComponent<Text>().text = numDeliveredBoxesValue.ToString();
+        boxesFailedText.transform.Find("num").GetComponent<Text>().text = ((gameController.numFailedBoxes > 0) ? "-" : "") + numFailedBoxesValue.ToString();
 
         //Total
-        totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
+        // totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
+         totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();
 
         HideGameplayObjects();
     }
@@ -318,7 +323,6 @@ public class UIController : MonoBehaviour
         Transform bucketsButtons = gameObject.transform.parent.Find("Panel_Ink_Buckets").Find("Buckets");
         foreach (Transform bucket in bucketsButtons)
         {
-            print(bucket.Find("Tool"));
             bucket.Find("Tool").Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("toolsCount").ToString();
         }
     }
@@ -361,6 +365,18 @@ public class UIController : MonoBehaviour
             InkBtn_BoosterFillingBox_Icon.transform.localScale = Vector3.zero;
         }
     }
+
+    public void DoubleCash_Icon_SetActive(bool active)
+    {
+        GameObject DoubleCash_Icon = gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject;
+        DoubleCash_Icon.SetActive(active);
+    }
+
+    public void FreezingTime_Icon_SetActive(bool active)
+    {
+        GameObject FreezingTime_Icon = gameObject.transform.parent.Find("Timer").Find("FreezingTime").gameObject;
+        FreezingTime_Icon.SetActive(active); 
+    }    
 
     public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)
     {

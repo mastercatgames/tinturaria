@@ -255,7 +255,7 @@ public class GameController : MonoBehaviour
 
     public void EarnCoins()
     {
-        numCoins += 100;
+        numCoins += 100 * (powerUpsController.DoubleCash_Flag ? 2 : 1);
         uiController.numCoinsText.text = numCoins.ToString();
         numDeliveredBoxes++;
     }
