@@ -305,6 +305,7 @@ public class GameController : MonoBehaviour
         repositoryToBroke.transform.Find("HourGlass_SVG").gameObject.SetActive(false);
         repositoryToBroke.transform.Find("InkMask").gameObject.SetActive(false);
         repositoryToBroke.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(true);
+        repositoryToBroke.transform.Find("Reflection").gameObject.SetActive(false);
     }
 
     public void FinishRepair(GameObject FixedRepository)
@@ -326,6 +327,7 @@ public class GameController : MonoBehaviour
         FixedRepository.transform.Find("HourGlass_SVG").gameObject.SetActive(true);
         FixedRepository.transform.Find("InkMask").gameObject.SetActive(true);
         FixedRepository.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(false);
+        FixedRepository.transform.Find("Reflection").gameObject.SetActive(true);
 
         powerUpsController.FixInTime_Flag = false;
         uiController.InkBtn_FixInTime_Icon_SetActive(false);
