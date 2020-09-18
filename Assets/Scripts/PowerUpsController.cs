@@ -167,7 +167,7 @@ public class PowerUpsController : MonoBehaviour
 
         if (FreezingTime > 0)
         {
-            DoubleCash_Flag = true;
+            FreezingTime_Flag = true;
             PlayerPrefs.SetInt("PowerUp_FreezingTime", FreezingTime - 1);
             uiController.Panel_PowerUps_SetInteractable("FreezingTime", false);
             uiController.RefreshPowerUpsCount();
@@ -177,20 +177,11 @@ public class PowerUpsController : MonoBehaviour
             uiController.timerIsRunning = false;
 
             //Activating this gameObject will start the FreezingTime script (that controls the bar)
-            uiController.FreezingTime_Icon_SetActive(true);  
-            //Invoke("FreezingTimeEndCountdown", 5f);          
+            uiController.FreezingTime_Icon_SetActive(true);          
         }
         else
         {
             print("You have to buy this power up!");
         }
-    }
-
-    // private void FreezingTimeEndCountdown()
-    // {   
-    //     uiController.timerIsRunning = true;
-    //     uiController.FreezingTime_Icon_SetActive(false);  
-    //     uiController.Panel_PowerUps_SetInteractable("FreezingTime", true);
-    //     print("FreezingTime is Over!");
-    // }    
+    }  
 }

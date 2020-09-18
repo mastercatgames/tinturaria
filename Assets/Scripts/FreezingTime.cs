@@ -8,6 +8,7 @@ public class FreezingTime : MonoBehaviour
     public Image bar;
     private UIController uiController;
     private RequestPanelController requestPanelController;
+    private PowerUpsController powerUpsController;
 
     public float MaxTime = 20f;
     public float ActiveTime = 0f;
@@ -16,6 +17,7 @@ public class FreezingTime : MonoBehaviour
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
         requestPanelController = uiController.transform.parent.Find("RequestPanel").GetComponent<RequestPanelController>();
         bar = transform.Find("BarBG").Find("Bar").GetComponent<Image>();
     }
@@ -43,6 +45,7 @@ public class FreezingTime : MonoBehaviour
             uiController.timerIsRunning = true;
             uiController.FreezingTime_Icon_SetActive(false);
             uiController.Panel_PowerUps_SetInteractable("FreezingTime", true);
+            powerUpsController.FreezingTime_Flag = false;
             bar.fillAmount = 1f;
             bar.color = requestPanelController.GreenColor;
             ActiveTime = 0f;
