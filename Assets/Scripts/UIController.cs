@@ -245,9 +245,11 @@ public class UIController : MonoBehaviour
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
+        
+        //If game was a paused and the player tap to continue
         if (isInGamePlay)
-        {
-            if (!isTutorial)
+        {            
+            if (!isTutorial && !powerUpsController.FreezingTime_Flag)
             {
                 timerIsRunning = true;
             }

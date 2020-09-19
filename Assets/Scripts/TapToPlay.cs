@@ -30,7 +30,7 @@ public class TapToPlay : MonoBehaviour
         uiController.ShowAllGameplayObjects();
         uiController.isInGamePlay = true;
 
-        if (!uiController.isTutorial && !powerUpsController.FreezingTime_Flag)
+        if (!uiController.isTutorial)
         {
             uiController.timerIsRunning = true;
         }        
