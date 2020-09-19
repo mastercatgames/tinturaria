@@ -20,6 +20,8 @@ public class FreezingTime : MonoBehaviour
         powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
         requestPanelController = uiController.transform.parent.Find("RequestPanel").GetComponent<RequestPanelController>();
         bar = transform.Find("BarBG").Find("Bar").GetComponent<Image>();
+
+        MaxTime = 30f; // 30 seconds
     }
 
     void Update()
