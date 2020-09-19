@@ -74,6 +74,8 @@ public class SmoothMoveSwipe : MonoBehaviour
                 audioSource.pitch = 1f;
                 audioSource.Stop();
                 gameController.isChangingRepository = false;
+
+                gameController.transform.parent.GetComponent<ZoomObject>().machineLastPosition = new Vector3(transform.position.x, 3.028f, 0f);
                 break;
 
             case "right":
@@ -95,6 +97,8 @@ public class SmoothMoveSwipe : MonoBehaviour
                 audioSource.pitch = 1f;
                 audioSource.Stop();
                 gameController.isChangingRepository = false;
+
+                gameController.transform.parent.GetComponent<ZoomObject>().machineLastPosition = new Vector3(transform.position.x, 3.028f, 0f);
                 break;
         }
 

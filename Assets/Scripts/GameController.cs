@@ -69,7 +69,8 @@ public class GameController : MonoBehaviour
 
             if (Input.GetButtonDown("Horizontal")
                && !isChangingRepository
-               && !isPainting)
+               && !isPainting
+               && !uiController.somePanelIsOpen)
             {
                 if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f)
                 {
@@ -91,6 +92,7 @@ public class GameController : MonoBehaviour
         if (!isChangingRepository
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
+        && !uiController.somePanelIsOpen
         //&& !currentRepository.GetComponent<InkRepositoryController>().isBroken
         && currentBox)
         {
