@@ -69,7 +69,9 @@ public class GameController : MonoBehaviour
 
             if (Input.GetButtonDown("Horizontal")
                && !isChangingRepository
-               && !isPainting)
+               && !isPainting
+               && !uiController.somePanelIsOpen
+               && uiController.isInGamePlay)
             {
                 if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f)
                 {
@@ -91,6 +93,7 @@ public class GameController : MonoBehaviour
         if (!isChangingRepository
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
+        && !uiController.somePanelIsOpen
         //&& !currentRepository.GetComponent<InkRepositoryController>().isBroken
         && currentBox)
         {
@@ -115,7 +118,14 @@ public class GameController : MonoBehaviour
             if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
             {
                 isPainting = true;
-                Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+
+                //If isn't using power up, spawn the metaballs normally
+                //But if is using power up, allows spawn the metaballs only once time
+                if (powerUpsController.BoosterFilling_Box_Flag == false
+                || (powerUpsController.BoosterFilling_Box_Flag == true && currentBox.GetComponent<BoxController>().percentage <= 0.25f))
+                {
+                    Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+                }
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.volume = 1f;
@@ -187,6 +197,7 @@ public class GameController : MonoBehaviour
                 paintSpeed = originalPaintSpeed;
                 //Reset power up status (reactivate button and hide icon)
                 powerUpsController.BoosterFilling_Box_Flag = false;
+                Water2D.Water2D_Spawner.instance.size = 0.15f;
                 uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
                 uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }
@@ -297,6 +308,7 @@ public class GameController : MonoBehaviour
         repositoryToBroke.transform.Find("HourGlass_SVG").gameObject.SetActive(false);
         repositoryToBroke.transform.Find("InkMask").gameObject.SetActive(false);
         repositoryToBroke.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(true);
+        repositoryToBroke.transform.Find("Reflection").gameObject.SetActive(false);
     }
 
     public void FinishRepair(GameObject FixedRepository)
@@ -318,6 +330,7 @@ public class GameController : MonoBehaviour
         FixedRepository.transform.Find("HourGlass_SVG").gameObject.SetActive(true);
         FixedRepository.transform.Find("InkMask").gameObject.SetActive(true);
         FixedRepository.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(false);
+        FixedRepository.transform.Find("Reflection").gameObject.SetActive(true);
 
         powerUpsController.FixInTime_Flag = false;
         uiController.InkBtn_FixInTime_Icon_SetActive(false);

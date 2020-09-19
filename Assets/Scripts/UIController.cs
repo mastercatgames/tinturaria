@@ -85,6 +85,9 @@ public class UIController : MonoBehaviour
     {
         panel.SetActive(true);
         ButtonsGrid.SetActive(false);
+        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
+        //gameObject.transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
+
         somePanelIsOpen = true;
     }
 
@@ -92,6 +95,8 @@ public class UIController : MonoBehaviour
     {
         panel.SetActive(false);
         ButtonsGrid.SetActive(true);
+        // gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
+        // gameController.transform.parent.GetComponent<ZoomObject>().zoomIn = true;
         somePanelIsOpen = false;
     }
 
@@ -147,7 +152,7 @@ public class UIController : MonoBehaviour
 
         //Total
         // totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
-         totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();
+        totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();
 
         HideGameplayObjects();
     }
@@ -161,15 +166,17 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
         gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(false);
+
+        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
     }
 
     public void ShowAllGameplayObjects()
-    {        
+    {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
-        //        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
-        // gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
-        // gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
+
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true); 
+
+        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
@@ -184,7 +191,7 @@ public class UIController : MonoBehaviour
 
         //Call other objects
         gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
-        gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);        
+        gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
 
         if (!isTutorial)
@@ -238,9 +245,11 @@ public class UIController : MonoBehaviour
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
+        
+        //If game was a paused and the player tap to continue
         if (isInGamePlay)
-        {
-            if (!isTutorial)
+        {            
+            if (!isTutorial && !powerUpsController.FreezingTime_Flag)
             {
                 timerIsRunning = true;
             }
@@ -375,11 +384,50 @@ public class UIController : MonoBehaviour
     public void FreezingTime_Icon_SetActive(bool active)
     {
         GameObject FreezingTime_Icon = gameObject.transform.parent.Find("Timer").Find("FreezingTime").gameObject;
-        FreezingTime_Icon.SetActive(active); 
-    }    
+        FreezingTime_Icon.SetActive(active);
+    }
 
     public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)
     {
         gameObject.transform.parent.Find("Panel_PowerUps").Find("PowerUps").Find(buttonName).GetComponent<Button>().interactable = interactable;
     }
+
+    public void OpenGameplayMenu()
+    {
+        if (!gameController.isChangingRepository)
+        {
+            if (somePanelIsOpen)
+            {
+                //transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
+                transform.parent.Find("GameplayMenuButtons").GetComponent<Animator>().SetBool("hideButtons", true);
+                // StartCoroutine(HideMenuButtons());
+                gameController.transform.parent.GetComponent<ZoomObject>().zoomIn = true;
+                // somePanelIsOpen = false;
+            }
+            else
+            {
+                somePanelIsOpen = true;
+                transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(true);
+                gameController.transform.parent.GetComponent<ZoomObject>().zoomOut = true;
+            }
+        }
+    }
+
+    public void Test_AddMorePowerUpAndTools()
+    {
+        PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") + 10);
+        PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") + 10);
+        PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") + 10);
+        PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") + 10);
+        PlayerPrefs.SetInt("PowerUp_FreezingTime", PlayerPrefs.GetInt("PowerUp_FreezingTime") + 10);
+        PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 10);
+        PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 10);
+        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 10);
+    }
+
+    // IEnumerator HideMenuButtons()
+    // {
+    //     yield return new WaitForSeconds(0.5f);
+    //     transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
+    // }
 }

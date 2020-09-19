@@ -5,10 +5,12 @@ using UnityEngine;
 public class TapToPlay : MonoBehaviour
 {
     private UIController uiController;
+    private PowerUpsController powerUpsController;
     // Start is called before the first frame update
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
     }
 
     public void ShowGo()
