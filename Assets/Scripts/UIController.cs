@@ -84,9 +84,9 @@ public class UIController : MonoBehaviour
     public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true);
-        //ButtonsGrid.SetActive(false);
-        gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
-        gameObject.transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
+        ButtonsGrid.SetActive(false);
+        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
+        //gameObject.transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
 
         somePanelIsOpen = true;
     }
@@ -94,10 +94,10 @@ public class UIController : MonoBehaviour
     public void ClosePanel(GameObject panel)
     {
         panel.SetActive(false);
-        //ButtonsGrid.SetActive(true);
-        gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
-        gameController.transform.parent.GetComponent<ZoomObject>().zoomIn = true;
-        // somePanelIsOpen = false;
+        ButtonsGrid.SetActive(true);
+        // gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
+        // gameController.transform.parent.GetComponent<ZoomObject>().zoomIn = true;
+        somePanelIsOpen = false;
     }
 
     public void RestartGame()
@@ -167,16 +167,16 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
         gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(false);
 
-        gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
+        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
     }
 
     public void ShowAllGameplayObjects()
     {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
 
-        //gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true); 
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true); 
 
-        gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
+        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
