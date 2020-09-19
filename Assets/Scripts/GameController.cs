@@ -70,7 +70,8 @@ public class GameController : MonoBehaviour
             if (Input.GetButtonDown("Horizontal")
                && !isChangingRepository
                && !isPainting
-               && !uiController.somePanelIsOpen)
+               && !uiController.somePanelIsOpen
+               && uiController.isInGamePlay)
             {
                 if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f)
                 {

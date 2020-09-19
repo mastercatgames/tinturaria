@@ -34,6 +34,7 @@ public class SmoothMoveSwipe : MonoBehaviour
         if (!gameController.isPainting
         && !audioSource.isPlaying
         && !uiController.somePanelIsOpen
+        && uiController.isInGamePlay
         && Input.touchCount > 0
         && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
