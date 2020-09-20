@@ -101,20 +101,28 @@ public class PowerUpsController : MonoBehaviour
     public void NoBrokenBottles()
     {
         int noBrokenBottles = PlayerPrefs.GetInt("PowerUp_NoBrokenBottles");
+        uiController.GetComponent<AudioSource>().Play();
 
-        if (noBrokenBottles > 0)
+        if (!NoBrokenBottles_Flag)
         {
-            NoBrokenBottles_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", noBrokenBottles - 1);
-            uiController.Panel_PowerUps_SetInteractable("NoBrokenBottles", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
-            uiController.InkBtn_NoBrokenBottles_Icon_SetActive(true);
+            if (noBrokenBottles > 0)
+            {
+                NoBrokenBottles_Flag = true;                
+                powerUpButtons.transform.Find("NoBrokenBottles").Find("BGCount").gameObject.SetActive(false);
+                powerUpButtons.transform.Find("NoBrokenBottles").Find("Check").gameObject.SetActive(true);
+            }
+            else
+            {
+                print("You have to buy this power up!");
+            }
         }
         else
         {
-            print("You have to buy this power up!");
+            NoBrokenBottles_Flag = false;
+            powerUpButtons.transform.Find("NoBrokenBottles").Find("BGCount").gameObject.SetActive(true);
+            powerUpButtons.transform.Find("NoBrokenBottles").Find("Check").gameObject.SetActive(false);
         }
+        
     }
 
     public void FixInTime()

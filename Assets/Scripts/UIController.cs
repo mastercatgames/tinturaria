@@ -267,6 +267,12 @@ public class UIController : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
             gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject.SetActive(true);
         }
+
+        if (powerUpsController.NoBrokenBottles_Flag)
+        {
+            PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") - 1);
+            gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("NoBrokenBottles").gameObject.SetActive(true);
+        }
     }
 
     private void ShowMenu()
@@ -340,10 +346,12 @@ public class UIController : MonoBehaviour
 
     public void RefreshPowerUpsCount()
     {
-        Transform powerUpsButtons = gameObject.transform.parent.Find("Panel_PowerUps").Find("PowerUps");
+        Transform powerUpsButtons = transform.parent.Find("Menu").Find("Main").Find("LevelDetails").Find("Content").Find("PowerUps");
         foreach (Transform powerUp in powerUpsButtons)
         {
             powerUp.Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("PowerUp_" + powerUp.name).ToString();
+
+            powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
         }
     }
 
@@ -459,6 +467,7 @@ public class UIController : MonoBehaviour
         {
             transform.parent.Find("Menu").Find("Main").Find("LevelDetails").gameObject.SetActive(true);
             transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(false);
+            RefreshPowerUpsCount();
         }
     }
 
