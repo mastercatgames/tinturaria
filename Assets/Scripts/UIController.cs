@@ -279,6 +279,12 @@ public class UIController : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") - 1);
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_OneBottle").gameObject.SetActive(true);
         }
+
+        if (powerUpsController.FixInTime_Flag)
+        {
+            PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") - 1);
+            gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject.SetActive(true);
+        }
     }
 
     private void ShowMenu()

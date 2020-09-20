@@ -133,19 +133,26 @@ public class PowerUpsController : MonoBehaviour
     public void FixInTime()
     {
         int FixInTime = PlayerPrefs.GetInt("PowerUp_FixInTime");
+        uiController.PlayClickButtonSFX();
 
-        if (FixInTime > 0)
+        if (!FixInTime_Flag)
         {
-            FixInTime_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_FixInTime", FixInTime - 1);
-            uiController.Panel_PowerUps_SetInteractable("FixInTime", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
-            uiController.InkBtn_FixInTime_Icon_SetActive(true);
+            if (FixInTime > 0)
+            {
+                FixInTime_Flag = true;                
+                powerUpButtons.transform.Find("FixInTime").Find("BGCount").gameObject.SetActive(false);
+                powerUpButtons.transform.Find("FixInTime").Find("Check").gameObject.SetActive(true);
+            }
+            else
+            {
+                print("You have to buy this power up!");
+            }
         }
         else
         {
-            print("You have to buy this power up!");
+            FixInTime_Flag = false;
+            powerUpButtons.transform.Find("FixInTime").Find("BGCount").gameObject.SetActive(true);
+            powerUpButtons.transform.Find("FixInTime").Find("Check").gameObject.SetActive(false);
         }
     }
 

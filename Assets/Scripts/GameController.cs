@@ -337,7 +337,7 @@ public class GameController : MonoBehaviour
         FixedRepository.transform.Find("HourGlass_Broken_SVG").gameObject.SetActive(false);
         FixedRepository.transform.Find("Reflection").gameObject.SetActive(true);
 
-        powerUpsController.FixInTime_Flag = false;
-        uiController.InkBtn_FixInTime_Icon_SetActive(false);
+        // powerUpsController.FixInTime_Flag = false;
+        // uiController.InkBtn_FixInTime_Icon_SetActive(false);
     }
 }
