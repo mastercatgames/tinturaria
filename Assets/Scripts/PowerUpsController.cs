@@ -145,9 +145,7 @@ public class PowerUpsController : MonoBehaviour
         {
             if (DoubleCash > 0)
             {
-                DoubleCash_Flag = true;
-                //PlayerPrefs.SetInt("PowerUp_DoubleCash", DoubleCash - 1);
-                uiController.DoubleCash_Icon_SetActive(true);
+                DoubleCash_Flag = true;                
                 powerUpButtons.transform.Find("DoubleCash").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(true);
             }
@@ -160,7 +158,7 @@ public class PowerUpsController : MonoBehaviour
         {
             DoubleCash_Flag = false;
             powerUpButtons.transform.Find("DoubleCash").Find("BGCount").gameObject.SetActive(true);
-                powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(false);
+            powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(false);
         }
     }
 

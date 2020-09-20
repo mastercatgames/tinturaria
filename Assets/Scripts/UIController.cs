@@ -265,6 +265,7 @@ public class UIController : MonoBehaviour
         if (powerUpsController.DoubleCash_Flag)
         {
             PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
+            gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject.SetActive(true);
         }
     }
 
@@ -376,11 +377,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void DoubleCash_Icon_SetActive(bool active)
-    {
-        GameObject DoubleCash_Icon = gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject;
-        DoubleCash_Icon.SetActive(active);
-    }
+    // public void DoubleCash_Icon_SetActive(bool active)
+    // {
+    //     GameObject DoubleCash_Icon = gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject;
+    //     DoubleCash_Icon.SetActive(active);
+    // }
 
     public void FreezingTime_Icon_SetActive(bool active)
     {
@@ -430,6 +431,7 @@ public class UIController : MonoBehaviour
     {
         PlayClickButtonSFX();
         StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
+        transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(true);
     }
 
     public void PlayClickButtonSFX()
@@ -456,6 +458,7 @@ public class UIController : MonoBehaviour
         else
         {
             transform.parent.Find("Menu").Find("Main").Find("LevelDetails").gameObject.SetActive(true);
+            transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(false);
         }
     }
 
