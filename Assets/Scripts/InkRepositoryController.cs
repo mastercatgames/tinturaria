@@ -51,9 +51,7 @@ public class InkRepositoryController : MonoBehaviour
 
         initLights();
 
-        //powerUpsController = GameObject.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
-
-        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+        powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
     }
 
     private void initLights()

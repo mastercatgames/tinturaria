@@ -17,7 +17,7 @@ public class FreezingTime : MonoBehaviour
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+        powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
         requestPanelController = uiController.transform.parent.Find("RequestPanel").GetComponent<RequestPanelController>();
         bar = transform.Find("BarBG").Find("Bar").GetComponent<Image>();
 

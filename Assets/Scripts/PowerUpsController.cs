@@ -13,11 +13,12 @@ public class PowerUpsController : MonoBehaviour
     public bool FixInTime_Flag;
     public bool DoubleCash_Flag;
     public bool FreezingTime_Flag;
+    public GameObject powerUpButtons;
     // Start is called before the first frame update
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
     }
 
     public void BoosterFilling_OneBottle()
@@ -138,26 +139,28 @@ public class PowerUpsController : MonoBehaviour
     public void DoubleCash()
     {
         int DoubleCash = PlayerPrefs.GetInt("PowerUp_DoubleCash");
+        uiController.GetComponent<AudioSource>().Play();
 
-        if (DoubleCash > 0)
+        if (!DoubleCash_Flag)
         {
-            DoubleCash_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_DoubleCash", DoubleCash - 1);
-            uiController.Panel_PowerUps_SetInteractable("DoubleCash", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
-            uiController.DoubleCash_Icon_SetActive(true);
-
-            //Double the current value
-            if (gameController.numCoins > 0)
+            if (DoubleCash > 0)
             {
-                gameController.numCoins = gameController.numCoins * 2;
-                uiController.numCoinsText.text = gameController.numCoins.ToString();
+                DoubleCash_Flag = true;
+                //PlayerPrefs.SetInt("PowerUp_DoubleCash", DoubleCash - 1);
+                uiController.DoubleCash_Icon_SetActive(true);
+                powerUpButtons.transform.Find("DoubleCash").Find("BGCount").gameObject.SetActive(false);
+                powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(true);
+            }
+            else
+            {
+                print("You have to buy this power up!");
             }
         }
         else
         {
-            print("You have to buy this power up!");
+            DoubleCash_Flag = false;
+            powerUpButtons.transform.Find("DoubleCash").Find("BGCount").gameObject.SetActive(true);
+                powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(false);
         }
     }
 
@@ -171,17 +174,17 @@ public class PowerUpsController : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp_FreezingTime", FreezingTime - 1);
             uiController.Panel_PowerUps_SetInteractable("FreezingTime", false);
             uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);            
+            uiController.ClosePanel(gameObject);
 
             //Freeze time, then start the countdown
             uiController.timerIsRunning = false;
 
             //Activating this gameObject will start the FreezingTime script (that controls the bar)
-            uiController.FreezingTime_Icon_SetActive(true);          
+            uiController.FreezingTime_Icon_SetActive(true);
         }
         else
         {
             print("You have to buy this power up!");
         }
-    }  
+    }
 }

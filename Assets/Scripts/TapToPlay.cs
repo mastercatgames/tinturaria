@@ -10,7 +10,7 @@ public class TapToPlay : MonoBehaviour
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+        powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
     }
 
     public void ShowGo()

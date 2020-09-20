@@ -35,7 +35,7 @@ public class UIController : MonoBehaviour
         //timerIsRunning = true;
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        powerUpsController = transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+        powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
 
         //Increase music volume
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
@@ -145,8 +145,8 @@ public class UIController : MonoBehaviour
         boxesFailedText.text += " " + gameController.numFailedBoxes;
 
         //Num Coins
-        int numDeliveredBoxesValue = gameController.numDeliveredBoxes * 100 * (powerUpsController.DoubleCash_Flag ? 2 : 1);
-        int numFailedBoxesValue = gameController.numFailedBoxes * 150;
+        int numDeliveredBoxesValue = gameController.numDeliveredBoxes * gameController.earnCoinsValue;
+        int numFailedBoxesValue = gameController.numFailedBoxes * gameController.discountCoinsValue;
         boxesDeliveredText.transform.Find("num").GetComponent<Text>().text = numDeliveredBoxesValue.ToString();
         boxesFailedText.transform.Find("num").GetComponent<Text>().text = ((gameController.numFailedBoxes > 0) ? "-" : "") + numFailedBoxesValue.ToString();
 
@@ -174,7 +174,7 @@ public class UIController : MonoBehaviour
     {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
 
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true); 
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
 
         //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
     }
@@ -245,10 +245,12 @@ public class UIController : MonoBehaviour
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
-        
+        SetPowerUps();
+        RefreshToolsCount();
+
         //If game was a paused and the player tap to continue
         if (isInGamePlay)
-        {            
+        {
             if (!isTutorial && !powerUpsController.FreezingTime_Flag)
             {
                 timerIsRunning = true;
@@ -256,16 +258,14 @@ public class UIController : MonoBehaviour
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
         }
+    }
 
-        RefreshToolsCount();
-        RefreshPowerUpsCount();
-        //If is the TUTORIAL level
-        // if (levelManager.world == 1 && levelManager.level == 1)
-        // {
-        //     timerIsRunning = false;
-        //     isTutorial = true;
-        //     print("Tutorial Level!");
-        // }
+    private void SetPowerUps()
+    {
+        if (powerUpsController.DoubleCash_Flag)
+        {
+            PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
+        }
     }
 
     private void ShowMenu()
@@ -276,6 +276,7 @@ public class UIController : MonoBehaviour
     private void HideMenu()
     {
         menu.SetActive(false);
+        StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
     }
 
     public void CreateLevelButton(string levelName)
@@ -423,6 +424,39 @@ public class UIController : MonoBehaviour
         PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 10);
         PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 10);
         PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 10);
+    }
+
+    public void CloseLevelDetailPanel()
+    {
+        PlayClickButtonSFX();
+        StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
+    }
+
+    public void PlayClickButtonSFX()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
+    IEnumerator ClosePanelAnimation(Transform panel)
+    {        
+        panel.Find("BG").GetComponent<Animator>().Play("UI_BG_Transition_Close");
+        panel.Find("Content").GetComponent<Animator>().Play("UI_JellyZoomOut_Auto");
+        //Wait until the animations end, then hide the panel gameObject
+        yield return new WaitForSeconds(0.5f);
+        panel.gameObject.SetActive(false);                              
+    }
+
+    public void OpenLevelDetailPanel()
+    {
+        //If game was a paused and the player tap to continue
+        if (isInGamePlay)
+        {
+            TapToPlay();
+        }
+        else
+        {
+            transform.parent.Find("Menu").Find("Main").Find("LevelDetails").gameObject.SetActive(true);
+        }
     }
 
     // IEnumerator HideMenuButtons()

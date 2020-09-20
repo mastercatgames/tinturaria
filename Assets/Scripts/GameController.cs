@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     public int numFailedBoxes;
     public SmoothMoveSwipe inputManager;
     private PowerUpsController powerUpsController;
+    public int earnCoinsValue;
+    public int discountCoinsValue;
 
     void Start()
     {
@@ -34,7 +36,7 @@ public class GameController : MonoBehaviour
         originalPaintSpeed = 1.5f;
         paintSpeed = originalPaintSpeed;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();        
 
         //Load repository position randomically
         ShuffleArray(repositoryXPositions);
@@ -52,7 +54,10 @@ public class GameController : MonoBehaviour
         Panel_Ink_Buckets = UI.Find("Panel_Ink_Buckets").gameObject;
         RequestPanel = UI.Find("RequestPanel").gameObject;
 
-        powerUpsController = uiController.transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+        powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
+        earnCoinsValue = powerUpsController.DoubleCash_Flag ? 200 : 100;
+        discountCoinsValue = 150;
     }
 
     // Update is called once per frame
@@ -266,7 +271,7 @@ public class GameController : MonoBehaviour
 
     public void EarnCoins()
     {
-        numCoins += 100 * (powerUpsController.DoubleCash_Flag ? 2 : 1);
+        numCoins += earnCoinsValue;
         uiController.numCoinsText.text = numCoins.ToString();
         numDeliveredBoxes++;
     }

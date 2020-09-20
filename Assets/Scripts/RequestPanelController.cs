@@ -24,7 +24,7 @@ public class RequestPanelController : MonoBehaviour
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
-        powerUpsController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>().transform.parent.Find("Panel_PowerUps").GetComponent<PowerUpsController>();
+        powerUpsController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>().transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
         InvokeRepeating("RequestBox", 1f, 15f);
     }
 
