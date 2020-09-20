@@ -1652,7 +1652,7 @@ GameObject:
   - component: {fileID: 6978347131785983601}
   - component: {fileID: 4067292738243280647}
   m_Layer: 5
-  m_Name: BoosterFilling
+  m_Name: BoosterFilling_OneBottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5111,7 +5111,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1281993857357546321}
         m_MethodName: BoosterFilling_AllBottles
         m_Mode: 1
         m_Arguments:
@@ -5613,7 +5613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1281993857357546321}
         m_MethodName: FixInTime
         m_Mode: 1
         m_Arguments:
@@ -6930,7 +6930,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1281993857357546321}
         m_MethodName: BoosterFilling_OneBottle
         m_Mode: 1
         m_Arguments:
@@ -17427,7 +17427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1281993857357546321}
         m_MethodName: BoosterFilling_Box
         m_Mode: 1
         m_Arguments:

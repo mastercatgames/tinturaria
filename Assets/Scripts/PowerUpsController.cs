@@ -24,20 +24,26 @@ public class PowerUpsController : MonoBehaviour
     public void BoosterFilling_OneBottle()
     {
         int boosterFilling_OneBottle = PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle");
+        uiController.PlayClickButtonSFX();
 
-        if (boosterFilling_OneBottle > 0)
+        if (!BoosterFilling_OneBottle_Flag)
         {
-            BoosterFilling_OneBottle_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", boosterFilling_OneBottle - 1);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
-            uiController.InkBtn_BoosterFilling_Icon_SetActive(true);
+            if (boosterFilling_OneBottle > 0)
+            {
+                BoosterFilling_OneBottle_Flag = true;                
+                powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("BGCount").gameObject.SetActive(false);
+                powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("Check").gameObject.SetActive(true);
+            }
+            else
+            {
+                print("You have to buy this power up!");
+            }
         }
         else
         {
-            print("You have to buy this power up!");
+            BoosterFilling_OneBottle_Flag = false;
+            powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("BGCount").gameObject.SetActive(true);
+            powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("Check").gameObject.SetActive(false);
         }
     }
 
@@ -101,7 +107,7 @@ public class PowerUpsController : MonoBehaviour
     public void NoBrokenBottles()
     {
         int noBrokenBottles = PlayerPrefs.GetInt("PowerUp_NoBrokenBottles");
-        uiController.GetComponent<AudioSource>().Play();
+        uiController.PlayClickButtonSFX();
 
         if (!NoBrokenBottles_Flag)
         {
@@ -121,8 +127,7 @@ public class PowerUpsController : MonoBehaviour
             NoBrokenBottles_Flag = false;
             powerUpButtons.transform.Find("NoBrokenBottles").Find("BGCount").gameObject.SetActive(true);
             powerUpButtons.transform.Find("NoBrokenBottles").Find("Check").gameObject.SetActive(false);
-        }
-        
+        }        
     }
 
     public void FixInTime()
@@ -147,7 +152,7 @@ public class PowerUpsController : MonoBehaviour
     public void DoubleCash()
     {
         int DoubleCash = PlayerPrefs.GetInt("PowerUp_DoubleCash");
-        uiController.GetComponent<AudioSource>().Play();
+        uiController.PlayClickButtonSFX();
 
         if (!DoubleCash_Flag)
         {

@@ -79,13 +79,13 @@ public class InkRepositoryController : MonoBehaviour
             {
                 isFilling = false;
                 inkfillAmount = 1f; //fix the value to 1 instead of 1.054f, e.g.
-                limitToFill = inkfillAmount - 0.25f;
-                fillSpeed = originalFillSpeed;
+                limitToFill = inkfillAmount - 0.25f;                
                 //Reset power up status (reactivate button and hide icon)
-                powerUpsController.BoosterFilling_OneBottle_Flag = false;
-                powerUpsController.BoosterFilling_AllBottles_Flag = false;                
-                uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", true);
-                uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", true);
+                // fillSpeed = originalFillSpeed;
+                // powerUpsController.BoosterFilling_OneBottle_Flag = false;
+                // powerUpsController.BoosterFilling_AllBottles_Flag = false;                
+                // uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", true);
+                // uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", true);
             }
         }
 
@@ -120,8 +120,6 @@ public class InkRepositoryController : MonoBehaviour
             isFilling = true;
             StartCoroutine(AutoTurnOnLightsOnFill());
             uiController.ClosePanel(BucketPanel);
-
-            uiController.InkBtn_BoosterFilling_Icon_SetActive(false);
 
             if (powerUpsController.BoosterFilling_OneBottle_Flag)
             {
