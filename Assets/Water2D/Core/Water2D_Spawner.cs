@@ -324,6 +324,9 @@
                     if (_breakLoop)
                         yield break;
 
+                    if (WaterDropsObjects[i] == null)
+                        continue;
+
                     MetaballParticleClass MetaBall = WaterDropsObjects[i].GetComponent<MetaballParticleClass>();
 
                     if (MetaBall.Active == true)

@@ -285,6 +285,12 @@ public class UIController : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") - 1);
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject.SetActive(true);
         }
+
+        if (powerUpsController.BoosterFilling_Box_Flag)
+        {
+            PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") - 1);
+            //gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_Box").gameObject.SetActive(true);            
+        }
     }
 
     private void ShowMenu()

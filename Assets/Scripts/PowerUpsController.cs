@@ -30,7 +30,7 @@ public class PowerUpsController : MonoBehaviour
         {
             if (boosterFilling_OneBottle > 0)
             {
-                BoosterFilling_OneBottle_Flag = true;                
+                BoosterFilling_OneBottle_Flag = true;
                 powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("Check").gameObject.SetActive(true);
             }
@@ -79,28 +79,27 @@ public class PowerUpsController : MonoBehaviour
 
     public void BoosterFilling_Box()
     {
-        int boosterFilling_OneBottle = PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box");
+        int BoosterFilling_Box = PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box");
+        uiController.PlayClickButtonSFX();
 
-        if (boosterFilling_OneBottle > 0)
+        if (!BoosterFilling_Box_Flag)
         {
-            BoosterFilling_Box_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", boosterFilling_OneBottle - 1);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
-
-            if (gameController.currentBox != null)
+            if (BoosterFilling_Box > 0)
             {
-                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(true);
+                BoosterFilling_Box_Flag = true;
+                powerUpButtons.transform.Find("BoosterFilling_Box").Find("BGCount").gameObject.SetActive(false);
+                powerUpButtons.transform.Find("BoosterFilling_Box").Find("Check").gameObject.SetActive(true);
             }
-
-            Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, -10f);
-            Water2D.Water2D_Spawner.instance.size = 0.25f;
-            gameController.paintSpeed = 10f;
+            else
+            {
+                print("You have to buy this power up!");
+            }
         }
         else
         {
-            print("You have to buy this power up!");
+            BoosterFilling_Box_Flag = false;
+            powerUpButtons.transform.Find("BoosterFilling_Box").Find("BGCount").gameObject.SetActive(true);
+            powerUpButtons.transform.Find("BoosterFilling_Box").Find("Check").gameObject.SetActive(false);
         }
     }
 
@@ -113,7 +112,7 @@ public class PowerUpsController : MonoBehaviour
         {
             if (noBrokenBottles > 0)
             {
-                NoBrokenBottles_Flag = true;                
+                NoBrokenBottles_Flag = true;
                 powerUpButtons.transform.Find("NoBrokenBottles").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("NoBrokenBottles").Find("Check").gameObject.SetActive(true);
             }
@@ -127,7 +126,7 @@ public class PowerUpsController : MonoBehaviour
             NoBrokenBottles_Flag = false;
             powerUpButtons.transform.Find("NoBrokenBottles").Find("BGCount").gameObject.SetActive(true);
             powerUpButtons.transform.Find("NoBrokenBottles").Find("Check").gameObject.SetActive(false);
-        }        
+        }
     }
 
     public void FixInTime()
@@ -139,7 +138,7 @@ public class PowerUpsController : MonoBehaviour
         {
             if (FixInTime > 0)
             {
-                FixInTime_Flag = true;                
+                FixInTime_Flag = true;
                 powerUpButtons.transform.Find("FixInTime").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("FixInTime").Find("Check").gameObject.SetActive(true);
             }
@@ -165,7 +164,7 @@ public class PowerUpsController : MonoBehaviour
         {
             if (DoubleCash > 0)
             {
-                DoubleCash_Flag = true;                
+                DoubleCash_Flag = true;
                 powerUpButtons.transform.Find("DoubleCash").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(true);
             }
@@ -182,27 +181,27 @@ public class PowerUpsController : MonoBehaviour
         }
     }
 
-    public void FreezingTime()
-    {
-        int FreezingTime = PlayerPrefs.GetInt("PowerUp_FreezingTime");
+    // public void FreezingTime()
+    // {
+    //     int FreezingTime = PlayerPrefs.GetInt("PowerUp_FreezingTime");
 
-        if (FreezingTime > 0)
-        {
-            FreezingTime_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_FreezingTime", FreezingTime - 1);
-            uiController.Panel_PowerUps_SetInteractable("FreezingTime", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
+    //     if (FreezingTime > 0)
+    //     {
+    //         FreezingTime_Flag = true;
+    //         PlayerPrefs.SetInt("PowerUp_FreezingTime", FreezingTime - 1);
+    //         uiController.Panel_PowerUps_SetInteractable("FreezingTime", false);
+    //         uiController.RefreshPowerUpsCount();
+    //         uiController.ClosePanel(gameObject);
 
-            //Freeze time, then start the countdown
-            uiController.timerIsRunning = false;
+    //         //Freeze time, then start the countdown
+    //         uiController.timerIsRunning = false;
 
-            //Activating this gameObject will start the FreezingTime script (that controls the bar)
-            uiController.FreezingTime_Icon_SetActive(true);
-        }
-        else
-        {
-            print("You have to buy this power up!");
-        }
-    }
+    //         //Activating this gameObject will start the FreezingTime script (that controls the bar)
+    //         uiController.FreezingTime_Icon_SetActive(true);
+    //     }
+    //     else
+    //     {
+    //         print("You have to buy this power up!");
+    //     }
+    // }
 }

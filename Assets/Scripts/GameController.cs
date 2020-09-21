@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         originalPaintSpeed = 1.5f;
         paintSpeed = originalPaintSpeed;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();        
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
 
         //Load repository position randomically
         ShuffleArray(repositoryXPositions);
@@ -58,6 +58,13 @@ public class GameController : MonoBehaviour
 
         earnCoinsValue = powerUpsController.DoubleCash_Flag ? 200 : 100;
         discountCoinsValue = 150;
+
+        if (powerUpsController.BoosterFilling_Box_Flag)
+        {
+            Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, -10f);
+            //Water2D.Water2D_Spawner.instance.size = 0.25f;
+            paintSpeed = 10f;
+        }
     }
 
     // Update is called once per frame
@@ -126,11 +133,11 @@ public class GameController : MonoBehaviour
 
                 //If isn't using power up, spawn the metaballs normally
                 //But if is using power up, allows spawn the metaballs only once time
-                if (powerUpsController.BoosterFilling_Box_Flag == false
-                || (powerUpsController.BoosterFilling_Box_Flag == true && currentBox.GetComponent<BoxController>().percentage <= 0.25f))
-                {
+                // if (powerUpsController.BoosterFilling_Box_Flag == false
+                // || (powerUpsController.BoosterFilling_Box_Flag == true && currentBox.GetComponent<BoxController>().percentage <= 0.25f))
+                // {
                     Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
-                }
+                // }
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.volume = 1f;
@@ -198,13 +205,13 @@ public class GameController : MonoBehaviour
                 currentBox.SetActive(false);
                 currentBox = null;
                 //Reset to default paint speed
-                Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, 2f);
-                paintSpeed = originalPaintSpeed;
+                // Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, 2f);                
                 //Reset power up status (reactivate button and hide icon)
-                powerUpsController.BoosterFilling_Box_Flag = false;
-                Water2D.Water2D_Spawner.instance.size = 0.15f;
-                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
-                uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
+                //paintSpeed = originalPaintSpeed;
+                // powerUpsController.BoosterFilling_Box_Flag = false;
+                // Water2D.Water2D_Spawner.instance.size = 0.15f;
+                // uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
+                // uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }
 
             isPainting = false;
