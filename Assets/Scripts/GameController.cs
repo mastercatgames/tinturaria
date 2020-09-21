@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
 
             #region PC Input            
             if (Input.GetButtonDown("Jump"))
-                NewPaintFluid();
+                NewPaintFluid(false);
 
             if (Input.GetButtonDown("Horizontal")
                && !isChangingRepository
@@ -100,14 +100,15 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void NewPaintFluid()
+    public void NewPaintFluid(bool autoFill)
     {
-        if (!isChangingRepository
+        if (autoFill
+         || (!isChangingRepository
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
         && !uiController.somePanelIsOpen
         //&& !currentRepository.GetComponent<InkRepositoryController>().isBroken
-        && currentBox)
+        && currentBox))
         {
             if (currentRepository.GetComponent<InkRepositoryController>().isBroken)
             {
@@ -136,7 +137,7 @@ public class GameController : MonoBehaviour
                 // if (powerUpsController.BoosterFilling_Box_Flag == false
                 // || (powerUpsController.BoosterFilling_Box_Flag == true && currentBox.GetComponent<BoxController>().percentage <= 0.25f))
                 // {
-                    Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+                Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
                 // }
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
@@ -220,8 +221,11 @@ public class GameController : MonoBehaviour
 
             if (powerUpsController.BoosterFilling_Box_Flag)
             {
-                NewPaintFluid();
-                print("Power up to fill box faster!");
+                if (currentBox != null)
+                {
+                    NewPaintFluid(true);
+                    print("Power up to fill box faster!");
+                }
             }
         }
     }
