@@ -29,8 +29,19 @@ public class InkRepositoryController : MonoBehaviour
         lightSpeed = originalFillSpeed;
         fillSpeed = 0.15f; //TODO: Think if its better to make the fill slower, like 0.1f (then you can use the power up to fill faster)
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
         //TODO: Each hourglass can be initialized "broken" or "empty"
-        inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
+
+        if (powerUpsController.BoosterFilling_AllBottles_Flag)
+        {
+            inkfillAmount = 1f;
+        }
+        else
+        {
+            inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
+        }
+
         limitToFill = inkfillAmount - 0.25f;
         FixingTimeInSeconds = OriginalTimeInSeconds = 6f;
 
@@ -50,8 +61,6 @@ public class InkRepositoryController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
 
         initLights();
-
-        powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
     }
 
     private void initLights()
@@ -79,7 +88,7 @@ public class InkRepositoryController : MonoBehaviour
             {
                 isFilling = false;
                 inkfillAmount = 1f; //fix the value to 1 instead of 1.054f, e.g.
-                limitToFill = inkfillAmount - 0.25f;                
+                limitToFill = inkfillAmount - 0.25f;
                 //Reset power up status (reactivate button and hide icon)
                 // fillSpeed = originalFillSpeed;
                 // powerUpsController.BoosterFilling_OneBottle_Flag = false;
@@ -128,26 +137,22 @@ public class InkRepositoryController : MonoBehaviour
         }
         else
         {
-            //If using the power up to fill all bottles, ignore..
-            if (!powerUpsController.BoosterFilling_AllBottles_Flag)
+            //Fix repository!
+            int toolsCount = PlayerPrefs.GetInt("toolsCount");
+
+            if (toolsCount > 0 && !isFixing)
             {
-                //Fix repository!
-                int toolsCount = PlayerPrefs.GetInt("toolsCount");
+                uiController.ClosePanel(BucketPanel);
+                gameController.FixRepository(gameObject);
 
-                if (toolsCount > 0 && !isFixing)
-                {
-                    uiController.ClosePanel(BucketPanel);
-                    gameController.FixRepository(gameObject);
-
-                    //Discount toolsCount
-                    PlayerPrefs.SetInt("toolsCount", toolsCount - 1);
-                    uiController.RefreshToolsCount();
-                }
-                else
-                {
-                    print("You have no fixing tools!");
-                    //TODO: Alert
-                }
+                //Discount toolsCount
+                PlayerPrefs.SetInt("toolsCount", toolsCount - 1);
+                uiController.RefreshToolsCount();
+            }
+            else
+            {
+                print("You have no fixing tools!");
+                //TODO: Alert
             }
         }
     }

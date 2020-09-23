@@ -49,31 +49,27 @@ public class PowerUpsController : MonoBehaviour
 
     public void BoosterFilling_AllBottles()
     {
-        int boosterFilling_AllBottles = PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles");
+        int BoosterFilling_AllBottles = PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles");
+        uiController.PlayClickButtonSFX();
 
-        if (boosterFilling_AllBottles > 0)
+        if (!BoosterFilling_AllBottles_Flag)
         {
-            BoosterFilling_OneBottle_Flag = true; // Activate the flag to fill one bottle faster
-            BoosterFilling_AllBottles_Flag = true;
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", boosterFilling_AllBottles - 1);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
-            uiController.RefreshPowerUpsCount();
-            uiController.ClosePanel(gameObject);
-
-            foreach (Transform bottle in GameObject.FindGameObjectWithTag("Rail").transform)
+            if (BoosterFilling_AllBottles > 0)
             {
-                //Reset all Bottles to fill at the same time (ignoring the broken ones)
-                if (!bottle.GetComponent<InkRepositoryController>().isBroken)
-                {
-                    bottle.GetComponent<InkRepositoryController>().inkfillAmount = 0f;
-                    bottle.GetComponent<InkRepositoryController>().FillOrFixRepository();
-                }
+                BoosterFilling_AllBottles_Flag = true;
+                powerUpButtons.transform.Find("BoosterFilling_AllBottles").Find("BGCount").gameObject.SetActive(false);
+                powerUpButtons.transform.Find("BoosterFilling_AllBottles").Find("Check").gameObject.SetActive(true);
+            }
+            else
+            {
+                print("You have to buy this power up!");
             }
         }
         else
         {
-            print("You have to buy this power up!");
+            BoosterFilling_AllBottles_Flag = false;
+            powerUpButtons.transform.Find("BoosterFilling_AllBottles").Find("BGCount").gameObject.SetActive(true);
+            powerUpButtons.transform.Find("BoosterFilling_AllBottles").Find("Check").gameObject.SetActive(false);
         }
     }
 

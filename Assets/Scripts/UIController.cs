@@ -291,6 +291,11 @@ public class UIController : MonoBehaviour
             PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") - 1);
             //gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_Box").gameObject.SetActive(true);            
         }
+
+        if (powerUpsController.BoosterFilling_AllBottles_Flag)
+        {
+            PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") - 1);
+        }
     }
 
     private void ShowMenu()
