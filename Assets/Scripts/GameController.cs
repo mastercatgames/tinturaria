@@ -142,6 +142,11 @@ public class GameController : MonoBehaviour
                 //Block Box Changing and the bucket button with same color
                 uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = false;
                 uiController.SetActiveBucketButton(currentRepository.name, false);
+                
+                if (!powerUpsController.BoosterFilling_Box_Flag)
+                {
+                    currentRepository.transform.Find("ClockSprite").gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -215,6 +220,7 @@ public class GameController : MonoBehaviour
             //Unlock Box Changing and the bucket button with same color
             uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = true;
             uiController.SetActiveBucketButton(currentRepository.name, true);
+            currentRepository.transform.Find("ClockSprite").gameObject.SetActive(false);
 
             if (powerUpsController.BoosterFilling_Box_Flag)
             {
@@ -302,6 +308,7 @@ public class GameController : MonoBehaviour
         {
             brokenRepository.GetComponent<InkRepositoryController>().isFixing = true;
             brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
+            brokenRepository.transform.Find("ClockSprite").gameObject.SetActive(true);
 
             print("Fixing the *" + brokenRepository.name + "* repository!");
         }
@@ -332,6 +339,7 @@ public class GameController : MonoBehaviour
         FixedRepository.GetComponent<InkRepositoryController>().isBroken = false;
         FixedRepository.GetComponent<InkRepositoryController>().FixingTimeInSeconds = FixedRepository.GetComponent<InkRepositoryController>().OriginalTimeInSeconds;
         FixedRepository.GetComponent<InkRepositoryController>().transform.Find("Tool").gameObject.SetActive(false);
+        FixedRepository.GetComponent<InkRepositoryController>().transform.Find("ClockSprite").gameObject.SetActive(false);
 
         //Panel_Ink_Buckets - management
         GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(FixedRepository.name).gameObject;

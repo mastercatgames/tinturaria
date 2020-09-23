@@ -86,6 +86,7 @@ public class InkRepositoryController : MonoBehaviour
                 inkfillAmount = 1f; //fix the value to 1 instead of 1.054f, e.g.
                 limitToFill = inkfillAmount - 0.25f;
                 uiController.SetActiveBucketButton(gameObject.name, true);
+                transform.Find("ClockSprite").gameObject.SetActive(false);
                 //Reset power up status (reactivate button and hide icon)
                 // fillSpeed = originalFillSpeed;
                 // powerUpsController.BoosterFilling_OneBottle_Flag = false;
@@ -131,6 +132,10 @@ public class InkRepositoryController : MonoBehaviour
             if (powerUpsController.BoosterFilling_OneBottle_Flag)
             {
                 fillSpeed = 2f;
+            }
+            else
+            {
+                transform.Find("ClockSprite").gameObject.SetActive(true);
             }
         }
         else

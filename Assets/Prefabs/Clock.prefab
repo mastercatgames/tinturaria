@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vectorGraphics: {fileID: 11400000, guid: 64311a96532e84b76984aab11a28505b, type: 2}
+  _vectorGraphics: {fileID: 11400000, guid: a84c34c7251c62f4ead3c91cfe6439cb, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_UsePivot: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  _vectorGraphics: {fileID: 11400000, guid: 64311a96532e84b76984aab11a28505b, type: 2}
+  _vectorGraphics: {fileID: 11400000, guid: a84c34c7251c62f4ead3c91cfe6439cb, type: 2}
   m_Type: 0
   m_PreserveAspect: 0
   m_UsePivot: 0
@@ -191,6 +191,8 @@ GameObject:
   - component: {fileID: 2080904623714012598}
   - component: {fileID: 2071139020677815194}
   - component: {fileID: 3562930392341504309}
+  - component: {fileID: 7820771920110296315}
+  - component: {fileID: 6900713134736245369}
   m_Layer: 5
   m_Name: Clock
   m_TagString: Untagged
@@ -282,6 +284,42 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!95 &7820771920110296315
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839412446556577068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100e4955ff5251843b2315edd4c4061d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6900713134736245369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839412446556577068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2068e6d6f3b73fe42b79c0e22ad27062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minuteSpeed: 0
+  hourSpeed: 0
+  minuteHand: {fileID: 1859096416169939558}
+  hourHand: {fileID: 373917381087567067}
+  isRectTransform: 0
 --- !u!1 &6837892651519552565
 GameObject:
   m_ObjectHideFlags: 0

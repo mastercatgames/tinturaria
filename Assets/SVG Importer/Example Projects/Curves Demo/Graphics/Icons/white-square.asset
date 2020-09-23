@@ -3,20 +3,22 @@
 --- !u!43 &4321328
 Mesh:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: white-square
-  serializedVersion: 8
+  serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
     indexCount: 42
     topology: 0
+    baseVertex: 0
     firstVertex: 0
     vertexCount: 18
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 5.00000048, y: 5.00000048, z: 0}
+      m_Extent: {x: 5.0000005, y: 5.0000005, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -29,16 +31,20 @@ Mesh:
   m_IsReadable: 1
   m_KeepVertices: 1
   m_KeepIndices: 1
+  m_IndexFormat: 0
   m_IndexBuffer: 00000100020001000000030006000700040004000500060008000700060009000a0007000700080009000b000a0009000c000d000a000a000b000c000e000d000c000f0010000d000d000e000f00110010000f00
-  m_Skin: []
   m_VertexData:
-    m_CurrentChannels: 61
+    serializedVersion: 2
     m_VertexCount: 18
     m_Channels:
     - stream: 0
       offset: 0
       format: 0
       dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
     - stream: 0
       offset: 0
       format: 0
@@ -59,6 +65,26 @@ Mesh:
       offset: 32
       format: 0
       dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
     - stream: 0
       offset: 0
       format: 0
@@ -123,16 +149,23 @@ Mesh:
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 5.00000048, y: 5.00000048, z: 0}
+    m_Extent: {x: 5.0000005, y: 5.0000005, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -153,11 +186,11 @@ MonoBehaviour:
   _optimizeMesh: 1
   _generateNormals: 0
   _generateTangents: 0
-  _scale: .100000001
+  _scale: 0.1
   _vpm: 1000
-  _depthOffset: .00999999978
+  _depthOffset: 0.01
   _compressDepth: 1
-  _pivotPoint: {x: .5, y: .5}
+  _pivotPoint: {x: 0.5, y: 0.5}
   _customPivotPoint: 0
   _border: {x: 0, y: 0, z: 0, w: 0}
   _sliceMesh: 0
@@ -190,8 +223,9 @@ MonoBehaviour:
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
