@@ -112,7 +112,7 @@ public class UIController : MonoBehaviour
         //Close all open panels
         transform.parent.Find("Panel_Ink_Buckets").gameObject.SetActive(false);
         transform.parent.Find("Panel_Forms").gameObject.SetActive(false);
-        
+
         Debug.Log("Time has run out!");
         timeRemaining = 0;
         timerIsRunning = false;
@@ -158,7 +158,7 @@ public class UIController : MonoBehaviour
 
         //Total
         // totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
-        totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();        
+        totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();
     }
 
     private void HideGameplayObjects()
@@ -439,12 +439,12 @@ public class UIController : MonoBehaviour
     }
 
     IEnumerator ClosePanelAnimation(Transform panel)
-    {        
+    {
         panel.Find("BG").GetComponent<Animator>().Play("UI_BG_Transition_Close");
         panel.Find("Content").GetComponent<Animator>().Play("UI_JellyZoomOut_Auto");
         //Wait until the animations end, then hide the panel gameObject
         yield return new WaitForSeconds(0.5f);
-        panel.gameObject.SetActive(false);                              
+        panel.gameObject.SetActive(false);
     }
 
     public void OpenLevelDetailPanel()
@@ -460,5 +460,18 @@ public class UIController : MonoBehaviour
             transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(false);
             RefreshPowerUpsCount();
         }
+    }
+
+    public void CallFillOrFixRepository(GameObject bucketSelected)
+    {
+        gameController.transform.parent.Find("TopInkMachine").Find("Rail").Find(bucketSelected.name).GetComponent<InkRepositoryController>().FillOrFixRepository();
+        SetActiveBucketButton(bucketSelected.name, false);
+    }
+
+    public void SetActiveBucketButton(string colorName, bool active)
+    {
+        Transform bucketButton = transform.parent.Find("Panel_Ink_Buckets").Find("Buckets").Find(colorName);
+        bucketButton.GetComponent<Button>().interactable = active;
+        bucketButton.Find("Clock").gameObject.SetActive(!active);
     }
 }

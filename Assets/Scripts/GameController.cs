@@ -131,22 +131,17 @@ public class GameController : MonoBehaviour
             if (currentRepository.GetComponent<InkRepositoryController>().inkfillAmount > 0f)
             {
                 isPainting = true;
-
-                //If isn't using power up, spawn the metaballs normally
-                //But if is using power up, allows spawn the metaballs only once time
-                // if (powerUpsController.BoosterFilling_Box_Flag == false
-                // || (powerUpsController.BoosterFilling_Box_Flag == true && currentBox.GetComponent<BoxController>().percentage <= 0.25f))
-                // {
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
-                // }
 
                 InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
                 InkMachine_AS.volume = 1f;
                 InkMachine_AS.Play();
                 currentRepository.GetComponent<InkRepositoryController>().CallTurnOffLight();
                 InvokeRepeating("Vibrate", 1.0f, 0.2f);
-                //Block Box Chganging
+
+                //Block Box Changing and the bucket button with same color
                 uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = false;
+                uiController.SetActiveBucketButton(currentRepository.name, false);
             }
             else
             {
@@ -216,7 +211,10 @@ public class GameController : MonoBehaviour
 
             isPainting = false;
             CancelInvoke("Vibrate");
+
+            //Unlock Box Changing and the bucket button with same color
             uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = true;
+            uiController.SetActiveBucketButton(currentRepository.name, true);
 
             if (powerUpsController.BoosterFilling_Box_Flag)
             {
