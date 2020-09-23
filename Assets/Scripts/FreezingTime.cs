@@ -45,8 +45,8 @@ public class FreezingTime : MonoBehaviour
         else
         {
             uiController.timerIsRunning = true;
-            uiController.FreezingTime_Icon_SetActive(false);
-            uiController.Panel_PowerUps_SetInteractable("FreezingTime", true);
+            //uiController.FreezingTime_Icon_SetActive(false);
+            //uiController.Panel_PowerUps_SetInteractable("FreezingTime", true);
             powerUpsController.FreezingTime_Flag = false;
             bar.fillAmount = 1f;
             bar.color = requestPanelController.GreenColor;

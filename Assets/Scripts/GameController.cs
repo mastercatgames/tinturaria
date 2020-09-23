@@ -169,7 +169,6 @@ public class GameController : MonoBehaviour
         }
         else
         {
-
             currentRepository.GetComponent<InkRepositoryController>().limitToFill -= 0.25f;
             currentBox.GetComponent<BoxController>().currentColor = Water2D.Water2D_Spawner.instance.WaterMaterial.color;
             currentBox.GetComponent<BoxController>().percentage += 0.25f;
@@ -316,7 +315,7 @@ public class GameController : MonoBehaviour
 
         //Panel_Ink_Buckets - management
         GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(repositoryToBroke.name).gameObject;
-        bucketButton.GetComponent<Button>().interactable = false;
+        //bucketButton.GetComponent<Button>().interactable = false;
         Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
         bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0.6f);
         bucketButton.transform.Find("Tool").gameObject.SetActive(true);
@@ -338,7 +337,7 @@ public class GameController : MonoBehaviour
 
         //Panel_Ink_Buckets - management
         GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(FixedRepository.name).gameObject;
-        bucketButton.GetComponent<Button>().interactable = true;
+        //bucketButton.GetComponent<Button>().interactable = true;
         Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
         bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 1f);
         bucketButton.transform.Find("Tool").gameObject.SetActive(false);

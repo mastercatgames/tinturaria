@@ -80,10 +80,6 @@ public class InkRepositoryController : MonoBehaviour
             inkfillAmount += Time.deltaTime * fillSpeed;
             transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
-            //AutoTurnOnLightsOnFill(inkfillAmount);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_OneBottle", false);
-            uiController.Panel_PowerUps_SetInteractable("BoosterFilling_AllBottles", false);
-
             if (inkfillAmount >= 1f)
             {
                 isFilling = false;

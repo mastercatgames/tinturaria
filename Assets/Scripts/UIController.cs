@@ -107,6 +107,12 @@ public class UIController : MonoBehaviour
 
     private void GameOver()
     {
+        HideGameplayObjects();
+
+        //Close all open panels
+        transform.parent.Find("Panel_Ink_Buckets").gameObject.SetActive(false);
+        transform.parent.Find("Panel_Forms").gameObject.SetActive(false);
+        
         Debug.Log("Time has run out!");
         timeRemaining = 0;
         timerIsRunning = false;
@@ -152,9 +158,7 @@ public class UIController : MonoBehaviour
 
         //Total
         // totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
-        totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();
-
-        HideGameplayObjects();
+        totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();        
     }
 
     private void HideGameplayObjects()
@@ -373,27 +377,8 @@ public class UIController : MonoBehaviour
         foreach (Transform powerUp in powerUpsButtons)
         {
             powerUp.Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("PowerUp_" + powerUp.name).ToString();
-
             powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
         }
-    }
-
-    public void InkBtn_BoosterFilling_Icon_SetActive(bool active)
-    {
-        GameObject InkBtn_BoosterFilling_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling").gameObject;
-        InkBtn_BoosterFilling_Icon.SetActive(active);
-    }
-
-    public void InkBtn_NoBrokenBottles_Icon_SetActive(bool active)
-    {
-        GameObject InkBtn_NoBrokenBottles_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("NoBrokenBottles").gameObject;
-        InkBtn_NoBrokenBottles_Icon.SetActive(active);
-    }
-
-    public void InkBtn_FixInTime_Icon_SetActive(bool active)
-    {
-        GameObject InkBtn_FixInTime_Icon = gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject;
-        InkBtn_FixInTime_Icon.SetActive(active);
     }
 
     public void InkBtn_BoosterFillingBox_Icon_SetActive(bool active)
@@ -406,23 +391,6 @@ public class UIController : MonoBehaviour
         {
             InkBtn_BoosterFillingBox_Icon.transform.localScale = Vector3.zero;
         }
-    }
-
-    // public void DoubleCash_Icon_SetActive(bool active)
-    // {
-    //     GameObject DoubleCash_Icon = gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject;
-    //     DoubleCash_Icon.SetActive(active);
-    // }
-
-    public void FreezingTime_Icon_SetActive(bool active)
-    {
-        GameObject FreezingTime_Icon = gameObject.transform.parent.Find("Timer").Find("FreezingTime").gameObject;
-        FreezingTime_Icon.SetActive(active);
-    }
-
-    public void Panel_PowerUps_SetInteractable(string buttonName, bool interactable)
-    {
-        gameObject.transform.parent.Find("Panel_PowerUps").Find("PowerUps").Find(buttonName).GetComponent<Button>().interactable = interactable;
     }
 
     public void OpenGameplayMenu()
@@ -493,10 +461,4 @@ public class UIController : MonoBehaviour
             RefreshPowerUpsCount();
         }
     }
-
-    // IEnumerator HideMenuButtons()
-    // {
-    //     yield return new WaitForSeconds(0.5f);
-    //     transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
-    // }
 }
