@@ -262,6 +262,12 @@ public class UIController : MonoBehaviour
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
         }
+        else
+        {
+            Transform Play_Button = transform.parent.Find("Menu").Find("Main").Find("Play_Button");
+            Play_Button.Find("Text").GetComponent<Text>().text = "Tap to continue";
+            Play_Button.gameObject.SetActive(true);
+        }
     }
 
     private void SetPowerUps()
