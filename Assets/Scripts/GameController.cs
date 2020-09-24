@@ -140,9 +140,11 @@ public class GameController : MonoBehaviour
                 InvokeRepeating("Vibrate", 1.0f, 0.2f);
 
                 //Block Box Changing and the bucket button with same color
-                uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = false;
+                Transform FormBtn = uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn");
+                FormBtn.gameObject.GetComponent<Button>().interactable = false;
+                FormBtn.Find("Clock").gameObject.SetActive(true);
                 uiController.SetActiveBucketButton(currentRepository.name, false);
-                
+
                 if (!powerUpsController.BoosterFilling_Box_Flag)
                 {
                     currentRepository.transform.Find("ClockSprite").gameObject.SetActive(true);
@@ -212,7 +214,7 @@ public class GameController : MonoBehaviour
                 //paintSpeed = originalPaintSpeed;
                 // powerUpsController.BoosterFilling_Box_Flag = false;
                 // Water2D.Water2D_Spawner.instance.size = 0.15f;
-                
+
                 // uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }
 
@@ -220,7 +222,9 @@ public class GameController : MonoBehaviour
             CancelInvoke("Vibrate");
 
             //Unlock Box Changing and the bucket button with same color
-            uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn").GetComponent<Button>().interactable = true;
+            Transform FormBtn = uiController.transform.parent.Find("ButtonsGrid").Find("FormBtn");
+            FormBtn.gameObject.GetComponent<Button>().interactable = true;
+            FormBtn.Find("Clock").gameObject.SetActive(false);
             uiController.SetActiveBucketButton(currentRepository.name, true);
             currentRepository.transform.Find("ClockSprite").gameObject.SetActive(false);
 
