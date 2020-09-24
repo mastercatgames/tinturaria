@@ -327,6 +327,12 @@ public class GameController : MonoBehaviour
         //Panel_Ink_Buckets - management
         GameObject bucketButton = Panel_Ink_Buckets.transform.Find("Buckets").Find(repositoryToBroke.name).gameObject;
         //bucketButton.GetComponent<Button>().interactable = false;
+
+        if (PlayerPrefs.GetInt("toolsCount") == 0)
+        {
+            bucketButton.GetComponent<Button>().interactable = false;
+        }
+
         Image buttonImage = bucketButton.transform.Find("Ink").GetComponent<Image>();
         bucketButton.transform.Find("Ink").GetComponent<Image>().color = new Color(buttonImage.color.r, buttonImage.color.g, buttonImage.color.b, 0.6f);
         bucketButton.transform.Find("Tool").gameObject.SetActive(true);
