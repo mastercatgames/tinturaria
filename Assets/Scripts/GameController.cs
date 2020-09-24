@@ -204,13 +204,15 @@ public class GameController : MonoBehaviour
                 currentBox.GetComponent<BoxController>().percentage = 0;
                 currentBox.SetActive(false);
                 currentBox = null;
+
+                uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
                 //Reset to default paint speed
                 // Water2D.Water2D_Spawner.instance.initSpeed = new Vector2(-0.15f, 2f);                
                 //Reset power up status (reactivate button and hide icon)
                 //paintSpeed = originalPaintSpeed;
                 // powerUpsController.BoosterFilling_Box_Flag = false;
                 // Water2D.Water2D_Spawner.instance.size = 0.15f;
-                // uiController.InkBtn_BoosterFillingBox_Icon_SetActive(false);
+                
                 // uiController.Panel_PowerUps_SetInteractable("BoosterFilling_Box", true);
             }
 
