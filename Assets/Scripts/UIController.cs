@@ -462,10 +462,26 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            transform.parent.Find("Menu").Find("Main").Find("LevelDetails").gameObject.SetActive(true);
             transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(false);
             RefreshPowerUpsCount();
-        }
+
+            Transform levelDetails = transform.parent.Find("Menu").Find("Main").Find("LevelDetails");
+            levelDetails.gameObject.SetActive(true);            
+            Text levelName = levelDetails.transform.Find("Content").Find("BG_Title").Find("Text").GetComponent<Text>();
+            levelName.text = levelManager.world + "-" + levelManager.level;
+
+            Transform stars = levelDetails.transform.Find("Content").Find("Stars");
+
+            Text starsChallenge1 = stars.Find("Star1").Find("Text").GetComponent<Text>();
+            starsChallenge1.text = levelManager.oneStarCoins.ToString();
+
+            Text starsChallenge2 = stars.Find("Star2").Find("Text").GetComponent<Text>();
+            starsChallenge2.text = levelManager.twoStarCoins.ToString();
+
+            Text starsChallenge3 = stars.Find("Star3").Find("Text").GetComponent<Text>();
+            starsChallenge3.text = levelManager.threeStarCoins.ToString();
+
+        }    
     }
 
     public void CallFillOrFixRepository(GameObject bucketSelected)
