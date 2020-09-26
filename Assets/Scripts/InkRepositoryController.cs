@@ -188,7 +188,7 @@ public class InkRepositoryController : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(0.5f);
-        print("Finished Coroutine");
+        //print("Finished Coroutine");
     }
 
     public IEnumerator TurnOnLight(int lightNum)
