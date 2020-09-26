@@ -28,7 +28,7 @@ public class RequestPanelController : MonoBehaviour
         InvokeRepeating("RequestBox", 1f, 15f);
     }
 
-    void RequestBox()
+    public void RequestBox()
     {
         if (numOfRequests < 3)
         {

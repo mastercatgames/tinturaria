@@ -8,6 +8,7 @@ public class RequestBox : MonoBehaviour
     private Image bar;
     private RequestPanelController requestPanelController;
     private GameController gameController;
+    private PowerUpsController powerUpsController;
     public bool isDestroyingBox;
     private Image maskColor;
     private float barSpeed;
@@ -21,6 +22,7 @@ public class RequestBox : MonoBehaviour
         maskColor = transform.Find("MaskColor").GetComponent<Image>();
         requestPanelController = transform.parent.GetComponent<RequestPanelController>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
+        powerUpsController = transform.parent.parent.Find("PowerUps").GetComponent<PowerUpsController>();
         //TODO: Test the best time to fit in gameplay
         //0.01f = 01:40m
         //0.02f = 00:50m (50 sec)
@@ -67,8 +69,7 @@ public class RequestBox : MonoBehaviour
 
     void DestroyBox()
     {
-        //TODO: Discount from a new variable numberOfFailedDeliveries (in GameController) 
-        //TODO: Discount coins
+        //Is called when the "deliveredSuccess" or "deliveredFailed" animations is finished
         transform.parent.GetComponent<RequestPanelController>().numOfRequests--;
         Destroy(this.gameObject);
         bool removed = requestPanelController.colorsRequested.Remove(colorRepositoryObj);
@@ -77,6 +78,13 @@ public class RequestBox : MonoBehaviour
             print(colorRepositoryObj + " was removed from ColorsRequested list!");
         else
             print("(BUG)" + colorRepositoryObj + " wasn't removed from ColorsRequested list!");
+
+        
+        //Request another box immediately
+        if (powerUpsController.BoosterFilling_Box_Flag)
+        {
+            requestPanelController.RequestBox();
+        }
 
     }
 
