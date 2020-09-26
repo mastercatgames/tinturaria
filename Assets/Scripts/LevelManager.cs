@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
             if (level > 1)
             {
-                uiController.timeRemaining = 60f;                
+                uiController.timeRemaining = 60f;
             }
             else
             {
@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 2)
         {
             uiController.timeRemaining = 126f;
-            requestedColorsPosition.Add(2);
+            SetBrokenBottlesPosition(1);
 
             oneStarCoins = 100;
             twoStarCoins = 200;
@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 3)
         {
             uiController.timeRemaining = 120f;
-            requestedColorsPosition.Add(2);
+            SetBrokenBottlesPosition(1);
 
             oneStarCoins = 100;
             twoStarCoins = 200;
@@ -62,7 +62,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 4)
         {
             uiController.timeRemaining = 150f;
-            requestedColorsPosition.Add(3);
+            SetBrokenBottlesPosition(2);
 
             oneStarCoins = 200;
             twoStarCoins = 300;
@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 5)
         {
             uiController.timeRemaining = 176f;
-            requestedColorsPosition.Add(4);
+            SetBrokenBottlesPosition(2);
 
             oneStarCoins = 300;
             twoStarCoins = 400;
@@ -80,8 +80,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 6)
         {
             uiController.timeRemaining = 177f;
-            requestedColorsPosition.Add(2);
-            requestedColorsPosition.Add(4);
+            SetBrokenBottlesPosition(2);
 
             oneStarCoins = 300;
             twoStarCoins = 400;
@@ -90,8 +89,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 7)
         {
             uiController.timeRemaining = 162f;
-            requestedColorsPosition.Add(2);
-            requestedColorsPosition.Add(3);
+            SetBrokenBottlesPosition(3);
 
             oneStarCoins = 300;
             twoStarCoins = 400;
@@ -100,8 +98,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 8)
         {
             uiController.timeRemaining = 186f;
-            requestedColorsPosition.Add(3);
-            requestedColorsPosition.Add(5);
+            SetBrokenBottlesPosition(3);
 
             oneStarCoins = 400;
             twoStarCoins = 500;
@@ -110,8 +107,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 9)
         {
             uiController.timeRemaining = 180f;
-            requestedColorsPosition.Add(1);
-            requestedColorsPosition.Add(6);
+            SetBrokenBottlesPosition(3);
 
             oneStarCoins = 400;
             twoStarCoins = 500;
@@ -120,8 +116,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 10)
         {
             uiController.timeRemaining = 174f;
-            requestedColorsPosition.Add(2);
-            requestedColorsPosition.Add(4);
+            SetBrokenBottlesPosition(4);
 
             oneStarCoins = 400;
             twoStarCoins = 500;
@@ -130,9 +125,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 11)
         {
             uiController.timeRemaining = 200f;
-            requestedColorsPosition.Add(1);
-            requestedColorsPosition.Add(3);
-            requestedColorsPosition.Add(6);
+            SetBrokenBottlesPosition(4);
 
             oneStarCoins = 500;
             twoStarCoins = 600;
@@ -141,9 +134,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 12)
         {
             uiController.timeRemaining = 193f;
-            requestedColorsPosition.Add(1);
-            requestedColorsPosition.Add(3);
-            requestedColorsPosition.Add(5);
+            SetBrokenBottlesPosition(4);
 
             oneStarCoins = 500;
             twoStarCoins = 600;
@@ -152,9 +143,7 @@ public class LevelManager : MonoBehaviour
         else if (world == 13)
         {
             uiController.timeRemaining = 210f;
-            requestedColorsPosition.Add(2);
-            requestedColorsPosition.Add(4);
-            requestedColorsPosition.Add(7);
+            SetBrokenBottlesPosition(4);
 
             oneStarCoins = 600;
             twoStarCoins = 700;
@@ -169,13 +158,26 @@ public class LevelManager : MonoBehaviour
             else if (level == 3)
                 uiController.timeRemaining = 186f;
 
-            requestedColorsPosition.Add(1);
-            requestedColorsPosition.Add(3);
-            requestedColorsPosition.Add(8);
+            SetBrokenBottlesPosition(4);
 
             oneStarCoins = 600;
             twoStarCoins = 700;
             threeStarCoins = 800;
+        }
+    }
+
+    public void SetBrokenBottlesPosition(int howMany)
+    {
+        for (int i = 1; i <= howMany; i++)
+        {
+            if (i == 1)
+                requestedColorsPosition.Add(Random.Range(1, 3)); //a < b  (1 to 2)
+            else if (i == 2)
+                requestedColorsPosition.Add(Random.Range(3, 5)); //a < b  (3 to 4)
+            else if (i == 3)
+                requestedColorsPosition.Add(Random.Range(5, 8)); //a < b  (5 to 7)
+            else if (i == 4)
+                requestedColorsPosition.Add(Random.Range(8, 17)); //a < b  (8 to 16)
         }
     }
 }
