@@ -338,14 +338,17 @@ public class UIController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        PlayClickButtonSFX();
         menu.transform.Find("Levels").gameObject.SetActive(false);
         menu.transform.Find("Settings").gameObject.SetActive(false);
+        menu.transform.Find("Store").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(false);
         menu.transform.Find("Main").gameObject.SetActive(true);
     }
 
     public void OpenSettings()
     {
+        PlayClickButtonSFX();
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Settings").gameObject.SetActive(true);
@@ -353,16 +356,24 @@ public class UIController : MonoBehaviour
 
     public void OpenLevels()
     {
+        PlayClickButtonSFX();
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Levels").gameObject.SetActive(true);
     }
 
+    public void OpenStore()
+    {
+        PlayClickButtonSFX();
+        menu.transform.Find("Main").gameObject.SetActive(false);
+        menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
+        menu.transform.Find("Store").gameObject.SetActive(true);
+    }
+
     public void PauseGame()
     {
-        print("Pause!");
+        PlayClickButtonSFX();
         menu.gameObject.SetActive(true);
-        //gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(false);
         timerIsRunning = false;
 
         Time.timeScale = 0f;
