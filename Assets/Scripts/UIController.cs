@@ -41,6 +41,11 @@ public class UIController : MonoBehaviour
 
         music = GameObject.Find("Music").GetComponent<AudioSource>();
 
+        if (PlayerPrefs.GetString("music") == "")
+        {
+            PlayerPrefs.SetString("music", "on");
+        }
+
         musicToggle.isOn = PlayerPrefs.GetString("music") == "on";
         MusicOnOff();
 
