@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 2)
         {
-            uiController.timeRemaining = 126f;
+            uiController.timeRemaining = 120f;
             requestedColorsPosition.Add(2);
 
             oneStarCoins = 100;
@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 5)
         {
-            uiController.timeRemaining = 176f;
+            uiController.timeRemaining = 170f;
             requestedColorsPosition.Add(4);
 
             oneStarCoins = 300;
@@ -79,7 +79,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 6)
         {
-            uiController.timeRemaining = 177f;
+            uiController.timeRemaining = 170f;
             requestedColorsPosition.Add(2);
             requestedColorsPosition.Add(4);
 
@@ -89,7 +89,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 7)
         {
-            uiController.timeRemaining = 162f;
+            uiController.timeRemaining = 160f;
             requestedColorsPosition.Add(2);
             requestedColorsPosition.Add(3);
 
@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 8)
         {
-            uiController.timeRemaining = 186f;
+            uiController.timeRemaining = 180f;
             requestedColorsPosition.Add(3);
             requestedColorsPosition.Add(5);
 
@@ -119,7 +119,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 10)
         {
-            uiController.timeRemaining = 174f;
+            uiController.timeRemaining = 170f;
             requestedColorsPosition.Add(2);
             requestedColorsPosition.Add(4);
 
@@ -140,7 +140,7 @@ public class LevelManager : MonoBehaviour
         }
         else if (world == 12)
         {
-            uiController.timeRemaining = 193f;
+            uiController.timeRemaining = 190f;
             requestedColorsPosition.Add(1);
             requestedColorsPosition.Add(3);
             requestedColorsPosition.Add(5);
@@ -163,11 +163,11 @@ public class LevelManager : MonoBehaviour
         else if (world == 14)
         {
             if (level == 1)
-                uiController.timeRemaining = 202f;
+                uiController.timeRemaining = 200f;
             else if (level == 2)
-                uiController.timeRemaining = 194f;
+                uiController.timeRemaining = 190f;
             else if (level == 3)
-                uiController.timeRemaining = 186f;
+                uiController.timeRemaining = 180f;
 
             requestedColorsPosition.Add(1);
             requestedColorsPosition.Add(3);
