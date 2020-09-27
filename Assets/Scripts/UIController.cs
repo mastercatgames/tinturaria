@@ -477,7 +477,7 @@ public class UIController : MonoBehaviour
             RefreshPowerUpsCount();
 
             Transform levelDetails = transform.parent.Find("Menu").Find("Main").Find("LevelDetails");
-            levelDetails.gameObject.SetActive(true);            
+            levelDetails.gameObject.SetActive(true);
             Text levelName = levelDetails.transform.Find("Content").Find("BG_Title").Find("Text").GetComponent<Text>();
             levelName.text = levelManager.world + "-" + levelManager.level;
 
@@ -492,13 +492,15 @@ public class UIController : MonoBehaviour
             Text starsChallenge3 = stars.Find("Star3").Find("Text").GetComponent<Text>();
             starsChallenge3.text = levelManager.threeStarCoins.ToString();
 
-        }    
+        }
     }
 
     public void CallFillOrFixRepository(GameObject bucketSelected)
     {
         gameController.transform.parent.Find("TopInkMachine").Find("Rail").Find(bucketSelected.name).GetComponent<InkRepositoryController>().FillOrFixRepository();
-        SetActiveBucketButton(bucketSelected.name, false);
+
+        if (powerUpsController.FixInTime_Flag == false)
+            SetActiveBucketButton(bucketSelected.name, false);
     }
 
     public void SetActiveBucketButton(string colorName, bool active)
