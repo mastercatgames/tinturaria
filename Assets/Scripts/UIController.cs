@@ -324,6 +324,7 @@ public class UIController : MonoBehaviour
         var button = Instantiate(LevelButton) as Button;
         button.name = levelName;
         button.gameObject.transform.Find("Text").GetComponent<Text>().text = levelName;
+        button.gameObject.transform.Find("Text").GetComponent<Text>().resizeTextForBestFit = true;
 
         var rectTransform = button.GetComponent<RectTransform>();
         rectTransform.SetParent(menu.transform.Find("Levels").Find("ButtonsGrid"));
