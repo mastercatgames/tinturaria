@@ -182,7 +182,7 @@ public class GameController : MonoBehaviour
 
                 foreach (Transform child in RequestPanel.transform)
                 {
-                    Debug.Log("Form: " + child.Find("Form").GetComponent<Image>().sprite.name + "/ Color: " + child.Find("Color").GetComponent<Image>().color);
+                    //Debug.Log("Form: " + child.Find("Form").GetComponent<Image>().sprite.name + "/ Color: " + child.Find("Color").GetComponent<Image>().color);
 
                     if (child.Find("Form").GetComponent<Image>().sprite.name == currentBox.transform.Find("Box").GetComponent<SpriteRenderer>().sprite.name
                     && child.Find("Color").GetComponent<Image>().color == currentBox.GetComponent<BoxController>().currentColor)
@@ -193,7 +193,7 @@ public class GameController : MonoBehaviour
 
                 if (requestedBox)
                 {
-                    Debug.Log("Delivered!");
+                    //Debug.Log("Delivered!");
                     requestedBox.GetComponent<RequestBox>().DeliveryBox();
                 }
                 else
@@ -233,7 +233,7 @@ public class GameController : MonoBehaviour
                 if (currentBox != null)
                 {
                     NewPaintFluid(true);
-                    print("Power up to fill box faster!");
+                    //print("Power up to fill box faster!");
                 }
             }
         }
@@ -345,7 +345,7 @@ public class GameController : MonoBehaviour
 
     public void FinishRepair(GameObject FixedRepository)
     {
-        Debug.Log("Repository *" + FixedRepository.name + "* was fixed!");
+        //Debug.Log("Repository *" + FixedRepository.name + "* was fixed!");
 
         FixedRepository.GetComponent<InkRepositoryController>().isFixing = false;
         FixedRepository.GetComponent<InkRepositoryController>().isBroken = false;

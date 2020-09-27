@@ -74,10 +74,10 @@ public class RequestBox : MonoBehaviour
         Destroy(this.gameObject);
         bool removed = requestPanelController.colorsRequested.Remove(colorRepositoryObj);
 
-        if (removed)
-            print(colorRepositoryObj + " was removed from ColorsRequested list!");
-        else
-            print("(BUG)" + colorRepositoryObj + " wasn't removed from ColorsRequested list!");
+        // if (removed)
+        //     print(colorRepositoryObj + " was removed from ColorsRequested list!");
+        // else
+        //     print("(BUG)" + colorRepositoryObj + " wasn't removed from ColorsRequested list!");
 
         
         //Request another box immediately

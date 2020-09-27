@@ -39,7 +39,7 @@ public class RequestPanelController : MonoBehaviour
             //GameObject colorRepositoryObj = colors[Random.Range(0,6)];
 
             box.GetComponent<RequestBox>().colorRepositoryObj = RequestRamdomColor();
-            print(box.GetComponent<RequestBox>().colorRepositoryObj.name + " requested!");
+            //print(box.GetComponent<RequestBox>().colorRepositoryObj.name + " requested!");
 
             colorsRequested.Add(box.GetComponent<RequestBox>().colorRepositoryObj);
 
