@@ -468,7 +468,7 @@ public class UIController : MonoBehaviour
         GetComponent<AudioSource>().Play();
     }
 
-    IEnumerator ClosePanelAnimation(Transform panel)
+    public IEnumerator ClosePanelAnimation(Transform panel)
     {
         panel.Find("BG").GetComponent<Animator>().Play("UI_BG_Transition_Close");
         panel.Find("Content").GetComponent<Animator>().Play("UI_JellyZoomOut_Auto");
