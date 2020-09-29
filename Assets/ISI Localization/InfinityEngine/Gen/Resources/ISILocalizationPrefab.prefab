@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1951151698892586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4719472931125218}
+  - component: {fileID: 114010064334137482}
+  m_Layer: 0
+  m_Name: ISILocalizationPrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4719472931125218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951151698892586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 240.5, y: 139, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114010064334137482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951151698892586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da43f1fa5f21bf41aeee87162581d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nextScene:
+    sceneAsset: {fileID: 0}
+  m_loadSceneDelay: 3
+  m_languages:
+  - isExpanded: 1
+    isBeingAutoTranslated: 0
+    translationProgress: 0
+    m_flag: {fileID: 2800000, guid: 23f0e7394e44c4d4b90efaf3f960978b, type: 3}
+    m_language: 0
+    m_localizedStrings:
+    - key: HelloWorld
+      value: Hello world
+    m_localizedAudio:
+    - key: Hello
+      value: {fileID: 8300000, guid: 08f99a39ed9f85042a2bf5c108820ba9, type: 3}
+    m_localizedSprites:
+    - key: LocalizedSprite
+      value: {fileID: 21300000, guid: 23f0e7394e44c4d4b90efaf3f960978b, type: 3}
+    m_languageName: English
+    m_languageCode: 
+  - isExpanded: 1
+    isBeingAutoTranslated: 0
+    translationProgress: 0
+    m_flag: {fileID: 2800000, guid: dea00e07013992946b1e6b5e2dd3a471, type: 3}
+    m_language: 1
+    m_localizedStrings:
+    - key: HelloWorld
+      value: Bonjour tout le monde
+    m_localizedAudio:
+    - key: Hello
+      value: {fileID: 8300000, guid: 93d066edbfa1b7c4b899f2a61580f241, type: 3}
+    m_localizedSprites:
+    - key: LocalizedSprite
+      value: {fileID: 21300000, guid: dea00e07013992946b1e6b5e2dd3a471, type: 3}
+    m_languageName: French
+    m_languageCode: 
+  m_stringKeys:
+  - HelloWorld
+  m_audiosKeys:
+  - Hello
+  m_spriteKeys:
+  - LocalizedSprite
+  m_stringKeysRange:
+    min: 0
+    max: 1
+  m_spriteKeysRange:
+    min: 0
+    max: 1
+  m_audioKeysRange:
+    min: 0
+    max: 1
