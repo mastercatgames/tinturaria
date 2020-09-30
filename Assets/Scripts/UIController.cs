@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GameToolkit.Localization;
 
 public class UIController : MonoBehaviour
 {
@@ -365,6 +366,11 @@ public class UIController : MonoBehaviour
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Settings").gameObject.SetActive(true);
+
+        if (Localization.Instance.CurrentLanguage == SystemLanguage.English)
+            menu.transform.Find("Settings").Find("Languages").Find("English").GetComponent<Toggle>().isOn = true;
+        if (Localization.Instance.CurrentLanguage == SystemLanguage.Portuguese)
+            menu.transform.Find("Settings").Find("Languages").Find("Portuguese").GetComponent<Toggle>().isOn = true;
     }
 
     public void OpenLevels()
@@ -527,5 +533,15 @@ public class UIController : MonoBehaviour
     {
         music.mute = !musicToggle.isOn;
         PlayerPrefs.SetString("music", musicToggle.isOn ? "on" : "off");
+    }
+
+    public void ChangeLanguage(string language)
+    {
+        PlayClickButtonSFX();
+        
+        if (language == "en")
+            Localization.Instance.CurrentLanguage = SystemLanguage.English;
+        else if (language == "pt")
+            Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
     }
 }
