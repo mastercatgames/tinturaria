@@ -8,7 +8,9 @@ using GameToolkit.Localization;
 public class UIController : MonoBehaviour
 {
     private GameController gameController;
-    private LevelManager levelManager;
+    private LevelManager levelManager;    
+    private PowerUpsController powerUpsController;
+    private AudioController audioController;
     public GameObject ButtonsGrid;
     public bool somePanelIsOpen = false;
     public float timeRemaining;
@@ -25,10 +27,9 @@ public class UIController : MonoBehaviour
     public Text readyGo;
     public Button LevelButton;
     public bool isInGamePlay;
-    public bool isTutorial;
-    private PowerUpsController powerUpsController;
-    public AudioSource music;
-    public Toggle musicToggle;
+    public bool isTutorial;    
+    // public AudioSource music;
+    // public Toggle musicToggle;
 
     void Start()
     {
@@ -39,19 +40,20 @@ public class UIController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+        audioController = transform.parent.Find("AudioController").GetComponent<AudioController>();
 
-        music = GameObject.Find("Music").GetComponent<AudioSource>();
+        // music = GameObject.Find("Music").GetComponent<AudioSource>();
 
-        if (PlayerPrefs.GetString("music") == "")
-        {
-            PlayerPrefs.SetString("music", "on");
-        }
+        // if (PlayerPrefs.GetString("music") == "")
+        // {
+        //     PlayerPrefs.SetString("music", "on");
+        // }
 
-        musicToggle.isOn = PlayerPrefs.GetString("music") == "on";
-        MusicOnOff();
+        // musicToggle.isOn = PlayerPrefs.GetString("music") == "on";
+        // MusicOnOff();
 
-        //Increase music volume
-        GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
+        // //Increase music volume
+        // GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
 
         //HideGameplayObjects();
         ShowMenu();
@@ -529,11 +531,13 @@ public class UIController : MonoBehaviour
         bucketButton.Find("Clock").gameObject.SetActive(!active);
     }
 
-    public void MusicOnOff()
-    {
-        music.mute = !musicToggle.isOn;
-        PlayerPrefs.SetString("music", musicToggle.isOn ? "on" : "off");
-    }
+    // public void MusicOnOff()
+    // {
+    //     music.mute = !musicToggle.isOn;
+    //     PlayerPrefs.SetString("music", musicToggle.isOn ? "on" : "off");
+
+    //     audioController.SetMusicLvl(musicToggle.isOn);
+    // }
 
     public void ChangeLanguage(string language)
     {

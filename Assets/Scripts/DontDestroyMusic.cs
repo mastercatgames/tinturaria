@@ -13,6 +13,8 @@ public class DontDestroyMusic : MonoBehaviour
 
     void Awake()
     {
+        this.gameObject.transform.parent = null; //DontDestroyOnLoad only works if gameobject is in root of the hierarchy
+
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
