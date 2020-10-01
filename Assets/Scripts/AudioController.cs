@@ -46,4 +46,14 @@ public class AudioController : MonoBehaviour
         else
             audioMixerGroup.audioMixer.SetFloat("SFXVol", -80f);
     }
+
+    public void PlaySFX(string SFXName)
+    {
+        transform.Find("SFX").Find(SFXName).GetComponent<AudioSource>().Play();
+    }
+
+    public bool AudioIsPlaying(string SFXName)
+    {
+        return transform.Find("SFX").Find(SFXName).GetComponent<AudioSource>().isPlaying;
+    }
 }

@@ -10,7 +10,6 @@ public class UIController : MonoBehaviour
     private GameController gameController;
     private LevelManager levelManager;    
     private PowerUpsController powerUpsController;
-    private AudioController audioController;
     public GameObject ButtonsGrid;
     public bool somePanelIsOpen = false;
     public float timeRemaining;
@@ -40,22 +39,6 @@ public class UIController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
-        audioController = transform.parent.Find("AudioController").GetComponent<AudioController>();
-
-        // music = GameObject.Find("Music").GetComponent<AudioSource>();
-
-        // if (PlayerPrefs.GetString("music") == "")
-        // {
-        //     PlayerPrefs.SetString("music", "on");
-        // }
-
-        // musicToggle.isOn = PlayerPrefs.GetString("music") == "on";
-        // MusicOnOff();
-
-        // //Increase music volume
-        // GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0.85f;
-
-        //HideGameplayObjects();
         ShowMenu();
 
         //World
@@ -354,7 +337,7 @@ public class UIController : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         menu.transform.Find("Levels").gameObject.SetActive(false);
         menu.transform.Find("Settings").gameObject.SetActive(false);
         menu.transform.Find("Store").gameObject.SetActive(false);
@@ -364,7 +347,7 @@ public class UIController : MonoBehaviour
 
     public void OpenSettings()
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Settings").gameObject.SetActive(true);
@@ -377,7 +360,7 @@ public class UIController : MonoBehaviour
 
     public void OpenLevels()
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Levels").gameObject.SetActive(true);
@@ -385,7 +368,7 @@ public class UIController : MonoBehaviour
 
     public void OpenStore()
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Store").gameObject.SetActive(true);
@@ -393,7 +376,7 @@ public class UIController : MonoBehaviour
 
     public void PauseGame()
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         menu.gameObject.SetActive(true);
         timerIsRunning = false;
 
@@ -466,14 +449,9 @@ public class UIController : MonoBehaviour
 
     public void CloseLevelDetailPanel()
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
         transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(true);
-    }
-
-    public void PlayClickButtonSFX()
-    {
-        GetComponent<AudioSource>().Play();
     }
 
     public IEnumerator ClosePanelAnimation(Transform panel)
@@ -531,17 +509,9 @@ public class UIController : MonoBehaviour
         bucketButton.Find("Clock").gameObject.SetActive(!active);
     }
 
-    // public void MusicOnOff()
-    // {
-    //     music.mute = !musicToggle.isOn;
-    //     PlayerPrefs.SetString("music", musicToggle.isOn ? "on" : "off");
-
-    //     audioController.SetMusicLvl(musicToggle.isOn);
-    // }
-
     public void ChangeLanguage(string language)
     {
-        PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         
         if (language == "en")
             Localization.Instance.CurrentLanguage = SystemLanguage.English;
