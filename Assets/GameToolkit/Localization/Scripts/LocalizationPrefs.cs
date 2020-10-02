@@ -10,6 +10,7 @@ public class LocalizationPrefs : MonoBehaviour
 
     private void Awake()
     {
+        transform.parent = null;
         DontDestroyOnLoad(gameObject);
         LoadLanguage();
         Localization.Instance.LocaleChanged += Localization_OnLocaleChanged;
