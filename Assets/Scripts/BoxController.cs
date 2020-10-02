@@ -11,7 +11,7 @@ public class BoxController : MonoBehaviour
 
     public void PlayDropBoxSFX()
     {
-        gameObject.transform.parent.GetComponent<AudioSource>().Play();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("Dropbox");
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();     
     }

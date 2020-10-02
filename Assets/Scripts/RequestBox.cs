@@ -61,7 +61,7 @@ public class RequestBox : MonoBehaviour
                 maskColor.color = tempColor;
 
                 GetComponent<Animator>().Play("deliveryFailed");
-                requestPanelController.DeliveryFailed_AS.Play();
+                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("DeliveryFailed");
                 gameController.DiscountCoins();
             }
         }
@@ -96,7 +96,7 @@ public class RequestBox : MonoBehaviour
         maskColor.color = tempColor;
 
         GetComponent<Animator>().Play("deliverySuccess");
-        requestPanelController.DeliverySuccessful_AS.Play();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("DeliverySuccessful");
 
         gameController.EarnCoins();
 

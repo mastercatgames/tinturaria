@@ -28,13 +28,15 @@ public class SmoothMoveSwipe : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //MOBILE INPUT
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             startTouchPosition = Input.GetTouch(0).position;
 
         if (!gameController.isPainting
-        && !audioSource.isPlaying
+        && !gameController.isChangingRepository
         && !uiController.somePanelIsOpen
         && uiController.isInGamePlay
+        && !GameObject.Find("AudioController").GetComponent<AudioController>().AudioIsPlaying("InkMachineMove")
         && Input.touchCount > 0
         && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
@@ -62,18 +64,17 @@ public class SmoothMoveSwipe : MonoBehaviour
                 endRocketPosition = new Vector3
                     (startRocketPosition.x - maxMovePositionX, transform.position.y, transform.position.z);
 
-                audioSource.Play();
+                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("InkMachineMove");
+                Invoke("PlayInkMachineMoveSFXTwice", 0.42f);
+
                 while (flyTime < flightDuration)
                 {
-                    ChangeAudioPitch();
                     flyTime += Time.deltaTime;
                     transform.position = Vector2.Lerp
                         (startRocketPosition, endRocketPosition, flyTime / flightDuration);
                     yield return null;
                 }
                 downPitch = false;
-                audioSource.pitch = 1f;
-                audioSource.Stop();
                 gameController.isChangingRepository = false;
 
                 gameController.transform.parent.GetComponent<ZoomObject>().machineLastPosition = new Vector3(transform.position.x, 3.028f, 0f);
@@ -85,18 +86,17 @@ public class SmoothMoveSwipe : MonoBehaviour
                 endRocketPosition = new Vector3
                     (startRocketPosition.x + maxMovePositionX, transform.position.y, transform.position.z);
 
-                audioSource.Play();
+                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("InkMachineMove");
+                Invoke("PlayInkMachineMoveSFXTwice", 0.42f);
+
                 while (flyTime < flightDuration)
                 {
-                    ChangeAudioPitch();
                     flyTime += Time.deltaTime;
                     transform.position = Vector2.Lerp
                         (startRocketPosition, endRocketPosition, flyTime / flightDuration);
                     yield return null;
                 }
                 downPitch = false;
-                audioSource.pitch = 1f;
-                audioSource.Stop();
                 gameController.isChangingRepository = false;
 
                 gameController.transform.parent.GetComponent<ZoomObject>().machineLastPosition = new Vector3(transform.position.x, 3.028f, 0f);
@@ -106,6 +106,11 @@ public class SmoothMoveSwipe : MonoBehaviour
     }
 
     //Added by Augusto Polonio
+    private void PlayInkMachineMoveSFXTwice()
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("InkMachineMove");
+    }
+
     private void ChangeAudioPitch()
     {
         if (audioSource.pitch < 1.8 && !downPitch)

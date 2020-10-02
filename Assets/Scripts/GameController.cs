@@ -12,9 +12,6 @@ public class GameController : MonoBehaviour
     public bool isPainting;
     public GameObject currentRepository;
     public GameObject currentBox;
-    public AudioClip[] liquidClips;
-    public AudioClip glitchClip;
-    public AudioSource InkMachine_AS;
     public bool isChangingRepository;
     private UIController uiController;
     private LevelManager levelManager;
@@ -83,6 +80,7 @@ public class GameController : MonoBehaviour
                && !isChangingRepository
                && !isPainting
                && !uiController.somePanelIsOpen
+               && !GameObject.Find("AudioController").GetComponent<AudioController>().AudioIsPlaying("InkMachineMove")
                && uiController.isInGamePlay)
             {
                 if (Input.GetAxisRaw("Horizontal") > 0 && inputManager.transform.position.x < 4.8f)
@@ -114,9 +112,7 @@ public class GameController : MonoBehaviour
             {
                 print("Its broken!");
                 currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");
-                InkMachine_AS.clip = glitchClip;
-                InkMachine_AS.volume = 0.08f;
-                InkMachine_AS.Play();
+                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("Glitch-Error");
                 return;
             }
 
@@ -132,10 +128,8 @@ public class GameController : MonoBehaviour
             {
                 isPainting = true;
                 Water2D.Water2D_Spawner.instance.RunSpawnerOnce(currentBox.transform.Find("InsideBox").gameObject, currentRepository);
+                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("PaintLiquid" + Random.Range(1, 3)); // 1 to 2
 
-                InkMachine_AS.clip = liquidClips[Random.Range(0, 2)];
-                InkMachine_AS.volume = 1f;
-                InkMachine_AS.Play();
                 currentRepository.GetComponent<InkRepositoryController>().CallTurnOffLight();
                 InvokeRepeating("Vibrate", 1.0f, 0.2f);
 
@@ -154,9 +148,7 @@ public class GameController : MonoBehaviour
             {
                 print("Empty!");
                 StartCoroutine(currentRepository.GetComponent<InkRepositoryController>().EmptyRepositoryIndicator());
-                InkMachine_AS.clip = glitchClip;
-                InkMachine_AS.volume = 0.08f;
-                InkMachine_AS.Play();
+                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("Glitch-Error");
             }
         }
     }
@@ -199,6 +191,7 @@ public class GameController : MonoBehaviour
                 else
                 {
                     Debug.Log("Doesn't Match!");
+                    //TODO: Coins UI must have a simple animation, showing that coins was discounted (and maybe a red border image on entire screen)
                     DiscountCoins();
                 }
 

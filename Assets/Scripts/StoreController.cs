@@ -77,7 +77,7 @@ public class StoreController : MonoBehaviour
 
     public void OpenPurchaseAlert(GameObject button)
     {
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         int buttonIndex = int.Parse(button.transform.Find("_index").GetComponent<Text>().text);
 
@@ -99,7 +99,7 @@ public class StoreController : MonoBehaviour
 
     public void ClosePurchaseAlert()
     {
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         StartCoroutine(uiController.ClosePanelAnimation(PurchaseAlert.transform));
     }
 }

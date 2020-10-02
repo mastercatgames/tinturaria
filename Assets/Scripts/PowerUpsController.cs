@@ -24,7 +24,7 @@ public class PowerUpsController : MonoBehaviour
     public void BoosterFilling_OneBottle()
     {
         int boosterFilling_OneBottle = PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle");
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (!BoosterFilling_OneBottle_Flag)
         {
@@ -50,7 +50,7 @@ public class PowerUpsController : MonoBehaviour
     public void BoosterFilling_AllBottles()
     {
         int BoosterFilling_AllBottles = PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles");
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (!BoosterFilling_AllBottles_Flag)
         {
@@ -76,7 +76,7 @@ public class PowerUpsController : MonoBehaviour
     public void BoosterFilling_Box()
     {
         int BoosterFilling_Box = PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box");
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (!BoosterFilling_Box_Flag)
         {
@@ -102,7 +102,7 @@ public class PowerUpsController : MonoBehaviour
     public void NoBrokenBottles()
     {
         int noBrokenBottles = PlayerPrefs.GetInt("PowerUp_NoBrokenBottles");
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (!NoBrokenBottles_Flag)
         {
@@ -128,7 +128,7 @@ public class PowerUpsController : MonoBehaviour
     public void FixInTime()
     {
         int FixInTime = PlayerPrefs.GetInt("PowerUp_FixInTime");
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (!FixInTime_Flag)
         {
@@ -154,7 +154,7 @@ public class PowerUpsController : MonoBehaviour
     public void DoubleCash()
     {
         int DoubleCash = PlayerPrefs.GetInt("PowerUp_DoubleCash");
-        uiController.PlayClickButtonSFX();
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (!DoubleCash_Flag)
         {
