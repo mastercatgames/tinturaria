@@ -10,7 +10,7 @@ public class StoreController : MonoBehaviour
     public string[] powerUpsTitles;
     public string[] powerUpsDescriptions;
     public int[] bundlesPrices;
-    private Transform PowerUpButtons;
+    public Transform PowerUpButtons;
     private Transform BundleButtons;
     public GameObject PurchaseAlert;
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class StoreController : MonoBehaviour
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
 
-        PowerUpButtons = transform.Find("PowerUpPanel").Find("ScrollRect").Find("Content").Find("Buttons");
+        //PowerUpButtons = transform.Find("ScrollRect").Find("PowerUpPanel").Find("ScrollRect").Find("Content").Find("Buttons");
         // BundleButtons = transform.Find("BundlePanel").Find("ScrollRect").Find("Content").Find("Buttons");
 
         // powerUpsPrices = new int[6];
