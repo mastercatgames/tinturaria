@@ -229,7 +229,6 @@ GameObject:
   - component: {fileID: 4649913175854824998}
   - component: {fileID: 5244854783937531733}
   - component: {fileID: 5824850833104600755}
-  - component: {fileID: 3670333270876816575}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -278,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.3300107, g: 0.5677874, b: 0.6792453, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -310,17 +309,3 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 0, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &3670333270876816575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6307741275576407303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35

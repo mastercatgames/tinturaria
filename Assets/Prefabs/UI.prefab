@@ -809,7 +809,6 @@ GameObject:
   - component: {fileID: 4549088685852910917}
   - component: {fileID: 1528867894908474119}
   - component: {fileID: 4320922321986325763}
-  - component: {fileID: 4618613918488224524}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -858,7 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -890,20 +889,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4618613918488224524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844270151466649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &22282353383393017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,7 +2630,6 @@ GameObject:
   - component: {fileID: 8628519129957251312}
   - component: {fileID: 9135488065624518495}
   - component: {fileID: 7755629303696897662}
-  - component: {fileID: 8709535873666257064}
   m_Layer: 5
   m_Name: Toolx1
   m_TagString: Untagged
@@ -2696,7 +2680,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.29803923, g: 0.34117648, b: 0.3764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -2766,20 +2750,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8709535873666257064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287680803206681123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &290722543416524147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,7 +3658,6 @@ GameObject:
   - component: {fileID: 7832628998125523371}
   - component: {fileID: 6960820720713757191}
   - component: {fileID: 3972706416588522358}
-  - component: {fileID: 3132037067973178941}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -3737,7 +3706,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -3769,20 +3738,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &3132037067973178941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387165115027557755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &387494706827013014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4583,7 +4538,6 @@ GameObject:
   - component: {fileID: 3066781219680710392}
   - component: {fileID: 3244845556502310460}
   - component: {fileID: 3145704408720473436}
-  - component: {fileID: 6323693205057680253}
   - component: {fileID: 2448375700823784132}
   m_Layer: 5
   m_Name: Title
@@ -4632,7 +4586,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4245283, g: 0.4245283, b: 0.1742168, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -4649,21 +4603,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6323693205057680253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490674690662815484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &2448375700823784132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5074,7 +5013,6 @@ GameObject:
   - component: {fileID: 3664668213089225734}
   - component: {fileID: 949058747510385412}
   - component: {fileID: 7116399656349028074}
-  - component: {fileID: 3188889393572832709}
   m_Layer: 5
   m_Name: Toolx2
   m_TagString: Untagged
@@ -5125,7 +5063,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5764706, g: 0.65882355, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -5195,20 +5133,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3188889393572832709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588728067672838837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &608705396661639838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5845,7 +5769,6 @@ GameObject:
   - component: {fileID: 4974006789955713441}
   - component: {fileID: 8085921927247597481}
   - component: {fileID: 2855279652557317396}
-  - component: {fileID: 1611206572569832818}
   m_Layer: 5
   m_Name: BoosterFilling_Box
   m_TagString: Untagged
@@ -5896,7 +5819,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.65882355, g: 0.49019608, b: 0.21176471, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -5966,20 +5889,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1611206572569832818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678138569115009689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &685508015976106437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,7 +5901,6 @@ GameObject:
   - component: {fileID: 6041322437129765865}
   - component: {fileID: 2208166049507171960}
   - component: {fileID: 3479610486744038126}
-  - component: {fileID: 4190597523558034873}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -6041,7 +5949,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -6073,20 +5981,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4190597523558034873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685508015976106437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &690440884878219257
 GameObject:
   m_ObjectHideFlags: 0
@@ -6099,7 +5993,6 @@ GameObject:
   - component: {fileID: 1059439032002117983}
   - component: {fileID: 5867569391811050062}
   - component: {fileID: 4353018489966942443}
-  - component: {fileID: 7216753640018760115}
   m_Layer: 5
   m_Name: Classic
   m_TagString: Untagged
@@ -6149,7 +6042,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7882353, g: 0.79607844, b: 0.6392157, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -6219,20 +6112,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7216753640018760115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690440884878219257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &724625807668554713
 GameObject:
   m_ObjectHideFlags: 0
@@ -6245,7 +6124,6 @@ GameObject:
   - component: {fileID: 2325967728165776481}
   - component: {fileID: 3149424024028449667}
   - component: {fileID: 4389397607804666566}
-  - component: {fileID: 4904574905150314486}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -6294,7 +6172,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -6326,20 +6204,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4904574905150314486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724625807668554713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &727313932297428615
 GameObject:
   m_ObjectHideFlags: 0
@@ -6537,7 +6401,6 @@ GameObject:
   - component: {fileID: 4731840182122278538}
   - component: {fileID: 1508437249828799514}
   - component: {fileID: 6756046566247193730}
-  - component: {fileID: 7037082666489411699}
   m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
@@ -6584,7 +6447,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9c94272e37a33d248a82b3c65f2b1330, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -6601,21 +6464,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &7037082666489411699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737300118768506823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 10, w: 10}
-  material: {fileID: 2100000, guid: 9c94272e37a33d248a82b3c65f2b1330, type: 2}
-  rect2props: {x: 0.0000076293945, y: 4.9999924, z: 67.17515, w: 67.17515}
 --- !u!1 &756773825652718756
 GameObject:
   m_ObjectHideFlags: 0
@@ -8611,7 +8459,6 @@ GameObject:
   - component: {fileID: 4968267046150590254}
   - component: {fileID: 7506564627582832617}
   - component: {fileID: 905969067291272210}
-  - component: {fileID: 2063924457694655777}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -8659,7 +8506,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.49411765, g: 0.7607843, b: 0.84313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -8676,20 +8523,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2063924457694655777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962317911616031327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &976149049876835607
 GameObject:
   m_ObjectHideFlags: 0
@@ -9249,7 +9082,6 @@ GameObject:
   - component: {fileID: 6119878133808093796}
   - component: {fileID: 1845843979905239029}
   - component: {fileID: 3995595904603284323}
-  - component: {fileID: 4404173255120172084}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -9298,7 +9130,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -9330,20 +9162,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4404173255120172084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061252934773772360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &1068001649667606912
 GameObject:
   m_ObjectHideFlags: 0
@@ -9355,7 +9173,6 @@ GameObject:
   - component: {fileID: 1726091457318418387}
   - component: {fileID: 2264394276405973244}
   - component: {fileID: 7611787474531258601}
-  - component: {fileID: 8599332847814051151}
   - component: {fileID: 1049957528366794924}
   m_Layer: 5
   m_Name: BG
@@ -9403,7 +9220,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4, g: 0.3882353, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -9420,20 +9237,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8599332847814051151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068001649667606912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &1049957528366794924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10886,7 +10689,6 @@ GameObject:
   - component: {fileID: 7475643061140914147}
   - component: {fileID: 8836018715935619760}
   - component: {fileID: 7577953612153660296}
-  - component: {fileID: 4546229984860005376}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -10933,7 +10735,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: b4d38629d34d3954390eae7a1816908c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.3137255, g: 0.34509805, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -10950,20 +10752,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4546229984860005376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223178169378343740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: b4d38629d34d3954390eae7a1816908c, type: 2}
-  radius: 15
 --- !u!1 &1223255254380719395
 GameObject:
   m_ObjectHideFlags: 0
@@ -12453,7 +12241,6 @@ GameObject:
   - component: {fileID: 3213511948132285425}
   - component: {fileID: 7567511155127348379}
   - component: {fileID: 8240179810463823912}
-  - component: {fileID: 6365133559541145498}
   m_Layer: 5
   m_Name: NoBrokenBottles
   m_TagString: Untagged
@@ -12504,7 +12291,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.37254903, g: 0.43529412, b: 0.45882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -12574,20 +12361,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6365133559541145498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392453097183326911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &1399169922577010775
 GameObject:
   m_ObjectHideFlags: 0
@@ -13802,7 +13575,6 @@ GameObject:
   - component: {fileID: 4288152294475063899}
   - component: {fileID: 4223165801532125448}
   - component: {fileID: 8995294281875649798}
-  - component: {fileID: 7360855612175499475}
   - component: {fileID: 6309096846707671317}
   m_Layer: 5
   m_Name: BG
@@ -13850,7 +13622,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4, g: 0.3882353, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -13867,20 +13639,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &7360855612175499475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521126778101776496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &6309096846707671317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14114,7 +13872,6 @@ GameObject:
   - component: {fileID: 4992625915550262826}
   - component: {fileID: 4623625664392755672}
   - component: {fileID: 8877191141376187957}
-  - component: {fileID: 6564442939080210448}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -14163,7 +13920,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -14195,20 +13952,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &6564442939080210448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546571486424347862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &1555104813725012867
 GameObject:
   m_ObjectHideFlags: 0
@@ -14870,7 +14613,6 @@ GameObject:
   - component: {fileID: 9004816553486612037}
   - component: {fileID: 6591586533421860633}
   - component: {fileID: 7837008151895021801}
-  - component: {fileID: 2675850786264056049}
   m_Layer: 5
   m_Name: NoBrokenBottles
   m_TagString: Untagged
@@ -14921,7 +14663,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.37254903, g: 0.43529412, b: 0.45882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -14991,20 +14733,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2675850786264056049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631454275771816135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &1635102152062142873
 GameObject:
   m_ObjectHideFlags: 0
@@ -15111,7 +14839,6 @@ GameObject:
   - component: {fileID: 8523679356260003533}
   - component: {fileID: 5372890942465889626}
   - component: {fileID: 5617003308440389258}
-  - component: {fileID: 9056221513933852310}
   - component: {fileID: 8660509372356323897}
   m_Layer: 5
   m_Name: BG
@@ -15159,7 +14886,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4, g: 0.3882353, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -15176,20 +14903,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &9056221513933852310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644286579402890476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &8660509372356323897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15924,7 +15637,6 @@ GameObject:
   - component: {fileID: 8272380907122939578}
   - component: {fileID: 2172647123481990956}
   - component: {fileID: 2921523497066473737}
-  - component: {fileID: 7875797518497860847}
   m_Layer: 5
   m_Name: Gems1
   m_TagString: Untagged
@@ -15975,7 +15687,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.8431373, g: 0.8078432, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -16045,20 +15757,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7875797518497860847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735246425335912215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &1738988718379507279
 GameObject:
   m_ObjectHideFlags: 0
@@ -16070,7 +15768,6 @@ GameObject:
   - component: {fileID: 8923541646142764881}
   - component: {fileID: 3286863369142318411}
   - component: {fileID: 1958281114313219719}
-  - component: {fileID: 856471220741432019}
   m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
@@ -16125,7 +15822,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -16142,20 +15839,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &856471220741432019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738988718379507279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
-  radius: 10
 --- !u!1 &1755625860250329367
 GameObject:
   m_ObjectHideFlags: 0
@@ -17132,7 +16815,6 @@ GameObject:
   - component: {fileID: 4994211570178791689}
   - component: {fileID: 8270852903245720764}
   - component: {fileID: 4219261616597237020}
-  - component: {fileID: 2484351882619905504}
   m_Layer: 5
   m_Name: Toolx1
   m_TagString: Untagged
@@ -17183,7 +16865,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.29803923, g: 0.34117648, b: 0.3764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -17253,20 +16935,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2484351882619905504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885818348672448791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &1892260633388484951
 GameObject:
   m_ObjectHideFlags: 0
@@ -17937,7 +17605,6 @@ GameObject:
   - component: {fileID: 6900545522203549210}
   - component: {fileID: 8267109779956731023}
   - component: {fileID: 8878588444716346964}
-  - component: {fileID: 8488597474020059823}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -17986,7 +17653,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -18018,20 +17685,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8488597474020059823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1955119515160302880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &1960897117412451757
 GameObject:
   m_ObjectHideFlags: 0
@@ -18401,7 +18054,6 @@ GameObject:
   - component: {fileID: 2542270051497113297}
   - component: {fileID: 6626957166393825295}
   - component: {fileID: 1787985585602486623}
-  - component: {fileID: 6573193067691418956}
   m_Layer: 5
   m_Name: Maximum
   m_TagString: Untagged
@@ -18451,7 +18103,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.8862745, g: 0.42745098, b: 0.36078432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -18521,20 +18173,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6573193067691418956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990452030148398105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &1994052687434055565
 GameObject:
   m_ObjectHideFlags: 0
@@ -18862,7 +18500,6 @@ GameObject:
   - component: {fileID: 8517749806359317731}
   - component: {fileID: 352490117861605494}
   - component: {fileID: 6526453839178716309}
-  - component: {fileID: 82904226116325654}
   m_Layer: 5
   m_Name: BoosterFilling_OneBottle
   m_TagString: Untagged
@@ -18913,7 +18550,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.6509804, g: 0.36862746, b: 0.45490196, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -18983,20 +18620,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &82904226116325654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028021122480160723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &2042023278884429302
 GameObject:
   m_ObjectHideFlags: 0
@@ -19008,7 +18631,6 @@ GameObject:
   - component: {fileID: 4395135409112977749}
   - component: {fileID: 1611835236546371339}
   - component: {fileID: 6861280025966701151}
-  - component: {fileID: 6457463644112305479}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -19056,7 +18678,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.64705884, g: 0.61960787, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -19073,20 +18695,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6457463644112305479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042023278884429302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &2046705605722441623
 GameObject:
   m_ObjectHideFlags: 0
@@ -19098,7 +18706,6 @@ GameObject:
   - component: {fileID: 31086091060396936}
   - component: {fileID: 3567566614566665463}
   - component: {fileID: 6255908405272406749}
-  - component: {fileID: 492116890740601821}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -19146,7 +18753,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.64705884, g: 0.61960787, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -19163,20 +18770,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &492116890740601821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046705605722441623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &2069055967847331623
 GameObject:
   m_ObjectHideFlags: 0
@@ -19960,7 +19553,6 @@ GameObject:
   - component: {fileID: 8759236942597129383}
   - component: {fileID: 8862761441319837066}
   - component: {fileID: 8041041306158590751}
-  - component: {fileID: 8751925080595668564}
   m_Layer: 5
   m_Name: Toolx3
   m_TagString: Untagged
@@ -20011,7 +19603,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.84313726, g: 0.80784315, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -20081,20 +19673,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8751925080595668564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2179737912660265946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &2186913004178092192
 GameObject:
   m_ObjectHideFlags: 0
@@ -20555,7 +20133,6 @@ GameObject:
   - component: {fileID: 8153361031251882249}
   - component: {fileID: 2120292532637129907}
   - component: {fileID: 6785027578102034391}
-  - component: {fileID: 4882254209803503321}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -20604,7 +20181,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -20636,20 +20213,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4882254209803503321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2223813107951354029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &2237849965025423212
 GameObject:
   m_ObjectHideFlags: 0
@@ -24354,7 +23917,6 @@ GameObject:
   - component: {fileID: 5311493953975050925}
   - component: {fileID: 2793268290908014826}
   - component: {fileID: 7610405645678007304}
-  - component: {fileID: 5246239229801777955}
   m_Layer: 5
   m_Name: FixInTime
   m_TagString: Untagged
@@ -24405,7 +23967,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5529412, g: 0.38431373, b: 0.6313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -24475,20 +24037,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5246239229801777955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2583852857826792308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &2585729243806350562
 GameObject:
   m_ObjectHideFlags: 0
@@ -24935,7 +24483,6 @@ GameObject:
   - component: {fileID: 6411227134680058393}
   - component: {fileID: 5391800159652381592}
   - component: {fileID: 944279116423885026}
-  - component: {fileID: 2408279331917619132}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -24983,7 +24530,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.49411765, g: 0.7607843, b: 0.84313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -25000,20 +24547,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2408279331917619132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2630613880723409055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &2645876257622462763
 GameObject:
   m_ObjectHideFlags: 0
@@ -25766,7 +25299,6 @@ GameObject:
   - component: {fileID: 168777047640314668}
   - component: {fileID: 3810589162368733096}
   - component: {fileID: 7022942228823847374}
-  - component: {fileID: 4651652010219026221}
   m_Layer: 5
   m_Name: Toolx1
   m_TagString: Untagged
@@ -25817,7 +25349,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.29803923, g: 0.34117648, b: 0.3764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -25887,20 +25419,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4651652010219026221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2725378187127447180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &2732946407431941415
 GameObject:
   m_ObjectHideFlags: 0
@@ -26365,7 +25883,6 @@ GameObject:
   - component: {fileID: 1765695628827908975}
   - component: {fileID: 2365893930441477866}
   - component: {fileID: 3760654359406298877}
-  - component: {fileID: 400550203156301004}
   m_Layer: 5
   m_Name: NoBrokenBottles
   m_TagString: Untagged
@@ -26416,7 +25933,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.37254903, g: 0.43529412, b: 0.45882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -26486,20 +26003,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &400550203156301004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2764185834403607939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &2768498468506129140
 GameObject:
   m_ObjectHideFlags: 0
@@ -28528,7 +28031,6 @@ GameObject:
   - component: {fileID: 4891750549833505022}
   - component: {fileID: 7237127098163161506}
   - component: {fileID: 6041526825468737106}
-  - component: {fileID: 1889257689465073226}
   m_Layer: 5
   m_Name: BoosterFilling_OneBottle
   m_TagString: Untagged
@@ -28579,7 +28081,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.6509804, g: 0.36862746, b: 0.45490196, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -28649,20 +28151,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1889257689465073226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004291012335924860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3018006978091836962
 GameObject:
   m_ObjectHideFlags: 0
@@ -28839,7 +28327,6 @@ GameObject:
   - component: {fileID: 585152092323579944}
   - component: {fileID: 2992807714791519225}
   - component: {fileID: 7950623923600349439}
-  - component: {fileID: 8734856986892921667}
   m_Layer: 5
   m_Name: Toolx3
   m_TagString: Untagged
@@ -28890,7 +28377,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.84313726, g: 0.80784315, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -28960,20 +28447,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8734856986892921667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3099257295062905650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3102821706082937635
 GameObject:
   m_ObjectHideFlags: 0
@@ -28985,7 +28458,6 @@ GameObject:
   - component: {fileID: 8454850476010365633}
   - component: {fileID: 217236065497124028}
   - component: {fileID: 3178436984345811248}
-  - component: {fileID: 9026297253793235839}
   - component: {fileID: 2711832291600280644}
   m_Layer: 5
   m_Name: Title
@@ -29034,7 +28506,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2444524, g: 0.16153437, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -29051,21 +28523,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &9026297253793235839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3102821706082937635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &2711832291600280644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30359,7 +29816,6 @@ GameObject:
   - component: {fileID: 7883363160386173464}
   - component: {fileID: 4209518837660390248}
   - component: {fileID: 2704613101740388058}
-  - component: {fileID: 3686794816971337220}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -30408,7 +29864,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -30440,20 +29896,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &3686794816971337220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3240109581599796711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3243996443710331511
 GameObject:
   m_ObjectHideFlags: 0
@@ -30465,7 +29907,6 @@ GameObject:
   - component: {fileID: 5013882975240178229}
   - component: {fileID: 6841897272444443482}
   - component: {fileID: 2528088971604338099}
-  - component: {fileID: 4454752753357710317}
   m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
@@ -30520,7 +29961,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -30537,20 +29978,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4454752753357710317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243996443710331511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
-  radius: 10
 --- !u!1 &3252816306262971255
 GameObject:
   m_ObjectHideFlags: 0
@@ -31623,7 +31050,6 @@ GameObject:
   - component: {fileID: 4961778450971853171}
   - component: {fileID: 7157990859343278127}
   - component: {fileID: 6120086916994363359}
-  - component: {fileID: 2093830610140657607}
   m_Layer: 5
   m_Name: BoosterFilling_Box
   m_TagString: Untagged
@@ -31674,7 +31100,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.65882355, g: 0.49019608, b: 0.21176471, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -31744,20 +31170,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2093830610140657607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3353027509952589809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3354554247762920569
 GameObject:
   m_ObjectHideFlags: 0
@@ -31906,7 +31318,6 @@ GameObject:
   - component: {fileID: 2767846461093301182}
   - component: {fileID: 3679874791761648471}
   - component: {fileID: 4050496006851029035}
-  - component: {fileID: 6558835963486078490}
   m_Layer: 5
   m_Name: Toolx2
   m_TagString: Untagged
@@ -31957,7 +31368,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5764706, g: 0.65882355, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -32027,20 +31438,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6558835963486078490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3394796903020799556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3397364769800470681
 GameObject:
   m_ObjectHideFlags: 0
@@ -32217,7 +31614,6 @@ GameObject:
   - component: {fileID: 4772296972154384372}
   - component: {fileID: 4655014774298861642}
   - component: {fileID: 593751325518291923}
-  - component: {fileID: 4972913005376519133}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -32266,7 +31662,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -32298,20 +31694,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4972913005376519133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3417852609147697645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3435317597272947188
 GameObject:
   m_ObjectHideFlags: 0
@@ -32488,7 +31870,6 @@ GameObject:
   - component: {fileID: 2890364877406243740}
   - component: {fileID: 6170610345332548057}
   - component: {fileID: 4406874202002255086}
-  - component: {fileID: 3639649814283826904}
   - component: {fileID: 1154709579214556876}
   m_Layer: 5
   m_Name: BG
@@ -32536,7 +31917,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2784314, g: 0.1764706, b: 0.1882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -32553,20 +31934,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3639649814283826904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3451720514482444455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &1154709579214556876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32944,7 +32311,6 @@ GameObject:
   - component: {fileID: 9109186777717203352}
   - component: {fileID: 3223293755826719086}
   - component: {fileID: 1771610224619668978}
-  - component: {fileID: 9159774032269987842}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -32993,7 +32359,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -33025,20 +32391,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &9159774032269987842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3504369198595269591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3516919939148252849
 GameObject:
   m_ObjectHideFlags: 0
@@ -33225,7 +32577,6 @@ GameObject:
   - component: {fileID: 8951714440308979937}
   - component: {fileID: 3965113463841179389}
   - component: {fileID: 6433484825703227748}
-  - component: {fileID: 7432038516403678480}
   m_Layer: 5
   m_Name: BoosterFilling_AllBottles
   m_TagString: Untagged
@@ -33276,7 +32627,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.67058825, g: 0.67058825, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -33346,20 +32697,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7432038516403678480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3541269963889230293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3544698436618177040
 GameObject:
   m_ObjectHideFlags: 0
@@ -33841,7 +33178,6 @@ GameObject:
   - component: {fileID: 7780911169330115807}
   - component: {fileID: 2776667730161314126}
   - component: {fileID: 605242157106187736}
-  - component: {fileID: 147407104384375439}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -33890,7 +33226,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -33922,20 +33258,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &147407104384375439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3580122202903527155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3587856851978526498
 GameObject:
   m_ObjectHideFlags: 0
@@ -33948,7 +33270,6 @@ GameObject:
   - component: {fileID: 8603169558764703840}
   - component: {fileID: 8937465745009872844}
   - component: {fileID: 6410647630073947555}
-  - component: {fileID: 5546833802855108296}
   m_Layer: 5
   m_Name: BoosterFilling_Box
   m_TagString: Untagged
@@ -33999,7 +33320,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.65882355, g: 0.49019608, b: 0.21176471, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -34069,20 +33390,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5546833802855108296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587856851978526498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3603025780820755951
 GameObject:
   m_ObjectHideFlags: 0
@@ -34556,7 +33863,6 @@ GameObject:
   - component: {fileID: 3720896206323654948}
   - component: {fileID: 6729165612000539304}
   - component: {fileID: 1990920747089147278}
-  - component: {fileID: 5331761393191229081}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -34605,7 +33911,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -34637,20 +33943,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &5331761393191229081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3635202358562979191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3654762668350504659
 GameObject:
   m_ObjectHideFlags: 0
@@ -34880,7 +34172,6 @@ GameObject:
   - component: {fileID: 3644318289045131594}
   - component: {fileID: 8837522715728762513}
   - component: {fileID: 2201233598208998417}
-  - component: {fileID: 5985364838271835318}
   - component: {fileID: 3525220605192137998}
   m_Layer: 5
   m_Name: BG
@@ -34928,7 +34219,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.20305268, g: 0.32902217, b: 0.3679245, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -34945,20 +34236,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5985364838271835318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671656304271347381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &3525220605192137998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35138,7 +34415,6 @@ GameObject:
   - component: {fileID: 7520880800172952401}
   - component: {fileID: 8142702953692194349}
   - component: {fileID: 6798896373249562467}
-  - component: {fileID: 5496344742992158279}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -35186,7 +34462,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.64705884, g: 0.61960787, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -35203,20 +34479,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5496344742992158279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3709219109229271574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &3710168552064377904
 GameObject:
   m_ObjectHideFlags: 0
@@ -35469,7 +34731,6 @@ GameObject:
   - component: {fileID: 741449155660612378}
   - component: {fileID: 3862851845776844626}
   - component: {fileID: 5488822663858671469}
-  - component: {fileID: 6034905664105296039}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -35518,7 +34779,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -35550,20 +34811,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &6034905664105296039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3742973850443148833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3759215663672549693
 GameObject:
   m_ObjectHideFlags: 0
@@ -36546,7 +35793,6 @@ GameObject:
   - component: {fileID: 3650942833588952640}
   - component: {fileID: 5944168401833189884}
   - component: {fileID: 1772541214588221530}
-  - component: {fileID: 6406522088046613125}
   m_Layer: 5
   m_Name: BoosterFilling_OneBottle
   m_TagString: Untagged
@@ -36597,7 +35843,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.6509804, g: 0.36862746, b: 0.45490196, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -36667,20 +35913,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6406522088046613125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3846274076186269965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3849500987699186647
 GameObject:
   m_ObjectHideFlags: 0
@@ -37071,7 +36303,6 @@ GameObject:
   - component: {fileID: 324642574746859335}
   - component: {fileID: 213048793894997451}
   - component: {fileID: 4721307608673491001}
-  - component: {fileID: 5706565208261117802}
   - component: {fileID: 1498735054209861095}
   m_Layer: 5
   m_Name: BG
@@ -37119,7 +36350,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4, g: 0.3882353, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -37136,20 +36367,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5706565208261117802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3896406357107557847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &1498735054209861095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37329,7 +36546,6 @@ GameObject:
   - component: {fileID: 8695770307588704035}
   - component: {fileID: 3061515972993839061}
   - component: {fileID: 2184745021986956105}
-  - component: {fileID: 8780275357719656121}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -37378,7 +36594,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -37410,20 +36626,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8780275357719656121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919755797472822636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &3929160346270358756
 GameObject:
   m_ObjectHideFlags: 0
@@ -37435,7 +36637,6 @@ GameObject:
   - component: {fileID: 8370096919265595551}
   - component: {fileID: 2816482701073832418}
   - component: {fileID: 1290111935961342323}
-  - component: {fileID: 8734470262040203872}
   m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
@@ -37490,7 +36691,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -37507,20 +36708,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8734470262040203872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3929160346270358756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
-  radius: 10
 --- !u!1 &3939019917719626621
 GameObject:
   m_ObjectHideFlags: 0
@@ -37532,7 +36719,6 @@ GameObject:
   - component: {fileID: 4099142057258808568}
   - component: {fileID: 8765875538612025113}
   - component: {fileID: 8655314995096129902}
-  - component: {fileID: 1842512048928046950}
   - component: {fileID: 6659031385114579265}
   m_Layer: 5
   m_Name: BG
@@ -37580,7 +36766,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.20305268, g: 0.32902217, b: 0.3679245, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -37597,20 +36783,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1842512048928046950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3939019917719626621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &6659031385114579265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37972,7 +37144,6 @@ GameObject:
   - component: {fileID: 3893513759608727220}
   - component: {fileID: 1402316531257915003}
   - component: {fileID: 7413742242833828452}
-  - component: {fileID: 7711826925070774351}
   m_Layer: 5
   m_Name: Toolx3
   m_TagString: Untagged
@@ -38023,7 +37194,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.84313726, g: 0.80784315, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -38093,20 +37264,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7711826925070774351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3995562524369498040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &3998331851884256209
 GameObject:
   m_ObjectHideFlags: 0
@@ -38831,7 +37988,6 @@ GameObject:
   - component: {fileID: 2133570508217612541}
   - component: {fileID: 2860979984000538473}
   - component: {fileID: 7294591040583717677}
-  - component: {fileID: 3278116262469623302}
   - component: {fileID: 7301459605852712303}
   m_Layer: 5
   m_Name: BG
@@ -38879,7 +38035,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2784314, g: 0.1764706, b: 0.1882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -38896,20 +38052,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3278116262469623302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4099763947533990719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &7301459605852712303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39281,7 +38423,6 @@ GameObject:
   - component: {fileID: 7752863351826321812}
   - component: {fileID: 6617688245571659511}
   - component: {fileID: 7058005612720190254}
-  - component: {fileID: 6151452822200187389}
   m_Layer: 5
   m_Name: Supreme
   m_TagString: Untagged
@@ -39331,7 +38472,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.88235295, b: 0.65882355, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -39401,20 +38542,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6151452822200187389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142027779768647963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &4147247435822691526
 GameObject:
   m_ObjectHideFlags: 0
@@ -40171,7 +39298,6 @@ GameObject:
   - component: {fileID: 7628885034816469790}
   - component: {fileID: 751093893601142104}
   - component: {fileID: 2428723235250265673}
-  - component: {fileID: 8578888083148573598}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -40220,7 +39346,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -40252,20 +39378,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8578888083148573598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4232901345060558301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &4250760874165018553
 GameObject:
   m_ObjectHideFlags: 0
@@ -40372,7 +39484,6 @@ GameObject:
   - component: {fileID: 7991629678653323308}
   - component: {fileID: 5329012131051466554}
   - component: {fileID: 5972317026785977369}
-  - component: {fileID: 6262912430640892188}
   m_Layer: 5
   m_Name: Alert
   m_TagString: Untagged
@@ -40423,7 +39534,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65a148e728ddcc34dadf0233510dd268, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5686275, g: 0.7372549, b: 0.854902, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -40440,20 +39551,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6262912430640892188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4252463932058633573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 65a148e728ddcc34dadf0233510dd268, type: 2}
-  radius: 100
 --- !u!1 &4261233160936062784
 GameObject:
   m_ObjectHideFlags: 0
@@ -42142,7 +41239,6 @@ GameObject:
   - component: {fileID: 8122586976119031746}
   - component: {fileID: 2479262770097794868}
   - component: {fileID: 1604806291072033704}
-  - component: {fileID: 8200317419688965720}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -42191,7 +41287,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -42223,20 +41319,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8200317419688965720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4499494004955121037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &4512907912460056157
 GameObject:
   m_ObjectHideFlags: 0
@@ -42957,7 +42039,6 @@ GameObject:
   - component: {fileID: 1051537727669260172}
   - component: {fileID: 8184859569576713162}
   - component: {fileID: 9064424102563488808}
-  - component: {fileID: 7254801634783539506}
   m_Layer: 5
   m_Name: BoosterFilling_OneBottle
   m_TagString: Untagged
@@ -43008,7 +42089,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.6509804, g: 0.36862746, b: 0.45490196, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -43078,20 +42159,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7254801634783539506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570629154991407355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &4575636775174354567
 GameObject:
   m_ObjectHideFlags: 0
@@ -43745,7 +42812,6 @@ GameObject:
   - component: {fileID: 8454565748179851731}
   - component: {fileID: 4428644620713703436}
   - component: {fileID: 6784511934778607870}
-  - component: {fileID: 3937117832505293007}
   m_Layer: 5
   m_Name: Toolx3
   m_TagString: Untagged
@@ -43796,7 +42862,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.84313726, g: 0.80784315, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -43866,20 +42932,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3937117832505293007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4685554266769307646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &4686481013078538112
 GameObject:
   m_ObjectHideFlags: 0
@@ -43961,7 +43013,6 @@ GameObject:
   - component: {fileID: 1965297445395333320}
   - component: {fileID: 6212098242423938393}
   - component: {fileID: 8708618556816243151}
-  - component: {fileID: 8266017487544184472}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -44010,7 +43061,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -44042,20 +43093,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8266017487544184472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4688912185613765348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &4730018710487221707
 GameObject:
   m_ObjectHideFlags: 0
@@ -44480,7 +43517,6 @@ GameObject:
   - component: {fileID: 663163537906993700}
   - component: {fileID: 5035970078119807455}
   - component: {fileID: 2050009829009953171}
-  - component: {fileID: 2552979703213897984}
   m_Layer: 5
   m_Name: DoubleCash
   m_TagString: Untagged
@@ -44531,7 +43567,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.047058824, g: 0.4117647, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -44601,20 +43637,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2552979703213897984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4773272696486457626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &4787377050899073873
 GameObject:
   m_ObjectHideFlags: 0
@@ -45263,7 +44285,6 @@ GameObject:
   - component: {fileID: 5976374537152147048}
   - component: {fileID: 3438176889200118057}
   - component: {fileID: 5466443249866343889}
-  - component: {fileID: 4931281422026462646}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -45312,7 +44333,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -45344,20 +44365,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4931281422026462646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4840682916532580757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &4849631863244764716
 GameObject:
   m_ObjectHideFlags: 0
@@ -46005,7 +45012,6 @@ GameObject:
   - component: {fileID: 7870770231836786536}
   - component: {fileID: 8369108322406606799}
   - component: {fileID: 4211495028955838131}
-  - component: {fileID: 727445392477079785}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -46053,7 +45059,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.49411765, g: 0.7607843, b: 0.84313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -46070,20 +45076,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &727445392477079785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4909523342205613913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &4911489968602661567
 GameObject:
   m_ObjectHideFlags: 0
@@ -46096,7 +45088,6 @@ GameObject:
   - component: {fileID: 1512714812718151425}
   - component: {fileID: 5987692950097007168}
   - component: {fileID: 8633234361673005166}
-  - component: {fileID: 2972595916768307654}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -46145,7 +45136,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -46177,20 +45168,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &2972595916768307654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4911489968602661567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &4914802403680100376
 GameObject:
   m_ObjectHideFlags: 0
@@ -46341,7 +45318,6 @@ GameObject:
   - component: {fileID: 3062846805016515237}
   - component: {fileID: 5860145288567182222}
   - component: {fileID: 5786819557603028780}
-  - component: {fileID: 322005375046776973}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -46390,7 +45366,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -46422,20 +45398,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &322005375046776973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4928478285996198711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &4928495834122766303
 GameObject:
   m_ObjectHideFlags: 0
@@ -47347,7 +46309,6 @@ GameObject:
   - component: {fileID: 1043779031413824514}
   - component: {fileID: 674500016457987566}
   - component: {fileID: 1590169143738038437}
-  - component: {fileID: 3029818030103856536}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -47396,7 +46357,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -47428,20 +46389,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &3029818030103856536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5010425300127077289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5013905375085669859
 GameObject:
   m_ObjectHideFlags: 0
@@ -47815,7 +46762,6 @@ GameObject:
   - component: {fileID: 7185025459393497652}
   - component: {fileID: 697930089489900361}
   - component: {fileID: 343905174314569997}
-  - component: {fileID: 9156457017315790202}
   - component: {fileID: 5636337415128307462}
   m_Layer: 5
   m_Name: Title
@@ -47864,7 +46810,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4245283, g: 0.4245283, b: 0.1742168, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -47881,21 +46827,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &9156457017315790202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5049016773490124122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &5636337415128307462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48416,7 +47347,6 @@ GameObject:
   - component: {fileID: 4900602123932661678}
   - component: {fileID: 2468684050833161255}
   - component: {fileID: 6862761944080112494}
-  - component: {fileID: 1745905336364023939}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -48465,7 +47395,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -48497,20 +47427,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &1745905336364023939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5154656881623652235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5155365341972628425
 GameObject:
   m_ObjectHideFlags: 0
@@ -48985,7 +47901,6 @@ GameObject:
   - component: {fileID: 7882770886221589614}
   - component: {fileID: 539560569239553299}
   - component: {fileID: 726952155432269655}
-  - component: {fileID: 8196878880589703968}
   - component: {fileID: 4677876383819084124}
   m_Layer: 5
   m_Name: Title
@@ -49034,7 +47949,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2444524, g: 0.16153437, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -49051,21 +47966,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8196878880589703968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5242993487641625344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &4677876383819084124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49722,7 +48622,6 @@ GameObject:
   - component: {fileID: 5840028165078459663}
   - component: {fileID: 505209608030161687}
   - component: {fileID: 4165972390530458809}
-  - component: {fileID: 3485685600826427833}
   - component: {fileID: 6965283416453534629}
   m_Layer: 5
   m_Name: BG
@@ -49770,7 +48669,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.20305268, g: 0.32902217, b: 0.3679245, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -49787,20 +48686,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3485685600826427833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5304677199236008997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &6965283416453534629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49998,7 +48883,6 @@ GameObject:
   - component: {fileID: 2328287988647971095}
   - component: {fileID: 3098581200489692670}
   - component: {fileID: 1124370695877661349}
-  - component: {fileID: 8824054537209614244}
   m_Layer: 5
   m_Name: Toolx3
   m_TagString: Untagged
@@ -50049,7 +48933,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.84313726, g: 0.80784315, b: 0.69803923, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -50119,20 +49003,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8824054537209614244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5349655365648113199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &5349921130934337986
 GameObject:
   m_ObjectHideFlags: 0
@@ -50529,7 +49399,6 @@ GameObject:
   - component: {fileID: 1126364416234841948}
   - component: {fileID: 8666543831567396692}
   - component: {fileID: 900027881732208579}
-  - component: {fileID: 6338218397880787560}
   m_Layer: 5
   m_Name: Classic
   m_TagString: Untagged
@@ -50579,7 +49448,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7882353, g: 0.79607844, b: 0.6392157, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -50649,20 +49518,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6338218397880787560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5383928162158471914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &5395660446905781723
 GameObject:
   m_ObjectHideFlags: 0
@@ -51358,7 +50213,6 @@ GameObject:
   - component: {fileID: 5688060926193823745}
   - component: {fileID: 4315307311044815208}
   - component: {fileID: 372769063225172000}
-  - component: {fileID: 5720462709982276011}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -51406,7 +50260,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -51438,20 +50292,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &5720462709982276011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5539478647762125770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5541989535888479123
 GameObject:
   m_ObjectHideFlags: 0
@@ -51464,7 +50304,6 @@ GameObject:
   - component: {fileID: 5982819639712555835}
   - component: {fileID: 1538769774721286009}
   - component: {fileID: 9170853000848464671}
-  - component: {fileID: 5299489711919614703}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -51513,7 +50352,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -51545,20 +50384,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &5299489711919614703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541989535888479123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5548671878073041275
 GameObject:
   m_ObjectHideFlags: 0
@@ -51928,7 +50753,6 @@ GameObject:
   - component: {fileID: 2321432210080982408}
   - component: {fileID: 7020571949012519406}
   - component: {fileID: 3443142657788418773}
-  - component: {fileID: 2675465127231782376}
   m_Layer: 5
   m_Name: Toolx1
   m_TagString: Untagged
@@ -51979,7 +50803,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.29803923, g: 0.34117648, b: 0.3764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -52049,20 +50873,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2675465127231782376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5591712053238625899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &5604975846466245096
 GameObject:
   m_ObjectHideFlags: 0
@@ -52179,7 +50989,6 @@ GameObject:
   - component: {fileID: 7756036671299472085}
   - component: {fileID: 124736724980392872}
   - component: {fileID: 923632902083482092}
-  - component: {fileID: 8576799761380756891}
   - component: {fileID: 5056671363076167655}
   m_Layer: 5
   m_Name: Title
@@ -52228,7 +51037,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.22027414, g: 0.26590666, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -52245,21 +51054,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8576799761380756891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5621929212779881915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &5056671363076167655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52503,7 +51297,6 @@ GameObject:
   - component: {fileID: 5954210855955608503}
   - component: {fileID: 5710044945150587327}
   - component: {fileID: 76870330841570614}
-  - component: {fileID: 2677621993745196247}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -52551,7 +51344,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.64705884, g: 0.61960787, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -52568,20 +51361,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2677621993745196247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5643367836726038081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &5647504426702411008
 GameObject:
   m_ObjectHideFlags: 0
@@ -53127,7 +51906,6 @@ GameObject:
   - component: {fileID: 102855073687042418}
   - component: {fileID: 8759086385280722466}
   - component: {fileID: 993119267329409428}
-  - component: {fileID: 3563045916708168792}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -53176,7 +51954,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -53208,20 +51986,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &3563045916708168792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5695080945154229105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5696206597246693271
 GameObject:
   m_ObjectHideFlags: 0
@@ -54387,7 +53151,6 @@ GameObject:
   - component: {fileID: 3408944931719490138}
   - component: {fileID: 5631517496794592355}
   - component: {fileID: 5855858410597617850}
-  - component: {fileID: 1561977276464859508}
   m_Layer: 5
   m_Name: Toolx2
   m_TagString: Untagged
@@ -54438,7 +53201,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5764706, g: 0.65882355, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -54508,20 +53271,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1561977276464859508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5842774749581985431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &5852155997794542901
 GameObject:
   m_ObjectHideFlags: 0
@@ -54603,7 +53352,6 @@ GameObject:
   - component: {fileID: 808330209872803537}
   - component: {fileID: 5063217949358893888}
   - component: {fileID: 7542084590874316758}
-  - component: {fileID: 7117706708211079297}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -54652,7 +53400,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -54684,20 +53432,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &7117706708211079297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5864737143928700157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5873960676421323850
 GameObject:
   m_ObjectHideFlags: 0
@@ -54709,7 +53443,6 @@ GameObject:
   - component: {fileID: 3555421750163324424}
   - component: {fileID: 8709754800569914901}
   - component: {fileID: 4777743787376757782}
-  - component: {fileID: 4082663698393545150}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -54757,7 +53490,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.64705884, g: 0.61960787, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -54774,20 +53507,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4082663698393545150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5873960676421323850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &5881733792144781247
 GameObject:
   m_ObjectHideFlags: 0
@@ -55219,7 +53938,6 @@ GameObject:
   - component: {fileID: 2623215902996265939}
   - component: {fileID: 2303318789224088968}
   - component: {fileID: 2636667136477381736}
-  - component: {fileID: 6574997247316596931}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -55268,7 +53986,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -55300,20 +54018,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &6574997247316596931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5920803085530937488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &5928316713455717619
 GameObject:
   m_ObjectHideFlags: 0
@@ -55405,7 +54109,6 @@ GameObject:
   - component: {fileID: 1388524133850598610}
   - component: {fileID: 7713552308758654395}
   - component: {fileID: 1291342866627478181}
-  - component: {fileID: 1628927827442627791}
   m_Layer: 5
   m_Name: Supreme
   m_TagString: Untagged
@@ -55455,7 +54158,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.88235295, b: 0.65882355, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -55525,20 +54228,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1628927827442627791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5931686309499112577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &5938538887835857806
 GameObject:
   m_ObjectHideFlags: 0
@@ -55753,7 +54442,6 @@ GameObject:
   - component: {fileID: 7756486674393069686}
   - component: {fileID: 4839822840490160010}
   - component: {fileID: 5821754875224828177}
-  - component: {fileID: 6672305046541057712}
   - component: {fileID: 3195989710943039246}
   m_Layer: 5
   m_Name: Title
@@ -55802,7 +54490,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.22027414, g: 0.26590666, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -55819,21 +54507,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6672305046541057712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966917239812258920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &3195989710943039246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56602,7 +55275,6 @@ GameObject:
   - component: {fileID: 1020652839824065219}
   - component: {fileID: 4853186827000045394}
   - component: {fileID: 7905804899615030212}
-  - component: {fileID: 7483573937151700115}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -56651,7 +55323,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -56683,20 +55355,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &7483573937151700115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088419258271975663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &6125486721905141368
 GameObject:
   m_ObjectHideFlags: 0
@@ -56709,7 +55367,6 @@ GameObject:
   - component: {fileID: 2193084142575757115}
   - component: {fileID: 6962933109330264039}
   - component: {fileID: 8491211250527886042}
-  - component: {fileID: 3944714473339838814}
   m_Layer: 5
   m_Name: BoosterFilling_AllBottles
   m_TagString: Untagged
@@ -56760,7 +55417,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.67058825, g: 0.67058825, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -56830,20 +55487,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3944714473339838814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6125486721905141368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6128514741203105643
 GameObject:
   m_ObjectHideFlags: 0
@@ -57588,7 +56231,6 @@ GameObject:
   - component: {fileID: 2513578642022085536}
   - component: {fileID: 3078207594920306703}
   - component: {fileID: 1315336762009654027}
-  - component: {fileID: 9137899311328213703}
   - component: {fileID: 6288413988286279580}
   m_Layer: 5
   m_Name: Title
@@ -57637,7 +56279,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2444524, g: 0.16153437, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -57654,21 +56296,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &9137899311328213703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6204997922793641785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &6288413988286279580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57870,7 +56497,6 @@ GameObject:
   - component: {fileID: 5695868547443610676}
   - component: {fileID: 2003844276825077239}
   - component: {fileID: 5769989023967994800}
-  - component: {fileID: 3459218705218106095}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -57919,7 +56545,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -57951,20 +56577,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &3459218705218106095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6228360836040128737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &6239254138714918657
 GameObject:
   m_ObjectHideFlags: 0
@@ -59203,7 +57815,6 @@ GameObject:
   - component: {fileID: 7071329238100101694}
   - component: {fileID: 2927924235776421709}
   - component: {fileID: 1379547078536073506}
-  - component: {fileID: 510204077629952975}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -59252,7 +57863,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -59284,20 +57895,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &510204077629952975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341323804565996233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &6349616249022277099
 GameObject:
   m_ObjectHideFlags: 0
@@ -60093,7 +58690,6 @@ GameObject:
   - component: {fileID: 3659007461144753180}
   - component: {fileID: 201096240622297433}
   - component: {fileID: 3063796395085849166}
-  - component: {fileID: 6976804010487831714}
   m_Layer: 5
   m_Name: NoBrokenBottles
   m_TagString: Untagged
@@ -60144,7 +58740,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.37254903, g: 0.43529412, b: 0.45882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -60214,20 +58810,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6976804010487831714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6444781482939543947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6459331059805216096
 GameObject:
   m_ObjectHideFlags: 0
@@ -60671,7 +59253,6 @@ GameObject:
   - component: {fileID: 7684189293476218403}
   - component: {fileID: 7610417421044237315}
   - component: {fileID: 7662345799255801375}
-  - component: {fileID: 8177604803045833785}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -60720,7 +59301,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 8ea58c281f70cbe468d42e523e594e8f, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -60752,20 +59333,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 1}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8177604803045833785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6503639576453441989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 8ea58c281f70cbe468d42e523e594e8f, type: 2}
-  radius: 80
 --- !u!1 &6504668533421689952
 GameObject:
   m_ObjectHideFlags: 0
@@ -60778,7 +59345,6 @@ GameObject:
   - component: {fileID: 1968543094769191987}
   - component: {fileID: 7140639869441207642}
   - component: {fileID: 1873332152371511876}
-  - component: {fileID: 2202174380841874478}
   m_Layer: 5
   m_Name: Classic
   m_TagString: Untagged
@@ -60828,7 +59394,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7882353, g: 0.79607844, b: 0.6392157, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -60898,20 +59464,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2202174380841874478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6504668533421689952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6545810808150888527
 GameObject:
   m_ObjectHideFlags: 0
@@ -61089,7 +59641,6 @@ GameObject:
   - component: {fileID: 1476123830242438295}
   - component: {fileID: 1125559194356502075}
   - component: {fileID: 4914698819216845516}
-  - component: {fileID: 595698698471990634}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -61137,7 +59688,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.44705883, g: 0.23921569, b: 0.27450982, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -61154,20 +59705,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &595698698471990634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6546822057070044729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &6549655279894708037
 GameObject:
   m_ObjectHideFlags: 0
@@ -61837,7 +60374,6 @@ GameObject:
   - component: {fileID: 6351914131414834461}
   - component: {fileID: 8083046033358215873}
   - component: {fileID: 5582591758810373671}
-  - component: {fileID: 6930881493958432105}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -61885,7 +60421,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.64705884, g: 0.61960787, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -61902,20 +60438,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6930881493958432105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6647681389081539626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &6655393033454027482
 GameObject:
   m_ObjectHideFlags: 0
@@ -62097,7 +60619,6 @@ GameObject:
   - component: {fileID: 2132009785031535240}
   - component: {fileID: 7340698315618175969}
   - component: {fileID: 2249734602398508287}
-  - component: {fileID: 1749773764414509717}
   m_Layer: 5
   m_Name: Maximum
   m_TagString: Untagged
@@ -62147,7 +60668,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.8862745, g: 0.42745098, b: 0.36078432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -62217,20 +60738,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1749773764414509717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6666164761827273435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6680910971192443577
 GameObject:
   m_ObjectHideFlags: 0
@@ -62322,7 +60829,6 @@ GameObject:
   - component: {fileID: 4958378540185982030}
   - component: {fileID: 1632479620079997284}
   - component: {fileID: 576517893912510546}
-  - component: {fileID: 8799904826046353670}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -62371,7 +60877,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -62403,20 +60909,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8799904826046353670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6695824393159785896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &6697225640950743521
 GameObject:
   m_ObjectHideFlags: 0
@@ -63021,7 +61513,6 @@ GameObject:
   - component: {fileID: 2087161466496702322}
   - component: {fileID: 2330384569074568619}
   - component: {fileID: 674628558293943687}
-  - component: {fileID: 7871297134345006995}
   m_Layer: 5
   m_Name: DoubleCash
   m_TagString: Untagged
@@ -63072,7 +61563,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.047058824, g: 0.4117647, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -63142,20 +61633,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7871297134345006995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6748708225346532802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6767556734465250298
 GameObject:
   m_ObjectHideFlags: 0
@@ -63736,7 +62213,6 @@ GameObject:
   - component: {fileID: 7697566223219637544}
   - component: {fileID: 3133211914869602471}
   - component: {fileID: 2634433436236967556}
-  - component: {fileID: 8027328492304664112}
   m_Layer: 5
   m_Name: Toolx2
   m_TagString: Untagged
@@ -63787,7 +62263,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5764706, g: 0.65882355, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -63857,20 +62333,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8027328492304664112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6820135867763110329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6831539701363697810
 GameObject:
   m_ObjectHideFlags: 0
@@ -64503,7 +62965,6 @@ GameObject:
   - component: {fileID: 6077430668928349729}
   - component: {fileID: 4725361907419329599}
   - component: {fileID: 588342844544381289}
-  - component: {fileID: 8081023686094034893}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -64552,7 +63013,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -64584,20 +63045,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &8081023686094034893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6922020887170840709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &6926759144958306581
 GameObject:
   m_ObjectHideFlags: 0
@@ -64848,7 +63295,6 @@ GameObject:
   - component: {fileID: 6963522304368730379}
   - component: {fileID: 1225611528216422395}
   - component: {fileID: 43743415036358982}
-  - component: {fileID: 8861530017381602114}
   m_Layer: 5
   m_Name: Supreme
   m_TagString: Untagged
@@ -64898,7 +63344,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.88235295, b: 0.65882355, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -64968,20 +63414,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &8861530017381602114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6941359177576978866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &6973674856141488965
 GameObject:
   m_ObjectHideFlags: 0
@@ -65064,7 +63496,6 @@ GameObject:
   - component: {fileID: 6521838953788945817}
   - component: {fileID: 1910684665861611817}
   - component: {fileID: 6444949513751470117}
-  - component: {fileID: 2832756201561162052}
   m_Layer: 5
   m_Name: BG
   m_TagString: Untagged
@@ -65111,7 +63542,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ea851513c334e8a46905c9f0fc8d9442, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -65128,20 +63559,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2832756201561162052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6985677193667578921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: ea851513c334e8a46905c9f0fc8d9442, type: 2}
-  radius: 48.86
 --- !u!1 &6986000963424272610
 GameObject:
   m_ObjectHideFlags: 0
@@ -65815,7 +64232,6 @@ GameObject:
   - component: {fileID: 2207905166022460157}
   - component: {fileID: 1836180437694865846}
   - component: {fileID: 1348931849889768926}
-  - component: {fileID: 1781598644527275895}
   m_Layer: 5
   m_Name: Toolx2
   m_TagString: Untagged
@@ -65866,7 +64282,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5764706, g: 0.65882355, b: 0.6745098, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -65936,20 +64352,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1781598644527275895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7098511994846302010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &7101913492166546135
 GameObject:
   m_ObjectHideFlags: 0
@@ -65962,7 +64364,6 @@ GameObject:
   - component: {fileID: 5001386967992397346}
   - component: {fileID: 537901371814216815}
   - component: {fileID: 1853203307128590076}
-  - component: {fileID: 7971760717974441572}
   m_Layer: 5
   m_Name: FixInTime
   m_TagString: Untagged
@@ -66013,7 +64414,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5529412, g: 0.38431373, b: 0.6313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -66083,20 +64484,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7971760717974441572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7101913492166546135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &7109815422660850362
 GameObject:
   m_ObjectHideFlags: 0
@@ -66108,7 +64495,6 @@ GameObject:
   - component: {fileID: 1777078004799253962}
   - component: {fileID: 1563597841365609757}
   - component: {fileID: 128437339536058010}
-  - component: {fileID: 7156321155707688862}
   - component: {fileID: 2554251776921624887}
   m_Layer: 5
   m_Name: BG
@@ -66156,7 +64542,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2784314, g: 0.1764706, b: 0.1882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -66173,20 +64559,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &7156321155707688862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7109815422660850362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &2554251776921624887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67075,7 +65447,6 @@ GameObject:
   - component: {fileID: 8972459508379821673}
   - component: {fileID: 2329923241109330741}
   - component: {fileID: 4341509987000049883}
-  - component: {fileID: 4561567281212236713}
   - component: {fileID: 1904109565595360801}
   m_Layer: 5
   m_Name: BG
@@ -67123,7 +65494,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4, g: 0.3882353, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -67140,20 +65511,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4561567281212236713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7225841227290383701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &1904109565595360801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68191,7 +66548,6 @@ GameObject:
   - component: {fileID: 885786447803548242}
   - component: {fileID: 3154630671240278798}
   - component: {fileID: 2053605707655474430}
-  - component: {fileID: 6169917170231276774}
   m_Layer: 5
   m_Name: DoubleCash
   m_TagString: Untagged
@@ -68242,7 +66598,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.047058824, g: 0.4117647, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -68312,20 +66668,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6169917170231276774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7357032292115819728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &7359056285237767487
 GameObject:
   m_ObjectHideFlags: 0
@@ -70119,7 +68461,6 @@ GameObject:
   - component: {fileID: 9070638896282380664}
   - component: {fileID: 8026506029443355016}
   - component: {fileID: 6198966150263197199}
-  - component: {fileID: 3534754861589803945}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -70167,7 +68508,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.44705883, g: 0.23921569, b: 0.27450982, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -70184,20 +68525,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3534754861589803945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7598282375544231937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &7609648623073316303
 GameObject:
   m_ObjectHideFlags: 0
@@ -70618,7 +68945,6 @@ GameObject:
   - component: {fileID: 624185073281920629}
   - component: {fileID: 1234711145040792641}
   - component: {fileID: 7267179099157171275}
-  - component: {fileID: 3555260522963254708}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -70666,7 +68992,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.49411765, g: 0.7607843, b: 0.84313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -70683,20 +69009,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3555260522963254708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7648408638113075674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &7653858686963264913
 GameObject:
   m_ObjectHideFlags: 0
@@ -70804,7 +69116,6 @@ GameObject:
   - component: {fileID: 8843857977933597626}
   - component: {fileID: 9100078468367323596}
   - component: {fileID: 3505030495157351007}
-  - component: {fileID: 536690736652123442}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -70853,7 +69164,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -70885,20 +69196,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &536690736652123442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7660147523726531134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &7694166998470669318
 GameObject:
   m_ObjectHideFlags: 0
@@ -74874,7 +73171,6 @@ GameObject:
   - component: {fileID: 1530013897667847765}
   - component: {fileID: 6622685300999819500}
   - component: {fileID: 1235340613820319297}
-  - component: {fileID: 2351276556877844890}
   - component: {fileID: 1334811197700620841}
   m_Layer: 5
   m_Name: Title
@@ -74923,7 +73219,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.22027414, g: 0.26590666, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -74940,21 +73236,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2351276556877844890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850907673069970203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &1334811197700620841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75335,7 +73616,6 @@ GameObject:
   - component: {fileID: 3806839619013025182}
   - component: {fileID: 7147437906548544505}
   - component: {fileID: 5898519916002438228}
-  - component: {fileID: 4636072692000412516}
   - component: {fileID: 7548648886378854314}
   m_Layer: 5
   m_Name: BG
@@ -75383,7 +73663,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.20305268, g: 0.32902217, b: 0.3679245, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -75400,20 +73680,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4636072692000412516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7897278027330137482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &7548648886378854314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76343,7 +74609,6 @@ GameObject:
   - component: {fileID: 3819569226285119448}
   - component: {fileID: 8228206574511515270}
   - component: {fileID: 7484787878805202943}
-  - component: {fileID: 2208697220919948783}
   - component: {fileID: 641439382523887044}
   m_Layer: 5
   m_Name: Title
@@ -76392,7 +74657,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4245283, g: 0.4245283, b: 0.1742168, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -76409,21 +74674,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2208697220919948783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8033944521882880594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 109c41f08973846429af681aea0a30c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  r: {x: 0, y: 0, z: 30, w: 30}
-  material: {fileID: 2100000, guid: 0272caa6c2aa467479aaac5ae26f779b, type: 2}
-  rect2props: {x: 0.000015258789, y: 15, z: 144.67406, w: 144.67406}
 --- !u!114 &641439382523887044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77865,7 +76115,6 @@ GameObject:
   - component: {fileID: 5779758605954108757}
   - component: {fileID: 8677071286781438416}
   - component: {fileID: 4975534327800907661}
-  - component: {fileID: 3579616362681250321}
   m_Layer: 5
   m_Name: BoosterFilling_Box
   m_TagString: Untagged
@@ -77916,7 +76165,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.65882355, g: 0.49019608, b: 0.21176471, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -77986,20 +76235,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3579616362681250321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8201175206497610995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &8206091659764630518
 GameObject:
   m_ObjectHideFlags: 0
@@ -79021,7 +77256,6 @@ GameObject:
   - component: {fileID: 1812355597343850585}
   - component: {fileID: 4515784574791627013}
   - component: {fileID: 654123958139121397}
-  - component: {fileID: 4680303509072475885}
   m_Layer: 5
   m_Name: BoosterFilling_AllBottles
   m_TagString: Untagged
@@ -79072,7 +77306,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.67058825, g: 0.67058825, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -79142,20 +77376,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4680303509072475885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8319652813291695835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &8322886016916753199
 GameObject:
   m_ObjectHideFlags: 0
@@ -79168,7 +77388,6 @@ GameObject:
   - component: {fileID: 72671864509757264}
   - component: {fileID: 2402096201730092817}
   - component: {fileID: 6091345538973453768}
-  - component: {fileID: 25176669798339185}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -79217,7 +77436,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -79249,20 +77468,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &25176669798339185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8322886016916753199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &8328475541825292449
 GameObject:
   m_ObjectHideFlags: 0
@@ -79517,7 +77722,6 @@ GameObject:
   - component: {fileID: 3478098245114009951}
   - component: {fileID: 3511713812870669372}
   - component: {fileID: 8454334063243562781}
-  - component: {fileID: 5519879602632105003}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -79565,7 +77769,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.44705883, g: 0.23921569, b: 0.27450982, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -79582,20 +77786,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5519879602632105003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8348358716304776734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &8357027467771466278
 GameObject:
   m_ObjectHideFlags: 0
@@ -80657,7 +78847,6 @@ GameObject:
   - component: {fileID: 8348093822906574425}
   - component: {fileID: 3804095697444178807}
   - component: {fileID: 6999406248981321973}
-  - component: {fileID: 5143574104829265357}
   - component: {fileID: 8429879500980020516}
   m_Layer: 5
   m_Name: BG
@@ -80705,7 +78894,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.4, g: 0.3882353, b: 0.35686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -80722,20 +78911,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5143574104829265357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8429117730506581665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &8429879500980020516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80762,7 +78937,6 @@ GameObject:
   - component: {fileID: 7831173259792974968}
   - component: {fileID: 4208922589016777593}
   - component: {fileID: 9118891061035981046}
-  - component: {fileID: 6112848883496710116}
   - component: {fileID: 187479541784324203}
   m_Layer: 5
   m_Name: BG
@@ -80810,7 +78984,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.2784314, g: 0.1764706, b: 0.1882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -80827,20 +79001,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6112848883496710116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434504037985610827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 78af24c2df2837e48bc5794a1c10a586, type: 2}
-  radius: 10
 --- !u!114 &187479541784324203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81043,7 +79203,6 @@ GameObject:
   - component: {fileID: 6907169086999126369}
   - component: {fileID: 4955278747069243649}
   - component: {fileID: 3227395672845865170}
-  - component: {fileID: 3767119432919847498}
   m_Layer: 5
   m_Name: FixInTime
   m_TagString: Untagged
@@ -81094,7 +79253,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5529412, g: 0.38431373, b: 0.6313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -81164,20 +79323,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3767119432919847498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8443446617871677835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &8455174494564827860
 GameObject:
   m_ObjectHideFlags: 0
@@ -81190,7 +79335,6 @@ GameObject:
   - component: {fileID: 8364435406051635611}
   - component: {fileID: 1655638414479560216}
   - component: {fileID: 7261219660480530789}
-  - component: {fileID: 371621402823681601}
   m_Layer: 5
   m_Name: Toolx1
   m_TagString: Untagged
@@ -81241,7 +79385,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.29803923, g: 0.34117648, b: 0.3764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -81311,20 +79455,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &371621402823681601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8455174494564827860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &8462526975471899356
 GameObject:
   m_ObjectHideFlags: 0
@@ -81638,7 +79768,6 @@ GameObject:
   - component: {fileID: 5238053920452582710}
   - component: {fileID: 7220857649552240883}
   - component: {fileID: 376329136566190695}
-  - component: {fileID: 7741511512593227062}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -81686,7 +79815,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 95e8aed47b992d4428f03b7b0db5a31f, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5709772, g: 0.73885113, b: 0.8584906, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -81703,20 +79832,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &7741511512593227062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8523914941880576003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 95e8aed47b992d4428f03b7b0db5a31f, type: 2}
-  radius: 60
 --- !u!1 &8532221732773092041
 GameObject:
   m_ObjectHideFlags: 0
@@ -81729,7 +79844,6 @@ GameObject:
   - component: {fileID: 2034243308708262987}
   - component: {fileID: 4302794133262484759}
   - component: {fileID: 868693439295658727}
-  - component: {fileID: 5038988587402330879}
   m_Layer: 5
   m_Name: FixInTime
   m_TagString: Untagged
@@ -81780,7 +79894,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5529412, g: 0.38431373, b: 0.6313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -81850,20 +79964,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &5038988587402330879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8532221732773092041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &8545624861993908322
 GameObject:
   m_ObjectHideFlags: 0
@@ -82953,7 +81053,6 @@ GameObject:
   - component: {fileID: 5220896015325216178}
   - component: {fileID: 8035549070186162059}
   - component: {fileID: 8466304939619427276}
-  - component: {fileID: 4172393977891994751}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -83001,7 +81100,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.44705883, g: 0.23921569, b: 0.27450982, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -83018,20 +81117,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4172393977891994751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8648245473056978368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e3279884e9adc404f8b0ee1fb989a69c, type: 2}
-  radius: 5
 --- !u!1 &8650536022690727718
 GameObject:
   m_ObjectHideFlags: 0
@@ -85197,7 +83282,6 @@ GameObject:
   - component: {fileID: 8767303724777432067}
   - component: {fileID: 7141262064611601923}
   - component: {fileID: 2731494327745982044}
-  - component: {fileID: 4756960585386419591}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -85246,7 +83330,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -85278,20 +83362,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &4756960585386419591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8897748090800679398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &8898720342469273929
 GameObject:
   m_ObjectHideFlags: 0
@@ -85452,7 +83522,6 @@ GameObject:
   - component: {fileID: 587386248176666824}
   - component: {fileID: 2849733336900301637}
   - component: {fileID: 3178118685794335768}
-  - component: {fileID: 9029168524911625688}
   m_Layer: 5
   m_Name: Maximum
   m_TagString: Untagged
@@ -85502,7 +83571,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.8862745, g: 0.42745098, b: 0.36078432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -85572,20 +83641,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &9029168524911625688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8905045420504657452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &8907147713038732920
 GameObject:
   m_ObjectHideFlags: 0
@@ -85597,7 +83652,6 @@ GameObject:
   - component: {fileID: 9205074604399764439}
   - component: {fileID: 1867253343802275022}
   - component: {fileID: 7979451455258926025}
-  - component: {fileID: 150881101887542745}
   m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
@@ -85652,7 +83706,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.7607843, g: 0.7607843, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -85669,20 +83723,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &150881101887542745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8907147713038732920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: ad2369ae29c89c340971db3fa42100e5, type: 2}
-  radius: 10
 --- !u!1 &8912537468523271716
 GameObject:
   m_ObjectHideFlags: 0
@@ -86303,7 +84343,6 @@ GameObject:
   - component: {fileID: 3343750070424405767}
   - component: {fileID: 3248339856711780083}
   - component: {fileID: 3524427354694065316}
-  - component: {fileID: 1148615897838686209}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -86352,7 +84391,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.5589622, g: 0.745283, b: 0.5721414, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -86384,20 +84423,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
---- !u!114 &1148615897838686209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9006490494553516355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 4b19e006b65060343adb632445ef8dca, type: 2}
-  radius: 35
 --- !u!1 &9011308350232037550
 GameObject:
   m_ObjectHideFlags: 0
@@ -87870,7 +85895,6 @@ GameObject:
   - component: {fileID: 3357229077981061428}
   - component: {fileID: 688067904523642188}
   - component: {fileID: 164731799888546318}
-  - component: {fileID: 1324238109217596494}
   m_Layer: 5
   m_Name: DoubleCash
   m_TagString: Untagged
@@ -87921,7 +85945,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.047058824, g: 0.4117647, b: 0.3372549, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -87991,20 +86015,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1324238109217596494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9159593057128360384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &9165537924159104428
 GameObject:
   m_ObjectHideFlags: 0
@@ -88228,7 +86238,6 @@ GameObject:
   - component: {fileID: 3174738832095023447}
   - component: {fileID: 1520460264229754130}
   - component: {fileID: 2582425158544036859}
-  - component: {fileID: 97442695170904289}
   m_Layer: 5
   m_Name: BoosterFilling_AllBottles
   m_TagString: Untagged
@@ -88279,7 +86288,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.67058825, g: 0.67058825, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -88349,20 +86358,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &97442695170904289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9173636188356936249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 1382decb03142c043b1a90021651f9ea, type: 2}
-  radius: 80
 --- !u!1 &9178823241528352677
 GameObject:
   m_ObjectHideFlags: 0
@@ -88991,7 +86986,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &935435699751385941 stripped
 RectTransform:
@@ -89116,7 +87117,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &723411659255463663 stripped
 RectTransform:
@@ -89286,6 +87293,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.65882355
       objectReference: {fileID: 0}
+    - target: {fileID: 1314215794344511001, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4548834328615243512, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
       propertyPath: m_IsActive
@@ -89451,6 +87463,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 6582326291346703510, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9076100523426888367, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
       propertyPath: m_Color.r
@@ -89466,12 +87483,20 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.1742168
       objectReference: {fileID: 0}
+    - target: {fileID: 9076100523426888367, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3103676020406187001, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
       propertyPath: m_Text
       value: Supreme
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 647501879347699194, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
+    - {fileID: 8046278332500647789, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
+    - {fileID: 442275929219491544, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
 --- !u!114 &1887443049144820348 stripped
 MonoBehaviour:
@@ -89808,6 +87833,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.36078432
       objectReference: {fileID: 0}
+    - target: {fileID: 1314215794344511001, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4548834328615243512, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
       propertyPath: m_IsActive
@@ -89973,6 +88003,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 6582326291346703510, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9076100523426888367, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
       propertyPath: m_Color.r
@@ -89988,19 +88023,21 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.2830189
       objectReference: {fileID: 0}
+    - target: {fileID: 9076100523426888367, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3103676020406187001, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
       propertyPath: m_Text
       value: Maximum
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 647501879347699194, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
+    - {fileID: 8046278332500647789, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
+    - {fileID: 442275929219491544, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
---- !u!224 &2941382589326815436 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2658367579782094537, guid: fe24904b441e6994380a17f32a30a8e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 879759777104948741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2164121004397864988 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1314215794344511001, guid: fe24904b441e6994380a17f32a30a8e6,
@@ -90013,6 +88050,12 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2941382589326815436 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2658367579782094537, guid: fe24904b441e6994380a17f32a30a8e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 879759777104948741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1007811812162937756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90515,7 +88558,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8042511238473978687, guid: 55285064526c0bc429bd04be4ba772a9,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1565685140031002837, guid: 55285064526c0bc429bd04be4ba772a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55285064526c0bc429bd04be4ba772a9, type: 3}
 --- !u!224 &4590634908584393004 stripped
 RectTransform:
@@ -90669,6 +88718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314215794344511001, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4559988559497523552, guid: fe24904b441e6994380a17f32a30a8e6,
         type: 3}
@@ -90825,7 +88879,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 120
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6582326291346703510, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076100523426888367, guid: fe24904b441e6994380a17f32a30a8e6,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 647501879347699194, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
+    - {fileID: 8046278332500647789, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
+    - {fileID: 442275929219491544, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe24904b441e6994380a17f32a30a8e6, type: 3}
 --- !u!224 &3702216552565464739 stripped
 RectTransform:
@@ -90950,7 +89017,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &2608488240146550130 stripped
 RectTransform:
@@ -91205,7 +89278,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &4722596605622755476 stripped
 RectTransform:
@@ -91625,7 +89704,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &6724249965750340583 stripped
 RectTransform:
@@ -92035,7 +90120,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &6870808405952657390 stripped
 RectTransform:
@@ -92290,7 +90381,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &7746702804737138362 stripped
 RectTransform:
@@ -92415,7 +90512,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &7741065187005059121 stripped
 RectTransform:
@@ -92540,7 +90643,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8042511238473978687, guid: 55285064526c0bc429bd04be4ba772a9,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1565685140031002837, guid: 55285064526c0bc429bd04be4ba772a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55285064526c0bc429bd04be4ba772a9, type: 3}
 --- !u!224 &5570792160486422075 stripped
 RectTransform:
@@ -92820,7 +90929,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5244854783937531733, guid: caddd5c3309792e46a4e2f1d0c348ea3,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3670333270876816575, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caddd5c3309792e46a4e2f1d0c348ea3, type: 3}
 --- !u!224 &8488146595608843957 stripped
 RectTransform:
@@ -92950,7 +91065,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8042511238473978687, guid: 55285064526c0bc429bd04be4ba772a9,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1565685140031002837, guid: 55285064526c0bc429bd04be4ba772a9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55285064526c0bc429bd04be4ba772a9, type: 3}
 --- !u!224 &6035942001221592060 stripped
 RectTransform:
