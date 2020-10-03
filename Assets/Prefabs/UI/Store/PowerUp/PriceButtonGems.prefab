@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0.23529413, g: 0.25882354, b: 0.39607847, a: 0.72156864}
   m_EffectDistance: {x: 0, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!114 &211111300437285644
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776365972284349512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -199,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -5}
+  m_EffectColor: {r: 0.23529413, g: 0.25882354, b: 0.39607847, a: 1}
+  m_EffectDistance: {x: 0, y: -8}
   m_UseGraphicAlpha: 1
 --- !u!114 &6350679167331505342
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018426134025905283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3300107, g: 0.5677874, b: 0.6792453, a: 1}
+  m_Color: {r: 0.48235294, g: 0.5254902, b: 0.7764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -307,8 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.3773585, g: 0.3755785, b: 0.3755785, a: 0.5}
-  m_EffectDistance: {x: 0, y: -5}
+  m_EffectColor: {r: 0.23736204, g: 0.26066214, b: 0.3962264, a: 1}
+  m_EffectDistance: {x: 0, y: -10}
   m_UseGraphicAlpha: 1
 --- !u!114 &3056333290154159866
 MonoBehaviour:
@@ -342,7 +342,7 @@ MonoBehaviour:
     _lineSize: 0.05
     _obsoleteNumSides: -1
     _outlineColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    _outlineSize: 5
+    _outlineSize: 0
     _pathSegments:
     - p0: {x: -0.3, y: 0, z: 0}
       p1: {x: 0, y: 0, z: 0}
@@ -355,12 +355,12 @@ MonoBehaviour:
     - {x: -0.29389253, y: -0.40450856}
     - {x: 0.29389274, y: -0.4045084}
     - {x: 0.4755282, y: 0.15450864}
-    _roundness: 40
-    _roundnessBottomLeft: 40
-    _roundnessBottomRight: 40
+    _roundness: 25
+    _roundnessBottomLeft: 25
+    _roundnessBottomRight: 25
     _roundnessPerCorner: 0
-    _roundnessTopLeft: 40
-    _roundnessTopRight: 40
+    _roundnessTopLeft: 25
+    _roundnessTopRight: 25
     _shapeType: 2
     _startAngle: 0
     _triangleOffset: 0.5
