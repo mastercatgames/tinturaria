@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameToolkit.Localization;
 
 public class StoreController : MonoBehaviour
 {
@@ -17,47 +18,7 @@ public class StoreController : MonoBehaviour
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-
-        //PowerUpButtons = transform.Find("ScrollRect").Find("PowerUpPanel").Find("ScrollRect").Find("Content").Find("Buttons");
-        // BundleButtons = transform.Find("BundlePanel").Find("ScrollRect").Find("Content").Find("Buttons");
-
-        // powerUpsPrices = new int[6];
-        // powerUpsTitles = new string[6];
-        // powerUpsDescriptions = new string[6];
-
-        // powerUpsPrices[0] = 4000;
-        // powerUpsPrices[1] = 5000;
-        // powerUpsPrices[2] = 6000;
-        // powerUpsPrices[3] = 7000;
-        // powerUpsPrices[4] = 8000;
-        // powerUpsPrices[5] = 9000;
-
-        // powerUpsTitles[0] = "All bottles full";
-        // powerUpsTitles[1] = "Booster Filling One Bottle";
-        // powerUpsTitles[2] = "Fix in Time";
-        // powerUpsTitles[3] = "No Broken Bottles";
-        // powerUpsTitles[4] = "Booster Filling Box";
-        // powerUpsTitles[5] = "Double Cash";
-
-        // powerUpsDescriptions[0] = "Start one level with all bottles full.";
-        // powerUpsDescriptions[1] = "You can fill one bottle faster than normal.";
-        // powerUpsDescriptions[2] = "You can fix the broken bottles faster (in one level).";
-        // powerUpsDescriptions[3] = "The bottles will not break (in one level).";
-        // powerUpsDescriptions[4] = "You can fill the boxes with just one touch faster than normal (in one level).";
-        // powerUpsDescriptions[5] = "You can get double cash using this power up (in one level).";
-
         RefreshPowerUpPanel();
-
-        // bundlesPrices = new int[3];
-
-        // bundlesPrices[0] = 25000;
-        // bundlesPrices[1] = 50000;
-        // bundlesPrices[2] = 75000;
-
-        // for (int i = 0; i < bundlesPrices.Length; i++)
-        // {
-        //     BundleButtons.GetChild(i).Find("PriceButton").Find("Price").GetComponent<Text>().text = bundlesPrices[i].ToString();
-        // }
     }
 
     public void RefreshPowerUpPanel()
@@ -71,21 +32,35 @@ public class StoreController : MonoBehaviour
 
     public void OpenPurchaseAlert(GameObject button)
     {
+        LocalizedTextBehaviour title = PurchaseAlert.transform.Find("Content").Find("Alert").Find("Title").Find("Text").GetComponent<LocalizedTextBehaviour>();
+        LocalizedTextBehaviour description = PurchaseAlert.transform.Find("Content").Find("Alert").Find("Description").GetComponent<LocalizedTextBehaviour>();
+        
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
-        int buttonIndex = int.Parse(button.transform.Find("_index").GetComponent<Text>().text);
+        title.FormatArgs = new string[1];
 
-        PurchaseAlert.transform.Find("Content").Find("Alert").Find("PriceButton").Find("Price").GetComponent<Text>().text = button.transform.Find("PriceButton").Find("Price").GetComponent<Text>().text;
-        
-        if (button.name.Contains("Bundle"))
+        if (button.name.Contains("Tool"))
         {
-            PurchaseAlert.transform.Find("Content").Find("Title").Find("Text").GetComponent<Text>().text = "Bundle 1";
-            PurchaseAlert.transform.Find("Content").Find("Alert").Find("Description").GetComponent<Text>().text = "123";
+            title.LocalizedAsset = (LocalizedText)Resources.Load("repair_tool_qty", typeof(LocalizedText));
+            description.LocalizedAsset = (LocalizedText)Resources.Load("repair_tool_description", typeof(LocalizedText));
+
+            if (int.Parse(button.name.Split('_')[1]) == 1)
+            {                
+                title.FormatArgs[0] = "(x1)";
+            }
+            else if (int.Parse(button.name.Split('_')[1]) == 2)
+            {
+                title.FormatArgs[0] = "(x3)";
+            }
+            else if (int.Parse(button.name.Split('_')[1]) == 3)
+            {
+                title.FormatArgs[0] = "(x5)";
+            }
         }
         else
         {
-            PurchaseAlert.transform.Find("Content").Find("Title").Find("Text").GetComponent<Text>().text = powerUpsTitles[buttonIndex];
-            PurchaseAlert.transform.Find("Content").Find("Alert").Find("Description").GetComponent<Text>().text = powerUpsDescriptions[buttonIndex];
+            title.LocalizedAsset = (LocalizedText)Resources.Load(button.name + "_qty", typeof(LocalizedText));
+            description.LocalizedAsset = (LocalizedText)Resources.Load(button.name + "_description", typeof(LocalizedText));            
         }
 
         PurchaseAlert.SetActive(true);        
