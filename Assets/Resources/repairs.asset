@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af65ee6b0f35f974dba93979a07edbce, type: 3}
-  m_Name: BoosterFilling_Box_qty
+  m_Name: repairs
   m_EditorClassIdentifier: 
   m_LocaleItems:
   - m_Language: 10
-    m_Value: Boost Boxes Filling {0}
+    m_Value: Repairs
   - m_Language: 28
-    m_Value: Boost de encher caixas {0}
+    m_Value: Consertos

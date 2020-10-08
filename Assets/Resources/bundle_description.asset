@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af65ee6b0f35f974dba93979a07edbce, type: 3}
-  m_Name: FixInTime_qty
+  m_Name: bundle_description
   m_EditorClassIdentifier: 
   m_LocaleItems:
   - m_Language: 10
-    m_Value: Fix in Time {0}
+    m_Value: Get {0} unit(s) of each power-ups.
   - m_Language: 28
-    m_Value: "Conserto instant\xE2neo {0}"
+    m_Value: Obtenha {0} unidade(s) de cada power-ups.
