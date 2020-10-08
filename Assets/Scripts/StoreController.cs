@@ -15,6 +15,12 @@ public class StoreController : MonoBehaviour
     public int[] repairsPricesGems;
     public int[] powerUpsPrices;
     public int[] bundlesPrices;
+
+    [Header("===== Selected Item in Shop =====")]
+    public string selectedItemName;
+    public string selectedItemQty;
+    public int selectedItemPriceCoins;
+    public int selectedItemPriceGems;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,51 +102,29 @@ public class StoreController : MonoBehaviour
 
         Transform buttons = PurchaseAlert.Find("Content").Find("Alert").Find("Buttons");
 
-        string priceInCoins = "";
-        string priceInGems = "";        
+        selectedItemName = button.name;
+        selectedItemQty = "1";
+
+        selectedItemPriceGems = int.Parse(button.transform.Find("PriceButton").Find("Price").GetComponent<Text>().text);
+        buttons.Find("PriceButtonGems").Find("Price").GetComponent<Text>().text = selectedItemPriceGems.ToString();
 
         if (button.name.Contains("Tool"))
         {
             title.LocalizedAsset = (LocalizedText)Resources.Load("repair_tool_qty", typeof(LocalizedText));
             description.LocalizedAsset = (LocalizedText)Resources.Load("repair_tool_description", typeof(LocalizedText));
-
-            priceInCoins = button.transform.Find("PriceButtonCoins").Find("Price").GetComponent<Text>().text;
-            priceInGems = button.transform.Find("PriceButton").Find("Price").GetComponent<Text>().text;
-
-            buttons.Find("PriceButtonCoins").Find("Price").GetComponent<Text>().text = priceInCoins;
-            buttons.Find("PriceButtonGems").Find("Price").GetComponent<Text>().text = priceInGems;
+            selectedItemPriceCoins = int.Parse(button.transform.Find("PriceButtonCoins").Find("Price").GetComponent<Text>().text);
+            buttons.Find("PriceButtonCoins").Find("Price").GetComponent<Text>().text = selectedItemPriceCoins.ToString();
 
             title.FormatArgs = new string[1];
-
-            if (int.Parse(button.name.Split('_')[1]) == 1)
-            {
-                title.FormatArgs[0] = "(x1)";
-            }
-            else if (int.Parse(button.name.Split('_')[1]) == 2)
-            {
-                title.FormatArgs[0] = "(x3)";
-            }
-            else if (int.Parse(button.name.Split('_')[1]) == 3)
-            {
-                title.FormatArgs[0] = "(x5)";
-            }
-            else if (int.Parse(button.name.Split('_')[1]) == 4)
-            {
-                title.FormatArgs[0] = "(x10)";
-            }
-            else if (int.Parse(button.name.Split('_')[1]) == 5)
-            {
-                title.FormatArgs[0] = "(x20)";
-            }
+            selectedItemQty = button.name.Split('_')[1];
+            title.FormatArgs[0] = "(x" + selectedItemQty + ")";
 
             buttons.Find("PriceButtonCoins").gameObject.SetActive(true);
         }
         else
         {
             //If is the Power Ups or Bundles panel...
-            priceInGems = button.transform.Find("PriceButton").Find("Price").GetComponent<Text>().text;
             buttons.Find("PriceButtonCoins").gameObject.SetActive(false);
-            buttons.Find("PriceButtonGems").Find("Price").GetComponent<Text>().text = priceInGems;
 
             if (button.name == "Classic"
              || button.name == "Supreme"
@@ -155,15 +139,15 @@ public class StoreController : MonoBehaviour
 
                 if (button.name == "Classic")
                 {
-                    description.FormatArgs[0] = "1";
+                    description.FormatArgs[0] = selectedItemQty = "1";
                 }
                 else if (button.name == "Supreme")
                 {
-                    description.FormatArgs[0] = "2";
+                    description.FormatArgs[0] = selectedItemQty = "2";
                 }
                 else if (button.name == "Maximum")
                 {
-                    description.FormatArgs[0] = "3";
+                    description.FormatArgs[0] = selectedItemQty = "3";
                 }
             }
             else
@@ -181,5 +165,76 @@ public class StoreController : MonoBehaviour
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         StartCoroutine(uiController.ClosePanelAnimation(PurchaseAlert));
+
+        selectedItemName = "";
+        selectedItemPriceCoins = 0;
+        selectedItemPriceGems = 0;
+        selectedItemQty = "";
+    }
+
+    public void BuyItem(string currency)
+    {
+        int balance = PlayerPrefs.GetInt(currency + "Count");
+        int selectedItemPrice = 0;
+
+        if (currency == "coins")
+            selectedItemPrice = selectedItemPriceCoins;
+        else if (currency == "gems")
+            selectedItemPrice = selectedItemPriceGems;
+
+        //If has balance
+        if (balance > selectedItemPrice)
+        {
+            //Payment
+            PlayerPrefs.SetInt(currency + "Count", PlayerPrefs.GetInt(currency + "Count") - selectedItemPrice);
+
+            //Verify which item is...
+            if (selectedItemName.Contains("Tool"))
+            {
+                AddTools();
+            }
+            else if (selectedItemName == "Classic"
+             || selectedItemName == "Supreme"
+             || selectedItemName == "Maximum")
+            {
+                AddBundle();
+            }
+            else
+            {
+                AddPowerUps(selectedItemName);
+            }
+
+            uiController.RefreshUIToolsAndMoney();
+            ClosePurchaseAlert();
+            RefreshRapairsPanel();
+            RefreshPowerUpPanel();
+            print("Buy item with " + currency + "\nItem: " + selectedItemName + "\n selectedItemPriceCoins: " + selectedItemPriceCoins + "\nselectedItemPriceGems: " + selectedItemPriceGems + "\nselectedItemQty: " + selectedItemQty);
+        }
+        else
+        {
+            print("You have no " + currency + " enough to buy this item!");
+        }
+    }
+
+    private void AddTools()
+    {
+        int itemQty = int.Parse(selectedItemQty);
+        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + (1 * itemQty));
+    }
+
+    private void AddPowerUps(string powerUpName)
+    {
+        int itemQty = int.Parse(selectedItemQty);
+        PlayerPrefs.SetInt("PowerUp_" + powerUpName, PlayerPrefs.GetInt("PowerUp_" + powerUpName) + (1 * itemQty));
+    }
+
+    private void AddBundle()
+    {
+        int itemQty = int.Parse(selectedItemQty);
+
+        foreach (Transform powerUpName in PowerUpButtons)
+        {
+            AddPowerUps(powerUpName.name);
+        }
     }
 }

@@ -27,8 +27,9 @@ public class UIController : MonoBehaviour
     public Button LevelButton;
     public bool isInGamePlay;
     public bool isTutorial;    
-    // public AudioSource music;
-    // public Toggle musicToggle;
+    public Text toolsUI;
+    public Text gemsUI;
+    public Text coinsUI;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class UIController : MonoBehaviour
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
         ShowMenu();
+        RefreshUIToolsAndMoney();
 
         //World
         for (int i = 1; i <= 14; i++)
@@ -517,5 +519,12 @@ public class UIController : MonoBehaviour
             Localization.Instance.CurrentLanguage = SystemLanguage.English;
         else if (language == "pt")
             Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
+    }
+
+    public void RefreshUIToolsAndMoney()
+    {
+        toolsUI.text = PlayerPrefs.GetInt("toolsCount").ToString();
+        gemsUI.text = PlayerPrefs.GetInt("gemsCount").ToString();
+        coinsUI.text = PlayerPrefs.GetInt("coinsCount").ToString();
     }
 }
