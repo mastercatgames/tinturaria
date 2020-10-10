@@ -17,10 +17,12 @@ public class StoreController : MonoBehaviour
     public int[] bundlesPrices;
 
     [Header("===== Selected Item in Shop =====")]
+    public string selectedCurrency;
     public string selectedItemName;
     public string selectedItemQty;
     public int selectedItemPriceCoins;
     public int selectedItemPriceGems;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +104,8 @@ public class StoreController : MonoBehaviour
 
         Transform buttons = PurchaseAlert.Find("Content").Find("Alert").Find("Buttons");
 
+        ShowPurchaseButtons();
+
         selectedItemName = button.name;
         selectedItemQty = "1";
 
@@ -170,12 +174,16 @@ public class StoreController : MonoBehaviour
         selectedItemPriceCoins = 0;
         selectedItemPriceGems = 0;
         selectedItemQty = "";
+        selectedCurrency = "";
     }
 
     public void BuyItem(string currency)
     {
-        int balance = PlayerPrefs.GetInt(currency + "Count");
+        int credits = PlayerPrefs.GetInt(currency + "Count");
         int selectedItemPrice = 0;
+        selectedCurrency = currency;
+
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
         if (currency == "coins")
             selectedItemPrice = selectedItemPriceCoins;
@@ -183,7 +191,7 @@ public class StoreController : MonoBehaviour
             selectedItemPrice = selectedItemPriceGems;
 
         //If has balance
-        if (balance > selectedItemPrice)
+        if (credits >= selectedItemPrice)
         {
             //Payment
             PlayerPrefs.SetInt(currency + "Count", PlayerPrefs.GetInt(currency + "Count") - selectedItemPrice);
@@ -211,8 +219,9 @@ public class StoreController : MonoBehaviour
             print("Buy item with " + currency + "\nItem: " + selectedItemName + "\n selectedItemPriceCoins: " + selectedItemPriceCoins + "\nselectedItemPriceGems: " + selectedItemPriceGems + "\nselectedItemQty: " + selectedItemQty);
         }
         else
-        {
-            print("You have no " + currency + " enough to buy this item!");
+        {            
+            StartCoroutine(uiController.ClosePanelAnimation(PurchaseAlert));
+            Invoke("ShowNoCreditsAlert", 0.6f);
         }
     }
 
@@ -235,6 +244,49 @@ public class StoreController : MonoBehaviour
         foreach (Transform powerUpName in PowerUpButtons)
         {
             AddPowerUps(powerUpName.name);
+        }
+    }
+
+    private void ShowNoCreditsAlert()
+    {
+        LocalizedTextBehaviour title = PurchaseAlert.Find("Content").Find("Alert").Find("Title").Find("Text").GetComponent<LocalizedTextBehaviour>();
+        LocalizedTextBehaviour description = PurchaseAlert.Find("Content").Find("Alert").Find("Description").GetComponent<LocalizedTextBehaviour>();
+
+        title.LocalizedAsset = (LocalizedText)Resources.Load("no_enough_" + selectedCurrency, typeof(LocalizedText));
+        description.LocalizedAsset = (LocalizedText)Resources.Load("would_you_like_to_buy_gems", typeof(LocalizedText));
+
+        ShowOkToGemsButton();
+
+        PurchaseAlert.gameObject.SetActive(true);
+    }
+
+    public void ScrollToGems()
+    {
+        ClosePurchaseAlert();
+        transform.Find("ScrollRectVertical").GetComponent<ScrollRect>().verticalNormalizedPosition = 0f;
+    }
+
+    private void ShowPurchaseButtons()
+    {
+        Transform buttons = PurchaseAlert.Find("Content").Find("Alert").Find("Buttons");
+
+        foreach (Transform item in buttons)
+        {
+            item.gameObject.SetActive(true);
+            if (item.name == "OkToGems")
+                item.gameObject.SetActive(false);
+        }
+    }
+
+    private void ShowOkToGemsButton()
+    {
+        Transform buttons = PurchaseAlert.Find("Content").Find("Alert").Find("Buttons");
+
+        foreach (Transform item in buttons)
+        {
+            item.gameObject.SetActive(false);
+            if (item.name == "OkToGems")
+                item.gameObject.SetActive(true);
         }
     }
 }

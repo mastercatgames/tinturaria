@@ -374,6 +374,8 @@ public class UIController : MonoBehaviour
         menu.transform.Find("Main").gameObject.SetActive(false);
         menu.transform.Find("ButtonsGridBack").gameObject.SetActive(true);
         menu.transform.Find("Store").gameObject.SetActive(true);
+        //Reset scroll to top
+        menu.transform.Find("Store").Find("ScrollRectVertical").GetComponent<ScrollRect>().verticalNormalizedPosition = 1f;
     }
 
     public void PauseGame()
