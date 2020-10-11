@@ -22,6 +22,7 @@ public class StoreController : MonoBehaviour
     public string selectedItemQty;
     public int selectedItemPriceCoins;
     public int selectedItemPriceGems;
+    public GameObject selectedButton;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +109,7 @@ public class StoreController : MonoBehaviour
 
         selectedItemName = button.name;
         selectedItemQty = "1";
+        selectedButton = button;
 
         selectedItemPriceGems = int.Parse(button.transform.Find("PriceButton").Find("Price").GetComponent<Text>().text);
         buttons.Find("PriceButtonGems").Find("Price").GetComponent<Text>().text = selectedItemPriceGems.ToString();
@@ -219,7 +221,7 @@ public class StoreController : MonoBehaviour
             print("Buy item with " + currency + "\nItem: " + selectedItemName + "\n selectedItemPriceCoins: " + selectedItemPriceCoins + "\nselectedItemPriceGems: " + selectedItemPriceGems + "\nselectedItemQty: " + selectedItemQty);
         }
         else
-        {            
+        {
             StartCoroutine(uiController.ClosePanelAnimation(PurchaseAlert));
             Invoke("ShowNoCreditsAlert", 0.6f);
         }
@@ -229,6 +231,15 @@ public class StoreController : MonoBehaviour
     {
         int itemQty = int.Parse(selectedItemQty);
         PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + (1 * itemQty));
+
+        ParticleSystem particles = selectedButton.transform.Find("Sparkle").GetComponent<ParticleSystem>();
+        particles.Stop();
+        if (particles.isStopped)
+        {
+            particles.Play();
+        }
+
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("coinsPurchase");
     }
 
     private void AddPowerUps(string powerUpName)
