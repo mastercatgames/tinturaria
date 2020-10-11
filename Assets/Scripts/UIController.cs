@@ -449,6 +449,9 @@ public class UIController : MonoBehaviour
         PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 10);
         PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 10);
         PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 10);
+        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + 10000);
+        PlayerPrefs.SetInt("gemsCount", PlayerPrefs.GetInt("gemsCount") + 10);
+        RefreshUIToolsAndMoney();
     }
 
     public void CloseLevelDetailPanel()
