@@ -192,7 +192,7 @@ public class StoreController : MonoBehaviour
         else if (currency == "gems")
             selectedItemPrice = selectedItemPriceGems;
 
-        //If has balance
+        //If has credits
         if (credits >= selectedItemPrice)
         {
             //Payment
@@ -202,6 +202,7 @@ public class StoreController : MonoBehaviour
             if (selectedItemName.Contains("Tool"))
             {
                 AddTools();
+                CallYouHaveAnim();
             }
             else if (selectedItemName == "Classic"
              || selectedItemName == "Supreme"
@@ -212,12 +213,22 @@ public class StoreController : MonoBehaviour
             else
             {
                 AddPowerUps(selectedItemName);
+                CallYouHaveAnim();
             }
 
             uiController.RefreshUIToolsAndMoney();
             ClosePurchaseAlert();
             RefreshRapairsPanel();
             RefreshPowerUpPanel();
+
+            ParticleSystem particles = selectedButton.transform.Find("Sparkle").GetComponent<ParticleSystem>();
+            particles.Stop();
+            if (particles.isStopped)
+            {
+                particles.Play();
+            }
+            GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("coinsPurchase");
+
             print("Buy item with " + currency + "\nItem: " + selectedItemName + "\n selectedItemPriceCoins: " + selectedItemPriceCoins + "\nselectedItemPriceGems: " + selectedItemPriceGems + "\nselectedItemQty: " + selectedItemQty);
         }
         else
@@ -231,21 +242,12 @@ public class StoreController : MonoBehaviour
     {
         int itemQty = int.Parse(selectedItemQty);
         PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + (1 * itemQty));
-
-        ParticleSystem particles = selectedButton.transform.Find("Sparkle").GetComponent<ParticleSystem>();
-        particles.Stop();
-        if (particles.isStopped)
-        {
-            particles.Play();
-        }
-
-        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("coinsPurchase");
     }
 
     private void AddPowerUps(string powerUpName)
     {
         int itemQty = int.Parse(selectedItemQty);
-        PlayerPrefs.SetInt("PowerUp_" + powerUpName, PlayerPrefs.GetInt("PowerUp_" + powerUpName) + (1 * itemQty));
+        PlayerPrefs.SetInt("PowerUp_" + powerUpName, PlayerPrefs.GetInt("PowerUp_" + powerUpName) + (1 * itemQty));        
     }
 
     private void AddBundle()
@@ -256,6 +258,12 @@ public class StoreController : MonoBehaviour
         {
             AddPowerUps(powerUpName.name);
         }
+    }
+
+    private void CallYouHaveAnim()
+    {
+        selectedButton.transform.Find("YouHave").GetComponent<Animator>().Play("UI_JellyZoom");
+        // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
     }
 
     private void ShowNoCreditsAlert()
