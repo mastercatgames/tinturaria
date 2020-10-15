@@ -113,6 +113,9 @@ public class UIController : MonoBehaviour
         transform.parent.Find("Panel_Ink_Buckets").gameObject.SetActive(false);
         transform.parent.Find("Panel_Forms").gameObject.SetActive(false);
 
+        //Show UI counters (TopHeader)
+        transform.parent.Find("TopHeader").gameObject.SetActive(true);
+
         Debug.Log("Time has run out!");
         timeRemaining = 0;
         timerIsRunning = false;
@@ -131,18 +134,23 @@ public class UIController : MonoBehaviour
 
         if (gameController.numCoins >= levelManager.oneStarCoins)
         {
-            StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
+            // StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
+            StartCoroutine(ShowGameObjectAfterTime(star1.gameObject, 0f));
             numStarsWon = 1;
         }
         if (gameController.numCoins >= levelManager.twoStarCoins)
         {
-            StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
+            // StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
+            StartCoroutine(ShowGameObjectAfterTime(star2.gameObject, 0.8f));
             numStarsWon = 2;
         }
         if (gameController.numCoins >= levelManager.threeStarCoins)
         {
-            StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
+            // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
+            StartCoroutine(ShowGameObjectAfterTime(star3.gameObject, 1.6f));
             numStarsWon = 3;
+            gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
+            gameOverPanel.transform.Find("Confetti").gameObject.SetActive(true);
         }
 
         ShowFinalQuote(numStarsWon);
@@ -158,8 +166,11 @@ public class UIController : MonoBehaviour
 
         //Total
         // totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
-        totalText.transform.Find("num").GetComponent<Text>().text = (numDeliveredBoxesValue - numFailedBoxesValue).ToString();
-    }
+        int totalCoins = numDeliveredBoxesValue - numFailedBoxesValue;
+        totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();
+
+        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);
+    }    
 
     private void HideGameplayObjects()
     {
@@ -178,7 +189,7 @@ public class UIController : MonoBehaviour
     {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
 
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
 
         //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
     }
@@ -243,9 +254,16 @@ public class UIController : MonoBehaviour
         print("Finish Animation!");
     }
 
+    public IEnumerator ShowGameObjectAfterTime(GameObject gameObject, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(true);
+    }
+
     public void TapToPlay()
     {
         GameObject.Find("Gameplay").transform.Find("GameController").gameObject.SetActive(true);
+        transform.parent.Find("TopHeader").gameObject.SetActive(false);
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
         HideMenu();
@@ -382,6 +400,7 @@ public class UIController : MonoBehaviour
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         menu.gameObject.SetActive(true);
+        transform.parent.Find("TopHeader").gameObject.SetActive(true);
         timerIsRunning = false;
 
         Time.timeScale = 0f;
