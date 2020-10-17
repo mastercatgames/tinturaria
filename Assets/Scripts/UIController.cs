@@ -191,7 +191,7 @@ public class UIController : MonoBehaviour
 
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
 
-        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
@@ -205,7 +205,6 @@ public class UIController : MonoBehaviour
         gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
 
         //Call other objects
-        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
 
