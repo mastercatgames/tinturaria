@@ -15371,7 +15371,7 @@ MonoBehaviour:
   m_Spacing: 60
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 1
 --- !u!1 &2163885989557590028
 GameObject:
@@ -19453,7 +19453,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 452.9, y: -62.1}
-  m_SizeDelta: {x: 905.8, y: 124.2}
+  m_SizeDelta: {x: 422.9, y: 124.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7237471081092557295
 CanvasRenderer:
@@ -51543,11 +51543,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3972706489922062272}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -51652,6 +51647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -52608,11 +52608,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3972706489922062272}
     m_Modifications:
-    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
-        type: 3}
-      propertyPath: m_Name
-      value: PriceButtonCoins
-      objectReference: {fileID: 0}
     - target: {fileID: 994998543252054287, guid: 391c72807cc9c4c4a85737c81e5c3476,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52717,6 +52712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
+        type: 3}
+      propertyPath: m_Name
+      value: PriceButtonCoins
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391c72807cc9c4c4a85737c81e5c3476, type: 3}
@@ -52858,11 +52858,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5368215279150043517}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -52967,6 +52962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -52983,11 +52983,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708236477274684306}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53092,6 +53087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -53108,11 +53108,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7364544744562948284}
     m_Modifications:
-    - target: {fileID: 4246699145221209026, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
-        type: 3}
-      propertyPath: m_Name
-      value: SparkYellow
-      objectReference: {fileID: 0}
     - target: {fileID: 1482892070768837437, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53218,6 +53213,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4246699145221209026, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
+        type: 3}
+      propertyPath: m_Name
+      value: SparkYellow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011dcbcdd52d34845be1a718b7ce7e6e, type: 3}
 --- !u!224 &3729150592110236944 stripped
@@ -53233,11 +53233,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8546407445475823938}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53343,6 +53338,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
 --- !u!224 &515817445456251173 stripped
@@ -53358,11 +53358,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8087962685971745088}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53467,6 +53462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -53618,11 +53618,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2121420085036701803}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53727,6 +53722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -53868,11 +53868,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708236477274684306}
     m_Modifications:
-    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
-        type: 3}
-      propertyPath: m_Name
-      value: PriceButtonCoins
-      objectReference: {fileID: 0}
     - target: {fileID: 994998543252054287, guid: 391c72807cc9c4c4a85737c81e5c3476,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53977,6 +53972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
+        type: 3}
+      propertyPath: m_Name
+      value: PriceButtonCoins
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391c72807cc9c4c4a85737c81e5c3476, type: 3}
@@ -54128,11 +54128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4749537172355957937}
     m_Modifications:
-    - target: {fileID: 4246699145221209026, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
-        type: 3}
-      propertyPath: m_Name
-      value: SparkYellow
-      objectReference: {fileID: 0}
     - target: {fileID: 1482892070768837437, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54237,6 +54232,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246699145221209026, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
+        type: 3}
+      propertyPath: m_Name
+      value: SparkYellow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011dcbcdd52d34845be1a718b7ce7e6e, type: 3}
@@ -54508,11 +54508,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2673033564378471627}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54618,6 +54613,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
 --- !u!224 &7304036088797603882 stripped
@@ -54633,11 +54633,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7751683934702523130}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54743,6 +54738,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
 --- !u!224 &7367203434258814475 stripped
@@ -54758,11 +54758,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7575786255167908351}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54867,6 +54862,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -54883,11 +54883,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2307200369363301564}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54992,6 +54987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -55713,11 +55713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8306007709789603911}
     m_Modifications:
-    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
-        type: 3}
-      propertyPath: m_Name
-      value: PriceButtonCoins
-      objectReference: {fileID: 0}
     - target: {fileID: 994998543252054287, guid: 391c72807cc9c4c4a85737c81e5c3476,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55822,6 +55817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
+        type: 3}
+      propertyPath: m_Name
+      value: PriceButtonCoins
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391c72807cc9c4c4a85737c81e5c3476, type: 3}
@@ -55968,11 +55968,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7721681649987706600}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56077,6 +56072,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -56483,11 +56483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4838497785163993823}
     m_Modifications:
-    - target: {fileID: 4246699145221209026, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
-        type: 3}
-      propertyPath: m_Name
-      value: SparkYellow
-      objectReference: {fileID: 0}
     - target: {fileID: 1482892070768837437, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56593,6 +56588,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4246699145221209026, guid: 011dcbcdd52d34845be1a718b7ce7e6e,
+        type: 3}
+      propertyPath: m_Name
+      value: SparkYellow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011dcbcdd52d34845be1a718b7ce7e6e, type: 3}
 --- !u!224 &8517892818127170100 stripped
@@ -56608,11 +56608,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7751683934702523130}
     m_Modifications:
-    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
-        type: 3}
-      propertyPath: m_Name
-      value: PriceButtonCoins
-      objectReference: {fileID: 0}
     - target: {fileID: 994998543252054287, guid: 391c72807cc9c4c4a85737c81e5c3476,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56718,6 +56713,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
+        type: 3}
+      propertyPath: m_Name
+      value: PriceButtonCoins
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391c72807cc9c4c4a85737c81e5c3476, type: 3}
 --- !u!224 &7639016714576080843 stripped
@@ -56733,11 +56733,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8306007709789603911}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -56842,6 +56837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -57013,11 +57013,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6267366071751261908}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57122,6 +57117,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -57263,11 +57263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5241351838450093007}
     m_Modifications:
-    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkle
-      objectReference: {fileID: 0}
     - target: {fileID: 2326691682933177657, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57372,6 +57367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182050317565867855, guid: 0862ed0e57d4d8f45b2e289e85591c7c,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0862ed0e57d4d8f45b2e289e85591c7c, type: 3}
@@ -57638,11 +57638,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8546407445475823938}
     m_Modifications:
-    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
-        type: 3}
-      propertyPath: m_Name
-      value: PriceButtonCoins
-      objectReference: {fileID: 0}
     - target: {fileID: 994998543252054287, guid: 391c72807cc9c4c4a85737c81e5c3476,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57747,6 +57742,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307741275576407303, guid: 391c72807cc9c4c4a85737c81e5c3476,
+        type: 3}
+      propertyPath: m_Name
+      value: PriceButtonCoins
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391c72807cc9c4c4a85737c81e5c3476, type: 3}
