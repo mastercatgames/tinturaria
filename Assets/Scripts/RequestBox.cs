@@ -52,7 +52,7 @@ public class RequestBox : MonoBehaviour
         else
         {
             //Execute once time
-            if (!isDestroyingBox)
+            if (!isDestroyingBox && !isPlayingAnimation("deliverySuccess"))
             {
                 isDestroyingBox = true;
                 maskColor.color = requestPanelController.RedColor;
@@ -79,7 +79,7 @@ public class RequestBox : MonoBehaviour
         // else
         //     print("(BUG)" + colorRepositoryObj + " wasn't removed from ColorsRequested list!");
 
-        
+
         //Request another box immediately
         if (powerUpsController.BoosterFilling_Box_Flag)
         {
@@ -90,23 +90,30 @@ public class RequestBox : MonoBehaviour
 
     public void DeliveryBox()
     {
-        maskColor.color = requestPanelController.GreenColor;
-        var tempColor = maskColor.color;
-        tempColor.a = 0.5f;
-        maskColor.color = tempColor;
+        if (!isPlayingAnimation("deliveryFailed"))
+        {
+            maskColor.color = requestPanelController.GreenColor;
+            var tempColor = maskColor.color;
+            tempColor.a = 0.5f;
+            maskColor.color = tempColor;
 
-        GetComponent<Animator>().Play("deliverySuccess");
-        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("DeliverySuccessful");
+            GetComponent<Animator>().Play("deliverySuccess");
+            GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("DeliverySuccessful");
 
-        gameController.EarnCoins();
+            gameController.EarnCoins();
+        }
+        else
+        {
+            print("Too late!");
+        }
+    }
 
-        // print(transform.parent);
-        // print(transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count);
-        //Broke a repository
-        // GameObject repositoryToBroke = transform.parent.GetComponent<RequestPanelController>().colorsRequested[transform.parent.GetComponent<RequestPanelController>().colorsRequested.Count -1];
-
-        // gameController.BrokeRepository(repositoryToBroke);
-        // print("Must broke the *" + repositoryToBroke.name + "*");
-
+    bool isPlayingAnimation(string stateName)
+    {
+        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
     }
 }
