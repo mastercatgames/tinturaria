@@ -279,7 +279,9 @@ public class GameController : MonoBehaviour
 
     public void Vibrate()
     {
+        #if UNITY_ANDROID && !UNITY_EDITOR
         Vibration.Vibrate(20);
+        #endif
     }
 
     public void EarnCoins()

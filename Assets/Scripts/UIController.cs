@@ -124,37 +124,7 @@ public class UIController : MonoBehaviour
         //Set Title
         titleText.text = levelManager.world + "-" + levelManager.level;
 
-        //Stars animation
-        //.Play("Stars_GameOver");
-        Transform star1 = gameOverPanel.transform.Find("Stars").Find("1").Find("Star");
-        Transform star2 = gameOverPanel.transform.Find("Stars").Find("2").Find("Star");
-        Transform star3 = gameOverPanel.transform.Find("Stars").Find("3").Find("Star");
-
-        int numStarsWon = 0;
-
-        if (gameController.numCoins >= levelManager.oneStarCoins)
-        {
-            // StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
-            StartCoroutine(ShowGameObjectAfterTime(star1.gameObject, 0f));
-            numStarsWon = 1;
-        }
-        if (gameController.numCoins >= levelManager.twoStarCoins)
-        {
-            // StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
-            StartCoroutine(ShowGameObjectAfterTime(star2.gameObject, 0.8f));
-            numStarsWon = 2;
-        }
-        if (gameController.numCoins >= levelManager.threeStarCoins)
-        {
-            // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
-            StartCoroutine(ShowGameObjectAfterTime(star3.gameObject, 1.6f));
-            numStarsWon = 3;
-            gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
-            gameOverPanel.transform.Find("Confetti").gameObject.SetActive(true);
-        }
-
-        ShowFinalQuote(numStarsWon);
-
+        //Set (qty) Boxes delivered and failed
         boxesDeliveredText.text += " " + gameController.numDeliveredBoxes;
         boxesFailedText.text += " " + gameController.numFailedBoxes;
 
@@ -165,11 +135,40 @@ public class UIController : MonoBehaviour
         boxesFailedText.transform.Find("num").GetComponent<Text>().text = ((gameController.numFailedBoxes > 0) ? "-" : "") + numFailedBoxesValue.ToString();
 
         //Total
-        // totalText.transform.Find("num").GetComponent<Text>().text = numCoinsText.text;
         int totalCoins = numDeliveredBoxesValue - numFailedBoxesValue;
         totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();
+        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);        
 
-        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);
+        //Stars animation
+        //.Play("Stars_GameOver");
+        Transform star1 = gameOverPanel.transform.Find("Stars").Find("1").Find("Star");
+        Transform star2 = gameOverPanel.transform.Find("Stars").Find("2").Find("Star");
+        Transform star3 = gameOverPanel.transform.Find("Stars").Find("3").Find("Star");
+
+        int numStarsWon = 0;
+
+        if (totalCoins >= levelManager.oneStarCoins)
+        {
+            // StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
+            StartCoroutine(ShowGameObjectAfterTime(star1.gameObject, 0f));
+            numStarsWon = 1;
+        }
+        if (totalCoins >= levelManager.twoStarCoins)
+        {
+            // StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
+            StartCoroutine(ShowGameObjectAfterTime(star2.gameObject, 0.8f));
+            numStarsWon = 2;
+        }
+        if (totalCoins >= levelManager.threeStarCoins)
+        {
+            // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
+            StartCoroutine(ShowGameObjectAfterTime(star3.gameObject, 1.6f));
+            numStarsWon = 3;
+            gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
+            gameOverPanel.transform.Find("Confetti").gameObject.SetActive(true);
+        }
+
+        ShowFinalQuote(numStarsWon);        
     }    
 
     private void HideGameplayObjects()
@@ -191,7 +190,7 @@ public class UIController : MonoBehaviour
 
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
 
-        //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
@@ -205,7 +204,6 @@ public class UIController : MonoBehaviour
         gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
 
         //Call other objects
-        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
 
