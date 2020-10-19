@@ -30,9 +30,14 @@ public class TapToPlay : MonoBehaviour
         uiController.ShowAllGameplayObjects();
         uiController.isInGamePlay = true;
 
-        if (!uiController.isTutorial)
+        if (uiController.isTutorial)
         {
+            uiController.transform.parent.Find("Tutorial").gameObject.SetActive(true);
+        }
+
+        // if (!uiController.isTutorial)
+        // {
             uiController.timerIsRunning = true;
-        }        
+        // }        
     }
 }

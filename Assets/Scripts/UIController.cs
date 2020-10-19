@@ -207,10 +207,10 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
 
-        if (!isTutorial)
-        {
+        // if (!isTutorial)
+        // {
             gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        }
+        // }
 
         if (!isInGamePlay)
         {
@@ -271,10 +271,10 @@ public class UIController : MonoBehaviour
         //If game was a paused and the player tap to continue
         if (isInGamePlay)
         {
-            if (!isTutorial && !powerUpsController.FreezingTime_Flag)
-            {
+            // if (!isTutorial && !powerUpsController.FreezingTime_Flag)
+            // {
                 timerIsRunning = true;
-            }
+            // }
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
         }
@@ -548,5 +548,10 @@ public class UIController : MonoBehaviour
         toolsUI.text = PlayerPrefs.GetInt("toolsCount").ToString();
         gemsUI.text = PlayerPrefs.GetInt("gemsCount").ToString();
         coinsUI.text = PlayerPrefs.GetInt("coinsCount").ToString();
+    }
+
+    public void CallChangeCurrentBox(GameObject newBox)
+    {
+        gameController.ChangeCurrentBox(newBox);
     }
 }

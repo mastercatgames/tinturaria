@@ -7,6 +7,7 @@ public class RequestPanelController : MonoBehaviour
 {
     private LevelManager levelManager;
     private GameController gameController;
+    private UIController UIController;
     private PowerUpsController powerUpsController;
     public GameObject requestBoxPrefab;
     public int numOfRequests;
@@ -24,8 +25,18 @@ public class RequestPanelController : MonoBehaviour
     {
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
-        powerUpsController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>().transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
-        InvokeRepeating("RequestBox", 1f, 15f);
+        UIController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        powerUpsController = UIController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
+        if (UIController.isTutorial)
+        {
+            //Request specifics box and forms
+            RequestSpecificBox();
+        }
+        else
+        {
+            InvokeRepeating("RequestBox", 1f, 15f);
+        }
     }
 
     public void RequestBox()
@@ -85,5 +96,26 @@ public class RequestPanelController : MonoBehaviour
             }
         }
         return repositoryToRequest;
+    }
+
+    private void RequestSpecificBox()
+    {
+        GameObject box = Instantiate(requestBoxPrefab);
+
+        //Request a blue moon
+        box.GetComponent<RequestBox>().boxRequested = boxes[0].transform.Find("Box").GetComponent<SpriteRenderer>().sprite;
+        box.GetComponent<RequestBox>().colorRepositoryObj = colors[3];
+
+        colorsRequested.Add(box.GetComponent<RequestBox>().colorRepositoryObj);
+
+        box.GetComponent<RequestBox>().colorRequested = box.GetComponent<RequestBox>().colorRepositoryObj.transform.Find("Ink").GetComponent<SpriteRenderer>().color;
+
+        box.transform.Find("Form").GetComponent<Image>().sprite = box.GetComponent<RequestBox>().boxRequested;
+        box.transform.Find("Color").GetComponent<Image>().color = box.GetComponent<RequestBox>().colorRequested;
+
+        //Instantiate the requested box inside the RequestPanel
+        box.transform.SetParent(transform);
+        numOfRequests++;
+        TotalRequests++;
     }
 }
