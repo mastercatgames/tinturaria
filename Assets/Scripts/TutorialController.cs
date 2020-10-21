@@ -9,24 +9,32 @@ public class TutorialController : MonoBehaviour
     public int step;
     public Canvas RequestPanel;
     public Canvas FormButton;
+    public Canvas InkButton;
     public GameObject Panel_Forms;
     public GameObject Panel_Ink_Buckets;
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        step = 1;
-        ShowStep();      
+        // step = 1;
+        ShowStep();
         Invoke("FreezeTime", 2f);  
+
+        uiController.blockSwipe = true;
+        uiController.blockRightSwipe = true;
+        uiController.blockPainting = true;
     }
 
-    void ShowStep()
+    private void ShowStep()
     {
+        step++;
         if (step == 1)
         {
+            //Show Request Panel
             RequestPanel.sortingOrder = 501;
         }
         else if (step == 2)
         {
+            //Tap on Forms button (to open boxes panel)
             RequestPanel.sortingOrder = 0;
             FormButton.sortingOrder = 501;
             transform.Find("Step-1").gameObject.SetActive(false);
@@ -34,33 +42,118 @@ public class TutorialController : MonoBehaviour
         }
         else if (step == 3)
         {
-            transform.Find("GrayBackground").gameObject.SetActive(false);
+            //Show Choose the box
             Panel_Forms.transform.Find("Close_Button").gameObject.SetActive(false);
+            Panel_Forms.transform.Find("Forms").Find("Moon").GetComponent<Canvas>().sortingOrder = 505;
+            FormButton.sortingOrder = 0;
             uiController.OpenPanel(Panel_Forms);
             transform.Find("Step-2").gameObject.SetActive(false);
             transform.Find("Step-3").gameObject.SetActive(true);
         }
         else if (step == 4)
         {
-            Time.timeScale = 1f;
+            //Box was choosed show next step (5)
+            // NormalizeTime();
+            transform.Find("GrayBackground").gameObject.SetActive(false);
             transform.Find("Step-3").gameObject.SetActive(false);
-            transform.Find("Step-4").gameObject.SetActive(true);
+            uiController.CallChangeCurrentBox(Panel_Forms.transform.Find("Forms").Find("Moon").gameObject);
+            // step++;
+            //Show step 5 after 1 second (to give time to box falling animaiton)
+            Invoke("ShowStep", 1f);            
+            
         }
         else if (step == 5)
         {
-            
+            //Show Swipe to green bottle
+            print("Show Step 5!");
+            uiController.blockSwipe = false;
+            transform.Find("Step-5").gameObject.SetActive(true);
+        }
+        else if (step == 6)
+        {
+            //Show Tap here to fill the box
+            print("Show Step 6!");
+            uiController.blockSwipe = true;
+            uiController.blockPainting = false;
+            // uiController.blockRightSwipe = false;
+            transform.Find("Step-5").gameObject.SetActive(false);
+            transform.Find("Step-6").gameObject.SetActive(true);
+        }
+        // else if (step == 7)
+        // {
+        //     //Show only highlight until fill box
+        //     // print("Show Step 7!");
+        //     // transform.Find("Step-6").gameObject.SetActive(false);
+        //     // transform.Find("Step-7").gameObject.SetActive(true);
+        //     //Call next step to inform to reload
+        //     //nvoke("ShowStep", 1f); 
+        // }
+        else if (step == 7)
+        {
+            //Show Oops! It's look like you are out of ink...Let's fill it!
+            print("Show Step 7!");
+            transform.Find("Step-6").gameObject.SetActive(false);
+            transform.Find("Step-7").gameObject.SetActive(true);
+        }
+        else if (step == 8)
+        {
+            //Show Tap here to reload bottles
+            transform.Find("GrayBackground").gameObject.SetActive(true);
+            print("Show Step 8!");
+            InkButton.sortingOrder = 501;
+            transform.Find("Step-7").gameObject.SetActive(false);
+            transform.Find("Step-8").gameObject.SetActive(true);
+        }
+        else if (step == 9)
+        {
+            //Show choose the requested box
+            print("Show Step 9!");
+            FormButton.sortingOrder = 0;
+            InkButton.sortingOrder = 0;
+            uiController.OpenPanel(Panel_Ink_Buckets);
+            Panel_Ink_Buckets.transform.Find("Buckets").Find("Green").GetComponent<Canvas>().sortingOrder = 505;
+            transform.Find("Step-8").gameObject.SetActive(false);
+            transform.Find("Step-9").gameObject.SetActive(true);
+        }
+        else if (step == 10)
+        {
+            //Show Notice that the bottle will start to fill.      
+            transform.Find("GrayBackground").gameObject.SetActive(false);   
+            print("Show Step 10!");
+            FormButton.sortingOrder = 0;
+            InkButton.sortingOrder = 0;
+            uiController.CallFillOrFixRepository(Panel_Ink_Buckets.transform.Find("Buckets").Find("Green").gameObject);
+            // Panel_Ink_Buckets.transform.Find("Buckets").Find("Green").GetComponent<Canvas>().sortingOrder = 505;
+            transform.Find("Step-9").gameObject.SetActive(false);
+            transform.Find("Step-10").gameObject.SetActive(true);
+
+            Invoke("ShowStep", 7f);  
+        }
+        else if (step == 11)
+        {
+            //Show Now, fill the box to the end before the time runs out!          
+            print("Show Step 11!");
+            transform.Find("Step-10").gameObject.SetActive(false);
+            transform.Find("Step-11").gameObject.SetActive(true);
         }
     }
 
     public void FreezeTime()
     {
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f;
+        uiController.timerIsRunning = false;
         print("Freeze Time!");
+    }
+
+    public void NormalizeTime()
+    {
+        uiController.timerIsRunning = true;
+        print("Normalize Time!");
     }
 
     public void NextStep()
     {
-        step++;
+        // step++;
         ShowStep();
     }
 }

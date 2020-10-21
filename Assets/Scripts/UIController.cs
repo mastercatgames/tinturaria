@@ -27,6 +27,9 @@ public class UIController : MonoBehaviour
     public Button LevelButton;
     public bool isInGamePlay;
     public bool isTutorial;    
+    public bool blockSwipe;    
+    public bool blockRightSwipe;    
+    public bool blockPainting;    
     public Text toolsUI;
     public Text gemsUI;
     public Text coinsUI;
@@ -37,6 +40,9 @@ public class UIController : MonoBehaviour
         // Starts the timer automatically
         //TODO: Start after 3 seconds
         //timerIsRunning = true;
+        blockSwipe = false;
+        blockRightSwipe = false;
+        blockPainting = false;
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();

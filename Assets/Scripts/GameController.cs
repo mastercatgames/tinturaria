@@ -10,11 +10,13 @@ public class GameController : MonoBehaviour
     public float paintSpeed;
     public float originalPaintSpeed;
     public bool isPainting;
+    public bool emptyTutorialIsFinished;
     public GameObject currentRepository;
     public GameObject currentBox;
     public bool isChangingRepository;
     private UIController uiController;
     private LevelManager levelManager;
+    private TutorialController tutorialController;
     private GameObject PanelForms;
     private GameObject Panel_Ink_Buckets;
     private GameObject RequestPanel;
@@ -34,6 +36,9 @@ public class GameController : MonoBehaviour
         paintSpeed = originalPaintSpeed;
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        tutorialController = uiController.transform.parent.Find("Tutorial").GetComponent<TutorialController>();
+
+        emptyTutorialIsFinished = false;
 
         //If is in tutorial, keep the repository positions, else...
         if (!uiController.isTutorial)
@@ -109,6 +114,9 @@ public class GameController : MonoBehaviour
         && !isPainting
         && !currentRepository.GetComponent<InkRepositoryController>().isFilling
         && !uiController.somePanelIsOpen
+        // && !uiController.blockSwipe
+        // && !uiController.blockRightSwipe
+        && !uiController.blockPainting
         //&& !currentRepository.GetComponent<InkRepositoryController>().isBroken
         && currentBox))
         {
@@ -153,6 +161,12 @@ public class GameController : MonoBehaviour
                 print("Empty!");
                 StartCoroutine(currentRepository.GetComponent<InkRepositoryController>().EmptyRepositoryIndicator());
                 GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("Glitch-Error");
+
+                if (uiController.isTutorial && !emptyTutorialIsFinished)
+                {
+                    tutorialController.NextStep();
+                    emptyTutorialIsFinished = true;
+                }
             }
         }
     }

@@ -16,6 +16,7 @@ public class SmoothMoveSwipe : MonoBehaviour
     public bool downPitch; //Added by Augusto Polonio
     private GameController gameController; //Added by Augusto Polonio
     private UIController uiController; //Added by Augusto Polonio
+    private TutorialController tutorialController; //Added by Augusto Polonio
     public float targetPitch;
 
     void Start()
@@ -23,6 +24,7 @@ public class SmoothMoveSwipe : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
+        tutorialController = uiController.transform.parent.Find("Tutorial").GetComponent<TutorialController>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class SmoothMoveSwipe : MonoBehaviour
         && !gameController.isChangingRepository
         && !uiController.somePanelIsOpen
         && uiController.isInGamePlay
+        && !uiController.blockSwipe
         && !GameObject.Find("AudioController").GetComponent<AudioController>().AudioIsPlaying("InkMachineMove")
         && Input.touchCount > 0
         && Input.GetTouch(0).phase == TouchPhase.Moved)
@@ -45,7 +48,8 @@ public class SmoothMoveSwipe : MonoBehaviour
 
             if ((endTouchPosition.x < startTouchPosition.x) && transform.position.x > -maxLeftScreenPositionX)
                 StartCoroutine(Fly("left"));
-            else if ((endTouchPosition.x > startTouchPosition.x) && transform.position.x < maxRightScreenPositionX)
+            else if (!uiController.blockRightSwipe &&
+                (endTouchPosition.x > startTouchPosition.x && transform.position.x < maxRightScreenPositionX))
                 StartCoroutine(Fly("right"));
             else
                 gameController.isChangingRepository = false;
@@ -77,7 +81,15 @@ public class SmoothMoveSwipe : MonoBehaviour
                 downPitch = false;
                 gameController.isChangingRepository = false;
 
-                gameController.transform.parent.GetComponent<ZoomObject>().machineLastPosition = new Vector3(transform.position.x, 3.028f, 0f);
+                gameController.transform.parent.GetComponent<ZoomObject>().machineLastPosition = new Vector3(transform.position.x, 3.028f, 0f);                
+
+                if (uiController.isTutorial)
+                {
+                    print("Swipe Tutorial completed! Now it's blocked again! \n Show step 6!");
+                    //Show Step 6 after time (to avoid painting before time)
+                    tutorialController.Invoke("NextStep", 0.2f);
+                }
+
                 break;
 
             case "right":
