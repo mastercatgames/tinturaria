@@ -31,15 +31,21 @@ public class InkRepositoryController : MonoBehaviour
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
 
-        //TODO: Each hourglass can be initialized "broken" or "empty"
-
-        if (powerUpsController.BoosterFilling_AllBottles_Flag)
+        if (uiController.isTutorial && name == "Green")
         {
-            inkfillAmount = 1f;
+            inkfillAmount = 0.25f;
+            print("Green repository is loaded 25% (tutorial)...");
         }
         else
         {
-            inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
+            if (powerUpsController.BoosterFilling_AllBottles_Flag)
+            {
+                inkfillAmount = 1f;
+            }
+            else
+            {
+                inkfillAmount = startInkfillAmount[Random.Range(0, 5)];
+            }
         }
 
         limitToFill = inkfillAmount - 0.25f;

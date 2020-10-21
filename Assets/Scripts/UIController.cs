@@ -27,6 +27,9 @@ public class UIController : MonoBehaviour
     public Button LevelButton;
     public bool isInGamePlay;
     public bool isTutorial;    
+    public bool blockSwipe;    
+    public bool blockRightSwipe;    
+    public bool blockPainting;    
     public Text toolsUI;
     public Text gemsUI;
     public Text coinsUI;
@@ -37,6 +40,9 @@ public class UIController : MonoBehaviour
         // Starts the timer automatically
         //TODO: Start after 3 seconds
         //timerIsRunning = true;
+        blockSwipe = false;
+        blockRightSwipe = false;
+        blockPainting = false;
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
@@ -207,10 +213,10 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
 
-        if (!isTutorial)
-        {
+        // if (!isTutorial)
+        // {
             gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        }
+        // }
 
         if (!isInGamePlay)
         {
@@ -271,10 +277,10 @@ public class UIController : MonoBehaviour
         //If game was a paused and the player tap to continue
         if (isInGamePlay)
         {
-            if (!isTutorial && !powerUpsController.FreezingTime_Flag)
-            {
+            // if (!isTutorial && !powerUpsController.FreezingTime_Flag)
+            // {
                 timerIsRunning = true;
-            }
+            // }
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
         }
@@ -548,5 +554,10 @@ public class UIController : MonoBehaviour
         toolsUI.text = PlayerPrefs.GetInt("toolsCount").ToString();
         gemsUI.text = PlayerPrefs.GetInt("gemsCount").ToString();
         coinsUI.text = PlayerPrefs.GetInt("coinsCount").ToString();
+    }
+
+    public void CallChangeCurrentBox(GameObject newBox)
+    {
+        gameController.ChangeCurrentBox(newBox);
     }
 }

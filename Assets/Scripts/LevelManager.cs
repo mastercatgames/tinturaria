@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
 
             if (level > 1)
             {
+                //1-2 & 1-3
                 uiController.timeRemaining = 60f;
             }
             else
@@ -38,7 +39,8 @@ public class LevelManager : MonoBehaviour
                 //1-1 is a tutorial
                 //TODO: Make a tutorial design
                 uiController.isTutorial = true;
-                uiController.timeText.gameObject.SetActive(false);
+                uiController.timeRemaining = 180f;
+                // uiController.timeText.gameObject.SetActive(false);
             }
         }
         else if (world == 2)

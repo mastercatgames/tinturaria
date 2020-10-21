@@ -9,6 +9,7 @@ public class RequestBox : MonoBehaviour
     private RequestPanelController requestPanelController;
     private GameController gameController;
     private PowerUpsController powerUpsController;
+    private UIController uiController;
     public bool isDestroyingBox;
     private Image maskColor;
     private float barSpeed;
@@ -23,6 +24,7 @@ public class RequestBox : MonoBehaviour
         requestPanelController = transform.parent.GetComponent<RequestPanelController>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         powerUpsController = transform.parent.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+        uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         //TODO: Test the best time to fit in gameplay
         //0.01f = 01:40m
         //0.02f = 00:50m (50 sec)
@@ -35,34 +37,37 @@ public class RequestBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bar.fillAmount > 0.009f)
+        if (uiController.timerIsRunning)
         {
-            bar.fillAmount -= Time.deltaTime * barSpeed;//Mathf.Lerp(bar.fillAmount, 0f, Time.deltaTime * barSpeed);
-
-            if (bar.fillAmount < 0.5f)
+            if (bar.fillAmount > 0.009f)
             {
-                bar.color = requestPanelController.YellowColor;
+                bar.fillAmount -= Time.deltaTime * barSpeed;//Mathf.Lerp(bar.fillAmount, 0f, Time.deltaTime * barSpeed);
+
+                if (bar.fillAmount < 0.5f)
+                {
+                    bar.color = requestPanelController.YellowColor;
+                }
+
+                if (bar.fillAmount < 0.2f)
+                {
+                    bar.color = requestPanelController.RedColor;
+                }
             }
-
-            if (bar.fillAmount < 0.2f)
+            else
             {
-                bar.color = requestPanelController.RedColor;
-            }
-        }
-        else
-        {
-            //Execute once time
-            if (!isDestroyingBox && !isPlayingAnimation("deliverySuccess"))
-            {
-                isDestroyingBox = true;
-                maskColor.color = requestPanelController.RedColor;
-                var tempColor = maskColor.color;
-                tempColor.a = 0.5f;
-                maskColor.color = tempColor;
+                //Execute once time
+                if (!isDestroyingBox && !isPlayingAnimation("deliverySuccess"))
+                {
+                    isDestroyingBox = true;
+                    maskColor.color = requestPanelController.RedColor;
+                    var tempColor = maskColor.color;
+                    tempColor.a = 0.5f;
+                    maskColor.color = tempColor;
 
-                GetComponent<Animator>().Play("deliveryFailed");
-                GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("DeliveryFailed");
-                gameController.DiscountCoins();
+                    GetComponent<Animator>().Play("deliveryFailed");
+                    GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("DeliveryFailed");
+                    gameController.DiscountCoins();
+                }
             }
         }
     }
