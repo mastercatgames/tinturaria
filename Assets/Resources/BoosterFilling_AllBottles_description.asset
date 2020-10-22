@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LocaleItems:
   - m_Language: 10
-    m_Value: Start a level with all bottles filled.
+    m_Value: Start a level with all bottles reloaded.
   - m_Language: 28
     m_Value: "Come\xE7a uma fase com todas as garrafas cheias."
