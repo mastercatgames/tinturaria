@@ -155,6 +155,15 @@ public class GameController : MonoBehaviour
                 {
                     currentRepository.transform.Find("ClockSprite").gameObject.SetActive(true);
                 }
+
+                if (uiController.isTutorial)
+                {
+                    tutorialController.transform.Find("Step-6").Find("Dialog").gameObject.SetActive(false);
+                    tutorialController.transform.Find("Step-6").Find("HandIcon").gameObject.SetActive(false);                    
+                    tutorialController.Invoke("ShowTapHereAgain", 4f);
+                    tutorialController.transform.Find("Step-11").Find("HandIcon").gameObject.SetActive(false);
+                    tutorialController.Invoke("ShowHandIcon", 4f);
+                }
             }
             else
             {
@@ -205,6 +214,11 @@ public class GameController : MonoBehaviour
                 {
                     //Debug.Log("Delivered!");
                     requestedBox.GetComponent<RequestBox>().DeliveryBox();
+
+                    if (uiController.isTutorial)
+                    { 
+                        uiController.timeRemaining = 0f;
+                    }
                 }
                 else
                 {

@@ -8,7 +8,7 @@ using GameToolkit.Localization;
 public class UIController : MonoBehaviour
 {
     private GameController gameController;
-    private LevelManager levelManager;    
+    private LevelManager levelManager;
     private PowerUpsController powerUpsController;
     public GameObject ButtonsGrid;
     public bool somePanelIsOpen = false;
@@ -26,10 +26,10 @@ public class UIController : MonoBehaviour
     public Text readyGo;
     public Button LevelButton;
     public bool isInGamePlay;
-    public bool isTutorial;    
-    public bool blockSwipe;    
-    public bool blockRightSwipe;    
-    public bool blockPainting;    
+    public bool isTutorial;
+    public bool blockSwipe;
+    public bool blockRightSwipe;
+    public bool blockPainting;
     public Text toolsUI;
     public Text gemsUI;
     public Text coinsUI;
@@ -143,7 +143,7 @@ public class UIController : MonoBehaviour
         //Total
         int totalCoins = numDeliveredBoxesValue - numFailedBoxesValue;
         totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();
-        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);        
+        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);
 
         //Stars animation
         //.Play("Stars_GameOver");
@@ -174,8 +174,8 @@ public class UIController : MonoBehaviour
             gameOverPanel.transform.Find("Confetti").gameObject.SetActive(true);
         }
 
-        ShowFinalQuote(numStarsWon);        
-    }    
+        ShowFinalQuote(numStarsWon);
+    }
 
     private void HideGameplayObjects()
     {
@@ -186,6 +186,7 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
         gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
 
         //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
     }
@@ -194,9 +195,14 @@ public class UIController : MonoBehaviour
     {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
 
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
+        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
 
-        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
+        if (!isTutorial)
+        {
+            gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
+        }
+
+        gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
@@ -215,7 +221,7 @@ public class UIController : MonoBehaviour
 
         // if (!isTutorial)
         // {
-            gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
         // }
 
         if (!isInGamePlay)
@@ -279,7 +285,7 @@ public class UIController : MonoBehaviour
         {
             // if (!isTutorial && !powerUpsController.FreezingTime_Flag)
             // {
-                timerIsRunning = true;
+            timerIsRunning = true;
             // }
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
@@ -403,6 +409,7 @@ public class UIController : MonoBehaviour
     public void PauseGame()
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
         transform.parent.Find("TopHeader").gameObject.SetActive(true);
         timerIsRunning = false;
@@ -542,7 +549,7 @@ public class UIController : MonoBehaviour
     public void ChangeLanguage(string language)
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
-        
+
         if (language == "en")
             Localization.Instance.CurrentLanguage = SystemLanguage.English;
         else if (language == "pt")

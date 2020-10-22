@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialController : MonoBehaviour
 {
@@ -131,7 +132,8 @@ public class TutorialController : MonoBehaviour
         }
         else if (step == 11)
         {
-            //Show Now, fill the box to the end before the time runs out!          
+            //Show Now, fill the box to the end before the time runs out!      
+            NormalizeTime();    
             print("Show Step 11!");
             transform.Find("Step-10").gameObject.SetActive(false);
             transform.Find("Step-11").gameObject.SetActive(true);
@@ -149,6 +151,18 @@ public class TutorialController : MonoBehaviour
     {
         uiController.timerIsRunning = true;
         print("Normalize Time!");
+    }
+
+    public void ShowTapHereAgain()
+    {
+        transform.Find("Step-6").Find("Dialog").gameObject.SetActive(true);
+        transform.Find("Step-6").Find("HandIcon").gameObject.SetActive(true);
+        transform.Find("Step-6").Find("Dialog").Find("Text").GetComponent<Text>().text = "Tap here again!";
+    }
+
+    public void ShowHandIcon()
+    {
+        transform.Find("Step-11").Find("HandIcon").gameObject.SetActive(true);
     }
 
     public void NextStep()
