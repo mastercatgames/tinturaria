@@ -28,16 +28,14 @@ public class TapToPlay : MonoBehaviour
         //Shoot this event at the end of the ZoonInkMachine animation
         uiController.readyGo.gameObject.SetActive(false);
         uiController.ShowAllGameplayObjects();
-        uiController.isInGamePlay = true;
+        uiController.isInGamePlay = true;        
 
         if (uiController.isTutorial)
         {
-            uiController.transform.parent.Find("Tutorial").gameObject.SetActive(true);
+            print(uiController.transform.parent.Find("Tutorial").gameObject);
+            StartCoroutine(uiController.ShowGameObjectAfterTime(uiController.transform.parent.Find("Tutorial").gameObject, 0.5f));
         }
 
-        // if (!uiController.isTutorial)
-        // {
-            uiController.timerIsRunning = true;
-        // }        
+        uiController.timerIsRunning = true;       
     }
 }

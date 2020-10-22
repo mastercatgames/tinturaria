@@ -193,16 +193,13 @@ public class UIController : MonoBehaviour
 
     public void ShowAllGameplayObjects()
     {
-        gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
-
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);        
 
         if (!isTutorial)
         {
             gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
+            gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
         }
-
-        gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(true);
     }
 
     private void ShowInkMachine()
