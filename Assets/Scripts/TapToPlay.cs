@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameToolkit.Localization;
 
 public class TapToPlay : MonoBehaviour
 {
@@ -15,13 +16,13 @@ public class TapToPlay : MonoBehaviour
 
     public void ShowGo()
     {
-        uiController.readyGo.text = "Go!";
+        LocalizedTextBehaviour goTranslate = uiController.readyGo.GetComponent<LocalizedTextBehaviour>();
+        goTranslate.LocalizedAsset = (LocalizedText)Resources.Load("Go", typeof(LocalizedText));
         uiController.readyGo.gameObject.SetActive(true);
     }
 
     public void ShowReady()
-    {
-        uiController.readyGo.text = "Ready?";
+    {        
         uiController.readyGo.gameObject.SetActive(true);
         StartCoroutine(uiController.PlayAnimationAfterTime(uiController.readyGo.GetComponent<Animator>(), "UI_JellyZoomOut_Auto", 2f, 1f));
         StartCoroutine(uiController.SetActiveAfterTime(uiController.readyGo.gameObject, false, 3f));
