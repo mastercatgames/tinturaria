@@ -156,22 +156,22 @@ public class UIController : MonoBehaviour
         if (totalCoins >= levelManager.oneStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
-            StartCoroutine(ShowGameObjectAfterTime(star1.gameObject, 0f));
+            StartCoroutine(SetActiveAfterTime(star1.gameObject, true, 0f));
             numStarsWon = 1;
         }
         if (totalCoins >= levelManager.twoStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
-            StartCoroutine(ShowGameObjectAfterTime(star2.gameObject, 0.8f));
+            StartCoroutine(SetActiveAfterTime(star2.gameObject, true, 0.8f));
             numStarsWon = 2;
         }
         if (totalCoins >= levelManager.threeStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
-            StartCoroutine(ShowGameObjectAfterTime(star3.gameObject, 1.6f));
+            StartCoroutine(SetActiveAfterTime(star3.gameObject, true, 1.6f));
             numStarsWon = 3;
             gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
-            gameOverPanel.transform.Find("Confetti").gameObject.SetActive(true);
+            StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 1.8f));
         }
 
         ShowFinalQuote(numStarsWon);
@@ -253,13 +253,6 @@ public class UIController : MonoBehaviour
         print("Finish Animation!");
     }
 
-    public IEnumerator ShowGameObjectAfterTime(GameObject gameObject, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        gameObject.SetActive(true);
-    }
-
-    //This method is better then above
     public IEnumerator SetActiveAfterTime(GameObject gameObject, bool active, float delay)
     {
         yield return new WaitForSeconds(delay);
