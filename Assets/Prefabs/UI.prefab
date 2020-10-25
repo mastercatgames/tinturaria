@@ -55439,6 +55439,7 @@ GameObject:
   - component: {fileID: 8413369504077522819}
   - component: {fileID: 7029010457381897372}
   - component: {fileID: 7832387101427270072}
+  - component: {fileID: 1261999617830590463}
   m_Layer: 5
   m_Name: ReadyGo
   m_TagString: Untagged
@@ -55455,7 +55456,7 @@ RectTransform:
   m_GameObject: {fileID: 8898720342469273929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 7790934000045442158}
   m_RootOrder: 2
@@ -55507,6 +55508,25 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!95 &1261999617830590463
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898720342469273929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100e4955ff5251843b2315edd4c4061d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8905045420504657452
 GameObject:
   m_ObjectHideFlags: 0

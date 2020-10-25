@@ -223,7 +223,9 @@ public class UIController : MonoBehaviour
 
         if (!isInGamePlay)
         {
-            gameObject.transform.parent.Find("ReadyGo").gameObject.SetActive(true);
+            StartCoroutine(SetActiveAfterTime(readyGo.gameObject, true, 0.2f));
+            StartCoroutine(PlayAnimationAfterTime(readyGo.GetComponent<Animator>(), "UI_JellyZoomOut_Auto", 2f, 1f));
+            StartCoroutine(SetActiveAfterTime(readyGo.gameObject, false, 3f));
         }
     }
 
@@ -252,7 +254,7 @@ public class UIController : MonoBehaviour
         StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", delay, 1.2f));
     }
 
-    private IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)
+    public IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)
     {
         yield return new WaitForSeconds(delay);
         animator.Play(animationName);
@@ -265,6 +267,13 @@ public class UIController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         gameObject.SetActive(true);
+    }
+
+    //This method is better then above
+    public IEnumerator SetActiveAfterTime(GameObject gameObject, bool active, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(active);
     }
 
     public void TapToPlay()

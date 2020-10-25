@@ -16,6 +16,7 @@ public class TapToPlay : MonoBehaviour
     public void ShowGo()
     {
         uiController.readyGo.text = "Go!";
+        uiController.readyGo.gameObject.SetActive(true);
     }
 
     public void ShowReady()
