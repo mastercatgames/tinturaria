@@ -215,18 +215,8 @@ public class UIController : MonoBehaviour
         //Call other objects
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
-
-        // if (!isTutorial)
-        // {
+        
         gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        // }
-
-        if (!isInGamePlay)
-        {
-            StartCoroutine(SetActiveAfterTime(readyGo.gameObject, true, 0.2f));
-            StartCoroutine(PlayAnimationAfterTime(readyGo.GetComponent<Animator>(), "UI_JellyZoomOut_Auto", 2f, 1f));
-            StartCoroutine(SetActiveAfterTime(readyGo.gameObject, false, 3f));
-        }
     }
 
     private void ShowFinalQuote(int numStarsWon)

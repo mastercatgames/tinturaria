@@ -22,6 +22,9 @@ public class TapToPlay : MonoBehaviour
     public void ShowReady()
     {
         uiController.readyGo.text = "Ready?";
+        uiController.readyGo.gameObject.SetActive(true);
+        StartCoroutine(uiController.PlayAnimationAfterTime(uiController.readyGo.GetComponent<Animator>(), "UI_JellyZoomOut_Auto", 2f, 1f));
+        StartCoroutine(uiController.SetActiveAfterTime(uiController.readyGo.gameObject, false, 3f));
     }
 
     public void StartGame()
