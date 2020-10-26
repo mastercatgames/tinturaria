@@ -182,14 +182,13 @@ public class UIController : MonoBehaviour
             numStarsWon = 3;
             gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
             StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 2.4f));
-        }
-
-        ShowFinalQuote(numStarsWon);
+        }        
 
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesDelivered").gameObject, true, 1f));
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesFailed").gameObject, true, 1.5f));
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("total").gameObject, true, 2f));
-        StartCoroutine(StartMoveCoinsToUI(totalCoins, 2.5f));
+        ShowFinalQuote(numStarsWon);
+        StartCoroutine(StartMoveCoinsToUI(totalCoins, 3f));
     }
 
     public IEnumerator StartMoveCoinsToUI(int totalCoins, float delay)
@@ -261,16 +260,16 @@ public class UIController : MonoBehaviour
 
     private void ShowFinalQuote(int numStarsWon)
     {
-        float delay = 0f;
+        // float delay = 0f;
 
-        if (numStarsWon == 0)
-            delay = 0.5f;
-        if (numStarsWon == 1)
-            delay = 1.4f;
-        else if (numStarsWon == 2)
-            delay = 2.2f;
-        else if (numStarsWon == 3)
-            delay = 2.8f;
+        // if (numStarsWon == 0)
+        //     delay = 0.5f;
+        // if (numStarsWon == 1)
+        //     delay = 1.4f;
+        // else if (numStarsWon == 2)
+        //     delay = 2.2f;
+        // else if (numStarsWon == 3)
+        //     delay = 2.8f;
 
         if (numStarsWon == 0)
             quoteText.text = "Keep trying!";
@@ -281,7 +280,7 @@ public class UIController : MonoBehaviour
         else if (numStarsWon == 3)
             quoteText.text = "Perfect!";
 
-        StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", delay, 1.2f));
+        StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", 2.5f, 1.2f));
     }
 
     public IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)
