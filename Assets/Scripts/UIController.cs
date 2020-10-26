@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour
     public GameObject menu;
     public Text readyGo;
     public Button LevelButton;
+    public GameObject coinIcon;
     public bool isInGamePlay;
     public bool isTutorial;
     public bool blockSwipe;
@@ -33,6 +34,7 @@ public class UIController : MonoBehaviour
     public Text toolsUI;
     public Text gemsUI;
     public Text coinsUI;
+    public int currentTotalCoins;
 
     void Start()
     {
@@ -115,6 +117,13 @@ public class UIController : MonoBehaviour
     {
         HideGameplayObjects();
 
+        //Hide GameOver Objects
+        foreach (Transform child in gameOverPanel.transform)
+        {
+            if (child.name != "Title" && child.name != "Stars" && child.name != "Quote")
+                child.gameObject.SetActive(false);
+        }
+
         //Close all open panels
         transform.parent.Find("Panel_Ink_Buckets").gameObject.SetActive(false);
         transform.parent.Find("Panel_Forms").gameObject.SetActive(false);
@@ -142,6 +151,7 @@ public class UIController : MonoBehaviour
 
         //Total
         int totalCoins = numDeliveredBoxesValue - numFailedBoxesValue;
+        currentTotalCoins = totalCoins;
         totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();
         PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);
 
@@ -156,25 +166,55 @@ public class UIController : MonoBehaviour
         if (totalCoins >= levelManager.oneStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
-            StartCoroutine(SetActiveAfterTime(star1.gameObject, true, 0f));
+            StartCoroutine(SetActiveAfterTime(star1.gameObject, true, 0.8f));
             numStarsWon = 1;
         }
         if (totalCoins >= levelManager.twoStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
-            StartCoroutine(SetActiveAfterTime(star2.gameObject, true, 0.8f));
+            StartCoroutine(SetActiveAfterTime(star2.gameObject, true, 1.6f));
             numStarsWon = 2;
         }
         if (totalCoins >= levelManager.threeStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
-            StartCoroutine(SetActiveAfterTime(star3.gameObject, true, 1.6f));
+            StartCoroutine(SetActiveAfterTime(star3.gameObject, true, 2.4f));
             numStarsWon = 3;
             gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
-            StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 1.8f));
+            StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 2.4f));
         }
 
         ShowFinalQuote(numStarsWon);
+
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesDelivered").gameObject, true, 1f));
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesFailed").gameObject, true, 1.5f));
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("total").gameObject, true, 2f));
+        StartCoroutine(StartMoveCoinsToUI(totalCoins, 2.5f));
+    }
+
+    public IEnumerator StartMoveCoinsToUI(int totalCoins, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        int timesToMoveCoins = (totalCoins / 50);
+        float moveCoinsDelay = 1f;
+
+        for (int i = 0; i < timesToMoveCoins; i++)
+        {
+            Invoke("MoveCoinsToUI", moveCoinsDelay);
+            moveCoinsDelay = moveCoinsDelay + 0.2f;
+        }
+    }
+
+    public void MoveCoinsToUI()
+    {
+        GameObject coin = Instantiate(coinIcon) as GameObject;
+        coin.GetComponent<RectTransform>().position = totalText.transform.Find("Coin").GetComponent<RectTransform>().position;
+        coin.GetComponent<MoveCoinsToUI>().target = coinsUI.transform.parent.Find("Icon").GetComponent<RectTransform>();
+        coin.transform.SetParent(gameObject.transform.parent);
+        //coinsUI.GetComponentInParent<Animator>().enabled = false;
+        coinsUI.GetComponentInParent<Animator>().Play("Idle");
+        // coinsUI.transform.parent.GetComponent<Animator>().enabled = false;
+        coin.SetActive(true);
     }
 
     private void HideGameplayObjects()
@@ -193,7 +233,7 @@ public class UIController : MonoBehaviour
 
     public void ShowAllGameplayObjects()
     {
-        gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);        
+        gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
 
         if (!isTutorial)
         {
@@ -215,7 +255,7 @@ public class UIController : MonoBehaviour
         //Call other objects
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
-        
+
         gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
     }
 

@@ -1275,6 +1275,7 @@ GameObject:
   - component: {fileID: 8094369349701861828}
   - component: {fileID: 6101919153219299854}
   - component: {fileID: 2349403790952047546}
+  - component: {fileID: 8234562581588103}
   m_Layer: 5
   m_Name: CoinsUI
   m_TagString: Untagged
@@ -1369,6 +1370,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 7da111b4b8f542e419d9c3e8364c47f5, type: 2}
   radius: 60
+--- !u!95 &8234562581588103
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56633337165579290}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe1fbd0103e12cb46b653e79bc48f98e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &57447796447822784
 GameObject:
   m_ObjectHideFlags: 0
@@ -16538,6 +16558,7 @@ GameObject:
   - component: {fileID: 637217999766572566}
   - component: {fileID: 3904259954009565473}
   - component: {fileID: 2537528827615057288}
+  - component: {fileID: 3683044462118346755}
   m_Layer: 5
   m_Name: total
   m_TagString: Untagged
@@ -16608,6 +16629,25 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: TOTAL
+--- !u!95 &3683044462118346755
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113449091396305034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100e4955ff5251843b2315edd4c4061d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2118975029375849466
 GameObject:
   m_ObjectHideFlags: 0
@@ -16855,6 +16895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3593999786409895258}
   - component: {fileID: 5328846170267104339}
+  - component: {fileID: 5636126479218653999}
   m_Layer: 5
   m_Name: ButtonsGrid
   m_TagString: Untagged
@@ -16906,6 +16947,25 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 1
+--- !u!95 &5636126479218653999
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152476434860435264}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100e4955ff5251843b2315edd4c4061d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2163885989557590028
 GameObject:
   m_ObjectHideFlags: 0
@@ -18854,6 +18914,8 @@ MonoBehaviour:
   menu: {fileID: 4495638391431125724}
   readyGo: {fileID: 7832387101427270072}
   LevelButton: {fileID: 4314945813303795953, guid: 32986d53fe5867f4bb807a4c1d412964,
+    type: 3}
+  coinIcon: {fileID: 5041005790467673628, guid: 799c228202b81ea4286e60bd11b39c56,
     type: 3}
   isInGamePlay: 0
   isTutorial: 0
@@ -22857,7 +22919,7 @@ GameObject:
   - component: {fileID: 4031059783775871020}
   - component: {fileID: 8472766563622250919}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22879,9 +22941,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -37.75, y: 6}
+  m_AnchoredPosition: {x: -37.75, y: 4.2}
   m_SizeDelta: {x: 75.5, y: 75.5}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.50000036, y: 0.49999952}
 --- !u!222 &4031059783775871020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28891,7 +28953,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243832146379900252, guid: d709a9e0dfd18c242896eb808a3d2f18,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 31627e132e069a94ea9a8b8d75a3690c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 93a7df28d2d1f1d4baf6a6877608d63d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -29769,6 +29831,7 @@ GameObject:
   - component: {fileID: 1328340421084620856}
   - component: {fileID: 3670963540839482650}
   - component: {fileID: 6923634905866833425}
+  - component: {fileID: 3354452829644043384}
   m_Layer: 5
   m_Name: boxesDelivered
   m_TagString: Untagged
@@ -29838,6 +29901,25 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Boxes delivered x
+--- !u!95 &3354452829644043384
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383889824509507439}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100e4955ff5251843b2315edd4c4061d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4395737505143314500
 GameObject:
   m_ObjectHideFlags: 0
@@ -39940,6 +40022,7 @@ GameObject:
   - component: {fileID: 5523629098081959929}
   - component: {fileID: 8551478765399123504}
   - component: {fileID: 5892838908879453298}
+  - component: {fileID: 5361418588942821197}
   m_Layer: 5
   m_Name: boxesFailed
   m_TagString: Untagged
@@ -40009,6 +40092,25 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Boxes failed x
+--- !u!95 &5361418588942821197
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6373462172570520712}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 100e4955ff5251843b2315edd4c4061d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6394902219386634325
 GameObject:
   m_ObjectHideFlags: 0
