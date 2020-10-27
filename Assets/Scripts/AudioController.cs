@@ -52,6 +52,11 @@ public class AudioController : MonoBehaviour
         transform.Find("SFX").Find(SFXName).GetComponent<AudioSource>().Play();
     }
 
+    public void StopSFX(string SFXName)
+    {
+        transform.Find("SFX").Find(SFXName).GetComponent<AudioSource>().Stop();
+    }
+
     public bool AudioIsPlaying(string SFXName)
     {
         return transform.Find("SFX").Find(SFXName).GetComponent<AudioSource>().isPlaying;

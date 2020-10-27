@@ -22,6 +22,7 @@ public class InkRepositoryController : MonoBehaviour
     public bool isFixing;
     public float OriginalTimeInSeconds;
     public float FixingTimeInSeconds;
+    private AudioController audioController;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class InkRepositoryController : MonoBehaviour
         fillSpeed = 0.15f; //TODO: Think if its better to make the fill slower, like 0.1f (then you can use the power up to fill faster)
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+        audioController = uiController.transform.parent.Find("AudioController").GetComponent<AudioController>();
 
         if (uiController.isTutorial && name == "Green")
         {
@@ -86,6 +88,17 @@ public class InkRepositoryController : MonoBehaviour
             inkfillAmount += Time.deltaTime * fillSpeed;
             transform.Find("InkMask").Find("Mask").localScale = new Vector3(1f, inkfillAmount, 1f);
 
+            if (!audioController.AudioIsPlaying("timerRunning"))
+            {
+                audioController.PlaySFX("timerRunning");
+                audioController.PlaySFX("reloadingBottle");
+
+                audioController.transform.Find("SFX").Find("reloadingBottle").GetComponent<AudioSource>().pitch = 0.4f;
+            }
+
+            ChangeAudioPitch();
+
+
             if (inkfillAmount >= 1f)
             {
                 isFilling = false;
@@ -93,6 +106,11 @@ public class InkRepositoryController : MonoBehaviour
                 limitToFill = inkfillAmount - 0.25f;
                 uiController.SetActiveBucketButton(gameObject.name, true);
                 transform.Find("ClockSprite").gameObject.SetActive(false);
+                audioController.StopSFX("timerRunning");
+                audioController.StopSFX("reloadingBottle");
+                audioController.transform.Find("SFX").Find("reloadingBottle").GetComponent<AudioSource>().pitch = 0.4f;
+
+                audioController.PlaySFX("timerDone");
                 //Reset power up status (reactivate button and hide icon)
                 // fillSpeed = originalFillSpeed;
                 // powerUpsController.BoosterFilling_OneBottle_Flag = false;
@@ -104,6 +122,11 @@ public class InkRepositoryController : MonoBehaviour
 
         if (isFixing)
         {
+            if (!audioController.AudioIsPlaying("fixBottle"))
+            {
+                audioController.PlaySFX("fixBottle");                
+            }
+
             if (FixingTimeInSeconds > 0)
             {
                 FixingTimeInSeconds -= Time.deltaTime;
@@ -111,6 +134,7 @@ public class InkRepositoryController : MonoBehaviour
             //If fixing time is over
             else
             {
+                audioController.StopSFX("fixBottle"); 
                 gameController.FinishRepair(gameObject);
                 uiController.SetActiveBucketButton(gameObject.name, true);
             }
@@ -141,7 +165,7 @@ public class InkRepositoryController : MonoBehaviour
             }
             else
             {
-                transform.Find("ClockSprite").gameObject.SetActive(true);
+                transform.Find("ClockSprite").gameObject.SetActive(true);                
             }
         }
         else
@@ -152,7 +176,7 @@ public class InkRepositoryController : MonoBehaviour
             if (toolsCount > 0 && !isFixing)
             {
                 uiController.ClosePanel(BucketPanel);
-                gameController.FixRepository(gameObject);
+                gameController.FixRepository(gameObject);                
 
                 //Discount toolsCount
                 PlayerPrefs.SetInt("toolsCount", toolsCount - 1);
@@ -254,5 +278,18 @@ public class InkRepositoryController : MonoBehaviour
             StartCoroutine(TurnOffLight(i));
         }
         //print("Finished Coroutine");
+    }
+
+    private void ChangeAudioPitch()
+    {
+        // if (audioSource.pitch < 1.8 && !downPitch)
+        //     targetPitch = 3;
+        // else
+        // {
+        //     targetPitch = 0;
+        //     downPitch = true;
+        // }
+
+        audioController.transform.Find("SFX").Find("reloadingBottle").GetComponent<AudioSource>().pitch = Mathf.Lerp(audioController.transform.Find("SFX").Find("reloadingBottle").GetComponent<AudioSource>().pitch, 2f, 0.2f * Time.deltaTime);
     }
 }
