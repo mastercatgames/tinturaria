@@ -18,7 +18,8 @@ public class TutorialController : MonoBehaviour
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         // step = 1;
-        ShowStep();
+        //ShowStep();
+        ShowWelcome1();
         Invoke("FreezeTime", 2f);  
 
         uiController.blockSwipe = true;
@@ -33,6 +34,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show Request Panel
             RequestPanel.sortingOrder = 501;
+            transform.Find("Step-1").gameObject.SetActive(true);
         }
         else if (step == 2)
         {
@@ -163,12 +165,40 @@ public class TutorialController : MonoBehaviour
     {
         transform.Find("Step-6").Find("Dialog").gameObject.SetActive(true);
         transform.Find("Step-6").Find("HandIcon").gameObject.SetActive(true);
-        transform.Find("Step-6").Find("Dialog").Find("Text").GetComponent<LocalizedTextBehaviour>().LocalizedAsset = (LocalizedText)Resources.Load("tap_here_again", typeof(LocalizedText));;
+        transform.Find("Step-6").Find("Dialog").Find("Text").GetComponent<LocalizedTextBehaviour>().LocalizedAsset = (LocalizedText)Resources.Load("tap_here_again", typeof(LocalizedText));
     }
 
     public void ShowHandIcon()
     {
         transform.Find("Step-11").Find("HandIcon").gameObject.SetActive(true);
+    }
+
+    public void ShowWelcome1()
+    {
+        StartCoroutine(uiController.SetActiveAfterTime(transform.Find("WelcomeAlert").gameObject, true, 0.2f));
+    }
+
+    public void ShowWelcome2()
+    {
+        transform.Find("WelcomeAlert").gameObject.SetActive(false);
+
+        Transform alert = transform.Find("WelcomeAlert").Find("Content").Find("Alert");
+
+        alert.Find("Title").gameObject.SetActive(false);
+        alert.Find("BG").Find("FakeMask").gameObject.SetActive(false);
+        alert.Find("Description").GetComponent<LocalizedTextBehaviour>().LocalizedAsset = (LocalizedText)Resources.Load("welcome_description_2", typeof(LocalizedText));
+
+        Button okButton = alert.Find("Buttons").Find("Ok").GetComponent<Button>();
+
+        UnityEditor.Events.UnityEventTools.RemovePersistentListener(okButton.onClick, 0);
+        okButton.onClick.AddListener(StartTutorial);
+        StartCoroutine(uiController.SetActiveAfterTime(transform.Find("WelcomeAlert").gameObject, true, 0.4f));
+    }
+
+    public void StartTutorial()
+    {
+        transform.Find("WelcomeAlert").gameObject.SetActive(false);
+        ShowStep();
     }
 
     public void NextStep()
