@@ -190,7 +190,9 @@ public class TutorialController : MonoBehaviour
 
         Button okButton = alert.Find("Buttons").Find("Ok").GetComponent<Button>();
 
-        UnityEditor.Events.UnityEventTools.RemovePersistentListener(okButton.onClick, 0);
+        //UnityEditor.Events.UnityEventTools.RemovePersistentListener(okButton.onClick, 0);
+        okButton.onClick = null;
+        okButton.onClick = new Button.ButtonClickedEvent();
         okButton.onClick.AddListener(StartTutorial);
         StartCoroutine(uiController.SetActiveAfterTime(transform.Find("WelcomeAlert").gameObject, true, 0.4f));
     }

@@ -32,6 +32,9 @@ public class MoveCoinsToUI : MonoBehaviour
             if (uiController.currentTotalCoins <= 0)
             {
                 uiController.gameOverPanel.transform.Find("ButtonsGrid").gameObject.SetActive(true);
+                
+                //TODO: Verify how to do it because the level will be unlocked only if get minimum of stars
+                // uiController.gameOverPanel.transform.Find("ButtonsGrid").Find("NextLevel").gameObject.SetActive(true);
             }
 
             Text UICoinsTotal = target.parent.Find("Text").GetComponent<Text>();
