@@ -37,8 +37,13 @@ public class TapToPlay : MonoBehaviour
 
         if (uiController.isTutorial)
         {
-            print(uiController.transform.parent.Find("Tutorial").gameObject);
-            StartCoroutine(uiController.SetActiveAfterTime(uiController.transform.parent.Find("Tutorial").gameObject, true, 0.5f));
+            // StartCoroutine(uiController.SetActiveAfterTime(uiController.transform.parent.Find("Tutorial").gameObject, true, 0.5f));
+            uiController.transform.parent.Find("Tutorial").gameObject.SetActive(true);
+        }
+        else if (uiController.isToolTutorial)
+        {
+            // StartCoroutine(uiController.SetActiveAfterTime(uiController.transform.parent.Find("ToolTutorial").gameObject, true, 0.5f));
+            uiController.transform.parent.Find("ToolTutorial").gameObject.SetActive(true);
         }
 
         uiController.timerIsRunning = true;       

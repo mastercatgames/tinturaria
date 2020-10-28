@@ -38,7 +38,16 @@ public class LevelManager : MonoBehaviour
         else if (world == 2)
         {
             uiController.timeRemaining = 120f;
-            SetBrokenBottlesPosition(1);
+
+            if (level == 1)
+            {
+                uiController.isToolTutorial = true;
+                requestedColorsPosition.Add(1);
+            }
+            else
+            {
+                SetBrokenBottlesPosition(1);
+            }
 
             oneStarCoins = 100;
             twoStarCoins = 200;

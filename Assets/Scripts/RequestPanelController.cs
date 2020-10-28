@@ -31,7 +31,12 @@ public class RequestPanelController : MonoBehaviour
         if (UIController.isTutorial)
         {
             //Request specifics box and forms
-            RequestSpecificBox();
+            RequestSpecificBox("green");
+        }
+        else if (UIController.isToolTutorial)
+        {
+            //Request specifics box and forms
+            RequestSpecificBox("blue");
         }
         else
         {
@@ -98,13 +103,21 @@ public class RequestPanelController : MonoBehaviour
         return repositoryToRequest;
     }
 
-    private void RequestSpecificBox()
+    private void RequestSpecificBox(string color)
     {
         GameObject box = Instantiate(requestBoxPrefab);
 
-        //Request a blue moon
+        //Request a moon
         box.GetComponent<RequestBox>().boxRequested = boxes[0].transform.Find("Box").GetComponent<SpriteRenderer>().sprite;
-        box.GetComponent<RequestBox>().colorRepositoryObj = colors[3];
+
+        if (color == "green")
+        {
+            box.GetComponent<RequestBox>().colorRepositoryObj = colors[3];
+        }
+        else if (color == "blue")
+        {
+            box.GetComponent<RequestBox>().colorRepositoryObj = colors[0];
+        }
 
         colorsRequested.Add(box.GetComponent<RequestBox>().colorRepositoryObj);
 
@@ -117,5 +130,10 @@ public class RequestPanelController : MonoBehaviour
         box.transform.SetParent(transform);
         numOfRequests++;
         TotalRequests++;
+
+        if (UIController.isToolTutorial)
+        {
+            gameController.BrokeRepository(box.GetComponent<RequestBox>().colorRepositoryObj);
+        }
     }
 }

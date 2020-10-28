@@ -28,6 +28,7 @@ public class UIController : MonoBehaviour
     public GameObject coinIcon;
     public bool isInGamePlay;
     public bool isTutorial;
+    public bool isToolTutorial;
     public bool blockSwipe;
     public bool blockRightSwipe;
     public bool blockPainting;
@@ -48,6 +49,14 @@ public class UIController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
+        //Verify if the first tools was given
+        if (PlayerPrefs.GetInt("firstToolsGiven") == 0)
+        {
+            PlayerPrefs.SetInt("firstToolsGiven", 1);
+            PlayerPrefs.SetInt("toolsCount", 5);
+        }
+
         ShowMenu();
         RefreshUIToolsAndMoney();
 

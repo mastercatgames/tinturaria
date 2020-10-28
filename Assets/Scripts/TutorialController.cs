@@ -17,11 +17,9 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        // step = 1;
-        //ShowStep();
-        ShowWelcome1();
-        Invoke("FreezeTime", 2f);  
-
+        
+        Invoke("ShowWelcome1", 0.5f);
+        
         uiController.blockSwipe = true;
         uiController.blockRightSwipe = true;
         uiController.blockPainting = true;
@@ -175,6 +173,7 @@ public class TutorialController : MonoBehaviour
 
     public void ShowWelcome1()
     {
+        FreezeTime();
         StartCoroutine(uiController.SetActiveAfterTime(transform.Find("WelcomeAlert").gameObject, true, 0.2f));
     }
 
