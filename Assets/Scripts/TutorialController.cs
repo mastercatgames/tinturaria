@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using GameToolkit.Localization;
 
 public class TutorialController : MonoBehaviour
 {
@@ -15,10 +17,9 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        // step = 1;
-        ShowStep();
-        Invoke("FreezeTime", 2f);  
-
+        
+        Invoke("ShowWelcome1", 0.5f);
+        
         uiController.blockSwipe = true;
         uiController.blockRightSwipe = true;
         uiController.blockPainting = true;
@@ -31,6 +32,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show Request Panel
             RequestPanel.sortingOrder = 501;
+            transform.Find("Step-1").gameObject.SetActive(true);
         }
         else if (step == 2)
         {
@@ -39,6 +41,7 @@ public class TutorialController : MonoBehaviour
             FormButton.sortingOrder = 501;
             transform.Find("Step-1").gameObject.SetActive(false);
             transform.Find("Step-2").gameObject.SetActive(true);
+            uiController.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
         }
         else if (step == 3)
         {
@@ -54,9 +57,11 @@ public class TutorialController : MonoBehaviour
         {
             //Box was choosed show next step (5)
             // NormalizeTime();
+            
             transform.Find("GrayBackground").gameObject.SetActive(false);
             transform.Find("Step-3").gameObject.SetActive(false);
             uiController.CallChangeCurrentBox(Panel_Forms.transform.Find("Forms").Find("Moon").gameObject);
+            uiController.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
             // step++;
             //Show step 5 after 1 second (to give time to box falling animaiton)
             Invoke("ShowStep", 1f);            
@@ -66,6 +71,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show Swipe to green bottle
             print("Show Step 5!");
+            uiController.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
             uiController.blockSwipe = false;
             transform.Find("Step-5").gameObject.SetActive(true);
         }
@@ -108,6 +114,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show choose the requested box
             print("Show Step 9!");
+            Panel_Ink_Buckets.transform.Find("Close_Button").gameObject.SetActive(false);
             FormButton.sortingOrder = 0;
             InkButton.sortingOrder = 0;
             uiController.OpenPanel(Panel_Ink_Buckets);
@@ -131,7 +138,8 @@ public class TutorialController : MonoBehaviour
         }
         else if (step == 11)
         {
-            //Show Now, fill the box to the end before the time runs out!          
+            //Show Now, fill the box to the end before the time runs out!      
+            NormalizeTime();    
             print("Show Step 11!");
             transform.Find("Step-10").gameObject.SetActive(false);
             transform.Find("Step-11").gameObject.SetActive(true);
@@ -149,6 +157,49 @@ public class TutorialController : MonoBehaviour
     {
         uiController.timerIsRunning = true;
         print("Normalize Time!");
+    }
+
+    public void ShowTapHereAgain()
+    {
+        transform.Find("Step-6").Find("Dialog").gameObject.SetActive(true);
+        transform.Find("Step-6").Find("HandIcon").gameObject.SetActive(true);
+        transform.Find("Step-6").Find("Dialog").Find("Text").GetComponent<LocalizedTextBehaviour>().LocalizedAsset = (LocalizedText)Resources.Load("tap_here_again", typeof(LocalizedText));
+    }
+
+    public void ShowHandIcon()
+    {
+        transform.Find("Step-11").Find("HandIcon").gameObject.SetActive(true);
+    }
+
+    public void ShowWelcome1()
+    {
+        FreezeTime();
+        StartCoroutine(uiController.SetActiveAfterTime(transform.Find("WelcomeAlert").gameObject, true, 0.2f));
+    }
+
+    public void ShowWelcome2()
+    {
+        transform.Find("WelcomeAlert").gameObject.SetActive(false);
+
+        Transform alert = transform.Find("WelcomeAlert").Find("Content").Find("Alert");
+
+        alert.Find("Title").gameObject.SetActive(false);
+        alert.Find("BG").Find("FakeMask").gameObject.SetActive(false);
+        alert.Find("Description").GetComponent<LocalizedTextBehaviour>().LocalizedAsset = (LocalizedText)Resources.Load("welcome_description_2", typeof(LocalizedText));
+
+        Button okButton = alert.Find("Buttons").Find("Ok").GetComponent<Button>();
+
+        //UnityEditor.Events.UnityEventTools.RemovePersistentListener(okButton.onClick, 0);
+        okButton.onClick = null;
+        okButton.onClick = new Button.ButtonClickedEvent();
+        okButton.onClick.AddListener(StartTutorial);
+        StartCoroutine(uiController.SetActiveAfterTime(transform.Find("WelcomeAlert").gameObject, true, 0.4f));
+    }
+
+    public void StartTutorial()
+    {
+        transform.Find("WelcomeAlert").gameObject.SetActive(false);
+        ShowStep();
     }
 
     public void NextStep()

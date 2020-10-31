@@ -8,7 +8,7 @@ using GameToolkit.Localization;
 public class UIController : MonoBehaviour
 {
     private GameController gameController;
-    private LevelManager levelManager;    
+    private LevelManager levelManager;
     private PowerUpsController powerUpsController;
     public GameObject ButtonsGrid;
     public bool somePanelIsOpen = false;
@@ -25,14 +25,18 @@ public class UIController : MonoBehaviour
     public GameObject menu;
     public Text readyGo;
     public Button LevelButton;
+    public GameObject coinIcon;
     public bool isInGamePlay;
-    public bool isTutorial;    
-    public bool blockSwipe;    
-    public bool blockRightSwipe;    
-    public bool blockPainting;    
+    public bool isTutorial;
+    public bool isToolTutorial;
+    public bool isPowerUpTutorial;
+    public bool blockSwipe;
+    public bool blockRightSwipe;
+    public bool blockPainting;
     public Text toolsUI;
     public Text gemsUI;
     public Text coinsUI;
+    public int currentTotalCoins;
 
     void Start()
     {
@@ -46,6 +50,14 @@ public class UIController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
+        //Verify if the first tools was given
+        if (PlayerPrefs.GetInt("firstToolsGiven") == 0)
+        {
+            PlayerPrefs.SetInt("firstToolsGiven", 1);
+            PlayerPrefs.SetInt("toolsCount", 5);
+        }
+
         ShowMenu();
         RefreshUIToolsAndMoney();
 
@@ -115,6 +127,13 @@ public class UIController : MonoBehaviour
     {
         HideGameplayObjects();
 
+        //Hide GameOver Objects
+        foreach (Transform child in gameOverPanel.transform)
+        {
+            if (child.name != "Title" && child.name != "Stars" && child.name != "Quote")
+                child.gameObject.SetActive(false);
+        }
+
         //Close all open panels
         transform.parent.Find("Panel_Ink_Buckets").gameObject.SetActive(false);
         transform.parent.Find("Panel_Forms").gameObject.SetActive(false);
@@ -142,8 +161,9 @@ public class UIController : MonoBehaviour
 
         //Total
         int totalCoins = numDeliveredBoxesValue - numFailedBoxesValue;
+        currentTotalCoins = totalCoins;
         totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();
-        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);        
+        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);
 
         //Stars animation
         //.Play("Stars_GameOver");
@@ -156,26 +176,60 @@ public class UIController : MonoBehaviour
         if (totalCoins >= levelManager.oneStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star1.GetComponent<Animator>(), "UI_JellyZoom", 0f));
-            StartCoroutine(ShowGameObjectAfterTime(star1.gameObject, 0f));
+            StartCoroutine(SetActiveAfterTime(star1.gameObject, true, 0.8f));
             numStarsWon = 1;
         }
         if (totalCoins >= levelManager.twoStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star2.GetComponent<Animator>(), "UI_JellyZoom", 0.8f));
-            StartCoroutine(ShowGameObjectAfterTime(star2.gameObject, 0.8f));
+            StartCoroutine(SetActiveAfterTime(star2.gameObject, true, 1.6f));
             numStarsWon = 2;
         }
         if (totalCoins >= levelManager.threeStarCoins)
         {
             // StartCoroutine(PlayAnimationAfterTime(star3.GetComponent<Animator>(), "UI_JellyZoom", 1.6f));
-            StartCoroutine(ShowGameObjectAfterTime(star3.gameObject, 1.6f));
+            StartCoroutine(SetActiveAfterTime(star3.gameObject, true, 2.4f));
             numStarsWon = 3;
             gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
-            gameOverPanel.transform.Find("Confetti").gameObject.SetActive(true);
+            StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 2.4f));
         }
 
-        ShowFinalQuote(numStarsWon);        
-    }    
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesDelivered").gameObject, true, 1f));
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesFailed").gameObject, true, 1.5f));
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("total").gameObject, true, 2f));
+        ShowFinalQuote(numStarsWon);
+        StartCoroutine(StartMoveCoinsToUI(totalCoins, 3f));
+
+        if (isPowerUpTutorial)
+        {
+            PlayerPrefs.SetInt("PowerUpsTutorial_Step", PlayerPrefs.GetInt("PowerUpsTutorial_Step") + 1);
+        }
+    }
+
+    public IEnumerator StartMoveCoinsToUI(int totalCoins, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        int timesToMoveCoins = (totalCoins / 50);
+        float moveCoinsDelay = 1f;
+
+        for (int i = 0; i < timesToMoveCoins; i++)
+        {
+            Invoke("MoveCoinsToUI", moveCoinsDelay);
+            moveCoinsDelay = moveCoinsDelay + 0.2f;
+        }
+    }
+
+    public void MoveCoinsToUI()
+    {
+        GameObject coin = Instantiate(coinIcon) as GameObject;
+        coin.GetComponent<RectTransform>().position = totalText.transform.Find("Coin").GetComponent<RectTransform>().position;
+        coin.GetComponent<MoveCoinsToUI>().target = coinsUI.transform.parent.Find("Icon").GetComponent<RectTransform>();
+        coin.transform.SetParent(gameObject.transform.parent);
+        //coinsUI.GetComponentInParent<Animator>().enabled = false;
+        coinsUI.GetComponentInParent<Animator>().Play("Idle");
+        // coinsUI.transform.parent.GetComponent<Animator>().enabled = false;
+        coin.SetActive(true);
+    }
 
     private void HideGameplayObjects()
     {
@@ -186,6 +240,7 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(false);
         gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
 
         //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
     }
@@ -194,9 +249,11 @@ public class UIController : MonoBehaviour
     {
         gameObject.transform.parent.Find("RequestPanel").gameObject.SetActive(true);
 
-        gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);        
-
-        gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
+        if (!isTutorial)
+        {
+            gameObject.transform.parent.Find("ButtonsGridPause").gameObject.SetActive(true);
+            gameObject.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
+        }
     }
 
     private void ShowInkMachine()
@@ -213,29 +270,21 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
         gameObject.transform.parent.Find("PaintButton").gameObject.SetActive(true);
 
-        // if (!isTutorial)
-        // {
-            gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
-        // }
-
-        if (!isInGamePlay)
-        {
-            gameObject.transform.parent.Find("ReadyGo").gameObject.SetActive(true);
-        }
+        gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
     }
 
     private void ShowFinalQuote(int numStarsWon)
     {
-        float delay = 0f;
+        // float delay = 0f;
 
-        if (numStarsWon == 0)
-            delay = 0.5f;
-        if (numStarsWon == 1)
-            delay = 1.4f;
-        else if (numStarsWon == 2)
-            delay = 2.2f;
-        else if (numStarsWon == 3)
-            delay = 2.8f;
+        // if (numStarsWon == 0)
+        //     delay = 0.5f;
+        // if (numStarsWon == 1)
+        //     delay = 1.4f;
+        // else if (numStarsWon == 2)
+        //     delay = 2.2f;
+        // else if (numStarsWon == 3)
+        //     delay = 2.8f;
 
         if (numStarsWon == 0)
             quoteText.text = "Keep trying!";
@@ -246,10 +295,10 @@ public class UIController : MonoBehaviour
         else if (numStarsWon == 3)
             quoteText.text = "Perfect!";
 
-        StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", delay, 1.2f));
+        StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", 2.5f, 1.2f));
     }
 
-    private IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)
+    public IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)
     {
         yield return new WaitForSeconds(delay);
         animator.Play(animationName);
@@ -258,10 +307,10 @@ public class UIController : MonoBehaviour
         print("Finish Animation!");
     }
 
-    public IEnumerator ShowGameObjectAfterTime(GameObject gameObject, float delay)
+    public IEnumerator SetActiveAfterTime(GameObject gameObject, bool active, float delay)
     {
         yield return new WaitForSeconds(delay);
-        gameObject.SetActive(true);
+        gameObject.SetActive(active);
     }
 
     public void TapToPlay()
@@ -270,16 +319,21 @@ public class UIController : MonoBehaviour
         transform.parent.Find("TopHeader").gameObject.SetActive(false);
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
-        HideMenu();
-        SetPowerUps();
+        HideMenu();       
+        SetPowerUps(); 
         RefreshToolsCount();
+
+        if (isPowerUpTutorial)
+        {
+            transform.parent.Find("PowerUpsTutorial").gameObject.SetActive(false);
+        }
 
         //If game was a paused and the player tap to continue
         if (isInGamePlay)
         {
             // if (!isTutorial && !powerUpsController.FreezingTime_Flag)
             // {
-                timerIsRunning = true;
+            timerIsRunning = true;
             // }
             ShowAllGameplayObjects();
             Time.timeScale = 1f;
@@ -292,41 +346,55 @@ public class UIController : MonoBehaviour
         }
     }
 
+    private void DiscountPowerUpCount(string powerUpName)
+    {
+        if (!isPowerUpTutorial)
+        {
+            PlayerPrefs.SetInt(powerUpName, PlayerPrefs.GetInt(powerUpName) - 1);
+        }
+    }
+
     private void SetPowerUps()
     {
         if (powerUpsController.DoubleCash_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
+            // PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
+            DiscountPowerUpCount("PowerUp_DoubleCash");
             gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject.SetActive(true);
         }
 
         if (powerUpsController.NoBrokenBottles_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") - 1);
+            // PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") - 1);
+            DiscountPowerUpCount("PowerUp_NoBrokenBottles");
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("NoBrokenBottles").gameObject.SetActive(true);
         }
 
         if (powerUpsController.BoosterFilling_OneBottle_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") - 1);
+            // PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") - 1);
+            DiscountPowerUpCount("PowerUp_BoosterFilling_OneBottle");
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_OneBottle").gameObject.SetActive(true);
         }
 
         if (powerUpsController.FixInTime_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") - 1);
+            // PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") - 1);
+            DiscountPowerUpCount("PowerUp_FixInTime");
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject.SetActive(true);
         }
 
         if (powerUpsController.BoosterFilling_Box_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") - 1);
+            // PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") - 1);
+            DiscountPowerUpCount("PowerUp_BoosterFilling_Box");
             //gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_Box").gameObject.SetActive(true);            
         }
 
         if (powerUpsController.BoosterFilling_AllBottles_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") - 1);
+            // PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") - 1);
+            DiscountPowerUpCount("PowerUp_BoosterFilling_AllBottles");
         }
     }
 
@@ -403,6 +471,7 @@ public class UIController : MonoBehaviour
     public void PauseGame()
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
         transform.parent.Find("TopHeader").gameObject.SetActive(true);
         timerIsRunning = false;
@@ -496,7 +565,7 @@ public class UIController : MonoBehaviour
     public void OpenLevelDetailPanel()
     {
         //If game was a paused and the player tap to continue
-        if (isInGamePlay)
+        if (isInGamePlay || isTutorial)
         {
             TapToPlay();
         }
@@ -521,6 +590,12 @@ public class UIController : MonoBehaviour
             Text starsChallenge3 = stars.Find("Star3").Find("Text").GetComponent<Text>();
             starsChallenge3.text = levelManager.threeStarCoins.ToString();
 
+            //Verify if show Power Up tutorial
+            if (isPowerUpTutorial)
+            {
+                levelDetails.transform.Find("Content").Find("TapToPlayBtn").gameObject.SetActive(false);
+                transform.parent.Find("PowerUpsTutorial").gameObject.SetActive(true);
+            }
         }
     }
 
@@ -542,7 +617,7 @@ public class UIController : MonoBehaviour
     public void ChangeLanguage(string language)
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
-        
+
         if (language == "en")
             Localization.Instance.CurrentLanguage = SystemLanguage.English;
         else if (language == "pt")

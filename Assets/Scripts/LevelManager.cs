@@ -27,30 +27,36 @@ public class LevelManager : MonoBehaviour
     {
         if (world == 1)
         {
+            uiController.timeRemaining = 60f;
             oneStarCoins = twoStarCoins = threeStarCoins = 100;
 
-            if (level > 1)
+            if (level == 1)
             {
-                //1-2 & 1-3
-                uiController.timeRemaining = 60f;
-            }
-            else
-            {
-                //1-1 is a tutorial
-                //TODO: Make a tutorial design
                 uiController.isTutorial = true;
-                uiController.timeRemaining = 180f;
-                // uiController.timeText.gameObject.SetActive(false);
             }
         }
         else if (world == 2)
         {
             uiController.timeRemaining = 120f;
-            SetBrokenBottlesPosition(1);
+
+            if (level == 1)
+            {
+                uiController.isToolTutorial = true;
+                requestedColorsPosition.Add(1);
+            }
+            else
+            {
+                SetBrokenBottlesPosition(1);
+            }            
 
             oneStarCoins = 100;
             twoStarCoins = 200;
             threeStarCoins = 300;
+
+            if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 3)
         {
@@ -60,6 +66,11 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 200;
             twoStarCoins = 300;
             threeStarCoins = 400;
+
+            if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 4)
         {
@@ -69,6 +80,15 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 300;
             twoStarCoins = 400;
             threeStarCoins = 500;
+
+            if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
+            else if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 5)
         {
@@ -78,6 +98,11 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 400;
             twoStarCoins = 500;
             threeStarCoins = 600;
+
+            if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 6)
         {
@@ -87,6 +112,11 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 500;
             twoStarCoins = 600;
             threeStarCoins = 700;
+
+            if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 7)
         {

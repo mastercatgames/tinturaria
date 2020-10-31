@@ -13415,6 +13415,7 @@ MonoBehaviour:
   paintSpeed: 0
   originalPaintSpeed: 0
   isPainting: 0
+  emptyTutorialIsFinished: 0
   currentRepository: {fileID: 7532979731736102445}
   currentBox: {fileID: 0}
   isChangingRepository: 0
