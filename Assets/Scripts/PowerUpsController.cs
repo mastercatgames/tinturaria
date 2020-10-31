@@ -6,6 +6,7 @@ public class PowerUpsController : MonoBehaviour
 {
     private UIController uiController;
     private GameController gameController;
+    private PowerUpsTutorialController powerUpsTutorialController;
     public bool BoosterFilling_OneBottle_Flag;
     public bool BoosterFilling_AllBottles_Flag;
     public bool BoosterFilling_Box_Flag;
@@ -19,6 +20,7 @@ public class PowerUpsController : MonoBehaviour
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
+        powerUpsTutorialController = uiController.transform.parent.Find("PowerUpsTutorial").GetComponent<PowerUpsTutorialController>();
     }
 
     public void BoosterFilling_OneBottle()
@@ -28,11 +30,16 @@ public class PowerUpsController : MonoBehaviour
 
         if (!BoosterFilling_OneBottle_Flag)
         {
-            if (boosterFilling_OneBottle > 0)
+            if (boosterFilling_OneBottle > 0 || uiController.isPowerUpTutorial)
             {
                 BoosterFilling_OneBottle_Flag = true;
                 powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("BoosterFilling_OneBottle").Find("Check").gameObject.SetActive(true);
+
+                if (uiController.isPowerUpTutorial)
+                {
+                    powerUpsTutorialController.HighlightTapToPlay();
+                }
             }
             else
             {
@@ -54,11 +61,16 @@ public class PowerUpsController : MonoBehaviour
 
         if (!BoosterFilling_AllBottles_Flag)
         {
-            if (BoosterFilling_AllBottles > 0)
+            if (BoosterFilling_AllBottles > 0 || uiController.isPowerUpTutorial)
             {
                 BoosterFilling_AllBottles_Flag = true;
                 powerUpButtons.transform.Find("BoosterFilling_AllBottles").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("BoosterFilling_AllBottles").Find("Check").gameObject.SetActive(true);
+
+                if (uiController.isPowerUpTutorial)
+                {
+                    powerUpsTutorialController.HighlightTapToPlay();
+                }
             }
             else
             {
@@ -80,11 +92,16 @@ public class PowerUpsController : MonoBehaviour
 
         if (!BoosterFilling_Box_Flag)
         {
-            if (BoosterFilling_Box > 0)
+            if (BoosterFilling_Box > 0 || uiController.isPowerUpTutorial)
             {
                 BoosterFilling_Box_Flag = true;
                 powerUpButtons.transform.Find("BoosterFilling_Box").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("BoosterFilling_Box").Find("Check").gameObject.SetActive(true);
+
+                if (uiController.isPowerUpTutorial)
+                {
+                    powerUpsTutorialController.HighlightTapToPlay();
+                }
             }
             else
             {
@@ -106,11 +123,16 @@ public class PowerUpsController : MonoBehaviour
 
         if (!NoBrokenBottles_Flag)
         {
-            if (noBrokenBottles > 0)
+            if (noBrokenBottles > 0 || uiController.isPowerUpTutorial)
             {
                 NoBrokenBottles_Flag = true;
                 powerUpButtons.transform.Find("NoBrokenBottles").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("NoBrokenBottles").Find("Check").gameObject.SetActive(true);
+
+                if (uiController.isPowerUpTutorial)
+                {
+                    powerUpsTutorialController.HighlightTapToPlay();
+                }
             }
             else
             {
@@ -132,11 +154,16 @@ public class PowerUpsController : MonoBehaviour
 
         if (!FixInTime_Flag)
         {
-            if (FixInTime > 0)
+            if (FixInTime > 0 || uiController.isPowerUpTutorial)
             {
                 FixInTime_Flag = true;
                 powerUpButtons.transform.Find("FixInTime").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("FixInTime").Find("Check").gameObject.SetActive(true);
+
+                if (uiController.isPowerUpTutorial)
+                {
+                    powerUpsTutorialController.HighlightTapToPlay();
+                }
             }
             else
             {
@@ -158,11 +185,16 @@ public class PowerUpsController : MonoBehaviour
 
         if (!DoubleCash_Flag)
         {
-            if (DoubleCash > 0)
+            if (DoubleCash > 0 || uiController.isPowerUpTutorial)
             {
                 DoubleCash_Flag = true;
                 powerUpButtons.transform.Find("DoubleCash").Find("BGCount").gameObject.SetActive(false);
                 powerUpButtons.transform.Find("DoubleCash").Find("Check").gameObject.SetActive(true);
+
+                if (uiController.isPowerUpTutorial)
+                {
+                    powerUpsTutorialController.HighlightTapToPlay();
+                }
             }
             else
             {

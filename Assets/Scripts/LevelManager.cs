@@ -47,11 +47,16 @@ public class LevelManager : MonoBehaviour
             else
             {
                 SetBrokenBottlesPosition(1);
-            }
+            }            
 
             oneStarCoins = 100;
             twoStarCoins = 200;
             threeStarCoins = 300;
+
+            if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 3)
         {
@@ -61,6 +66,11 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 200;
             twoStarCoins = 300;
             threeStarCoins = 400;
+
+            if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 4)
         {
@@ -70,6 +80,15 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 300;
             twoStarCoins = 400;
             threeStarCoins = 500;
+
+            if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
+            else if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 5)
         {
@@ -79,6 +98,11 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 400;
             twoStarCoins = 500;
             threeStarCoins = 600;
+
+            if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 6)
         {
@@ -88,6 +112,11 @@ public class LevelManager : MonoBehaviour
             oneStarCoins = 500;
             twoStarCoins = 600;
             threeStarCoins = 700;
+
+            if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5)
+            {
+                uiController.isPowerUpTutorial = true;
+            }
         }
         else if (world == 7)
         {

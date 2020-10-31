@@ -29,6 +29,7 @@ public class UIController : MonoBehaviour
     public bool isInGamePlay;
     public bool isTutorial;
     public bool isToolTutorial;
+    public bool isPowerUpTutorial;
     public bool blockSwipe;
     public bool blockRightSwipe;
     public bool blockPainting;
@@ -191,13 +192,18 @@ public class UIController : MonoBehaviour
             numStarsWon = 3;
             gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
             StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 2.4f));
-        }        
+        }
 
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesDelivered").gameObject, true, 1f));
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesFailed").gameObject, true, 1.5f));
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("total").gameObject, true, 2f));
         ShowFinalQuote(numStarsWon);
         StartCoroutine(StartMoveCoinsToUI(totalCoins, 3f));
+
+        if (isPowerUpTutorial)
+        {
+            PlayerPrefs.SetInt("PowerUpsTutorial_Step", PlayerPrefs.GetInt("PowerUpsTutorial_Step") + 1);
+        }
     }
 
     public IEnumerator StartMoveCoinsToUI(int totalCoins, float delay)
@@ -313,9 +319,14 @@ public class UIController : MonoBehaviour
         transform.parent.Find("TopHeader").gameObject.SetActive(false);
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
-        HideMenu();
-        SetPowerUps();
+        HideMenu();       
+        SetPowerUps(); 
         RefreshToolsCount();
+
+        if (isPowerUpTutorial)
+        {
+            transform.parent.Find("PowerUpsTutorial").gameObject.SetActive(false);
+        }
 
         //If game was a paused and the player tap to continue
         if (isInGamePlay)
@@ -335,41 +346,55 @@ public class UIController : MonoBehaviour
         }
     }
 
+    private void DiscountPowerUpCount(string powerUpName)
+    {
+        if (!isPowerUpTutorial)
+        {
+            PlayerPrefs.SetInt(powerUpName, PlayerPrefs.GetInt(powerUpName) - 1);
+        }
+    }
+
     private void SetPowerUps()
     {
         if (powerUpsController.DoubleCash_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
+            // PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") - 1);
+            DiscountPowerUpCount("PowerUp_DoubleCash");
             gameObject.transform.parent.Find("Coins").Find("DoubleCashIcon").gameObject.SetActive(true);
         }
 
         if (powerUpsController.NoBrokenBottles_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") - 1);
+            // PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") - 1);
+            DiscountPowerUpCount("PowerUp_NoBrokenBottles");
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("NoBrokenBottles").gameObject.SetActive(true);
         }
 
         if (powerUpsController.BoosterFilling_OneBottle_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") - 1);
+            // PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") - 1);
+            DiscountPowerUpCount("PowerUp_BoosterFilling_OneBottle");
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_OneBottle").gameObject.SetActive(true);
         }
 
         if (powerUpsController.FixInTime_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") - 1);
+            // PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") - 1);
+            DiscountPowerUpCount("PowerUp_FixInTime");
             gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("FixInTime").gameObject.SetActive(true);
         }
 
         if (powerUpsController.BoosterFilling_Box_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") - 1);
+            // PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") - 1);
+            DiscountPowerUpCount("PowerUp_BoosterFilling_Box");
             //gameObject.transform.parent.Find("ButtonsGrid").Find("InkBtn").Find("PowerUp_Icons").Find("BoosterFilling_Box").gameObject.SetActive(true);            
         }
 
         if (powerUpsController.BoosterFilling_AllBottles_Flag)
         {
-            PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") - 1);
+            // PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") - 1);
+            DiscountPowerUpCount("PowerUp_BoosterFilling_AllBottles");
         }
     }
 
@@ -565,6 +590,12 @@ public class UIController : MonoBehaviour
             Text starsChallenge3 = stars.Find("Star3").Find("Text").GetComponent<Text>();
             starsChallenge3.text = levelManager.threeStarCoins.ToString();
 
+            //Verify if show Power Up tutorial
+            if (isPowerUpTutorial)
+            {
+                levelDetails.transform.Find("Content").Find("TapToPlayBtn").gameObject.SetActive(false);
+                transform.parent.Find("PowerUpsTutorial").gameObject.SetActive(true);
+            }
         }
     }
 
