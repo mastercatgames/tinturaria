@@ -62,13 +62,13 @@ public class UIController : MonoBehaviour
         RefreshUIToolsAndMoney();
 
         //World
-        for (int i = 1; i <= 14; i++)
+        for (int world = 1; world <= 14; world++)
         {
             //Level
-            for (int j = 1; j <= 3; j++)
+            for (int level = 1; level <= 3; level++)
             {
                 // i = 1; j = i
-                CreateLevelButton(i + "_" + j);
+                CreateLevelButton(world, level);
             }
         }
     }
@@ -319,8 +319,8 @@ public class UIController : MonoBehaviour
         transform.parent.Find("TopHeader").gameObject.SetActive(false);
         //When showing ink machine here, it has an animation that calls TapToPlay script events
         ShowInkMachine();
-        HideMenu();       
-        SetPowerUps(); 
+        HideMenu();
+        SetPowerUps();
         RefreshToolsCount();
 
         if (isPowerUpTutorial)
@@ -409,8 +409,9 @@ public class UIController : MonoBehaviour
         StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
     }
 
-    public void CreateLevelButton(string levelName)
+    public void CreateLevelButton(int world, int level)
     {
+        string levelName = world + "_" + level;
         var button = Instantiate(LevelButton) as Button;
         button.name = levelName;
         button.gameObject.transform.Find("Text").GetComponent<Text>().text = levelName;
