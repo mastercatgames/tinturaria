@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
     public Text boxesDeliveredText;
     public Text boxesFailedText;
     public Text totalText;
+    public Text rewardText;
     public Text quoteText;
     public Text numCoinsText;
     public GameObject menu;
@@ -130,7 +131,7 @@ public class UIController : MonoBehaviour
         //Hide GameOver Objects
         foreach (Transform child in gameOverPanel.transform)
         {
-            if (child.name != "Title" && child.name != "Stars" && child.name != "Quote")
+            if (child.name != "Title" && child.name != "Stars")
                 child.gameObject.SetActive(false);
         }
 
@@ -157,13 +158,20 @@ public class UIController : MonoBehaviour
         int numDeliveredBoxesValue = gameController.numDeliveredBoxes * gameController.earnCoinsValue;
         int numFailedBoxesValue = gameController.numFailedBoxes * gameController.discountCoinsValue;
         boxesDeliveredText.transform.Find("num").GetComponent<Text>().text = numDeliveredBoxesValue.ToString();
-        boxesFailedText.transform.Find("num").GetComponent<Text>().text = ((gameController.numFailedBoxes > 0) ? "-" : "") + numFailedBoxesValue.ToString();
+        boxesFailedText.transform.Find("num").GetComponent<Text>().text = ((gameController.numFailedBoxes > 0) ? "-" : "") + numFailedBoxesValue.ToString();        
 
         //Total
         int totalCoins = numDeliveredBoxesValue - numFailedBoxesValue;
         currentTotalCoins = totalCoins;
-        totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();
+        totalText.transform.Find("num").GetComponent<Text>().text = (totalCoins).ToString();        
         PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + totalCoins);
+
+        //Highscore (Your best)
+        int currentHighscore = totalCoins > levelManager.highscore ? totalCoins : levelManager.highscore;
+        gameOverPanel.transform.Find("TotalAndHighscore").Find("YourBest").Find("num").GetComponent<Text>().text = (currentHighscore).ToString();
+
+        //Reward
+        rewardText.transform.Find("num").GetComponent<Text>().text = totalCoins > 0 ? (totalCoins).ToString() : "0";
 
         //Stars animation
         //.Play("Stars_GameOver");
@@ -191,13 +199,17 @@ public class UIController : MonoBehaviour
             StartCoroutine(SetActiveAfterTime(star3.gameObject, true, 2.4f));
             numStarsWon = 3;
             gameOverPanel.transform.Find("Stars").Find("SunRay").gameObject.SetActive(true);
-            StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 2.4f));
+            StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Confetti").gameObject, true, 2.5f));
         }
+
+        SetFinalQuote(numStarsWon);
 
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesDelivered").gameObject, true, 1f));
         StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("boxesFailed").gameObject, true, 1.5f));
-        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("total").gameObject, true, 2f));
-        ShowFinalQuote(numStarsWon);
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("TotalAndHighscore").gameObject, true, 2f));
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Quote").gameObject, true, 2.5f));
+        StartCoroutine(SetActiveAfterTime(gameOverPanel.transform.Find("Reward").gameObject, true, 2.5f));
+        
         StartCoroutine(StartMoveCoinsToUI(totalCoins, 3f));
 
         if (isPowerUpTutorial)
@@ -209,7 +221,7 @@ public class UIController : MonoBehaviour
         {
             world = levelManager.world, //selected world
             level = levelManager.level, //selected level
-            highscore = totalCoins,
+            highscore = currentHighscore,
             starsEarned = numStarsWon
         });
     }
@@ -230,7 +242,7 @@ public class UIController : MonoBehaviour
     public void MoveCoinsToUI()
     {
         GameObject coin = Instantiate(coinIcon) as GameObject;
-        coin.GetComponent<RectTransform>().position = totalText.transform.Find("Coin").GetComponent<RectTransform>().position;
+        coin.GetComponent<RectTransform>().position = rewardText.transform.Find("Coin").GetComponent<RectTransform>().position;
         coin.GetComponent<MoveCoinsToUI>().target = coinsUI.transform.parent.Find("Icon").GetComponent<RectTransform>();
         coin.transform.SetParent(gameObject.transform.parent);
         //coinsUI.GetComponentInParent<Animator>().enabled = false;
@@ -281,19 +293,8 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Timer").gameObject.SetActive(true);
     }
 
-    private void ShowFinalQuote(int numStarsWon)
+    private void SetFinalQuote(int numStarsWon)
     {
-        // float delay = 0f;
-
-        // if (numStarsWon == 0)
-        //     delay = 0.5f;
-        // if (numStarsWon == 1)
-        //     delay = 1.4f;
-        // else if (numStarsWon == 2)
-        //     delay = 2.2f;
-        // else if (numStarsWon == 3)
-        //     delay = 2.8f;
-
         if (numStarsWon == 0)
             quoteText.text = "Keep trying!";
         else if (numStarsWon == 1)
@@ -302,8 +303,6 @@ public class UIController : MonoBehaviour
             quoteText.text = "Awesome!";
         else if (numStarsWon == 3)
             quoteText.text = "Perfect!";
-
-        StartCoroutine(PlayAnimationAfterTime(gameOverPanel.transform.Find("Quote").GetComponent<Animator>(), "UI_JellyZoom", 2.5f, 1.2f));
     }
 
     public IEnumerator PlayAnimationAfterTime(Animator animator, string animationName, float delay, float speed = 0)

@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public int oneStarCoins;
     public int twoStarCoins;
     public int threeStarCoins;
+    public int highscore;
     public List<int> requestedColorsPosition;
     private string path;
     private string pathLevelProgress;
@@ -117,6 +118,7 @@ public class LevelManager : MonoBehaviour
         oneStarCoins = selectedLevel.oneStarCoins;
         twoStarCoins = selectedLevel.twoStarCoins;
         threeStarCoins = selectedLevel.threeStarCoins;
+        highscore = JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == world && c.level == level).highscore;
 
         uiController.timeRemaining = selectedLevel.time;
         SetBrokenBottlesPosition(selectedLevel.qtyColorsToBreak);
