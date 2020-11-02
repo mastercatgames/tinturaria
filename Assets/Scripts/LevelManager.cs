@@ -7,6 +7,8 @@ using System.IO;
 public class LevelManager : MonoBehaviour
 {
     private UIController uiController;
+
+    [Header("=== Selected Level ===")]
     public int world;
     public int level;
     public int oneStarCoins;
@@ -14,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public int threeStarCoins;
     public List<int> requestedColorsPosition;
     private string path;
+    private string pathLevelProgress;
 
     [System.Serializable]
     public class Level
@@ -63,18 +66,25 @@ public class LevelManager : MonoBehaviour
 
         SetSelectedLevelVariables();
 
-        path = Path.Combine(Application.dataPath, "LevelData.json");
-
-        // levelListGlobal = new List<Level>();
+        if (PlayerPrefs.GetString("_LevelProgress") == "")
+        {
+            //Init the Level Progress save data
+            PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
+        }     
 
         //UTIL: Code to generate JSON file
-        //World        
+        // path = Path.Combine(Application.dataPath, "LevelData.json");
+        // pathLevelProgress = Path.Combine(Application.dataPath, "LevelProgressRaw.json");
+
+        // levelListGlobal = new List<Level>();
+        // levelProgressListGlobal = new List<LevelProgress>();
+        // //World        
         // for (int i = 1; i <= 14; i++)
         // {
         //     //Level
         //     for (int y = 1; y <= 3; y++)
         //     {
-        //         CreateLevelsJSON(i, y);
+        //         CreateLevelsJSON(i, y, true);
         //     }
         // }
     }
@@ -170,6 +180,29 @@ public class LevelManager : MonoBehaviour
         return levelProperties;
     }
 
+    public void SetLevelProgress(LevelProgress levelProgress)
+    {
+        string levelProgressJSON = PlayerPrefs.GetString("_LevelProgress");
+
+        LevelProgressList levelsProgress = JsonUtility.FromJson<LevelProgressList>(levelProgressJSON);
+        LevelProgress levelToUpdate = levelsProgress.LevelsProgress.Find(c => c.world == levelProgress.world && c.level == levelProgress.level);
+
+        //Update data
+        if (levelProgress.starsEarned > levelToUpdate.starsEarned)
+        {
+            levelToUpdate.starsEarned = levelProgress.starsEarned;
+        }
+
+        if (levelProgress.highscore > levelToUpdate.highscore)
+        {
+            levelToUpdate.highscore = levelProgress.highscore;
+        }
+
+        PlayerPrefs.SetString("_LevelProgress", JsonUtility.ToJson(levelsProgress));
+
+        print(JsonUtility.ToJson(levelsProgress));
+    }
+
     public void SetBrokenBottlesPosition(int howMany)
     {
         for (int i = 1; i <= howMany; i++)
@@ -189,9 +222,9 @@ public class LevelManager : MonoBehaviour
 
 
 
-
+    #region Generate JSON file
     //Code to generate JSON file
-    public Level CreateLevelsJSON(int world, int level)
+    public Level CreateLevelsJSON(int world, int level, bool isLevelProgress)
     {
         Level levelProprierties = new Level();
         LevelProgress levelProgress = new LevelProgress();
@@ -345,42 +378,53 @@ public class LevelManager : MonoBehaviour
         levelProgressListGlobal.Add(levelProgress);
 
         if (world == 14 && level == 3)
-        {
-            var ql = new LevelList();
-            ql.Levels = levelListGlobal;
-            // print("json: " + JsonUtility.ToJson(ql));
-            Save(ql);
-
-
+        {            
             //Level progress JSON
-            var ql2 = new LevelProgressList();
-            ql2.LevelsProgress = levelProgressListGlobal;
-            // print("json: " + JsonUtility.ToJson(ql2));
+            if (isLevelProgress)
+            {
+                var ql2 = new LevelProgressList();
+                ql2.LevelsProgress = levelProgressListGlobal;
+                // print("json: " + JsonUtility.ToJson(ql2));
 
-            PlayerPrefs.SetString("_LevelProgress", JsonUtility.ToJson(ql2));
+                string levelProgressJSON = JsonUtility.ToJson(ql2);
+
+                // PlayerPrefs.SetString("_LevelProgress", levelProgressJSON);
+
+                File.WriteAllText(pathLevelProgress, levelProgressJSON);
+            }
+            else
+            {
+                //Create Level properties JSON file
+                var ql = new LevelList();
+                ql.Levels = levelListGlobal;
+                // print("json: " + JsonUtility.ToJson(ql));
+                Save(ql);
+            }
         }
 
         return levelProprierties;
     }
 
-    void Update()
-    {
+    #endregion
 
-        //Teste to set highscore of world 2 level 1 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //TODO: create a global string json variable to load on Start()????
-            //OR NOT?? (or load every time the we need to set data)????
-            string levelProgressJSON = PlayerPrefs.GetString("_LevelProgress");
-            //Get world 2 level 1 data
-            LevelProgressList levelsProgress = JsonUtility.FromJson<LevelProgressList>(levelProgressJSON);
-            LevelProgress level = levelsProgress.LevelsProgress.Find(c => c.world == 2 && c.level == 1);
+    // void Update()
+    // {
+    //     //Teste to set highscore of world 2 level 1 
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         // SetLevelProgress(new LevelManager.LevelProgress()
+    //         // {
+    //         //     world = 7,
+    //         //     level = 1,
+    //         //     highscore = 32456,
+    //         //     starsEarned = 2
+    //         // });
 
-            //Set world 2 level 1 data
-            level.highscore = 350;
-            PlayerPrefs.SetString("_LevelProgress", JsonUtility.ToJson(levelsProgress));
+    //         print(PlayerPrefs.GetInt("_LevelProgress222"));
 
-            print(JsonUtility.ToJson(levelsProgress));
-        }
-    }
+    //         if (PlayerPrefs.GetString("_LevelProgress222") == ""){
+    //             print("Não possui _LevelProgress222 cadastrado");
+    //         }
+    //     }        
+    // }
 }

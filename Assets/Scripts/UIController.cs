@@ -204,6 +204,14 @@ public class UIController : MonoBehaviour
         {
             PlayerPrefs.SetInt("PowerUpsTutorial_Step", PlayerPrefs.GetInt("PowerUpsTutorial_Step") + 1);
         }
+
+        levelManager.SetLevelProgress(new LevelManager.LevelProgress()
+        {
+            world = levelManager.world, //selected world
+            level = levelManager.level, //selected level
+            highscore = totalCoins,
+            starsEarned = numStarsWon
+        });
     }
 
     public IEnumerator StartMoveCoinsToUI(int totalCoins, float delay)
