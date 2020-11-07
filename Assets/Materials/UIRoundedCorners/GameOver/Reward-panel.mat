@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: step-1
+  m_Name: Reward-panel
   m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -82,4 +82,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _WidthHeightRadius: {r: 843.28, g: 257.55994, b: 100, a: 0}
+    - _WidthHeightRadius: {r: 910.88, g: 138.3, b: 60, a: 0}
