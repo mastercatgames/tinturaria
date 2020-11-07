@@ -65,13 +65,13 @@ public class LevelManager : MonoBehaviour
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
 
-        SetSelectedLevelVariables();
-
         if (PlayerPrefs.GetString("_LevelProgress") == "")
         {
             //Init the Level Progress save data
             PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
-        }     
+        }  
+
+        SetSelectedLevelVariables();           
 
         //UTIL: Code to generate JSON file
         // path = Path.Combine(Application.dataPath, "LevelData.json");
