@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     public List<int> requestedColorsPosition;
     private string path;
     private string pathLevelProgress;
+    private int starsToUnlockCount;
 
     [System.Serializable]
     public class Level
@@ -69,13 +70,23 @@ public class LevelManager : MonoBehaviour
         {
             //Init the Level Progress save data
             PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
-        }  
+        }
 
-        SetSelectedLevelVariables();           
+        SetSelectedLevelVariables();
+        SetStarsCount();
+
+        uiController.worldsCount = (GetAllLevelsProperties().Count / 3);
+
+        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+
+        for (int world = 1; world <= uiController.worldsCount; world++)
+        {
+            uiController.CreateLevelPanel(world, LevelDataJSON);
+        }
 
         //UTIL: Code to generate JSON file
         // path = Path.Combine(Application.dataPath, "LevelData.json");
-        // pathLevelProgress = Path.Combine(Application.dataPath, "LevelProgressRaw.json");
+        // // pathLevelProgress = Path.Combine(Application.dataPath, "LevelProgressRaw.json");
 
         // levelListGlobal = new List<Level>();
         // levelProgressListGlobal = new List<LevelProgress>();
@@ -85,7 +96,8 @@ public class LevelManager : MonoBehaviour
         //     //Level
         //     for (int y = 1; y <= 3; y++)
         //     {
-        //         CreateLevelsJSON(i, y, true);
+        //         CreateLevelsJSON(i, y/*, true*/);
+        //         starsToUnlockCount += 3;
         //     }
         // }
     }
@@ -174,12 +186,34 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public Level GetLevelProperties(int world, int level, string LevelDataJSON)
+    public Level GetLevelProperties(int world, int level, string LevelDataJSON = "")
     {
-        // string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        if (LevelDataJSON == "")
+        {
+            LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        }
+
         Level levelProperties = JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
 
         return levelProperties;
+    }
+
+    public List<Level> GetAllLevelsProperties()
+    {
+        return JsonUtility.FromJson<LevelList>(File.ReadAllText(Application.dataPath + "/LevelData.json")).Levels;
+    }
+
+    public LevelProgress GetLevelProgress(int world, int level)
+    {
+        return JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == world && c.level == level);
+    }
+
+    public void SetStarsCount()
+    {
+        foreach (var item in JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress)
+        {
+            uiController.starsCount += item.starsEarned;
+        }
     }
 
     public void SetLevelProgress(LevelProgress levelProgress)
@@ -226,13 +260,15 @@ public class LevelManager : MonoBehaviour
 
     #region Generate JSON file
     //Code to generate JSON file
-    public Level CreateLevelsJSON(int world, int level, bool isLevelProgress)
+    public Level CreateLevelsJSON(int world, int level, bool isLevelProgress = false)
     {
         Level levelProprierties = new Level();
         LevelProgress levelProgress = new LevelProgress();
 
         levelProprierties.world = levelProgress.world = world;
         levelProprierties.level = levelProgress.level = level;
+
+        levelProprierties.starsToUnlock = starsToUnlockCount;
 
         if (world == 1)
         {
@@ -380,7 +416,7 @@ public class LevelManager : MonoBehaviour
         levelProgressListGlobal.Add(levelProgress);
 
         if (world == 14 && level == 3)
-        {            
+        {
             //Level progress JSON
             if (isLevelProgress)
             {

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using GameToolkit.Localization;
+using System.IO;
 
 public class UIController : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class UIController : MonoBehaviour
     public Text gemsUI;
     public Text coinsUI;
     public int currentTotalCoins;
+    public GameObject LevelPanel;
+    public int starsCount;
+    public int levelsCount;
+    public int worldsCount;
+    // public List<LevelManager.Level> levelsProperties;
 
     void Start()
     {
@@ -62,16 +68,13 @@ public class UIController : MonoBehaviour
         ShowMenu();
         RefreshUIToolsAndMoney();
 
-        //World
-        for (int world = 1; world <= 14; world++)
-        {
-            //Level
-            for (int level = 1; level <= 3; level++)
-            {
-                // i = 1; j = i
-                CreateLevelButton(world, level);
-            }
-        }
+        // levelsProperties = levelManager.GetAllLevelsProperties();
+        // worldsCount = (levelsProperties.Count / 3);
+
+        // for (int world = 1; world <= worldsCount; world++)
+        // {
+        //     CreateLevelPanel(world);
+        // }
     }
 
     void Update()
@@ -419,6 +422,7 @@ public class UIController : MonoBehaviour
     private void ShowMenu()
     {
         menu.SetActive(true);
+        menu.transform.Find("Main").gameObject.SetActive(true);
     }
 
     private void HideMenu()
@@ -438,6 +442,88 @@ public class UIController : MonoBehaviour
         var rectTransform = button.GetComponent<RectTransform>();
         rectTransform.SetParent(menu.transform.Find("Levels").Find("ButtonsGrid"));
         button.onClick.AddListener(delegate { LoadLevel(button.name); });
+    }
+
+    public void CreateLevelPanel(int worldNum, string LevelDataJSON)
+    {
+        var panel = Instantiate(LevelPanel) as GameObject;
+        panel.name = "World" + worldNum;
+
+        LocalizedTextBehaviour title = panel.transform.Find("Title").Find("Text").GetComponent<LocalizedTextBehaviour>();
+        title.FormatArgs[0] = worldNum.ToString();
+
+        var rectTransform = panel.GetComponent<RectTransform>();
+        rectTransform.SetParent(menu.transform.Find("Levels").Find("ScrollRect").Find("Content"));
+
+        Transform levelButtons = panel.transform.Find("Buttons");
+        Button levelButton = null;
+        int starsEarned = 0;
+        int starsToUnlock = 0;
+
+        for (int levelNum = 1; levelNum <= 3; levelNum++)
+        {
+            levelButton = levelButtons.Find(levelNum.ToString()).GetComponent<Button>();
+            // levelButton.onClick = null;
+            // levelButton.onClick = new Button.ButtonClickedEvent();
+
+            // string sceneName = (worldNum + "_" + levelNum);
+            // levelButton.onClick.AddListener(delegate { LoadLevel(sceneName); });
+
+            starsEarned = levelManager.GetLevelProgress(worldNum, levelNum).starsEarned;
+
+            //Activate/Show yellow star (if the player have) 
+            for (int star = 1; star <= starsEarned; star++)
+            {
+                levelButton.transform.Find("Stars").Find(star.ToString()).Find("star").gameObject.SetActive(true);
+            }
+
+            //Unlock level
+            if (worldNum == 1 && levelNum == 1)
+            {
+                // levelButton.interactable = true;
+                levelButton.transform.Find("Lock").gameObject.SetActive(false);
+            }
+
+            levelButton.onClick = null;
+            levelButton.onClick = new Button.ButtonClickedEvent();
+
+            starsToUnlock = levelManager.GetLevelProperties(worldNum, levelNum, LevelDataJSON).starsToUnlock;
+
+            string sceneName = (worldNum + "_" + levelNum);
+
+            if (starsCount >= starsToUnlock)
+            {
+                levelButton.colors = ColorBlock.defaultColorBlock;
+                levelButton.transform.Find("Lock").gameObject.SetActive(false);
+                // string sceneName = (worldNum + "_" + levelNum);
+                levelButton.onClick.AddListener(delegate { LoadLevel(sceneName); });
+            }
+            else
+            {
+                levelButton.onClick = null;
+                levelButton.onClick = new Button.ButtonClickedEvent();
+                levelButton.onClick.AddListener(delegate { ShowLockedLevelAlert(sceneName); });
+            }
+        }
+    }
+
+    public void ShowLockedLevelAlert(string sceneName)
+    {
+        Transform LockAlert = menu.transform.Find("Levels").Find("LockAlert");
+        LocalizedTextBehaviour description = LockAlert.Find("Content").Find("Alert").Find("Description").GetComponent<LocalizedTextBehaviour>();
+        int starsToUnlock = levelManager.GetLevelProperties(int.Parse(sceneName.Split('_')[0]), int.Parse(sceneName.Split('_')[1])).starsToUnlock;
+        description.FormatArgs[0] = starsToUnlock.ToString();
+
+        LocalizedTextBehaviour youHave = LockAlert.Find("Content").Find("Alert").Find("YouHave").GetComponent<LocalizedTextBehaviour>();
+        youHave.FormatArgs[0] = starsCount.ToString();
+        LockAlert.gameObject.SetActive(true);
+    }
+
+    public void CloseLockedLevelAlert()
+    {
+        Transform LockAlert = menu.transform.Find("Levels").Find("LockAlert");
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        StartCoroutine(ClosePanelAnimation(LockAlert));
     }
 
     public void LoadLevel(string levelName)
