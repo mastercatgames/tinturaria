@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -83,6 +84,11 @@ public class LevelManager : MonoBehaviour
         {
             uiController.CreateLevelPanel(world, LevelDataJSON);
         }
+
+        //Init Levels button in Main Menu
+        Text starCountText = uiController.transform.parent.Find("Menu").Find("Main").Find("LevelsButton").Find("StarCount").GetComponentInChildren<Text>();
+        starCountText.text = uiController.starsCount + "/" + (uiController.worldsCount * 9); //9 = 3 Levels X 3 Stars
+
 
         //UTIL: Code to generate JSON file
         // path = Path.Combine(Application.dataPath, "LevelData.json");
