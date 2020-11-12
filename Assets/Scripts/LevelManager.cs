@@ -73,21 +73,21 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
         }
 
-        SetSelectedLevelVariables();
-        SetStarsCount();
+        // SetSelectedLevelVariables();
+        // SetStarsCount();
 
-        uiController.worldsCount = (GetAllLevelsProperties().Count / 3);
+        // uiController.worldsCount = (GetAllLevelsProperties().Count / 3);
 
-        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        // string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
 
-        for (int world = 1; world <= uiController.worldsCount; world++)
-        {
-            uiController.CreateLevelPanel(world, LevelDataJSON);
-        }
+        // for (int world = 1; world <= uiController.worldsCount; world++)
+        // {
+        //     uiController.CreateLevelPanel(world, LevelDataJSON);
+        // }
 
-        //Init Levels button in Main Menu
-        Text starCountText = uiController.transform.parent.Find("Menu").Find("Main").Find("LevelsButton").Find("StarCount").GetComponentInChildren<Text>();
-        starCountText.text = uiController.starsCount + "/" + (uiController.worldsCount * 9); //9 = 3 Levels X 3 Stars
+        // //Init Levels button in Main Menu
+        // Text starCountText = uiController.transform.parent.Find("Menu").Find("Main").Find("LevelsButton").Find("StarCount").GetComponentInChildren<Text>();
+        // starCountText.text = uiController.starsCount + "/" + (uiController.worldsCount * 9); //9 = 3 Levels X 3 Stars
 
 
         //UTIL: Code to generate JSON file
@@ -125,72 +125,72 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void SetSelectedLevelVariables()
-    {
-        world = int.Parse(SceneManager.GetActiveScene().name.Split('_')[0]);
-        level = int.Parse(SceneManager.GetActiveScene().name.Split('_')[1]);
+    // public void SetSelectedLevelVariables()
+    // {
+    //     world = int.Parse(SceneManager.GetActiveScene().name.Split('_')[0]);
+    //     level = int.Parse(SceneManager.GetActiveScene().name.Split('_')[1]);
 
-        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
-        Level selectedLevel = GetLevelProperties(world, level, LevelDataJSON);//JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
+    //     string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+    //     Level selectedLevel = GetLevelProperties(world, level, LevelDataJSON);//JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
 
-        oneStarCoins = selectedLevel.oneStarCoins;
-        twoStarCoins = selectedLevel.twoStarCoins;
-        threeStarCoins = selectedLevel.threeStarCoins;
-        highscore = JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == world && c.level == level).highscore;
+    //     oneStarCoins = selectedLevel.oneStarCoins;
+    //     twoStarCoins = selectedLevel.twoStarCoins;
+    //     threeStarCoins = selectedLevel.threeStarCoins;
+    //     highscore = JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == world && c.level == level).highscore;
 
-        uiController.timeRemaining = selectedLevel.time;
-        SetBrokenBottlesPosition(selectedLevel.qtyColorsToBreak);
+    //     uiController.timeRemaining = selectedLevel.time;
+    //     SetBrokenBottlesPosition(selectedLevel.qtyColorsToBreak);
 
-        //Conditions
-        if (world == 1 && level == 1)
-        {
-            uiController.isTutorial = true;
-        }
-        else if (world == 2)
-        {
-            if (level == 1)
-            {
-                uiController.isToolTutorial = true;
-                requestedColorsPosition.Add(1);
-            }
-            else if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0)
-            {
-                uiController.isPowerUpTutorial = true;
-            }
-        }
-        else if (world == 3)
-        {
-            if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1)
-            {
-                uiController.isPowerUpTutorial = true;
-            }
-        }
-        else if (world == 4)
-        {
-            if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2)
-            {
-                uiController.isPowerUpTutorial = true;
-            }
-            else if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3)
-            {
-                uiController.isPowerUpTutorial = true;
-            }
-        }
-        else if (world == 5)
-        {
-            if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4)
-            {
-                uiController.isPowerUpTutorial = true;
-            }
-        }
-        else if (world == 6)
-        {
-            if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5)
-            {
-                uiController.isPowerUpTutorial = true;
-            }
-        }
-    }
+    //     //Conditions
+    //     if (world == 1 && level == 1)
+    //     {
+    //         uiController.isTutorial = true;
+    //     }
+    //     else if (world == 2)
+    //     {
+    //         if (level == 1)
+    //         {
+    //             uiController.isToolTutorial = true;
+    //             requestedColorsPosition.Add(1);
+    //         }
+    //         else if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0)
+    //         {
+    //             uiController.isPowerUpTutorial = true;
+    //         }
+    //     }
+    //     else if (world == 3)
+    //     {
+    //         if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1)
+    //         {
+    //             uiController.isPowerUpTutorial = true;
+    //         }
+    //     }
+    //     else if (world == 4)
+    //     {
+    //         if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2)
+    //         {
+    //             uiController.isPowerUpTutorial = true;
+    //         }
+    //         else if (level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3)
+    //         {
+    //             uiController.isPowerUpTutorial = true;
+    //         }
+    //     }
+    //     else if (world == 5)
+    //     {
+    //         if (level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4)
+    //         {
+    //             uiController.isPowerUpTutorial = true;
+    //         }
+    //     }
+    //     else if (world == 6)
+    //     {
+    //         if (level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5)
+    //         {
+    //             uiController.isPowerUpTutorial = true;
+    //         }
+    //     }
+    // }
 
     public Level GetLevelProperties(int world, int level, string LevelDataJSON = "")
     {
@@ -214,13 +214,13 @@ public class LevelManager : MonoBehaviour
         return JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == world && c.level == level);
     }
 
-    public void SetStarsCount()
-    {
-        foreach (var item in JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress)
-        {
-            uiController.starsCount += item.starsEarned;
-        }
-    }
+    // public void SetStarsCount()
+    // {
+    //     foreach (var item in JsonUtility.FromJson<LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress)
+    //     {
+    //         uiController.starsCount += item.starsEarned;
+    //     }
+    // }
 
     public void SetLevelProgress(LevelProgress levelProgress)
     {

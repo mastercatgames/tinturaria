@@ -68,13 +68,22 @@ public class UIController : MonoBehaviour
         ShowMenu();
         RefreshUIToolsAndMoney();
 
-        // levelsProperties = levelManager.GetAllLevelsProperties();
-        // worldsCount = (levelsProperties.Count / 3);
+        //Init Levels
+        SetSelectedLevelVariables();
+        SetStarsCount();
 
-        // for (int world = 1; world <= worldsCount; world++)
-        // {
-        //     CreateLevelPanel(world);
-        // }
+        worldsCount = (levelManager.GetAllLevelsProperties().Count / 3);
+
+        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+
+        for (int world = 1; world <= worldsCount; world++)
+        {
+            CreateLevelPanel(world, LevelDataJSON);
+        }
+
+        //Init Levels button in Main Menu
+        Text starCountText = transform.parent.Find("Menu").Find("Main").Find("LevelsButton").Find("StarCount").GetComponentInChildren<Text>();
+        starCountText.text = starsCount + "/" + (worldsCount * 9); //9 = 3 Levels X 3 Stars
     }
 
     void Update()
@@ -431,6 +440,83 @@ public class UIController : MonoBehaviour
         StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
     }
 
+    #region Level Manager
+
+    public void SetSelectedLevelVariables()
+    {
+        levelManager.world = int.Parse(SceneManager.GetActiveScene().name.Split('_')[0]);
+        levelManager.level = int.Parse(SceneManager.GetActiveScene().name.Split('_')[1]);
+
+        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        LevelManager.Level selectedLevel = levelManager.GetLevelProperties(levelManager.world, levelManager.level, LevelDataJSON);//JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
+
+        levelManager.oneStarCoins = selectedLevel.oneStarCoins;
+        levelManager.twoStarCoins = selectedLevel.twoStarCoins;
+        levelManager.threeStarCoins = selectedLevel.threeStarCoins;
+        levelManager.highscore = JsonUtility.FromJson<LevelManager.LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == levelManager.world && c.level == levelManager.level).highscore;
+
+        timeRemaining = selectedLevel.time;
+        levelManager.SetBrokenBottlesPosition(selectedLevel.qtyColorsToBreak);
+
+        //Conditions
+        if (levelManager.world == 1 && levelManager.level == 1)
+        {
+            isTutorial = true;
+        }
+        else if (levelManager.world == 2)
+        {
+            if (levelManager.level == 1)
+            {
+                isToolTutorial = true;
+                levelManager.requestedColorsPosition.Add(1);
+            }
+            else if (levelManager.level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0)
+            {
+                isPowerUpTutorial = true;
+            }
+        }
+        else if (levelManager.world == 3)
+        {
+            if (levelManager.level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1)
+            {
+                isPowerUpTutorial = true;
+            }
+        }
+        else if (levelManager.world == 4)
+        {
+            if (levelManager.level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2)
+            {
+                isPowerUpTutorial = true;
+            }
+            else if (levelManager.level == 3 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3)
+            {
+                isPowerUpTutorial = true;
+            }
+        }
+        else if (levelManager.world == 5)
+        {
+            if (levelManager.level == 2 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4)
+            {
+                isPowerUpTutorial = true;
+            }
+        }
+        else if (levelManager.world == 6)
+        {
+            if (levelManager.level == 1 && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5)
+            {
+                isPowerUpTutorial = true;
+            }
+        }
+    }
+
+    public void SetStarsCount()
+    {
+        foreach (var item in JsonUtility.FromJson<LevelManager.LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress)
+        {
+            starsCount += item.starsEarned;
+        }
+    }
+
     public void CreateLevelButton(int world, int level)
     {
         string levelName = world + "_" + level;
@@ -468,7 +554,6 @@ public class UIController : MonoBehaviour
 
             // string sceneName = (worldNum + "_" + levelNum);
             // levelButton.onClick.AddListener(delegate { LoadLevel(sceneName); });
-
             starsEarned = levelManager.GetLevelProgress(worldNum, levelNum).starsEarned;
 
             //Activate/Show yellow star (if the player have) 
@@ -531,6 +616,8 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(levelName);
         Time.timeScale = 1f;
     }
+
+    #endregion
 
     public void BackToMainMenu()
     {
