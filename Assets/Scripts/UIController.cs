@@ -453,6 +453,13 @@ public class UIController : MonoBehaviour
         levelManager.oneStarCoins = selectedLevel.oneStarCoins;
         levelManager.twoStarCoins = selectedLevel.twoStarCoins;
         levelManager.threeStarCoins = selectedLevel.threeStarCoins;
+
+        if (PlayerPrefs.GetString("_LevelProgress") == "")
+        {
+            //Init the Level Progress save data
+            PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
+        }
+
         levelManager.highscore = JsonUtility.FromJson<LevelManager.LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == levelManager.world && c.level == levelManager.level).highscore;
 
         timeRemaining = selectedLevel.time;

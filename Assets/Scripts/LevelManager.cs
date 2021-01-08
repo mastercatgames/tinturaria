@@ -67,11 +67,11 @@ public class LevelManager : MonoBehaviour
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
 
-        if (PlayerPrefs.GetString("_LevelProgress") == "")
-        {
-            //Init the Level Progress save data
-            PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
-        }
+        // if (PlayerPrefs.GetString("_LevelProgress") == "")
+        // {
+        //     //Init the Level Progress save data
+        //     PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
+        // }
 
         // SetSelectedLevelVariables();
         // SetStarsCount();
