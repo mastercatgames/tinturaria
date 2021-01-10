@@ -548,6 +548,8 @@ public class UIController : MonoBehaviour
         var rectTransform = panel.GetComponent<RectTransform>();
         rectTransform.SetParent(menu.transform.Find("Levels").Find("ScrollRect").Find("Content"));
 
+        panel.transform.localScale = new Vector3(1f , 1f, 1f);
+
         Transform levelButtons = panel.transform.Find("Buttons");
         Button levelButton = null;
         int starsEarned = 0;
