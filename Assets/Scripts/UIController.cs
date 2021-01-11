@@ -784,7 +784,8 @@ public class UIController : MonoBehaviour
     public void OpenLevelDetailPanel()
     {
         //If game was a paused and the player tap to continue
-        if (isInGamePlay || isTutorial)
+        if (isInGamePlay //|| isTutorial)
+        || levelManager.world == 1)
         {
             TapToPlay();
         }
