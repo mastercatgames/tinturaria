@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -444,8 +444,19 @@ public class UIController : MonoBehaviour
 
     public void SetSelectedLevelVariables()
     {
-        levelManager.world = int.Parse(SceneManager.GetActiveScene().name.Split('_')[0]);
-        levelManager.level = int.Parse(SceneManager.GetActiveScene().name.Split('_')[1]);
+        string _currentLevel = PlayerPrefs.GetString("_CurrentLevel");
+
+        if (_currentLevel == "")
+        {
+            PlayerPrefs.SetString("_CurrentLevel", "1_1");
+        }
+
+        //Load a background (Assets/Resources/Backgrounds/WORLD_LEVEL.png)
+        GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>().sprite = 
+        Resources.Load<Sprite>("Backgrounds/" + _currentLevel);        
+
+        levelManager.world = int.Parse(_currentLevel.Split('_')[0]);
+        levelManager.level = int.Parse(_currentLevel.Split('_')[1]);
 
         string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
         LevelManager.Level selectedLevel = levelManager.GetLevelProperties(levelManager.world, levelManager.level, LevelDataJSON);//JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
@@ -464,6 +475,10 @@ public class UIController : MonoBehaviour
 
         timeRemaining = selectedLevel.time;
         levelManager.SetBrokenBottlesPosition(selectedLevel.qtyColorsToBreak);
+
+        isTutorial = false;
+        isToolTutorial = false;
+        isPowerUpTutorial = false;
 
         //Conditions
         if (levelManager.world == 1 && levelManager.level == 1)
@@ -622,7 +637,10 @@ public class UIController : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        SceneManager.LoadScene(levelName);
+        //SceneManager.LoadScene(levelName);
+        PlayerPrefs.SetString("_CurrentLevel", levelName);
+        SetSelectedLevelVariables();
+        BackToMainMenu();
         Time.timeScale = 1f;
     }
 

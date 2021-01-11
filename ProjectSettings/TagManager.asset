@@ -10,6 +10,7 @@ TagManager:
   - UIController
   - Repository
   - LevelManager
+  - Background
   layers:
   - Default
   - TransparentFX
