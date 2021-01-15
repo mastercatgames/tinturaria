@@ -1819,7 +1819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
   currentLight: 0
@@ -7905,7 +7904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
   currentLight: 0
@@ -12246,7 +12244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
   currentLight: 0
@@ -13295,7 +13292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
   currentLight: 0
@@ -13412,13 +13408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88f84fbfa107b24bb7e56d8f403d505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintSpeed: 0
-  originalPaintSpeed: 0
-  isPainting: 0
-  emptyTutorialIsFinished: 0
-  currentRepository: {fileID: 7532979731736102445}
-  currentBox: {fileID: 0}
-  isChangingRepository: 0
   repositoryXPositions:
   - -160
   - -80
@@ -13426,12 +13415,35 @@ MonoBehaviour:
   - 80
   - 160
   - 240
+  paintSpeed: 0
+  originalPaintSpeed: 0
   numCoins: 0
   numDeliveredBoxes: 0
   numFailedBoxes: 0
-  inputManager: {fileID: 0}
   earnCoinsValue: 0
   discountCoinsValue: 0
+  currentRepository: {fileID: 7532979731736102445}
+  currentBox: {fileID: 0}
+  PanelForms: {fileID: 0}
+  Panel_Ink_Buckets: {fileID: 0}
+  RequestPanel: {fileID: 0}
+  boxes:
+  - {fileID: 7532979733237506887}
+  - {fileID: 527523740}
+  - {fileID: 1343238535198152296}
+  - {fileID: 4543448522541286173}
+  - {fileID: 7013087900633529129}
+  - {fileID: 9198557452465467452}
+  colors:
+  - {fileID: 7532979731736102445}
+  - {fileID: 1529274527}
+  - {fileID: 6352864355107521302}
+  - {fileID: 8214007857009186063}
+  - {fileID: 7306012168914868695}
+  - {fileID: 3235990437518729243}
+  isPainting: 0
+  emptyTutorialIsFinished: 0
+  isChangingRepository: 0
 --- !u!1 &7532979731570745756
 GameObject:
   m_ObjectHideFlags: 0
@@ -13637,7 +13649,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
   currentLight: 0
@@ -15985,7 +15996,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  BucketPanel: {fileID: 0}
   isFilling: 0
   fillSpeed: 0.3
   currentLight: 0

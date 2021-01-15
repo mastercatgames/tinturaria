@@ -9,20 +9,12 @@ public class InkRepositoryController : MonoBehaviour
     private GameController gameController;
     private UIController uiController;
     private PowerUpsController powerUpsController;
-    public GameObject BucketPanel;
-    private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
-    public bool isFilling = false;
-    /*[Range(0.05f, 3f)]*/
-    public float fillSpeed;
-    /*[Range(0.05f, 3f)]*/
-    private float originalFillSpeed;
-    public int currentLight;
-    public float lightSpeed;
-    public bool isBroken;
-    public bool isFixing;
-    public float OriginalTimeInSeconds;
-    public float FixingTimeInSeconds;
     private AudioController audioController;
+    private GameObject BucketPanel;
+    private float[] startInkfillAmount = { 0f, 0.25f, 0.5f, 0.75f, 1f };
+    public float fillSpeed, originalFillSpeed, lightSpeed, OriginalTimeInSeconds, FixingTimeInSeconds;
+    public int currentLight;
+    public bool isFilling, isBroken, isFixing; 
 
     void Start()
     {
@@ -32,6 +24,7 @@ public class InkRepositoryController : MonoBehaviour
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         powerUpsController = uiController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
         audioController = uiController.transform.parent.Find("AudioController").GetComponent<AudioController>();
+        BucketPanel = uiController.transform.parent.Find("Panel_Ink_Buckets").gameObject;
 
         if (uiController.isTutorial && name == "Green")
         {

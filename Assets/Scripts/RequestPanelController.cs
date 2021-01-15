@@ -8,18 +8,12 @@ public class RequestPanelController : MonoBehaviour
     private LevelManager levelManager;
     private GameController gameController;
     private UIController UIController;
-    private PowerUpsController powerUpsController;
-    public GameObject requestBoxPrefab;
-    public int numOfRequests;
-    public Color RedColor;
-    public Color GreenColor;
-    public Color YellowColor;
-    public GameObject[] boxes;
-    public GameObject[] colors;
-    public AudioSource DeliveryFailed_AS;
-    public AudioSource DeliverySuccessful_AS;
+    private PowerUpsController powerUpsController;    
+    public Color RedColor, GreenColor, YellowColor;
+    public GameObject[] boxes, colors;    
     public List<GameObject> colorsRequested;
-    public int TotalRequests;
+    public GameObject requestBoxPrefab;
+    public int TotalRequests, numOfRequests;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +21,9 @@ public class RequestPanelController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         UIController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
         powerUpsController = UIController.transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
+        boxes = gameController.boxes;
+        colors = gameController.colors;
 
         if (UIController.isTutorial)
         {

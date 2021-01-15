@@ -6,28 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update  
-    public float paintSpeed;
-    public float originalPaintSpeed;
-    public bool isPainting;
-    public bool emptyTutorialIsFinished;
-    public GameObject currentRepository;
-    public GameObject currentBox;
-    public bool isChangingRepository;
     private UIController uiController;
     private LevelManager levelManager;
     private TutorialController tutorialController;
-    private GameObject PanelForms;
-    private GameObject Panel_Ink_Buckets;
-    private GameObject RequestPanel;
-    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
-    public int numCoins;
-    public int numDeliveredBoxes;
-    public int numFailedBoxes;
-    public SmoothMoveSwipe inputManager;
     private PowerUpsController powerUpsController;
-    public int earnCoinsValue;
-    public int discountCoinsValue;
+    private SmoothMoveSwipe inputManager;
+    public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
+    public float paintSpeed, originalPaintSpeed;
+    public int numCoins, numDeliveredBoxes, numFailedBoxes, earnCoinsValue, discountCoinsValue;    
+    public GameObject currentRepository, currentBox, PanelForms, Panel_Ink_Buckets, RequestPanel;   
+    public GameObject[] boxes, colors;
+    public bool isPainting, emptyTutorialIsFinished, isChangingRepository;    
 
     void Start()
     {
@@ -398,5 +387,9 @@ public class GameController : MonoBehaviour
 
         // powerUpsController.FixInTime_Flag = false;
         // uiController.InkBtn_FixInTime_Icon_SetActive(false);
+    }
+    public void InitSmoothMoveSwipe()
+    {
+        inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
     }
 }

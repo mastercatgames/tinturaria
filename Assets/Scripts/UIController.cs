@@ -11,39 +11,12 @@ public class UIController : MonoBehaviour
     private GameController gameController;
     private LevelManager levelManager;
     private PowerUpsController powerUpsController;
-    public GameObject ButtonsGrid;
-    public bool somePanelIsOpen = false;
-    public float timeRemaining;
-    public bool timerIsRunning = false;
-    public Text timeText;
-    public GameObject gameOverPanel;
-    public Text titleText;
-    public Text boxesDeliveredText;
-    public Text boxesFailedText;
-    public Text totalText;
-    public GameObject rewardPanel;
-    public Text quoteText;
-    public Text numCoinsText;
-    public GameObject menu;
-    public Text readyGo;
+    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel;
+    public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo;    
     public Button LevelButton;
-    public GameObject coinIcon;
-    public bool isInGamePlay;
-    public bool isTutorial;
-    public bool isToolTutorial;
-    public bool isPowerUpTutorial;
-    public bool blockSwipe;
-    public bool blockRightSwipe;
-    public bool blockPainting;
-    public Text toolsUI;
-    public Text gemsUI;
-    public Text coinsUI;
-    public int currentTotalCoins;
-    public GameObject LevelPanel;
-    public int starsCount;
-    public int levelsCount;
-    public int worldsCount;
-    // public List<LevelManager.Level> levelsProperties;
+    public float timeRemaining;
+    public bool timerIsRunning, somePanelIsOpen, isInGamePlay, isTutorial, isToolTutorial, isPowerUpTutorial, blockSwipe, blockRightSwipe, blockPainting;        
+    public int currentTotalCoins, starsCount, levelsCount, worldsCount;
 
     void Start()
     {
@@ -351,7 +324,8 @@ public class UIController : MonoBehaviour
 
         //Load inputManager here because when gameplay script start, the ink machine comes hidden
         //and this code returns null there. Then, here works fine
-        gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
+        // gameController.inputManager = (SmoothMoveSwipe)FindObjectOfType(typeof(SmoothMoveSwipe));
+        gameController.InitSmoothMoveSwipe();
 
         //Call other objects
         gameObject.transform.parent.Find("Coins").gameObject.SetActive(true);
@@ -899,5 +873,10 @@ public class UIController : MonoBehaviour
     public void CallChangeCurrentBox(GameObject newBox)
     {
         gameController.ChangeCurrentBox(newBox);
+    }
+
+    public void CallNewPaintFluid()
+    {
+        gameController.NewPaintFluid(false);
     }
 }
