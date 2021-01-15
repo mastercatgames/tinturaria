@@ -136,6 +136,22 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void LoadNextLevel()
+    {
+        int nextWorld = levelManager.world,
+            nextLevel = levelManager.level + 1;
+
+        if (nextLevel == 4)
+        {
+            nextWorld += 1;
+            nextLevel = 1;
+        }
+
+        PlayerPrefs.SetString("_CurrentLevel", nextWorld + "_" + nextLevel);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     private void GameOver()
     {
         HideGameplayObjects();
@@ -238,7 +254,7 @@ public class UIController : MonoBehaviour
         if (isPowerUpTutorial)
         {
             PlayerPrefs.SetInt("PowerUpsTutorial_Step", PlayerPrefs.GetInt("PowerUpsTutorial_Step") + 1);
-        }
+        }        
 
         levelManager.SetLevelProgress(new LevelManager.LevelProgress()
         {
@@ -247,6 +263,34 @@ public class UIController : MonoBehaviour
             highscore = currentHighscore,
             starsEarned = numStarsWon
         });
+
+        SetStarsCount();
+
+        //Verify if the next level was unlocked
+        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+
+        int nextWorld = levelManager.world,
+            nextLevel = levelManager.level + 1;
+
+        if (nextLevel == 4)
+        {
+            nextWorld += 1;
+            nextLevel = 1;
+        }
+
+        int starsToUnlock = levelManager.GetLevelProperties(nextWorld, nextLevel, LevelDataJSON).starsToUnlock;
+
+        //starsCount += numStarsWon;        
+
+        if (starsCount >= starsToUnlock)
+        {
+            gameOverPanel.transform.Find("ButtonsGrid").Find("NextLevel").gameObject.SetActive(true);
+
+            if (starsCount == starsToUnlock)
+            {
+                gameOverPanel.transform.Find("ButtonsGrid").Find("NextLevel").Find("UnlockedTxt").gameObject.SetActive(true);
+            }
+        }
     }
 
     public IEnumerator StartMoveCoinsToUI(int totalCoins, float delay)
@@ -533,6 +577,7 @@ public class UIController : MonoBehaviour
 
     public void SetStarsCount()
     {
+        starsCount = 0;
         foreach (var item in JsonUtility.FromJson<LevelManager.LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress)
         {
             starsCount += item.starsEarned;
