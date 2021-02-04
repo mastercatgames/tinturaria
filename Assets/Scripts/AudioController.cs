@@ -30,10 +30,16 @@ public class AudioController : MonoBehaviour
         PlayerPrefs.SetString("music", isOn ? "on" : "off");
         musicToggle.isOn = isOn;
 
-        if (isOn)
+        if (isOn) 
+        {
             audioMixerGroup.audioMixer.SetFloat("MusicVol", 0f);
+            musicToggle.transform.Find("OffIcon").gameObject.SetActive(false);
+        }
         else
+        {
             audioMixerGroup.audioMixer.SetFloat("MusicVol", -80f);
+            musicToggle.transform.Find("OffIcon").gameObject.SetActive(true);
+        }
     }
 
     public void SetSFXLvl(bool isOn)
@@ -42,9 +48,15 @@ public class AudioController : MonoBehaviour
         sfxToggle.isOn = isOn;
 
         if (isOn)
+        {
             audioMixerGroup.audioMixer.SetFloat("SFXVol", 0f);
+            sfxToggle.transform.Find("OffIcon").gameObject.SetActive(false);
+        }
         else
+        {
             audioMixerGroup.audioMixer.SetFloat("SFXVol", -80f);
+            sfxToggle.transform.Find("OffIcon").gameObject.SetActive(true);
+        }
     }
 
     public void PlaySFX(string SFXName)

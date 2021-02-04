@@ -13,10 +13,10 @@ public class GameController : MonoBehaviour
     private SmoothMoveSwipe inputManager;
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public float paintSpeed, originalPaintSpeed;
-    public int numCoins, numDeliveredBoxes, numFailedBoxes, earnCoinsValue, discountCoinsValue;    
-    public GameObject currentRepository, currentBox, PanelForms, Panel_Ink_Buckets, RequestPanel;   
+    public int numCoins, numDeliveredBoxes, numFailedBoxes, earnCoinsValue, discountCoinsValue;
+    public GameObject currentRepository, currentBox, PanelForms, Panel_Ink_Buckets, RequestPanel;
     public GameObject[] boxes, colors;
-    public bool isPainting, emptyTutorialIsFinished, isChangingRepository;    
+    public bool isPainting, emptyTutorialIsFinished, isChangingRepository;
 
     void Start()
     {
@@ -149,7 +149,7 @@ public class GameController : MonoBehaviour
                 if (uiController.isTutorial)
                 {
                     tutorialController.transform.Find("Step-6").Find("Dialog").gameObject.SetActive(false);
-                    tutorialController.transform.Find("Step-6").Find("HandIcon").gameObject.SetActive(false);                    
+                    tutorialController.transform.Find("Step-6").Find("HandIcon").gameObject.SetActive(false);
                     tutorialController.Invoke("ShowTapHereAgain", 4f);
                     tutorialController.transform.Find("Step-11").Find("HandIcon").gameObject.SetActive(false);
                     tutorialController.Invoke("ShowHandIcon", 4f);
@@ -206,7 +206,7 @@ public class GameController : MonoBehaviour
                     requestedBox.GetComponent<RequestBox>().DeliveryBox();
 
                     if (uiController.isTutorial)
-                    { 
+                    {
                         uiController.timeRemaining = 0f;
                     }
                 }
@@ -304,9 +304,10 @@ public class GameController : MonoBehaviour
 
     public void Vibrate()
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        Vibration.Vibrate(20);
-#endif
+    #if UNITY_ANDROID && !UNITY_EDITOR
+        if (PlayerPrefs.GetString("vibration") == "on")
+            Vibration.Vibrate(20);
+    #endif
     }
 
     public void EarnCoins()

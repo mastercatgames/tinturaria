@@ -11,11 +11,12 @@ public class UIController : MonoBehaviour
     private GameController gameController;
     private LevelManager levelManager;
     private PowerUpsController powerUpsController;
-    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel;
-    public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo;    
+    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert;
+    public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
     public Button LevelButton;
+    public Toggle vibrationToggle;
     public float timeRemaining;
-    public bool timerIsRunning, somePanelIsOpen, isInGamePlay, isTutorial, isToolTutorial, isPowerUpTutorial, blockSwipe, blockRightSwipe, blockPainting;        
+    public bool timerIsRunning, somePanelIsOpen, isInGamePlay, isTutorial, isToolTutorial, isPowerUpTutorial, blockSwipe, blockRightSwipe, blockPainting;
     public int currentTotalCoins, starsCount, levelsCount, worldsCount;
 
     void Start()
@@ -30,6 +31,17 @@ public class UIController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+
+        if (PlayerPrefs.GetString("vibration") == "")
+        {
+            PlayerPrefs.SetString("vibration", "on");
+        }
+
+        SetVibrationOption(PlayerPrefs.GetString("vibration") == "on" ? true : false);
+
+        print("Current Language: " + Localization.Instance.CurrentLanguage);
+
+        ChangeLanguage();
 
         //Verify if the first tools was given
         if (PlayerPrefs.GetInt("firstToolsGiven") == 0)
@@ -121,7 +133,7 @@ public class UIController : MonoBehaviour
         }
 
         PlayerPrefs.SetString("_CurrentLevel", nextWorld + "_" + nextLevel);
-        
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -227,7 +239,7 @@ public class UIController : MonoBehaviour
         if (isPowerUpTutorial)
         {
             PlayerPrefs.SetInt("PowerUpsTutorial_Step", PlayerPrefs.GetInt("PowerUpsTutorial_Step") + 1);
-        }        
+        }
 
         levelManager.SetLevelProgress(new LevelManager.LevelProgress()
         {
@@ -470,8 +482,8 @@ public class UIController : MonoBehaviour
         }
 
         //Load a background (Assets/Resources/Backgrounds/WORLD_LEVEL.png)
-        GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>().sprite = 
-        Resources.Load<Sprite>("Backgrounds/" + _currentLevel);        
+        GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>().sprite =
+        Resources.Load<Sprite>("Backgrounds/" + _currentLevel);
 
         levelManager.world = int.Parse(_currentLevel.Split('_')[0]);
         levelManager.level = int.Parse(_currentLevel.Split('_')[1]);
@@ -582,7 +594,7 @@ public class UIController : MonoBehaviour
         var rectTransform = panel.GetComponent<RectTransform>();
         rectTransform.SetParent(menu.transform.Find("Levels").Find("ScrollRect").Find("Content"));
 
-        panel.transform.localScale = new Vector3(1f , 1f, 1f);
+        panel.transform.localScale = new Vector3(1f, 1f, 1f);
 
         Transform levelButtons = panel.transform.Find("Buttons");
         Button levelButton = null;
@@ -853,14 +865,25 @@ public class UIController : MonoBehaviour
         bucketButton.Find("Clock").gameObject.SetActive(!active);
     }
 
-    public void ChangeLanguage(string language)
+    public void ChangeLanguage(bool buttonClick = false/*string language*/)
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
 
-        if (language == "en")
-            Localization.Instance.CurrentLanguage = SystemLanguage.English;
-        else if (language == "pt")
-            Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
+        // if (language == "en")
+        //     Localization.Instance.CurrentLanguage = SystemLanguage.English;
+        // else if (language == "pt")
+        //     Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
+        if (buttonClick)
+        {
+            if (languageText.text == "English")
+                Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
+            else
+                Localization.Instance.CurrentLanguage = SystemLanguage.English;
+        }
+
+        string currentLanguage = Localization.Instance.CurrentLanguage.ToString();        
+        languageText.text = currentLanguage == "Portuguese" ? "Português" : currentLanguage.ToString();
+        
     }
 
     public void RefreshUIToolsAndMoney()
@@ -878,5 +901,32 @@ public class UIController : MonoBehaviour
     public void CallNewPaintFluid()
     {
         gameController.NewPaintFluid(false);
+    }
+
+    public void SetVibrationOption(bool isOn)
+    {
+        PlayerPrefs.SetString("vibration", isOn ? "on" : "off");
+        vibrationToggle.isOn = isOn;
+
+        if (isOn)
+        {
+            vibrationToggle.transform.Find("OffIcon").gameObject.SetActive(false);
+        }
+        else
+        {
+            vibrationToggle.transform.Find("OffIcon").gameObject.SetActive(true);
+        }
+    }
+
+    public void OpenCredits()
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        creditsAlert.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        StartCoroutine(ClosePanelAnimation(creditsAlert.transform));
     }
 }
