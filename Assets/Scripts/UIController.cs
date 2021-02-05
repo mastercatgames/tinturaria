@@ -671,8 +671,9 @@ public class UIController : MonoBehaviour
         //SceneManager.LoadScene(levelName);
         PlayerPrefs.SetString("_CurrentLevel", levelName);
         SetSelectedLevelVariables();
-        BackToMainMenu();
+        BackToMainMenu();        
         Time.timeScale = 1f;
+        RestartGame();
     }
 
     #endregion
@@ -722,6 +723,7 @@ public class UIController : MonoBehaviour
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Menu").Find("Main").Find("ShopButton").gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
         transform.parent.Find("TopHeader").gameObject.SetActive(true);
         timerIsRunning = false;
