@@ -671,7 +671,7 @@ public class UIController : MonoBehaviour
         //SceneManager.LoadScene(levelName);
         PlayerPrefs.SetString("_CurrentLevel", levelName);
         SetSelectedLevelVariables();
-        BackToMainMenu();        
+        BackToMainMenu();
         Time.timeScale = 1f;
         RestartGame();
     }
@@ -743,10 +743,95 @@ public class UIController : MonoBehaviour
     public void RefreshPowerUpsCount()
     {
         Transform powerUpsButtons = transform.parent.Find("Menu").Find("Main").Find("LevelDetails").Find("Content").Find("PowerUps");
+
         foreach (Transform powerUp in powerUpsButtons)
         {
             powerUp.Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("PowerUp_" + powerUp.name).ToString();
             powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+
+            if (powerUp.name == "DoubleCash")
+            {
+                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0))
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(false);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 0)
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(true);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+            }
+
+            if (powerUp.name == "NoBrokenBottles")
+            {
+                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1))
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(false);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 1)
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(true);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+            }
+
+            if (powerUp.name == "BoosterFilling_OneBottle")
+            {
+                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2))
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(false);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 2)
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(true);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+            }
+
+            if (powerUp.name == "BoosterFilling_AllBottles")
+            {                
+                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3))
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(false);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 3)
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(true);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+            }
+
+            if (powerUp.name == "FixInTime")
+            {
+                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4))
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(false);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 4)
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(true);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+            }
+
+            if (powerUp.name == "BoosterFilling_Box")
+            {
+                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5))
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(false);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 5)
+                {
+                    powerUp.Find("BGCount").gameObject.SetActive(true);
+                    powerUp.Find("Lock").gameObject.SetActive(false);
+                }
+            }
         }
     }
 
@@ -883,9 +968,9 @@ public class UIController : MonoBehaviour
                 Localization.Instance.CurrentLanguage = SystemLanguage.English;
         }
 
-        string currentLanguage = Localization.Instance.CurrentLanguage.ToString();        
+        string currentLanguage = Localization.Instance.CurrentLanguage.ToString();
         languageText.text = currentLanguage == "Portuguese" ? "Português" : currentLanguage.ToString();
-        
+
     }
 
     public void RefreshUIToolsAndMoney()
@@ -930,5 +1015,19 @@ public class UIController : MonoBehaviour
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         StartCoroutine(ClosePanelAnimation(creditsAlert.transform));
+    }
+
+    public void OpenAlertPowerUpsLocked(GameObject powerUp)
+    {
+        if (!isPowerUpTutorial && !powerUp.transform.Find("BGCount").gameObject.activeSelf /*&& PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0*/)
+        {
+            GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+            transform.parent.Find("Menu").Find("Main").Find("LevelDetails").Find("AlertLocked").gameObject.SetActive(true);
+        }
+    }
+    public void CloseAlertPowerUpsLocked()
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails").Find("AlertLocked")));
     }
 }
