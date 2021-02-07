@@ -118,6 +118,7 @@ public class UIController : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -400,9 +401,11 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            Transform Play_Button = transform.parent.Find("Menu").Find("Main").Find("Play_Button");
-            Play_Button.Find("Text").GetComponent<Text>().text = "Tap to continue";
-            Play_Button.gameObject.SetActive(true);
+            // Transform Play_Button = transform.parent.Find("Menu").Find("Main").Find("Play_Button");
+            // Play_Button.Find("Text").GetComponent<Text>().text = "Tap to continue";
+            // Play_Button.gameObject.SetActive(true);            
+            LocalizedTextBehaviour title = gameObject.transform.parent.Find("Menu").Find("Main").Find("GridButtons").Find("ContinueButton").Find("Text").GetComponent<LocalizedTextBehaviour>();
+            title.LocalizedAsset = (LocalizedText)Resources.Load("Continue", typeof(LocalizedText));
         }
     }
 
@@ -724,6 +727,7 @@ public class UIController : MonoBehaviour
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Menu").Find("Main").Find("ShopButton").gameObject.SetActive(false);
+        gameObject.transform.parent.Find("Menu").Find("Main").Find("GridButtons").Find("MenuButton").gameObject.SetActive(true);
         menu.gameObject.SetActive(true);
         transform.parent.Find("TopHeader").gameObject.SetActive(true);
         timerIsRunning = false;
@@ -887,7 +891,7 @@ public class UIController : MonoBehaviour
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails")));
-        transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(true);
+        // transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(true);
     }
 
     public IEnumerator ClosePanelAnimation(Transform panel)
@@ -909,7 +913,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(false);
+            // transform.parent.Find("Menu").Find("Main").Find("Play_Button").gameObject.SetActive(false);
             RefreshPowerUpsCount();
 
             Transform levelDetails = transform.parent.Find("Menu").Find("Main").Find("LevelDetails");
