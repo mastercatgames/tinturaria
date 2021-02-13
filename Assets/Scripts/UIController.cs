@@ -482,6 +482,7 @@ public class UIController : MonoBehaviour
         if (_currentLevel == "")
         {
             PlayerPrefs.SetString("_CurrentLevel", "1_1");
+            _currentLevel = "1_1";
         }
 
         //Load a background (Assets/Resources/Backgrounds/WORLD_LEVEL.png)
