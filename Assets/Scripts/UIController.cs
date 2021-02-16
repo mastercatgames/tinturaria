@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
 {
     private GameController gameController;
     private LevelManager levelManager;
+    private UnityAds unityAds;
     private PowerUpsController powerUpsController;
     public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert;
     public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
@@ -31,6 +32,7 @@ public class UIController : MonoBehaviour
         gameController = GameObject.Find("Gameplay").transform.Find("GameController").GetComponent<GameController>();
         levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
         powerUpsController = transform.parent.Find("PowerUps").GetComponent<PowerUpsController>();
+        unityAds = GetComponent<UnityAds>();
 
         if (PlayerPrefs.GetString("vibration") == "")
         {
@@ -114,6 +116,30 @@ public class UIController : MonoBehaviour
         // gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(true);
         // gameController.transform.parent.GetComponent<ZoomObject>().zoomIn = true;
         somePanelIsOpen = false;
+    }
+
+    public void PressMenuButton()
+    {
+        if (PlayerPrefs.GetInt("removeAds") == 0 && levelManager.world > 1)
+        {
+            unityAds.ShowSkippableVideoAd("Menu");
+        }
+        else
+        {
+            RestartGame();
+        }
+    }
+
+    public void PressNextLevelButton()
+    {
+        if (PlayerPrefs.GetInt("removeAds") == 0 && levelManager.world > 1)
+        {
+            unityAds.ShowSkippableVideoAd("NextLevel");
+        }
+        else
+        {
+            LoadNextLevel();
+        }
     }
 
     public void RestartGame()
@@ -797,7 +823,7 @@ public class UIController : MonoBehaviour
             }
 
             if (powerUp.name == "BoosterFilling_AllBottles")
-            {                
+            {
                 if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3))
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(false);
@@ -959,14 +985,14 @@ public class UIController : MonoBehaviour
 
     public void ChangeLanguage(bool buttonClick = false/*string language*/)
     {
-        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
-
         // if (language == "en")
         //     Localization.Instance.CurrentLanguage = SystemLanguage.English;
         // else if (language == "pt")
         //     Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
         if (buttonClick)
         {
+            GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+            
             if (languageText.text == "English")
                 Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
             else
