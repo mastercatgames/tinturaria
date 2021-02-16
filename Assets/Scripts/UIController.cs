@@ -61,7 +61,9 @@ public class UIController : MonoBehaviour
 
         worldsCount = (levelManager.GetAllLevelsProperties().Count / 3);
 
-        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        TextAsset file = Resources.Load("JSON/LevelData") as TextAsset;
+        string LevelDataJSON = file.ToString();
+        //string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
 
         for (int world = 1; world <= worldsCount; world++)
         {
@@ -279,7 +281,9 @@ public class UIController : MonoBehaviour
         SetStarsCount();
 
         //Verify if the next level was unlocked
-        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        TextAsset file = Resources.Load("JSON/LevelData") as TextAsset;
+        string LevelDataJSON = file.ToString();
+        //string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
 
         int nextWorld = levelManager.world,
             nextLevel = levelManager.level + 1;
@@ -518,7 +522,9 @@ public class UIController : MonoBehaviour
         levelManager.world = int.Parse(_currentLevel.Split('_')[0]);
         levelManager.level = int.Parse(_currentLevel.Split('_')[1]);
 
-        string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        TextAsset file = Resources.Load("JSON/LevelData") as TextAsset;
+        string LevelDataJSON = file.ToString();
+        //string LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
         LevelManager.Level selectedLevel = levelManager.GetLevelProperties(levelManager.world, levelManager.level, LevelDataJSON);//JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
 
         levelManager.oneStarCoins = selectedLevel.oneStarCoins;
@@ -527,8 +533,11 @@ public class UIController : MonoBehaviour
 
         if (PlayerPrefs.GetString("_LevelProgress") == "")
         {
+            file = Resources.Load("JSON/LevelProgressRaw") as TextAsset;
+            string LevelProgressRawJSON = file.ToString();
             //Init the Level Progress save data
-            PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
+            //PlayerPrefs.SetString("_LevelProgress", File.ReadAllText(Application.dataPath + "/LevelProgressRaw.json"));
+            PlayerPrefs.SetString("_LevelProgress", LevelProgressRawJSON);
         }
 
         levelManager.highscore = JsonUtility.FromJson<LevelManager.LevelProgressList>(PlayerPrefs.GetString("_LevelProgress")).LevelsProgress.Find(c => c.world == levelManager.world && c.level == levelManager.level).highscore;

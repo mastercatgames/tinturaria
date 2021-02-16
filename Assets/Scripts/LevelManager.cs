@@ -116,7 +116,9 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevelDataJSON()
     {
-        string json = File.ReadAllText(Application.dataPath + "/LevelData.json");
+        TextAsset file = Resources.Load("JSON/LevelData") as TextAsset;
+        string json = file.ToString();
+        //string json = File.ReadAllText(Application.dataPath + "/LevelData.json");
         LevelList levelList = JsonUtility.FromJson<LevelList>(json);
 
         foreach (Level item in levelList.Levels)
@@ -196,7 +198,9 @@ public class LevelManager : MonoBehaviour
     {
         if (LevelDataJSON == "")
         {
-            LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
+            TextAsset file = Resources.Load("JSON/LevelData") as TextAsset;
+            LevelDataJSON = file.ToString();
+            //LevelDataJSON = File.ReadAllText(Application.dataPath + "/LevelData.json");
         }
 
         Level levelProperties = JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels.Find(c => c.world == world && c.level == level);
@@ -206,7 +210,10 @@ public class LevelManager : MonoBehaviour
 
     public List<Level> GetAllLevelsProperties()
     {
-        return JsonUtility.FromJson<LevelList>(File.ReadAllText(Application.dataPath + "/LevelData.json")).Levels;
+        TextAsset file = Resources.Load("JSON/LevelData") as TextAsset;
+        string LevelDataJSON = file.ToString();
+        //return JsonUtility.FromJson<LevelList>(File.ReadAllText(Application.dataPath + "/LevelData.json")).Levels;
+        return JsonUtility.FromJson<LevelList>(LevelDataJSON).Levels;
     }
 
     public LevelProgress GetLevelProgress(int world, int level)
