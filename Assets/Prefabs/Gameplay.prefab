@@ -1819,14 +1819,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  isFilling: 0
   fillSpeed: 0.3
-  currentLight: 0
+  originalFillSpeed: 0
   lightSpeed: 0
-  isBroken: 0
-  isFixing: 0
   OriginalTimeInSeconds: 0
   FixingTimeInSeconds: 0
+  currentLight: 0
+  isFilling: 0
+  isBroken: 0
+  isFixing: 0
 --- !u!1 &1553451857
 GameObject:
   m_ObjectHideFlags: 0
@@ -7904,14 +7905,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  isFilling: 0
   fillSpeed: 0.3
-  currentLight: 0
+  originalFillSpeed: 0
   lightSpeed: 0
-  isBroken: 0
-  isFixing: 0
   OriginalTimeInSeconds: 0
   FixingTimeInSeconds: 0
+  currentLight: 0
+  isFilling: 0
+  isBroken: 0
+  isFixing: 0
 --- !u!1 &3325180215947214418
 GameObject:
   m_ObjectHideFlags: 0
@@ -12244,14 +12246,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  isFilling: 0
   fillSpeed: 0.3
-  currentLight: 0
+  originalFillSpeed: 0
   lightSpeed: 0
-  isBroken: 0
-  isFixing: 0
   OriginalTimeInSeconds: 0
   FixingTimeInSeconds: 0
+  currentLight: 0
+  isFilling: 0
+  isBroken: 0
+  isFixing: 0
 --- !u!1 &6393720755540745293
 GameObject:
   m_ObjectHideFlags: 0
@@ -13292,14 +13295,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  isFilling: 0
   fillSpeed: 0.3
-  currentLight: 0
+  originalFillSpeed: 0
   lightSpeed: 0
-  isBroken: 0
-  isFixing: 0
   OriginalTimeInSeconds: 0
   FixingTimeInSeconds: 0
+  currentLight: 0
+  isFilling: 0
+  isBroken: 0
+  isFixing: 0
 --- !u!1 &7354771806528519140
 GameObject:
   m_ObjectHideFlags: 0
@@ -13649,14 +13653,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  isFilling: 0
   fillSpeed: 0.3
-  currentLight: 0
+  originalFillSpeed: 0
   lightSpeed: 0
-  isBroken: 0
-  isFixing: 0
   OriginalTimeInSeconds: 0
   FixingTimeInSeconds: 0
+  currentLight: 0
+  isFilling: 0
+  isBroken: 0
+  isFixing: 0
 --- !u!1 &7532979731849284013
 GameObject:
   m_ObjectHideFlags: 0
@@ -15996,14 +16001,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkfillAmount: 0
   limitToFill: 0
-  isFilling: 0
   fillSpeed: 0.3
-  currentLight: 0
+  originalFillSpeed: 0
   lightSpeed: 0
-  isBroken: 0
-  isFixing: 0
   OriginalTimeInSeconds: 0
   FixingTimeInSeconds: 0
+  currentLight: 0
+  isFilling: 0
+  isBroken: 0
+  isFixing: 0
 --- !u!1 &8218133084653808329
 GameObject:
   m_ObjectHideFlags: 0
