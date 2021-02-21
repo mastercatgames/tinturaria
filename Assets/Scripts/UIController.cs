@@ -910,16 +910,16 @@ public class UIController : MonoBehaviour
 
     public void Test_AddMorePowerUpAndTools()
     {
-        PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") + 10);
-        PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") + 10);
-        PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") + 10);
-        PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") + 10);
-        PlayerPrefs.SetInt("PowerUp_FreezingTime", PlayerPrefs.GetInt("PowerUp_FreezingTime") + 10);
-        PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 10);
-        PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 10);
-        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 10);
-        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + 10000);
-        PlayerPrefs.SetInt("gemsCount", PlayerPrefs.GetInt("gemsCount") + 10);
+        PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") + 1);
+        PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") + 1);
+        PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") + 1);
+        PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") + 1);
+        PlayerPrefs.SetInt("PowerUp_FreezingTime", PlayerPrefs.GetInt("PowerUp_FreezingTime") + 1);
+        PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 1);
+        PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 1);
+        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 1);
+        PlayerPrefs.SetInt("coinsCount", PlayerPrefs.GetInt("coinsCount") + 100);
+        PlayerPrefs.SetInt("gemsCount", PlayerPrefs.GetInt("gemsCount") + 1);
         RefreshUIToolsAndMoney();
     }
 
