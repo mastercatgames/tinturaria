@@ -1070,4 +1070,29 @@ public class UIController : MonoBehaviour
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         StartCoroutine(ClosePanelAnimation(transform.parent.Find("Menu").Find("Main").Find("LevelDetails").Find("AlertLocked")));
     }
+    public void SetGOInactive(GameObject gameObject)
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        gameObject.SetActive(false);
+    }
+
+    public void OpenDailyRewards()
+    {
+        Transform DailyRewards = menu.transform.Find("DailyRewards");
+
+        int dayNum = 1;
+
+        foreach (Transform day in DailyRewards.Find("Content").Find("GridLayoutGroup"))
+        {
+            day.Find("Text").GetComponent<LocalizedTextBehaviour>().FormatArgs[0] = dayNum.ToString();
+            dayNum++;
+        }
+
+        DailyRewards.Find("Content").Find("Day7");
+
+        LocalizedTextBehaviour day7Text = DailyRewards.Find("Content").Find("Day7").Find("Text").GetComponent<LocalizedTextBehaviour>();
+        day7Text.FormatArgs[0] = "7";
+
+        DailyRewards.gameObject.SetActive(true);
+    }
 }
