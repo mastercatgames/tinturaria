@@ -3062,7 +3062,6 @@ GameObject:
   - component: {fileID: 6237583722989059530}
   - component: {fileID: 431469773677494849}
   - component: {fileID: 5463792561749628415}
-  - component: {fileID: 1371284090304270390}
   - component: {fileID: 3718100094521967530}
   m_Layer: 5
   m_Name: Day7
@@ -3130,20 +3129,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1371284090304270390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280034560428548813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 8a7d02f393db35143b5181b76fbe32f1, type: 2}
-  radius: 90
 --- !u!114 &3718100094521967530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7921,7 +7906,6 @@ GameObject:
   - component: {fileID: 8883225137221550341}
   - component: {fileID: 8097107068354132601}
   - component: {fileID: 3637884735809438407}
-  - component: {fileID: 1655198383624199229}
   - component: {fileID: 6373572803348406657}
   m_Layer: 5
   m_Name: Day2
@@ -7989,20 +7973,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1655198383624199229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969078564074477977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: a1f49d5401c6233409b3362847f0238e, type: 2}
-  radius: 90
 --- !u!114 &6373572803348406657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18318,7 +18288,6 @@ GameObject:
   - component: {fileID: 641572499872709095}
   - component: {fileID: 8352388719356602678}
   - component: {fileID: 2448138066019192832}
-  - component: {fileID: 1464421813053653764}
   - component: {fileID: 4410559852876422375}
   m_Layer: 5
   m_Name: Day4
@@ -18386,20 +18355,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1464421813053653764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526676239652026851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: a1f49d5401c6233409b3362847f0238e, type: 2}
-  radius: 90
 --- !u!114 &4410559852876422375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36193,7 +36148,6 @@ GameObject:
   - component: {fileID: 2169701626702815624}
   - component: {fileID: 1614170882156751013}
   - component: {fileID: 719062412864558818}
-  - component: {fileID: 5304048749877355498}
   - component: {fileID: 4221932615498614638}
   m_Layer: 5
   m_Name: Day5
@@ -36261,20 +36215,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5304048749877355498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3647214320408073055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: a1f49d5401c6233409b3362847f0238e, type: 2}
-  radius: 90
 --- !u!114 &4221932615498614638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45191,7 +45131,6 @@ GameObject:
   - component: {fileID: 5880368792117460016}
   - component: {fileID: 4761973660895393412}
   - component: {fileID: 6756515571967201788}
-  - component: {fileID: 6877016315206261286}
   - component: {fileID: 7943806069616374377}
   m_Layer: 5
   m_Name: Day1
@@ -45259,20 +45198,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6877016315206261286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4596495877229474276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: a1f49d5401c6233409b3362847f0238e, type: 2}
-  radius: 90
 --- !u!114 &7943806069616374377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53787,7 +53712,6 @@ GameObject:
   - component: {fileID: 4829294204031150317}
   - component: {fileID: 6421873233828338291}
   - component: {fileID: 1533592371538447910}
-  - component: {fileID: 6228391503803537262}
   - component: {fileID: 1444015550222237095}
   m_Layer: 5
   m_Name: Day6
@@ -53855,20 +53779,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &6228391503803537262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5772561450030256121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: a1f49d5401c6233409b3362847f0238e, type: 2}
-  radius: 90
 --- !u!114 &1444015550222237095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75927,7 +75837,6 @@ GameObject:
   - component: {fileID: 4019849472612511368}
   - component: {fileID: 4498243919841612691}
   - component: {fileID: 6265173416570176063}
-  - component: {fileID: 8583722358254265274}
   - component: {fileID: 6490975767489365590}
   m_Layer: 5
   m_Name: Day3
@@ -75995,20 +75904,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8583722358254265274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8145564473170879665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: a1f49d5401c6233409b3362847f0238e, type: 2}
-  radius: 90
 --- !u!114 &6490975767489365590
 MonoBehaviour:
   m_ObjectHideFlags: 0
