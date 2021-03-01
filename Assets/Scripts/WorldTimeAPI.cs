@@ -28,8 +28,12 @@ public class WorldTimeAPI : MonoBehaviour {
 		//..
 	}
 
-	// const string API_URL = "http://worldtimeapi.org/api/ip";
-	const string API_URL = "http://worldtimeapi.org/timezone/Europe/London";
+	//>>> Augusto Polonio note: The API_URL might be use HTTPs protocol 
+	//(http does not will work in Android build)
+
+	// const string API_URL = "https://worldtimeapi.org/api/ip";
+	// const string API_URL = "https://worldtimeapi.org/api/timezone/Europe/London";	
+	const string API_URL = "https://worldtimeapi.org/api/timezone/America/Sao_Paulo";
 
 	[HideInInspector] public bool IsTimeLodaed = false;
 
@@ -42,7 +46,6 @@ public class WorldTimeAPI : MonoBehaviour {
 	public DateTime GetCurrentDateTime ( ) {
 		//here we don't need to get the datetime from the server again
 		// just add elapsed time since the game start to _currentDateTime
-
 		return _currentDateTime.AddSeconds ( Time.realtimeSinceStartup );
 	}
 
@@ -50,9 +53,10 @@ public class WorldTimeAPI : MonoBehaviour {
 		UnityWebRequest webRequest = UnityWebRequest.Get ( API_URL );
 		Debug.Log ( "getting real datetime..." );
 
-		yield return webRequest.Send ( );
+		// yield return webRequest.Send ();
+		yield return webRequest.SendWebRequest();
 
-		if ( webRequest.isError ) {
+		if ( webRequest.isNetworkError ) {
 			//error
 			Debug.Log ( "Error: " + webRequest.error );
 

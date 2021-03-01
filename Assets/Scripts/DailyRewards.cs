@@ -6,42 +6,85 @@ using UnityEngine.UI;
 
 public class DailyRewards : MonoBehaviour
 {
-    public Text datetimeText;
-    private DateTime DATE_REWARD;
-    private DateTime currentDateTime;
-    private DateTime limitDateTime;
+    private int connectAttempts;
+    //public bool isDebug;
+
+    // [Header("Local Date Debug")]
+    public bool isLocalDate;
+    public int SimulateNextXDays;
+    private Text CurrentDate_debug, LAST_DAY_REWARD_debug, NEXT_DAY_REWARD_debug, DATE_REWARD_debug, Connectivity_debug;
+    private DateTime DATE_REWARD, currentDateTime, limitDateTime;
     private UIController uiController;
     private Transform rewardsContent;
+    public Transform DailyRewardsDebugTexts;    
 
     // Start is called before the first frame update
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        rewardsContent = uiController.menu.transform.Find("DailyRewards").Find("Content");
+        rewardsContent = uiController.menu.transform.Find("DailyRewards").Find("Content");        
 
-        currentDateTime = DateTime.Now;
-
-        //Test to add Days
-        //currentDateTime = currentDateTime.AddDays(7);
-
-        limitDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0);
+        if (DailyRewardsDebugTexts != null)
+        {
+            DailyRewardsDebugTexts.Find("Content").gameObject.SetActive(true);
+            Connectivity_debug = DailyRewardsDebugTexts.Find("Content").Find("Connectivity").GetComponent<Text>();
+            CurrentDate_debug = DailyRewardsDebugTexts.Find("Content").Find("CurrentDate").GetComponent<Text>();
+            LAST_DAY_REWARD_debug = DailyRewardsDebugTexts.Find("Content").Find("LAST_DAY_REWARD").GetComponent<Text>();
+            NEXT_DAY_REWARD_debug = DailyRewardsDebugTexts.Find("Content").Find("NEXT_DAY_REWARD").GetComponent<Text>();
+            DATE_REWARD_debug = DailyRewardsDebugTexts.Find("Content").Find("DATE_REWARD").GetComponent<Text>();
+        }
 
         InitReward();
     }
 
     void Update()
     {
-        datetimeText.text = currentDateTime.ToString();
+        if (isLocalDate)
+        {
+            currentDateTime = DateTime.Now;
+        }
+        else if (WorldTimeAPI.Instance.IsTimeLodaed)
+        {
+            currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
+        }
 
-        // if (WorldTimeAPI.Instance.IsTimeLodaed) 
-        //{
-        // 	DateTime currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
-        // 	datetimeText.text = currentDateTime.ToString();
-        // }
+        SetDebugText(CurrentDate_debug, currentDateTime.ToString());
     }
 
     private void InitReward()
     {
+        if (isLocalDate)
+        {
+            currentDateTime = DateTime.Now;
+            currentDateTime = currentDateTime.AddDays(SimulateNextXDays);
+            uiController.SetLoading(false);
+        }
+        else if (WorldTimeAPI.Instance.IsTimeLodaed)
+        {
+            currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
+            SetDebugText(CurrentDate_debug, currentDateTime.ToString());
+            SetDebugText(Connectivity_debug, "Connected!");
+            uiController.SetLoading(false);
+        }
+        else
+        {
+            if (connectAttempts < 10)
+            {
+                connectAttempts++;
+                SetDebugText(Connectivity_debug, "Trying to connect (Attempt " + connectAttempts + ")...");
+                Invoke("InitReward", 1f);
+                return;
+            }
+            else
+            {
+                SetDebugText(Connectivity_debug, "No Internet Connection!");
+                uiController.SetLoading(false);
+                return;
+            }
+        }
+
+        limitDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0);
+
         if (PlayerPrefs.GetString("DATE_REWARD") != "")
             DATE_REWARD = Convert.ToDateTime(PlayerPrefs.GetString("DATE_REWARD"));
 
@@ -50,9 +93,9 @@ public class DailyRewards : MonoBehaviour
             PlayerPrefs.SetInt("LAST_DAY_REWARD", 1);
             PlayerPrefs.SetInt("NEXT_DAY_REWARD", 1);
             PlayerPrefs.SetString("DATE_REWARD", currentDateTime.ToString("YYYY-MM-dd"));
-            DATE_REWARD = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0); ;
+            DATE_REWARD = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0);
         }
-        
+
         var hours = (limitDateTime - DATE_REWARD).TotalHours;
 
         if (hours >= 48)
@@ -111,23 +154,49 @@ public class DailyRewards : MonoBehaviour
             switch (PlayerPrefs.GetInt("LAST_DAY_REWARD"))
             {
                 case 1:
-                    //Give the reward
+                    PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") + 1);
                     break;
                 case 2:
+                    PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 1);
                     break;
                 case 3:
+                    PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") + 1);
                     break;
                 case 4:
+                    PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") + 1);
                     break;
                 case 5:
+                    PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 1);
                     break;
                 case 6:
+                    PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") + 1);
                     break;
                 case 7:
+                    PlayerPrefs.SetInt("PowerUp_DoubleCash", PlayerPrefs.GetInt("PowerUp_DoubleCash") + 1);
+                    PlayerPrefs.SetInt("PowerUp_FixInTime", PlayerPrefs.GetInt("PowerUp_FixInTime") + 1);
+                    PlayerPrefs.SetInt("PowerUp_BoosterFilling_OneBottle", PlayerPrefs.GetInt("PowerUp_BoosterFilling_OneBottle") + 1);
+                    PlayerPrefs.SetInt("PowerUp_NoBrokenBottles", PlayerPrefs.GetInt("PowerUp_NoBrokenBottles") + 1);
+                    PlayerPrefs.SetInt("PowerUp_BoosterFilling_Box", PlayerPrefs.GetInt("PowerUp_BoosterFilling_Box") + 1);
+                    PlayerPrefs.SetInt("PowerUp_BoosterFilling_AllBottles", PlayerPrefs.GetInt("PowerUp_BoosterFilling_AllBottles") + 1);
                     break;
             }
 
             print("REWARD DAY " + PlayerPrefs.GetInt("LAST_DAY_REWARD") + "!");
+        }
+
+        if (DailyRewardsDebugTexts != null)
+        {
+            SetDebugText(LAST_DAY_REWARD_debug, LAST_DAY_REWARD_debug.text + PlayerPrefs.GetInt("LAST_DAY_REWARD"));
+            SetDebugText(NEXT_DAY_REWARD_debug, NEXT_DAY_REWARD_debug.text + PlayerPrefs.GetInt("NEXT_DAY_REWARD"));
+            SetDebugText(DATE_REWARD_debug, DATE_REWARD_debug.text + PlayerPrefs.GetString("DATE_REWARD"));
+        }
+    }
+
+    private void SetDebugText(Text debugText, string text)
+    {
+        if (DailyRewardsDebugTexts != null)
+        {
+            debugText.text = text;
         }
     }
 }

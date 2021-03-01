@@ -12,13 +12,18 @@ public class UIController : MonoBehaviour
     private LevelManager levelManager;
     private UnityAds unityAds;
     private PowerUpsController powerUpsController;
-    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert;
+    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel;
     public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
     public Button LevelButton;
     public Toggle vibrationToggle;
     public float timeRemaining;
     public bool timerIsRunning, somePanelIsOpen, isInGamePlay, isTutorial, isToolTutorial, isPowerUpTutorial, blockSwipe, blockRightSwipe, blockPainting;
     public int currentTotalCoins, starsCount, levelsCount, worldsCount;
+
+    void Awake()
+    {
+        SetLoading(true);
+    }
 
     void Start()
     {
@@ -1001,7 +1006,7 @@ public class UIController : MonoBehaviour
         if (buttonClick)
         {
             GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
-            
+
             if (languageText.text == "English")
                 Localization.Instance.CurrentLanguage = SystemLanguage.Portuguese;
             else
@@ -1094,5 +1099,10 @@ public class UIController : MonoBehaviour
         day7Text.FormatArgs[0] = "7";
 
         DailyRewards.gameObject.SetActive(true);
+    }
+
+    public void SetLoading(bool trueOrFalse)
+    {
+        LoadingPanel.SetActive(trueOrFalse);
     }
 }
