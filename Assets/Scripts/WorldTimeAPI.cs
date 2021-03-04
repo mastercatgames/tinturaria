@@ -4,83 +4,108 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine.Networking;
 
-public class WorldTimeAPI : MonoBehaviour {
-#region Singleton class: WorldTimeAPI
+public class WorldTimeAPI : MonoBehaviour
+{
+    #region Singleton class: WorldTimeAPI
 
-	public static WorldTimeAPI Instance;
+    public static WorldTimeAPI Instance;
 
-	void Awake ( ) {
-		if ( Instance == null ) {
-			Instance = this;
-			DontDestroyOnLoad ( this.gameObject );
-		} else {
-			Destroy ( this.gameObject );
-		}
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+			StartCoroutine(GetRealDateTimeFromAPI());
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    #endregion
+
+    //json container
+    struct TimeData
+    {
+        //public string client_ip;
+        //...
+        public string datetime;
+        //..
+    }
+
+    //>>> Augusto Polonio note: The API_URL might be use HTTPs protocol 
+    //(http does not will work in Android build)
+
+    // const string API_URL = "https://worldtimeapi.org/api/ip";
+    const string API_URL = "https://worldtimeapi.org/api/timezone/Europe/London";	
+    //const string API_URL = "https://worldtimeapi.org/api/timezone/America/Sao_Paulo";
+
+    [HideInInspector] public bool IsTimeLodaed = false;
+
+    private DateTime _currentDateTime = DateTime.Now;
+
+    void Start()
+    {
+        // StartCoroutine(GetRealDateTimeFromAPI());
+    }
+
+	public void Reload()
+	{
+		StartCoroutine(GetRealDateTimeFromAPI());
 	}
 
-#endregion
+    public DateTime GetCurrentDateTime()
+    {
+        //here we don't need to get the datetime from the server again
+        // just add elapsed time since the game start to _currentDateTime
+        return _currentDateTime.AddSeconds(Time.realtimeSinceStartup);
+    }
 
-	//json container
-	struct TimeData {
-		//public string client_ip;
-		//...
-		public string datetime;
-		//..
-	}
+    IEnumerator GetRealDateTimeFromAPI()
+    {
+        //UnityWebRequest webRequest = UnityWebRequest.Get(API_URL);
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(API_URL))
+        {
+            Debug.Log("getting real datetime...");
+            DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "getting real datetime...", false);
 
-	//>>> Augusto Polonio note: The API_URL might be use HTTPs protocol 
-	//(http does not will work in Android build)
+            // yield return webRequest.Send ();
+            yield return webRequest.SendWebRequest();
 
-	// const string API_URL = "https://worldtimeapi.org/api/ip";
-	// const string API_URL = "https://worldtimeapi.org/api/timezone/Europe/London";	
-	const string API_URL = "https://worldtimeapi.org/api/timezone/America/Sao_Paulo";
+            if (webRequest.isNetworkError)
+            {
+                //error
+                Debug.Log("Error: " + webRequest.error);
+                DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "Connection Error!", false);
+				// DailyRewards.Instance.ShowNoInternetAlert();
+            }
+            else
+            {
+                //success
+                TimeData timeData = JsonUtility.FromJson<TimeData>(webRequest.downloadHandler.text);
+                //timeData.datetime value is : 2020-08-14T15:54:04+01:00
 
-	[HideInInspector] public bool IsTimeLodaed = false;
+                _currentDateTime = ParseDateTime(timeData.datetime);
+                IsTimeLodaed = true;
 
-	private DateTime _currentDateTime = DateTime.Now;
+                Debug.Log("Success.");
+                DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "Connected!", false);
+            }
+        }
+    }
+    //datetime format => 2020-08-14T15:54:04+01:00
+    DateTime ParseDateTime(string datetime)
+    {
+        //match 0000-00-00
+        string date = Regex.Match(datetime, @"^\d{4}-\d{2}-\d{2}").Value;
 
-	void Start ( ) {
-		StartCoroutine ( GetRealDateTimeFromAPI ( ) );
-	}
+        //match 00:00:00
+        string time = Regex.Match(datetime, @"\d{2}:\d{2}:\d{2}").Value;
 
-	public DateTime GetCurrentDateTime ( ) {
-		//here we don't need to get the datetime from the server again
-		// just add elapsed time since the game start to _currentDateTime
-		return _currentDateTime.AddSeconds ( Time.realtimeSinceStartup );
-	}
-
-	IEnumerator GetRealDateTimeFromAPI ( ) {
-		UnityWebRequest webRequest = UnityWebRequest.Get ( API_URL );
-		Debug.Log ( "getting real datetime..." );
-
-		// yield return webRequest.Send ();
-		yield return webRequest.SendWebRequest();
-
-		if ( webRequest.isNetworkError ) {
-			//error
-			Debug.Log ( "Error: " + webRequest.error );
-
-		} else {
-			//success
-			TimeData timeData = JsonUtility.FromJson<TimeData> ( webRequest.downloadHandler.text );
-			//timeData.datetime value is : 2020-08-14T15:54:04+01:00
-
-			_currentDateTime = ParseDateTime ( timeData.datetime );
-			IsTimeLodaed = true;
-
-			Debug.Log ( "Success." );
-		}
-	}
-	//datetime format => 2020-08-14T15:54:04+01:00
-	DateTime ParseDateTime ( string datetime ) {
-		//match 0000-00-00
-		string date = Regex.Match ( datetime, @"^\d{4}-\d{2}-\d{2}" ).Value;
-
-		//match 00:00:00
-		string time = Regex.Match ( datetime, @"\d{2}:\d{2}:\d{2}" ).Value;
-
-		return DateTime.Parse ( string.Format ( "{0} {1}", date, time ) );
-	}
+        return DateTime.Parse(string.Format("{0} {1}", date, time));
+    }
 }
 
 

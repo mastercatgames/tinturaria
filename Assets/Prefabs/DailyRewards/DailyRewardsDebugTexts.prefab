@@ -334,7 +334,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Connectivity:'
+  m_Text: Connecting...
 --- !u!1 &8643587592913958043
 GameObject:
   m_ObjectHideFlags: 0

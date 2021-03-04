@@ -435,7 +435,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f43d517c3b9d74db8c217427590010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectAttempts: 0
-  isDebug: 0
   isLocalDate: 0
   SimulateNextXDays: 0
+  CurrentDate_debug: {fileID: 0}
+  LAST_DAY_REWARD_debug: {fileID: 0}
+  NEXT_DAY_REWARD_debug: {fileID: 0}
+  DATE_REWARD_debug: {fileID: 0}
+  Connectivity_debug: {fileID: 0}
+  DailyRewardsDebugTexts: {fileID: 0}

@@ -6,23 +6,41 @@ using UnityEngine.UI;
 
 public class DailyRewards : MonoBehaviour
 {
+    public static DailyRewards Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private int connectAttempts;
     //public bool isDebug;
 
     // [Header("Local Date Debug")]
     public bool isLocalDate;
     public int SimulateNextXDays;
-    private Text CurrentDate_debug, LAST_DAY_REWARD_debug, NEXT_DAY_REWARD_debug, DATE_REWARD_debug, Connectivity_debug;
+    [HideInInspector]
+    public Text CurrentDate_debug, LAST_DAY_REWARD_debug, NEXT_DAY_REWARD_debug, DATE_REWARD_debug, Connectivity_debug;
     private DateTime DATE_REWARD, currentDateTime, limitDateTime;
-    private UIController uiController;
+
+    [HideInInspector]
+    public UIController uiController;
     private Transform rewardsContent;
-    public Transform DailyRewardsDebugTexts;    
+    public Transform DailyRewardsDebugTexts;
 
     // Start is called before the first frame update
     void Start()
     {
         uiController = GameObject.FindGameObjectWithTag("UIController").GetComponent<UIController>();
-        rewardsContent = uiController.menu.transform.Find("DailyRewards").Find("Content");        
+        rewardsContent = uiController.menu.transform.Find("DailyRewards").Find("Content");
 
         if (DailyRewardsDebugTexts != null)
         {
@@ -34,7 +52,7 @@ public class DailyRewards : MonoBehaviour
             DATE_REWARD_debug = DailyRewardsDebugTexts.Find("Content").Find("DATE_REWARD").GetComponent<Text>();
         }
 
-        InitReward();
+        Invoke("InitReward", 2f);
     }
 
     void Update()
@@ -48,7 +66,7 @@ public class DailyRewards : MonoBehaviour
             currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
         }
 
-        SetDebugText(CurrentDate_debug, currentDateTime.ToString());
+        SetDebugText(CurrentDate_debug, currentDateTime.ToString(), false);
     }
 
     private void InitReward()
@@ -62,25 +80,47 @@ public class DailyRewards : MonoBehaviour
         else if (WorldTimeAPI.Instance.IsTimeLodaed)
         {
             currentDateTime = WorldTimeAPI.Instance.GetCurrentDateTime();
-            SetDebugText(CurrentDate_debug, currentDateTime.ToString());
-            SetDebugText(Connectivity_debug, "Connected!");
+            // SetDebugText(CurrentDate_debug, currentDateTime.ToString());
+            //SetDebugText(Connectivity_debug, "Connected!", false);
             uiController.SetLoading(false);
+            connectAttempts = 0;
         }
         else
         {
-            if (connectAttempts < 10)
+            if (connectAttempts < 3)
             {
                 connectAttempts++;
-                SetDebugText(Connectivity_debug, "Trying to connect (Attempt " + connectAttempts + ")...");
-                Invoke("InitReward", 1f);
+                SetDebugText(Connectivity_debug, "Trying to connect (Attempt " + connectAttempts + ")...", false);
+                WorldTimeAPI.Instance.Reload();
+                Invoke("InitReward", 2f);
                 return;
             }
             else
             {
-                SetDebugText(Connectivity_debug, "No Internet Connection!");
-                uiController.SetLoading(false);
+                DailyRewards.Instance.ShowNoInternetAlert();
                 return;
             }
+            // if (connectAttempts < 10)
+            // {
+            //     connectAttempts++;
+            //     SetDebugText(Connectivity_debug, "Trying to connect (Attempt " + connectAttempts + ")...", false);
+            //     Invoke("InitReward", 1f);
+            //     uiController.SetLoading(true);
+            //     return;
+            // }
+            // else
+            // {
+            //     // SetDebugText(Connectivity_debug, "No Internet Connection!", false);
+            //     uiController.SetLoading(false);
+
+            //     //Reload
+            //     // SetDebugText(Connectivity_debug, "Trying to connect again!", false);
+            //     // connectAttempts = 0;
+            //     // WorldTimeAPI.Instance.Reload();
+            //     // Invoke("InitReward", 1f);
+
+            //     return;
+            // }
         }
 
         limitDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0);
@@ -186,17 +226,26 @@ public class DailyRewards : MonoBehaviour
 
         if (DailyRewardsDebugTexts != null)
         {
-            SetDebugText(LAST_DAY_REWARD_debug, LAST_DAY_REWARD_debug.text + PlayerPrefs.GetInt("LAST_DAY_REWARD"));
-            SetDebugText(NEXT_DAY_REWARD_debug, NEXT_DAY_REWARD_debug.text + PlayerPrefs.GetInt("NEXT_DAY_REWARD"));
-            SetDebugText(DATE_REWARD_debug, DATE_REWARD_debug.text + PlayerPrefs.GetString("DATE_REWARD"));
+            SetDebugText(LAST_DAY_REWARD_debug, PlayerPrefs.GetInt("LAST_DAY_REWARD").ToString());
+            SetDebugText(NEXT_DAY_REWARD_debug, PlayerPrefs.GetInt("NEXT_DAY_REWARD").ToString());
+            SetDebugText(DATE_REWARD_debug, PlayerPrefs.GetString("DATE_REWARD"));
         }
     }
 
-    private void SetDebugText(Text debugText, string text)
+    public void SetDebugText(Text debugText, string text, bool increment = true)
     {
-        if (DailyRewardsDebugTexts != null)
+        if (DailyRewardsDebugTexts != null && debugText != null)
         {
-            debugText.text = text;
+            if (increment)
+                debugText.text += text;
+            else
+                debugText.text = text;
         }
+    }
+
+    public void ShowNoInternetAlert()
+    {
+        uiController.SetLoading(false);
+        uiController.NoInternetAlert.SetActive(true);
     }
 }

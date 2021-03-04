@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 8821311735308982682}
   - component: {fileID: 7417699543259059165}
   - component: {fileID: 7009480787512058470}
-  - component: {fileID: 3582605231641792349}
+  - component: {fileID: 5995548543477111455}
   - component: {fileID: 1325422817719655793}
   m_Layer: 5
   m_Name: LoadingPanel
@@ -308,7 +308,7 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1200
   m_TargetDisplay: 0
---- !u!114 &3582605231641792349
+--- !u!114 &5995548543477111455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,9 +317,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9175673737338447270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6529a14e9a578489d7aa741069a898, type: 3}
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!95 &1325422817719655793
 Animator:
   serializedVersion: 3

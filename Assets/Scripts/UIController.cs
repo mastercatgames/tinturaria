@@ -12,7 +12,7 @@ public class UIController : MonoBehaviour
     private LevelManager levelManager;
     private UnityAds unityAds;
     private PowerUpsController powerUpsController;
-    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel;
+    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel, NoInternetAlert;
     public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
     public Button LevelButton;
     public Toggle vibrationToggle;
@@ -46,7 +46,7 @@ public class UIController : MonoBehaviour
 
         SetVibrationOption(PlayerPrefs.GetString("vibration") == "on" ? true : false);
 
-        print("Current Language: " + Localization.Instance.CurrentLanguage);
+        //print("Current Language: " + Localization.Instance.CurrentLanguage);
 
         ChangeLanguage();
 
@@ -1078,7 +1078,15 @@ public class UIController : MonoBehaviour
     public void SetGOInactive(GameObject gameObject)
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
-        gameObject.SetActive(false);
+
+        if (gameObject.transform.Find("Content").GetComponent<Animator>() != null)
+        {
+            StartCoroutine(ClosePanelAnimation(gameObject.transform));
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void OpenDailyRewards()
