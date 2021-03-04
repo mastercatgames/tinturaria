@@ -100,27 +100,6 @@ public class DailyRewards : MonoBehaviour
                 DailyRewards.Instance.ShowNoInternetAlert();
                 return;
             }
-            // if (connectAttempts < 10)
-            // {
-            //     connectAttempts++;
-            //     SetDebugText(Connectivity_debug, "Trying to connect (Attempt " + connectAttempts + ")...", false);
-            //     Invoke("InitReward", 1f);
-            //     uiController.SetLoading(true);
-            //     return;
-            // }
-            // else
-            // {
-            //     // SetDebugText(Connectivity_debug, "No Internet Connection!", false);
-            //     uiController.SetLoading(false);
-
-            //     //Reload
-            //     // SetDebugText(Connectivity_debug, "Trying to connect again!", false);
-            //     // connectAttempts = 0;
-            //     // WorldTimeAPI.Instance.Reload();
-            //     // Invoke("InitReward", 1f);
-
-            //     return;
-            // }
         }
 
         limitDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0);
