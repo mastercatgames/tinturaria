@@ -174,7 +174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1446355814927724772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -442,4 +442,5 @@ MonoBehaviour:
   NEXT_DAY_REWARD_debug: {fileID: 0}
   DATE_REWARD_debug: {fileID: 0}
   Connectivity_debug: {fileID: 0}
+  uiController: {fileID: 0}
   DailyRewardsDebugTexts: {fileID: 0}
