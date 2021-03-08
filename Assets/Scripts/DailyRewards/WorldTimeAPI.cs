@@ -45,6 +45,7 @@ public class WorldTimeAPI : MonoBehaviour
     [HideInInspector] public bool IsTimeLodaed = false;
 
     private DateTime _currentDateTime = DateTime.Now;
+    public bool isStarted;
 
     void Start()
     {
@@ -65,21 +66,18 @@ public class WorldTimeAPI : MonoBehaviour
 
     IEnumerator GetRealDateTimeFromAPI()
     {
-        //UnityWebRequest webRequest = UnityWebRequest.Get(API_URL);
         using (UnityWebRequest webRequest = UnityWebRequest.Get(API_URL))
         {
             Debug.Log("getting real datetime...");
             DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "getting real datetime...", false);
 
-            // yield return webRequest.Send ();
             yield return webRequest.SendWebRequest();
 
             if (webRequest.isNetworkError)
             {
                 //error
-                Debug.Log("Error: " + webRequest.error);
+                //Debug.Log("Error: " + webRequest.error);
                 DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "Connection Error!", false);
-				// DailyRewards.Instance.ShowNoInternetAlert();
             }
             else
             {
@@ -90,7 +88,7 @@ public class WorldTimeAPI : MonoBehaviour
                 _currentDateTime = ParseDateTime(timeData.datetime);
                 IsTimeLodaed = true;
 
-                Debug.Log("Success.");
+                //Debug.Log("Success.");
                 DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "Connected!", false);
             }
         }

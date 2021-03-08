@@ -25,7 +25,7 @@ public class DailyRewards : MonoBehaviour
     //public bool isDebug;
 
     // [Header("Local Date Debug")]
-    public bool isLocalDate;
+    public bool isLocalDate, isUsingTimedReward;
     public int SimulateNextXDays;
     [HideInInspector]
     public Text CurrentDate_debug, LAST_DAY_REWARD_debug, NEXT_DAY_REWARD_debug, DATE_REWARD_debug, Connectivity_debug;
@@ -98,9 +98,12 @@ public class DailyRewards : MonoBehaviour
             else
             {
                 DailyRewards.Instance.ShowNoInternetAlert();
+                WorldTimeAPI.Instance.isStarted = true;
                 return;
             }
         }
+
+        WorldTimeAPI.Instance.isStarted = true;
 
         limitDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 0, 0, 0);
 

@@ -1089,6 +1089,12 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void SetGOActive(GameObject gameObject)
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        gameObject.SetActive(true);
+    }
+
     public void OpenDailyRewards()
     {
         Transform DailyRewards = menu.transform.Find("DailyRewards");

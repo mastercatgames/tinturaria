@@ -91,19 +91,38 @@ public class UnityAds : MonoBehaviour
         }
     }
 
-    // public void ShowRewardedVideo()
-    // {
-    //     var options = new ShowOptions { resultCallback = OnUnityAdsDidFinish };
-    //     // Check if UnityAds ready before calling Show method:
-    //     if (Advertisement.IsReady("rewardedVideo"))
-    //     {
-    //         Advertisement.Show("rewardedVideo", options);
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
-    //     }
-    // }
+    public void ShowTimedRewardVideo()
+    {
+        //var options = new ShowOptions { resultCallback = OnUnityAdsDidFinish };
+        ShowOptions options = new ShowOptions();
+
+        options.resultCallback = AfterShowTimedRewardVideo;
+        // Check if UnityAds ready before calling Show method:
+        if (Advertisement.IsReady("rewardedVideo"))
+        {
+            Advertisement.Show("rewardedVideo", options);
+        }
+        else
+        {
+            Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
+        }
+    }
+
+    public void AfterShowTimedRewardVideo(ShowResult showResult)
+    {
+        // Define conditional logic for each ad completion status:
+        if (showResult == ShowResult.Finished)
+        {
+            // Reward the user for watching the ad to completion.
+            PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 1);
+            uiController.RefreshUIToolsAndMoney();
+            TimedRewards.Instance.ResetTimer();
+        }
+        else if (showResult == ShowResult.Failed)
+        {
+            Debug.LogWarning("The ad did not finish due to an error.");
+        }
+    }
 
     // // Implement IUnityAdsListener interface methods:
     // public void OnUnityAdsDidFinish(ShowResult showResult)
