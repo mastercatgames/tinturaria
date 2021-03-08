@@ -34,7 +34,7 @@ public class TimedRewards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isWorldTimeAPIReadyToUse)
+        if (isWorldTimeAPIReadyToUse && WorldTimeAPI.Instance.IsTimeLodaed)
         {
             GetTimedRewardDiff();
         }

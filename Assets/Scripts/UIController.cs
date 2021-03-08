@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using GameToolkit.Localization;
 using System.IO;
+using UnityEngine.EventSystems;
 
 public class UIController : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class UIController : MonoBehaviour
     private LevelManager levelManager;
     private UnityAds unityAds;
     private PowerUpsController powerUpsController;
+    public float timeRemaining;
     public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel, NoInternetAlert;
     public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
     public Button LevelButton;
     public Toggle vibrationToggle;
-    public float timeRemaining;
     public bool timerIsRunning, somePanelIsOpen, isInGamePlay, isTutorial, isToolTutorial, isPowerUpTutorial, blockSwipe, blockRightSwipe, blockPainting;
     public int currentTotalCoins, starsCount, levelsCount, worldsCount;
 
@@ -127,6 +128,7 @@ public class UIController : MonoBehaviour
 
     public void PressMenuButton()
     {
+        SetLoading(true);
         if (PlayerPrefs.GetInt("removeAds") == 0 && levelManager.world > 1)
         {
             unityAds.ShowSkippableVideoAd("Menu");
@@ -139,6 +141,7 @@ public class UIController : MonoBehaviour
 
     public void PressNextLevelButton()
     {
+        SetLoading(true);
         if (PlayerPrefs.GetInt("removeAds") == 0 && levelManager.world > 1)
         {
             unityAds.ShowSkippableVideoAd("NextLevel");
@@ -713,11 +716,19 @@ public class UIController : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         //SceneManager.LoadScene(levelName);
-        PlayerPrefs.SetString("_CurrentLevel", levelName);
-        SetSelectedLevelVariables();
-        BackToMainMenu();
-        Time.timeScale = 1f;
-        RestartGame();
+        if (PlayerPrefs.GetString("_CurrentLevel") == levelName)
+        {
+            BackToMainMenu();
+        }
+        else
+        {
+            SetLoading(true);
+            PlayerPrefs.SetString("_CurrentLevel", levelName);
+            SetSelectedLevelVariables();
+            BackToMainMenu();
+            Time.timeScale = 1f;
+            RestartGame();
+        }
     }
 
     #endregion
@@ -769,6 +780,7 @@ public class UIController : MonoBehaviour
         gameObject.transform.parent.Find("Tutorial").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Menu").Find("Main").Find("ShopButton").gameObject.SetActive(false);
         gameObject.transform.parent.Find("Menu").Find("Main").Find("GridButtons").Find("MenuButton").gameObject.SetActive(true);
+        gameObject.transform.parent.Find("Menu").Find("Main").Find("TimedRewardButton").gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
         transform.parent.Find("TopHeader").gameObject.SetActive(true);
         timerIsRunning = false;
@@ -792,7 +804,7 @@ public class UIController : MonoBehaviour
         foreach (Transform powerUp in powerUpsButtons)
         {
             powerUp.Find("BGCount").Find("Num").GetComponent<Text>().text = PlayerPrefs.GetInt("PowerUp_" + powerUp.name).ToString();
-            powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+            //powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
 
             if (powerUp.name == "DoubleCash")
             {
@@ -805,6 +817,8 @@ public class UIController : MonoBehaviour
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(true);
                     powerUp.Find("Lock").gameObject.SetActive(false);
+                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+                    powerUp.GetComponent<EventTrigger>().enabled = false;
                 }
             }
 
@@ -819,6 +833,8 @@ public class UIController : MonoBehaviour
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(true);
                     powerUp.Find("Lock").gameObject.SetActive(false);
+                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+                    powerUp.GetComponent<EventTrigger>().enabled = false;
                 }
             }
 
@@ -833,6 +849,8 @@ public class UIController : MonoBehaviour
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(true);
                     powerUp.Find("Lock").gameObject.SetActive(false);
+                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+                    powerUp.GetComponent<EventTrigger>().enabled = false;
                 }
             }
 
@@ -847,6 +865,8 @@ public class UIController : MonoBehaviour
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(true);
                     powerUp.Find("Lock").gameObject.SetActive(false);
+                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+                    powerUp.GetComponent<EventTrigger>().enabled = false;
                 }
             }
 
@@ -861,6 +881,8 @@ public class UIController : MonoBehaviour
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(true);
                     powerUp.Find("Lock").gameObject.SetActive(false);
+                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+                    powerUp.GetComponent<EventTrigger>().enabled = false;
                 }
             }
 
@@ -875,6 +897,8 @@ public class UIController : MonoBehaviour
                 {
                     powerUp.Find("BGCount").gameObject.SetActive(true);
                     powerUp.Find("Lock").gameObject.SetActive(false);
+                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+                    powerUp.GetComponent<EventTrigger>().enabled = false;
                 }
             }
         }
@@ -1093,6 +1117,19 @@ public class UIController : MonoBehaviour
     {
         GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
         gameObject.SetActive(true);
+    }
+
+    public void OpenTimedReward(GameObject gameObject)
+    {
+        GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("UIButtonClick");
+        if (WorldTimeAPI.Instance.IsTimeLodaed)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            NoInternetAlert.SetActive(true);
+        }
     }
 
     public void OpenDailyRewards()
