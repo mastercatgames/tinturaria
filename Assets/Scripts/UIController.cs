@@ -403,7 +403,7 @@ public class UIController : MonoBehaviour
         animator.Play(animationName);
         if (speed > 0)
             animator.speed = speed;
-        print("Finish Animation!");
+        //print("Finish Animation!");
     }
 
     public IEnumerator SetActiveAfterTime(GameObject gameObject, bool active, float delay)

@@ -52,7 +52,7 @@ public class FreezingTime : MonoBehaviour
             bar.color = requestPanelController.GreenColor;
             ActiveTime = 0f;
             percent = 0f;
-            print("FreezingTime is Over!");
+            //print("FreezingTime is Over!");
         }
     }
 }

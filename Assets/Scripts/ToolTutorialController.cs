@@ -29,21 +29,21 @@ public class ToolTutorialController : MonoBehaviour
         if (step == 1)
         {
             FreezeTime();
-            print("Show Step 1!");
+            //print("Show Step 1!");
             transform.Find("GrayBackground").gameObject.SetActive(false);
             transform.Find("Step-1").gameObject.SetActive(true);
         }
         else if (step == 2)
         {
             transform.Find("GrayBackground").gameObject.SetActive(true);
-            print("Show Step 2!");
+            //print("Show Step 2!");
             InkButton.sortingOrder = 501;
             transform.Find("Step-1").gameObject.SetActive(false);
             transform.Find("Step-2").gameObject.SetActive(true);
         }
         else if (step == 3)
         {
-            print("Show Step 3!");
+            //print("Show Step 3!");
             Panel_Ink_Buckets.transform.Find("Close_Button").gameObject.SetActive(false);
             InkButton.sortingOrder = 0;
             uiController.OpenPanel(Panel_Ink_Buckets);
@@ -55,7 +55,7 @@ public class ToolTutorialController : MonoBehaviour
         {    
             transform.Find("GrayBackground").gameObject.SetActive(false);   
             Panel_Ink_Buckets.transform.Find("Close_Button").gameObject.SetActive(true);
-            print("Show Step 4!");
+            //print("Show Step 4!");
             InkButton.sortingOrder = 0;
             uiController.CallFillOrFixRepository(Panel_Ink_Buckets.transform.Find("Buckets").Find("Blue").gameObject);
             Panel_Ink_Buckets.transform.Find("Buckets").Find("Blue").GetComponent<Canvas>().sortingOrder = 505;
@@ -66,7 +66,7 @@ public class ToolTutorialController : MonoBehaviour
         }
         else if (step == 5)
         { 
-            print("Show Step 5 (Done)!");
+            //print("Show Step 5 (Done)!");
             transform.Find("Step-4").gameObject.SetActive(false);
             transform.Find("DoneAlert").gameObject.SetActive(true);
         }
@@ -75,13 +75,13 @@ public class ToolTutorialController : MonoBehaviour
     public void FreezeTime()
     {
         uiController.timerIsRunning = false;
-        print("Freeze Time!");
+        //print("Freeze Time!");
     }
 
     public void NormalizeTime()
     {
         uiController.timerIsRunning = true;
-        print("Normalize Time!");
+        //print("Normalize Time!");
     }
 
     public void FinishTutorial()

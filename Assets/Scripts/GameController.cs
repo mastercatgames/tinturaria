@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour
         {
             if (currentRepository.GetComponent<InkRepositoryController>().isBroken)
             {
-                print("Its broken!");
+                //print("Its broken!");
                 currentRepository.transform.Find("HourGlass_Broken_SVG").GetComponent<Animator>().Play("ShakeRepository");
                 GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("Glitch-Error");
                 return;
@@ -157,7 +157,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                print("Empty!");
+                //print("Empty!");
                 StartCoroutine(currentRepository.GetComponent<InkRepositoryController>().EmptyRepositoryIndicator());
                 GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("Glitch-Error");
 
@@ -337,7 +337,7 @@ public class GameController : MonoBehaviour
             brokenRepository.transform.Find("Tool").gameObject.SetActive(true);
             brokenRepository.transform.Find("ClockSprite").gameObject.SetActive(true);
 
-            print("Fixing the *" + brokenRepository.name + "* repository!");
+            //print("Fixing the *" + brokenRepository.name + "* repository!");
         }
     }
 

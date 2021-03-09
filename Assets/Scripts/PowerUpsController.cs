@@ -43,7 +43,7 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
-                print("You have to buy this power up!");
+                //print("You have to buy this power up!");
             }
         }
         else
@@ -74,7 +74,7 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
-                print("You have to buy this power up!");
+                //print("You have to buy this power up!");
             }
         }
         else
@@ -105,7 +105,7 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
-                print("You have to buy this power up!");
+                //print("You have to buy this power up!");
             }
         }
         else
@@ -136,7 +136,7 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
-                print("You have to buy this power up!");
+                //print("You have to buy this power up!");
             }
         }
         else
@@ -167,7 +167,7 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
-                print("You have to buy this power up!");
+                //print("You have to buy this power up!");
             }
         }
         else
@@ -198,7 +198,7 @@ public class PowerUpsController : MonoBehaviour
             }
             else
             {
-                print("You have to buy this power up!");
+                //print("You have to buy this power up!");
             }
         }
         else

@@ -55,18 +55,18 @@ public class UnityAds : MonoBehaviour
         if (showResult == ShowResult.Finished)
         {
             // Reward the user for watching the ad to completion.
-            print("Menu Ad was finished and can Restart Game now");
+            //print("Menu Ad was finished and can Restart Game now");
             uiController.RestartGame();
         }
         else if (showResult == ShowResult.Skipped)
         {
             // Do not reward the user for skipping the ad.
-            print("Menu Ad was skipped and can Restart Game now");
+            //print("Menu Ad was skipped and can Restart Game now");
             uiController.RestartGame();
         }
         else if (showResult == ShowResult.Failed)
         {
-            Debug.LogWarning("The ad did not finish due to an error.");
+            //Debug.LogWarning("The ad did not finish due to an error.");
         }
     }
 
@@ -76,18 +76,18 @@ public class UnityAds : MonoBehaviour
         if (showResult == ShowResult.Finished)
         {
             // Reward the user for watching the ad to completion.
-            print("Next Level Ad was finished and can go to Next Level now");
+            //print("Next Level Ad was finished and can go to Next Level now");
             uiController.LoadNextLevel();
         }
         else if (showResult == ShowResult.Skipped)
         {
             // Do not reward the user for skipping the ad.
-            print("Next Level Ad was skipped and can go to Next Level now");
+            //print("Next Level Ad was skipped and can go to Next Level now");
             uiController.LoadNextLevel();
         }
         else if (showResult == ShowResult.Failed)
         {
-            Debug.LogWarning("The ad did not finish due to an error.");
+            //Debug.LogWarning("The ad did not finish due to an error.");
         }
     }
 
@@ -104,7 +104,7 @@ public class UnityAds : MonoBehaviour
         }
         else
         {
-            Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
+            //Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
         }
     }
 
@@ -120,7 +120,7 @@ public class UnityAds : MonoBehaviour
         }
         else if (showResult == ShowResult.Failed)
         {
-            Debug.LogWarning("The ad did not finish due to an error.");
+            //Debug.LogWarning("The ad did not finish due to an error.");
         }
     }
 

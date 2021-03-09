@@ -67,6 +67,7 @@ public class TimedRewards : MonoBehaviour
         TimerText.gameObject.SetActive(!TrueOrFalse);
         WatchText.gameObject.SetActive(TrueOrFalse);
         ExclamationIcon.SetActive(TrueOrFalse);
+        ExclamationIcon.transform.parent.parent.Find("SunRay").gameObject.SetActive(TrueOrFalse);
 
         // if (TimerTextSecundary != null)
         //     TimerTextSecundary.gameObject.SetActive(!TrueOrFalse);

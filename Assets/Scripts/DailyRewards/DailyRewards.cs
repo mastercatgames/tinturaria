@@ -203,7 +203,7 @@ public class DailyRewards : MonoBehaviour
                     break;
             }
 
-            print("REWARD DAY " + PlayerPrefs.GetInt("LAST_DAY_REWARD") + "!");
+            //print("REWARD DAY " + PlayerPrefs.GetInt("LAST_DAY_REWARD") + "!");
         }
 
         if (DailyRewardsDebugTexts != null)

@@ -70,7 +70,7 @@ public class TutorialController : MonoBehaviour
         else if (step == 5)
         {
             //Show Swipe to green bottle
-            print("Show Step 5!");
+            //print("Show Step 5!");
             uiController.transform.parent.Find("ButtonsGrid").gameObject.SetActive(true);
             uiController.blockSwipe = false;
             transform.Find("Step-5").gameObject.SetActive(true);
@@ -78,7 +78,7 @@ public class TutorialController : MonoBehaviour
         else if (step == 6)
         {
             //Show Tap here to fill the box
-            print("Show Step 6!");
+            //print("Show Step 6!");
             uiController.blockSwipe = true;
             uiController.blockPainting = false;
             // uiController.blockRightSwipe = false;
@@ -97,7 +97,7 @@ public class TutorialController : MonoBehaviour
         else if (step == 7)
         {
             //Show Oops! It's look like you are out of ink...Let's fill it!
-            print("Show Step 7!");
+            //print("Show Step 7!");
             transform.Find("Step-6").gameObject.SetActive(false);
             transform.Find("Step-7").gameObject.SetActive(true);
         }
@@ -105,7 +105,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show Tap here to reload bottles
             transform.Find("GrayBackground").gameObject.SetActive(true);
-            print("Show Step 8!");
+            //print("Show Step 8!");
             InkButton.sortingOrder = 501;
             transform.Find("Step-7").gameObject.SetActive(false);
             transform.Find("Step-8").gameObject.SetActive(true);
@@ -113,7 +113,7 @@ public class TutorialController : MonoBehaviour
         else if (step == 9)
         {
             //Show choose the requested box
-            print("Show Step 9!");
+            //print("Show Step 9!");
             Panel_Ink_Buckets.transform.Find("Close_Button").gameObject.SetActive(false);
             FormButton.sortingOrder = 0;
             InkButton.sortingOrder = 0;
@@ -126,7 +126,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show Notice that the bottle will start to fill.      
             transform.Find("GrayBackground").gameObject.SetActive(false);   
-            print("Show Step 10!");
+            //print("Show Step 10!");
             FormButton.sortingOrder = 0;
             InkButton.sortingOrder = 0;
             uiController.CallFillOrFixRepository(Panel_Ink_Buckets.transform.Find("Buckets").Find("Green").gameObject);
@@ -140,7 +140,7 @@ public class TutorialController : MonoBehaviour
         {
             //Show Now, fill the box to the end before the time runs out!      
             NormalizeTime();    
-            print("Show Step 11!");
+            //print("Show Step 11!");
             transform.Find("Step-10").gameObject.SetActive(false);
             transform.Find("Step-11").gameObject.SetActive(true);
         }
@@ -150,13 +150,13 @@ public class TutorialController : MonoBehaviour
     {
         // Time.timeScale = 0f;
         uiController.timerIsRunning = false;
-        print("Freeze Time!");
+        //print("Freeze Time!");
     }
 
     public void NormalizeTime()
     {
         uiController.timerIsRunning = true;
-        print("Normalize Time!");
+        //print("Normalize Time!");
     }
 
     public void ShowTapHereAgain()

@@ -229,7 +229,7 @@ public class StoreController : MonoBehaviour
             }
             GameObject.Find("AudioController").GetComponent<AudioController>().PlaySFX("coinsPurchase");
 
-            print("Buy item with " + currency + "\nItem: " + selectedItemName + "\n selectedItemPriceCoins: " + selectedItemPriceCoins + "\nselectedItemPriceGems: " + selectedItemPriceGems + "\nselectedItemQty: " + selectedItemQty);
+            //print("Buy item with " + currency + "\nItem: " + selectedItemName + "\n selectedItemPriceCoins: " + selectedItemPriceCoins + "\nselectedItemPriceGems: " + selectedItemPriceGems + "\nselectedItemQty: " + selectedItemQty);
         }
         else
         {

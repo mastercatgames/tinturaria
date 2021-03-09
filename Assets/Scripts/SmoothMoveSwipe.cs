@@ -85,7 +85,7 @@ public class SmoothMoveSwipe : MonoBehaviour
 
                 if (uiController.isTutorial)
                 {
-                    print("Swipe Tutorial completed! Now it's blocked again! \n Show step 6!");
+                    //print("Swipe Tutorial completed! Now it's blocked again! \n Show step 6!");
                     //Show Step 6 after time (to avoid painting before time)
                     tutorialController.Invoke("NextStep", 0.2f);
                 }

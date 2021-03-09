@@ -123,7 +123,7 @@ public class LevelManager : MonoBehaviour
 
         foreach (Level item in levelList.Levels)
         {
-            print(item.time);
+            //print(item.time);
         }
     }
 

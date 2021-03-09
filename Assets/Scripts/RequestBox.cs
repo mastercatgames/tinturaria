@@ -109,7 +109,7 @@ public class RequestBox : MonoBehaviour
         }
         else
         {
-            print("Too late!");
+            //print("Too late!");
         }
     }
 
