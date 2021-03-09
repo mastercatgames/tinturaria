@@ -109,8 +109,11 @@ public class UIController : MonoBehaviour
 
     public void OpenPanel(GameObject panel)
     {
-        panel.SetActive(true);
-        ButtonsGrid.SetActive(false);
+        if (!somePanelIsOpen)
+        {
+            panel.SetActive(true);
+            ButtonsGrid.SetActive(false);
+        }
         //gameObject.transform.parent.Find("GameplayMenu").gameObject.SetActive(false);
         //gameObject.transform.parent.Find("GameplayMenuButtons").gameObject.SetActive(false);
 

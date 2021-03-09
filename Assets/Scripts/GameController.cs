@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour
 {
@@ -14,9 +15,16 @@ public class GameController : MonoBehaviour
     public float[] repositoryXPositions = { -160f, -80f, 0f, 80f, 160f, 240f };
     public float paintSpeed, originalPaintSpeed;
     public int numCoins, numDeliveredBoxes, numFailedBoxes, earnCoinsValue, discountCoinsValue;
-    public GameObject currentRepository, currentBox, PanelForms, Panel_Ink_Buckets, RequestPanel;
+    public GameObject currentRepository, currentBox, PanelForms, Panel_Ink_Buckets, RequestPanel, lastOpenPanel;
     public GameObject[] boxes, colors;
     public bool isPainting, emptyTutorialIsFinished, isChangingRepository;
+    EventSystem m_EventSystem;
+
+    void OnEnable()
+    {
+        //Fetch the current EventSystem. Make sure your Scene has one.
+        m_EventSystem = EventSystem.current;
+    }
 
     void Start()
     {
@@ -74,7 +82,7 @@ public class GameController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
                 NewPaintFluid(false);
 
-            if (Input.GetButtonDown("Horizontal")
+            if (Input.GetAxis("Horizontal") != 0
                && !isChangingRepository
                && !isPainting
                && !uiController.somePanelIsOpen
@@ -93,6 +101,27 @@ public class GameController : MonoBehaviour
                     isChangingRepository = true;
                 }
             }
+
+            //Controller Input
+            if (Input.GetButtonDown("L1") && lastOpenPanel == null)
+            {
+                lastOpenPanel = uiController.transform.parent.Find("Panel_Ink_Buckets").gameObject;
+                uiController.OpenPanel(lastOpenPanel);
+                m_EventSystem.SetSelectedGameObject(lastOpenPanel.transform.Find("Buckets").Find("Red").gameObject);
+                lastOpenPanel.transform.Find("Buckets").Find("Red").GetComponent<Button>().Select();
+            }
+            if (Input.GetButtonDown("R1") && lastOpenPanel == null)
+            {
+                lastOpenPanel = uiController.transform.parent.Find("Panel_Forms").gameObject;
+                uiController.OpenPanel(lastOpenPanel);
+                m_EventSystem.SetSelectedGameObject(lastOpenPanel.transform.Find("Forms").Find("Circle").gameObject);
+            }
+            // if (Input.GetButtonDown("Fire2") && lastOpenPanel != null)
+            // {
+            //     uiController.ClosePanel(lastOpenPanel);
+            //     lastOpenPanel = null;
+            // }
+
             #endregion            
         }
     }
@@ -256,6 +285,8 @@ public class GameController : MonoBehaviour
 
     public void ChangeCurrentBox(GameObject newBox)
     {
+        lastOpenPanel = null;
+
         if (currentBox)
             currentBox.SetActive(false);
 
@@ -304,10 +335,10 @@ public class GameController : MonoBehaviour
 
     public void Vibrate()
     {
-    #if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
         if (PlayerPrefs.GetString("vibration") == "on")
             Vibration.Vibrate(20);
-    #endif
+#endif
     }
 
     public void EarnCoins()

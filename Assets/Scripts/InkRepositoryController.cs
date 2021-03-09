@@ -145,6 +145,8 @@ public class InkRepositoryController : MonoBehaviour
 
     public void FillOrFixRepository()
     {
+        gameController.lastOpenPanel = null;
+        
         //Fill repository if it isn't broken
         if (!isBroken)
         {
