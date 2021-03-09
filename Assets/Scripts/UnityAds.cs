@@ -98,14 +98,14 @@ public class UnityAds : MonoBehaviour
 
         options.resultCallback = AfterShowTimedRewardVideo;
         // Check if UnityAds ready before calling Show method:
-        if (Advertisement.IsReady("rewardedVideo"))
-        {
+        // if (Advertisement.IsReady("rewardedVideo"))
+        // {
             Advertisement.Show("rewardedVideo", options);
-        }
-        else
-        {
+        // }
+        // else
+        // {
             //Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
-        }
+        // }
     }
 
     public void AfterShowTimedRewardVideo(ShowResult showResult)
@@ -114,9 +114,7 @@ public class UnityAds : MonoBehaviour
         if (showResult == ShowResult.Finished)
         {
             // Reward the user for watching the ad to completion.
-            PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 1);
-            uiController.RefreshUIToolsAndMoney();
-            TimedRewards.Instance.ResetTimer();
+            uiController.GiveTimedReward();
         }
         else if (showResult == ShowResult.Failed)
         {

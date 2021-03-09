@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     private UnityAds unityAds;
     private PowerUpsController powerUpsController;
     public float timeRemaining;
-    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel, NoInternetAlert;
+    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel, NoInternetAlert, TimedRewardAlert;
     public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
     public Button LevelButton;
     public Toggle vibrationToggle;
@@ -1153,6 +1153,20 @@ public class UIController : MonoBehaviour
         day7Text.FormatArgs[0] = "7";
 
         DailyRewards.gameObject.SetActive(true);
+    }
+
+    public void GiveTimedReward()
+    {
+        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 1);        
+        TimedRewards.Instance.ResetTimer();
+        TimedRewardAlert.transform.Find("Content").Find("Alert").Find("IconAnimation").gameObject.SetActive(true);
+        Invoke("AfterGiveTimedRewardAnim", 1f);
+    }
+
+    public void AfterGiveTimedRewardAnim()
+    {
+        RefreshUIToolsAndMoney();
+        TimedRewardAlert.transform.Find("Content").Find("Alert").Find("IconAnimation").gameObject.SetActive(false);
     }
 
     public void SetLoading(bool trueOrFalse)
