@@ -39,7 +39,7 @@ public class MoveCoinsToUI : MonoBehaviour
 
             Text UICoinsTotal = target.parent.Find("Text").GetComponent<Text>();
             UICoinsTotal.text = (int.Parse(UICoinsTotal.text) + 50).ToString();
-            audioController.PlaySFX("coinsPurchase");
+            //audioController.PlaySFX("coinsPurchase");
             target.parent.GetComponent<Animator>().Play("UI_HighLight_Zoom");
             Destroy(gameObject);
         }

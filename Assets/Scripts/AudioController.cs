@@ -9,6 +9,20 @@ public class AudioController : MonoBehaviour
     public AudioMixerGroup audioMixerGroup;
     public Toggle musicToggle;
     public Toggle sfxToggle;
+    public static AudioController Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            //DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     void Start()
     {

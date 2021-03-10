@@ -326,10 +326,32 @@ public class UIController : MonoBehaviour
         int timesToMoveCoins = (totalCoins / 50);
         float moveCoinsDelay = 1f;
 
+        float moveSpeed = 0.2f;
+
+        if (currentTotalCoins > 1000)
+        {
+            moveSpeed = 0.05f;
+        }
+        else if (currentTotalCoins > 500)
+        {
+            moveSpeed = 0.1f;
+        }
+
         for (int i = 0; i < timesToMoveCoins; i++)
         {
             Invoke("MoveCoinsToUI", moveCoinsDelay);
-            moveCoinsDelay = moveCoinsDelay + 0.2f;
+            moveCoinsDelay = moveCoinsDelay + moveSpeed;
+        }
+
+        InvokeRepeating("StartPlayCoinsSFX", 1.5f, 0.2f);
+    }
+
+    private void StartPlayCoinsSFX()
+    {
+        AudioController.Instance.PlaySFX("coinsPurchase");
+        if (int.Parse(coinsUI.text) == PlayerPrefs.GetInt("coinsCount"))
+        {
+            CancelInvoke("StartPlayCoinsSFX");
         }
     }
 
@@ -1157,7 +1179,7 @@ public class UIController : MonoBehaviour
 
     public void GiveTimedReward()
     {
-        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 1);        
+        PlayerPrefs.SetInt("toolsCount", PlayerPrefs.GetInt("toolsCount") + 1);
         TimedRewards.Instance.ResetTimer();
         TimedRewardAlert.transform.Find("Content").Find("Alert").Find("IconAnimation").gameObject.SetActive(true);
         Invoke("AfterGiveTimedRewardAnim", 1f);
