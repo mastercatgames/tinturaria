@@ -204,8 +204,14 @@ public class UIController : MonoBehaviour
         titleText.text = levelManager.world + "-" + levelManager.level;
 
         //Set (qty) Boxes delivered and failed
-        boxesDeliveredText.text += " " + gameController.numDeliveredBoxes;
-        boxesFailedText.text += " " + gameController.numFailedBoxes;
+        LocalizedTextBehaviour boxesDeliveredTextQty = boxesDeliveredText.GetComponent<LocalizedTextBehaviour>();
+        boxesDeliveredTextQty.FormatArgs = new string[1];
+        boxesDeliveredTextQty.FormatArgs[0] = gameController.numDeliveredBoxes.ToString();
+
+        LocalizedTextBehaviour boxesFailedTextQty = boxesFailedText.GetComponent<LocalizedTextBehaviour>();
+        boxesFailedTextQty.FormatArgs = new string[1];
+        boxesFailedTextQty.FormatArgs[0] = gameController.numFailedBoxes.ToString();
+        
 
         //Num Coins
         int numDeliveredBoxesValue = gameController.numDeliveredBoxes * gameController.earnCoinsValue;

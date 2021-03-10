@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LocaleItems:
   - m_Language: 10
-    m_Value: Boxes delivered x
+    m_Value: Boxes delivered x {0}
   - m_Language: 28
-    m_Value: Caixas entregues x
+    m_Value: Caixas entregues x {0}
