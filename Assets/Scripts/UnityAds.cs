@@ -14,12 +14,10 @@ public class UnityAds : MonoBehaviour
     void Start()
     {
         uiController = FindObjectOfType<UIController>();
+        
+        Advertisement.Initialize(gameId, testMode);
 
-        if (PlayerPrefs.GetInt("removeAds") == 0)
-        {
-            Advertisement.Initialize(gameId, testMode);
-            StartCoroutine(ShowBannerWhenInitialized());
-        }
+        StartCoroutine(ShowBannerWhenInitialized());
     }
 
     IEnumerator ShowBannerWhenInitialized()
@@ -98,14 +96,14 @@ public class UnityAds : MonoBehaviour
 
         options.resultCallback = AfterShowTimedRewardVideo;
         // Check if UnityAds ready before calling Show method:
-        // if (Advertisement.IsReady("rewardedVideo"))
-        // {
+        if (Advertisement.IsReady("rewardedVideo"))
+        {
             Advertisement.Show("rewardedVideo", options);
-        // }
-        // else
-        // {
-            //Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
-        // }
+        }
+        else
+        {
+            Debug.Log("Rewarded video is not ready at the moment! Please try again later!");
+        }
     }
 
     public void AfterShowTimedRewardVideo(ShowResult showResult)
