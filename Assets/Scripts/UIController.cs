@@ -214,7 +214,7 @@ public class UIController : MonoBehaviour
         LocalizedTextBehaviour boxesFailedTextQty = boxesFailedText.GetComponent<LocalizedTextBehaviour>();
         boxesFailedTextQty.FormatArgs = new string[1];
         boxesFailedTextQty.FormatArgs[0] = gameController.numFailedBoxes.ToString();
-        
+
 
         //Num Coins
         int numDeliveredBoxesValue = gameController.numDeliveredBoxes * gameController.earnCoinsValue;
@@ -831,6 +831,22 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void RefreshPowerUpButton(Transform powerUp, int PowerUpsTutorial_Step)
+    {
+        if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == PowerUpsTutorial_Step))
+        {
+            powerUp.Find("BGCount").gameObject.SetActive(false);
+            powerUp.Find("Lock").gameObject.SetActive(false);
+        }
+        else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > PowerUpsTutorial_Step)
+        {
+            powerUp.Find("BGCount").gameObject.SetActive(true);
+            powerUp.Find("Lock").gameObject.SetActive(false);
+            powerUp.GetComponent<Toggle>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
+            powerUp.GetComponent<EventTrigger>().enabled = false;
+        }
+    }
+
     public void RefreshPowerUpsCount()
     {
         Transform powerUpsButtons = transform.parent.Find("Menu").Find("Main").Find("LevelDetails").Find("Content").Find("PowerUps");
@@ -842,98 +858,32 @@ public class UIController : MonoBehaviour
 
             if (powerUp.name == "DoubleCash")
             {
-                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 0))
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(false);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                }
-                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 0)
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(true);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
-                    powerUp.GetComponent<EventTrigger>().enabled = false;
-                }
+                RefreshPowerUpButton(powerUp, 0);
             }
 
             if (powerUp.name == "NoBrokenBottles")
             {
-                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 1))
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(false);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                }
-                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 1)
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(true);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
-                    powerUp.GetComponent<EventTrigger>().enabled = false;
-                }
+                RefreshPowerUpButton(powerUp, 1);
             }
 
             if (powerUp.name == "BoosterFilling_OneBottle")
             {
-                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 2))
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(false);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                }
-                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 2)
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(true);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
-                    powerUp.GetComponent<EventTrigger>().enabled = false;
-                }
+                RefreshPowerUpButton(powerUp, 2);
             }
 
             if (powerUp.name == "BoosterFilling_AllBottles")
             {
-                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 3))
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(false);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                }
-                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 3)
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(true);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
-                    powerUp.GetComponent<EventTrigger>().enabled = false;
-                }
+                RefreshPowerUpButton(powerUp, 3);
             }
 
             if (powerUp.name == "FixInTime")
             {
-                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 4))
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(false);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                }
-                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 4)
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(true);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
-                    powerUp.GetComponent<EventTrigger>().enabled = false;
-                }
+                RefreshPowerUpButton(powerUp, 4);
             }
 
             if (powerUp.name == "BoosterFilling_Box")
             {
-                if ((isPowerUpTutorial && PlayerPrefs.GetInt("PowerUpsTutorial_Step") == 5))
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(false);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                }
-                else if (PlayerPrefs.GetInt("PowerUpsTutorial_Step") > 5)
-                {
-                    powerUp.Find("BGCount").gameObject.SetActive(true);
-                    powerUp.Find("Lock").gameObject.SetActive(false);
-                    powerUp.GetComponent<Button>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
-                    powerUp.GetComponent<EventTrigger>().enabled = false;
-                }
+                RefreshPowerUpButton(powerUp, 5);
             }
         }
     }

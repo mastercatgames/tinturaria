@@ -27397,7 +27397,7 @@ GameObject:
   - component: {fileID: 3254670572761501417}
   - component: {fileID: 6692758965434983679}
   - component: {fileID: 4903748538290088382}
-  - component: {fileID: 3102871294090634050}
+  - component: {fileID: 622679433048734722}
   - component: {fileID: 7801579605418399454}
   - component: {fileID: 807870078504367511}
   - component: {fileID: 3198463133098911862}
@@ -27467,7 +27467,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3102871294090634050
+--- !u!114 &622679433048734722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27476,7 +27476,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2541488648638990442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -27502,9 +27502,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 4903748538290088382}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 581070764038756129}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1281993857357546321}
@@ -27518,8 +27521,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_IsOn: 0
 --- !u!114 &7801579605418399454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31313,7 +31317,7 @@ GameObject:
   - component: {fileID: 3468768734918218315}
   - component: {fileID: 8056414130440372903}
   - component: {fileID: 2634505341394071606}
-  - component: {fileID: 5077495551873618462}
+  - component: {fileID: 6895236475060731032}
   - component: {fileID: 831636358779562917}
   - component: {fileID: 4722970720362745523}
   - component: {fileID: 8274922443969933482}
@@ -31383,7 +31387,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5077495551873618462
+--- !u!114 &6895236475060731032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31392,7 +31396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2981173240332849656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -31418,9 +31422,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 2634505341394071606}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 581070764038756129}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1281993857357546321}
@@ -31434,8 +31441,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_IsOn: 0
 --- !u!114 &831636358779562917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39746,7 +39754,7 @@ GameObject:
   - component: {fileID: 2027667029000791979}
   - component: {fileID: 2779440625714220977}
   - component: {fileID: 6961811884008685762}
-  - component: {fileID: 4736131548036219085}
+  - component: {fileID: 7589457672676743196}
   - component: {fileID: 7795054028915528330}
   - component: {fileID: 5802332729059755569}
   - component: {fileID: 3227874018751650564}
@@ -39816,7 +39824,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4736131548036219085
+--- !u!114 &7589457672676743196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39825,7 +39833,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3872310422317640730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -39851,9 +39859,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 6961811884008685762}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 581070764038756129}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1281993857357546321}
@@ -39867,8 +39878,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_IsOn: 0
 --- !u!114 &7795054028915528330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48430,6 +48442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3855543988088259028}
   - component: {fileID: 2390173089659292551}
+  - component: {fileID: 581070764038756129}
   m_Layer: 5
   m_Name: PowerUps
   m_TagString: Untagged
@@ -48486,6 +48499,19 @@ MonoBehaviour:
   m_Spacing: {x: 150, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 3
+--- !u!114 &581070764038756129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760397103181315011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1184210157, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
 --- !u!1 &4797646843238535941
 GameObject:
   m_ObjectHideFlags: 0
@@ -66736,7 +66762,7 @@ GameObject:
   - component: {fileID: 471711720605291991}
   - component: {fileID: 2018795367746028027}
   - component: {fileID: 4088475721134844524}
-  - component: {fileID: 768170014012646713}
+  - component: {fileID: 5488418642293832849}
   - component: {fileID: 4804782872233030237}
   - component: {fileID: 1718045742945209975}
   - component: {fileID: 1708972342441913247}
@@ -66806,7 +66832,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &768170014012646713
+--- !u!114 &5488418642293832849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66815,7 +66841,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6993896972543790454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -66841,9 +66867,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 4088475721134844524}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 581070764038756129}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1281993857357546321}
@@ -66857,8 +66886,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_IsOn: 0
 --- !u!114 &4804782872233030237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83263,7 +83293,7 @@ GameObject:
   - component: {fileID: 2597904744330041921}
   - component: {fileID: 5252750696102552431}
   - component: {fileID: 5674903309745233909}
-  - component: {fileID: 3218869724009061780}
+  - component: {fileID: 819525870193612970}
   - component: {fileID: 8750156323378439813}
   - component: {fileID: 5425390567278525301}
   - component: {fileID: 1946426647507583507}
@@ -83333,7 +83363,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3218869724009061780
+--- !u!114 &819525870193612970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83342,7 +83372,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8601635160366153019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -83368,9 +83398,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 5674903309745233909}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 581070764038756129}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1281993857357546321}
@@ -83384,8 +83417,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_IsOn: 0
 --- !u!114 &8750156323378439813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87097,7 +87131,7 @@ GameObject:
   - component: {fileID: 5915373990477834231}
   - component: {fileID: 5269861762027258388}
   - component: {fileID: 7709694382224240390}
-  - component: {fileID: 5349419174229475037}
+  - component: {fileID: 4526564813771785122}
   - component: {fileID: 6664840520289770605}
   - component: {fileID: 187734674442107471}
   - component: {fileID: 8599933410127243546}
@@ -87167,7 +87201,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5349419174229475037
+--- !u!114 &4526564813771785122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87176,7 +87210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9030705264106460764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -87202,9 +87236,12 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 7709694382224240390}
-  m_OnClick:
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 581070764038756129}
+  onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1281993857357546321}
@@ -87218,8 +87255,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  m_IsOn: 0
 --- !u!114 &6664840520289770605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90857,15 +90895,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a28e1f697fed6004db88c39bb3ec8487, type: 3}
---- !u!1 &7207766378573308352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9175673737338447270, guid: a28e1f697fed6004db88c39bb3ec8487,
-    type: 3}
-  m_PrefabInstance: {fileID: 1968543572339573862}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8072555501036679419 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7734599784564487325, guid: a28e1f697fed6004db88c39bb3ec8487,
+    type: 3}
+  m_PrefabInstance: {fileID: 1968543572339573862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7207766378573308352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9175673737338447270, guid: a28e1f697fed6004db88c39bb3ec8487,
     type: 3}
   m_PrefabInstance: {fileID: 1968543572339573862}
   m_PrefabAsset: {fileID: 0}
