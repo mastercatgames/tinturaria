@@ -181,6 +181,9 @@ public class UIController : MonoBehaviour
     {
         HideGameplayObjects();
 
+        //Avoid to keeps vibrating when is filling a box and go to gameover
+        gameController.CancelInvoke("Vibrate");
+
         //Hide GameOver Objects
         foreach (Transform child in gameOverPanel.transform)
         {
