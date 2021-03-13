@@ -16,7 +16,7 @@ public class WorldTimeAPI : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-			StartCoroutine(GetRealDateTimeFromAPI());
+            StartCoroutine(GetRealDateTimeFromAPI());
         }
         else
         {
@@ -39,7 +39,7 @@ public class WorldTimeAPI : MonoBehaviour
     //(http does not will work in Android build)
 
     // const string API_URL = "https://worldtimeapi.org/api/ip";
-    const string API_URL = "https://worldtimeapi.org/api/timezone/Europe/London";	
+    const string API_URL = "https://worldtimeapi.org/api/timezone/Europe/London";
     //const string API_URL = "https://worldtimeapi.org/api/timezone/America/Sao_Paulo";
 
     [HideInInspector] public bool IsTimeLodaed = false;
@@ -52,10 +52,10 @@ public class WorldTimeAPI : MonoBehaviour
         // StartCoroutine(GetRealDateTimeFromAPI());
     }
 
-	public void Reload()
-	{
-		StartCoroutine(GetRealDateTimeFromAPI());
-	}
+    public void Reload()
+    {
+        StartCoroutine(GetRealDateTimeFromAPI());
+    }
 
     public DateTime GetCurrentDateTime()
     {
@@ -81,15 +81,24 @@ public class WorldTimeAPI : MonoBehaviour
             }
             else
             {
-                //success
-                TimeData timeData = JsonUtility.FromJson<TimeData>(webRequest.downloadHandler.text);
-                //timeData.datetime value is : 2020-08-14T15:54:04+01:00
+                try
+                {
+                    //success
+                    TimeData timeData = JsonUtility.FromJson<TimeData>(webRequest.downloadHandler.text);
+                    //timeData.datetime value is : 2020-08-14T15:54:04+01:00
 
-                _currentDateTime = ParseDateTime(timeData.datetime);
-                IsTimeLodaed = true;
+                    _currentDateTime = ParseDateTime(timeData.datetime);
+                    IsTimeLodaed = true;
 
-                //Debug.Log("Success.");
-                DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "Connected!", false);
+                    //print("Real Time UTC is loaded!");
+
+                    //Debug.Log("Success.");
+                    DailyRewards.Instance.SetDebugText(DailyRewards.Instance.Connectivity_debug, "Connected!", false);
+                }
+                catch
+                {
+                    IsTimeLodaed = false;
+                }
             }
         }
     }
