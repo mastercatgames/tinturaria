@@ -845,6 +845,7 @@ public class UIController : MonoBehaviour
             powerUp.GetComponent<Toggle>().interactable = PlayerPrefs.GetInt("PowerUp_" + powerUp.name) > 0;
             powerUp.GetComponent<EventTrigger>().enabled = false;
         }
+        powerUp.GetComponent<Toggle>().isOn = false;
     }
 
     public void RefreshPowerUpsCount()
