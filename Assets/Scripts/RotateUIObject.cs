@@ -14,7 +14,7 @@ public class RotateUIObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         GetComponent<RectTransform>().Rotate(Vector3.back * speed * Time.deltaTime);
     }

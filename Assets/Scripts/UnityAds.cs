@@ -14,7 +14,7 @@ public class UnityAds : MonoBehaviour
     void Start()
     {
         uiController = FindObjectOfType<UIController>();
-        
+
         Advertisement.Initialize(gameId, testMode);
 
         StartCoroutine(ShowBannerWhenInitialized());
@@ -34,17 +34,24 @@ public class UnityAds : MonoBehaviour
         }
     }
 
-    public void ShowSkippableVideoAd(string buttonName)
+    public void ShowSkippableVideoAd(string buttonName = "")
     {
         // var options = new ShowOptions { resultCallback = AfterShowMenuButtonAd };
         ShowOptions options = new ShowOptions();// { resultCallback = AfterShowMenuButtonAd };
 
-        if (buttonName == "Menu")
-            options.resultCallback = AfterShowMenuButtonAd;
-        else if (buttonName == "NextLevel")
-            options.resultCallback = AfterShowNextLevelButtonAd;
+        if (buttonName == "")
+        {
+            Advertisement.Show("video");
+        }
+        else
+        {
+            if (buttonName == "Menu")
+                options.resultCallback = AfterShowMenuButtonAd;
+            else if (buttonName == "NextLevel")
+                options.resultCallback = AfterShowNextLevelButtonAd;
 
-        Advertisement.Show("video", options);
+            Advertisement.Show("video", options);
+        }
     }
 
     public void AfterShowMenuButtonAd(ShowResult showResult)
@@ -141,21 +148,42 @@ public class UnityAds : MonoBehaviour
     //     }
     // }
 
-    public void RemoveAds()
-    {
-        // PlayerPrefs.SetInt("countToShowAd", 0);
-        PlayerPrefs.SetInt("removeAds", 1);
-        //StopCoroutine(ShowBannerWhenInitialized());
-        Advertisement.Banner.Hide();
-        //SceneManager.LoadScene(0);
-    }
+    // public void RemoveAds()
+    // {
+    //     PlayerPrefs.SetInt("removeAds", 1);
+    //     Advertisement.Banner.Hide();
+    // }
 
-    public void RestoreProduct(Product product)
-    {
-        //Calls when user reinstall the app
-        if (product.definition.id == "no_ads2")
-        {
-            RemoveAds();
-        }
-    }
+    // public void RestoreProduct(Product product)
+    // {
+    //     //Calls when user reinstall the app
+    //     if (product.definition.id.Contains("no_ads"))
+    //     {
+    //         int gemsAmount = int.Parse(product.definition.id.Substring(product.definition.id.IndexOf('x') + 1));
+    //         RemoveAds();            
+    //         PlayerPrefs.SetInt("gemsCount", gemsAmount); 
+    //     }
+    // }
+
+    // public void BuyGems(GameObject button)
+    // {
+    //     uiController.SetLoading(true);
+    //     string productId = button.GetComponent<IAPButton>().productId;
+    //     int gemsAmount = int.Parse(productId.Substring(productId.IndexOf('x') + 1));
+
+    //     if (productId.Contains("no_ads"))
+    //     {            
+    //         RemoveAds(); 
+    //     }
+
+    //     PlayerPrefs.SetInt("gemsCount", PlayerPrefs.GetInt("gemsCount") + gemsAmount);
+    //     uiController.RefreshUIToolsAndMoney();
+    //     RefreshGemsPanel();
+    // }
+
+    // public void PurchaseFailedFeedback()
+    // {
+    //     uiController.SetLoading(false);
+    //     print("Purchase cancelled!");
+    // }
 }

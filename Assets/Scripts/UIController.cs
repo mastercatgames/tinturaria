@@ -11,10 +11,11 @@ public class UIController : MonoBehaviour
 {
     private GameController gameController;
     private LevelManager levelManager;
-    private UnityAds unityAds;
+    [HideInInspector]
+    public UnityAds unityAds;
     private PowerUpsController powerUpsController;
     public float timeRemaining;
-    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel, NoInternetAlert, TimedRewardAlert;
+    public GameObject ButtonsGrid, gameOverPanel, rewardPanel, menu, coinIcon, LevelPanel, creditsAlert, LoadingPanel, NoInternetAlert, TimedRewardAlert, GenericAlert;
     public Text timeText, titleText, boxesDeliveredText, boxesFailedText, totalText, quoteText, numCoinsText, toolsUI, gemsUI, coinsUI, readyGo, languageText;
     public Button LevelButton;
     public Toggle vibrationToggle;
@@ -1154,5 +1155,24 @@ public class UIController : MonoBehaviour
     public void SetLoading(bool trueOrFalse)
     {
         LoadingPanel.SetActive(trueOrFalse);
+    }
+
+    public void OpenGenericAlert(LocalizedText titleLocalizated, LocalizedText descriptionLocalizated, int amount = 0)
+    {
+        Transform alert = GenericAlert.transform.Find("Content").Find("Alert");
+        LocalizedTextBehaviour title = alert.Find("Title").Find("Text").GetComponent<LocalizedTextBehaviour>();
+        LocalizedTextBehaviour description = alert.Find("Description").GetComponent<LocalizedTextBehaviour>();
+        title.LocalizedAsset = titleLocalizated;
+        description.LocalizedAsset = descriptionLocalizated;
+
+        print(amount);
+
+        if (amount > 0)
+        {
+            description.FormatArgs = new string[1];
+            description.FormatArgs[0] = amount.ToString();            
+        }
+
+        GenericAlert.SetActive(true);
     }
 }

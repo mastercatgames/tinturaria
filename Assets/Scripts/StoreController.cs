@@ -3,25 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameToolkit.Localization;
+using UnityEngine.Purchasing;
+using UnityEngine.Advertisements;
 
 public class StoreController : MonoBehaviour
 {
     private UIController uiController;
-    public Transform RepairsButtons;
-    public Transform PowerUpButtons;
-    public Transform BundleButtons;
-    public Transform PurchaseAlert;
-    public string[] repairsPricesCoins;
-    public int[] repairsPricesGems;
-    public int[] powerUpsPrices;
-    public int[] bundlesPrices;
+    public Transform RepairsButtons, PowerUpButtons, BundleButtons, GemsButtons, PurchaseAlert;
+    private string[] repairsPricesCoins;
+    private int[] repairsPricesGems, powerUpsPrices, bundlesPrices;
 
     [Header("===== Selected Item in Shop =====")]
-    public string selectedCurrency;
-    public string selectedItemName;
-    public string selectedItemQty;
-    public int selectedItemPriceCoins;
-    public int selectedItemPriceGems;
+    public string selectedCurrency, selectedItemName, selectedItemQty;
+    public int selectedItemPriceCoins, selectedItemPriceGems;
     public GameObject selectedButton;
 
     // Start is called before the first frame update
@@ -66,6 +60,7 @@ public class StoreController : MonoBehaviour
         RefreshRapairsPanel();
         RefreshPowerUpPanel();
         RefreshBundlesPanel();
+        RefreshGemsPanel();
     }
 
     public void RefreshRapairsPanel()
@@ -93,6 +88,19 @@ public class StoreController : MonoBehaviour
         for (int i = 0; i < BundleButtons.childCount; i++)
         {
             BundleButtons.GetChild(i).Find("PriceButton").Find("Price").GetComponent<Text>().text = bundlesPrices[i].ToString();
+        }
+    }
+    public void RefreshGemsPanel()
+    {
+        if (PlayerPrefs.GetInt("removeAds") == 1)
+        {
+            string productId = "";
+            foreach (Transform button in GemsButtons)
+            {
+                productId = button.GetComponent<IAPButton>().productId;
+                button.GetComponent<IAPButton>().productId = productId.Substring(productId.IndexOf('g'));
+                button.Find("NoAdsIcon").gameObject.SetActive(false);
+            }
         }
     }
 
@@ -247,7 +255,7 @@ public class StoreController : MonoBehaviour
     private void AddPowerUps(string powerUpName)
     {
         int itemQty = int.Parse(selectedItemQty);
-        PlayerPrefs.SetInt("PowerUp_" + powerUpName, PlayerPrefs.GetInt("PowerUp_" + powerUpName) + (1 * itemQty));        
+        PlayerPrefs.SetInt("PowerUp_" + powerUpName, PlayerPrefs.GetInt("PowerUp_" + powerUpName) + (1 * itemQty));
     }
 
     private void AddBundle()
@@ -307,5 +315,61 @@ public class StoreController : MonoBehaviour
             if (item.name == "OkToGems")
                 item.gameObject.SetActive(true);
         }
+    }
+
+    public void RemoveAds()
+    {
+        PlayerPrefs.SetInt("removeAds", 1);
+        Advertisement.Banner.Hide();
+    }
+
+    public void RestoreProduct(Product product)
+    {
+        //Calls when user reinstall the app
+        if (product.definition.id.Contains("no_ads"))
+        {
+            string productId = product.definition.id;
+            int gemsAmount = int.Parse(productId.Substring(productId.IndexOf('x') + 1));
+            RemoveAds();            
+            PlayerPrefs.SetInt("gemsCount", gemsAmount); 
+        }
+    }
+
+    public void BuyGems(Product product)
+    {
+        uiController.SetLoading(true);
+        string productId = product.definition.id;
+        int gemsAmount = int.Parse(productId.Substring(productId.IndexOf('x') + 1));
+
+        LocalizedText titleLocalized = (LocalizedText)Resources.Load("thank_you", typeof(LocalizedText));
+        LocalizedText descriptionLocalized;
+
+        if (productId.Contains("no_ads"))
+        {            
+            RemoveAds(); 
+            descriptionLocalized = (LocalizedText)Resources.Load("gems_purchased_no_ads", typeof(LocalizedText));
+        }
+        else
+        {
+            descriptionLocalized = (LocalizedText)Resources.Load("gems_purchased", typeof(LocalizedText));
+        }
+
+        PlayerPrefs.SetInt("gemsCount", PlayerPrefs.GetInt("gemsCount") + gemsAmount);
+        uiController.SetLoading(false);
+        uiController.RefreshUIToolsAndMoney();
+        RefreshGemsPanel();
+
+        uiController.OpenGenericAlert(titleLocalized, descriptionLocalized, gemsAmount);       
+    }
+
+    public void PurchaseFailedFeedback(Product product, PurchaseFailureReason reason)
+    {
+        uiController.SetLoading(false);
+        uiController.unityAds.ShowSkippableVideoAd();
+
+        LocalizedText titleLocalized = (LocalizedText)Resources.Load("error", typeof(LocalizedText));
+        LocalizedText descriptionLocalized = (LocalizedText)Resources.Load("purchase_failed", typeof(LocalizedText));
+
+        uiController.OpenGenericAlert(titleLocalized, descriptionLocalized);        
     }
 }
