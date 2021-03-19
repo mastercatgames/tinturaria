@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using GameToolkit.Localization;
 using UnityEngine.Purchasing;
 using UnityEngine.Advertisements;
+using System.Text.RegularExpressions;
 
 public class StoreController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class StoreController : MonoBehaviour
     public Transform RepairsButtons, PowerUpButtons, BundleButtons, GemsButtons, PurchaseAlert;
     private string[] repairsPricesCoins;
     private int[] repairsPricesGems, powerUpsPrices, bundlesPrices;
+    private float[] defaultGemsPrices;
 
     [Header("===== Selected Item in Shop =====")]
     public string selectedCurrency, selectedItemName, selectedItemQty;
@@ -57,6 +59,13 @@ public class StoreController : MonoBehaviour
         bundlesPrices[2] = 70;
         #endregion
 
+        #region Gems
+        defaultGemsPrices = new float[3];
+        defaultGemsPrices[0] = 2.99f;
+        defaultGemsPrices[1] = 3.99f;
+        defaultGemsPrices[2] = 5.99f;
+        #endregion
+
         RefreshRapairsPanel();
         RefreshPowerUpPanel();
         RefreshBundlesPanel();
@@ -100,8 +109,16 @@ public class StoreController : MonoBehaviour
                 productId = button.GetComponent<IAPButton>().productId;
                 button.GetComponent<IAPButton>().productId = productId.Substring(productId.IndexOf('g'));
                 button.Find("NoAdsIcon").gameObject.SetActive(false);
+
+                //refresh price
+                button.GetComponent<IAPButton>().enabled = false;
+                button.GetComponent<IAPButton>().enabled = true;
+
+                
             }
         }
+        Invoke("VerifyPromotion", 0.3f);
+        //VerifyPromotion();
     }
 
     public void OpenPurchaseAlert(GameObject button)
@@ -330,12 +347,17 @@ public class StoreController : MonoBehaviour
         {
             string productId = product.definition.id;
             int gemsAmount = int.Parse(productId.Substring(productId.IndexOf('x') + 1));
-            RemoveAds();            
-            PlayerPrefs.SetInt("gemsCount", gemsAmount); 
+            RemoveAds();
+            PlayerPrefs.SetInt("gemsCount", gemsAmount);
         }
     }
 
     public void BuyGems(Product product)
+    {
+        StartCoroutine(GemsPurchase(product));
+    }
+
+    private IEnumerator GemsPurchase(Product product)
     {
         uiController.SetLoading(true);
         string productId = product.definition.id;
@@ -345,8 +367,8 @@ public class StoreController : MonoBehaviour
         LocalizedText descriptionLocalized;
 
         if (productId.Contains("no_ads"))
-        {            
-            RemoveAds(); 
+        {
+            RemoveAds();
             descriptionLocalized = (LocalizedText)Resources.Load("gems_purchased_no_ads", typeof(LocalizedText));
         }
         else
@@ -355,11 +377,13 @@ public class StoreController : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("gemsCount", PlayerPrefs.GetInt("gemsCount") + gemsAmount);
+        
+        yield return new WaitForSeconds(3f);
+        //After processing the purchase, apply the refresh
         uiController.SetLoading(false);
         uiController.RefreshUIToolsAndMoney();
         RefreshGemsPanel();
-
-        uiController.OpenGenericAlert(titleLocalized, descriptionLocalized, gemsAmount);       
+        uiController.OpenGenericAlert(titleLocalized, descriptionLocalized, gemsAmount);
     }
 
     public void PurchaseFailedFeedback(Product product, PurchaseFailureReason reason)
@@ -370,6 +394,56 @@ public class StoreController : MonoBehaviour
         LocalizedText titleLocalized = (LocalizedText)Resources.Load("error", typeof(LocalizedText));
         LocalizedText descriptionLocalized = (LocalizedText)Resources.Load("purchase_failed", typeof(LocalizedText));
 
-        uiController.OpenGenericAlert(titleLocalized, descriptionLocalized);        
+        uiController.OpenGenericAlert(titleLocalized, descriptionLocalized);
+    }
+
+    private void VerifyPromotion()
+    {
+        string priceText, currency, oldPrice;
+        float price;
+
+        for (int i = 0; i < GemsButtons.childCount; i++)
+        {
+
+            priceText = GemsButtons.GetChild(i).GetComponent<IAPButton>().priceText.text.Replace('.', ',');
+            currency = priceText.Substring(0, priceText.IndexOf(Regex.Match(priceText, @"\d+.+\d").Value)).Trim();
+            price = float.Parse(Regex.Match(priceText, @"\d+.+\d").Value);
+
+            // priceText = "R$ 199,99";
+            // priceText = priceText.Replace('.', ',');
+
+            // currency = priceText.Substring(0, priceText.IndexOf(Regex.Match(priceText, @"\d+.+\d").Value)).Trim();
+            // price = float.Parse(Regex.Match(priceText, @"\d+.+\d").Value);
+
+            // priceText = "$ 199.99";
+            // priceText = priceText.Replace('.', ',');
+
+            // currency = priceText.Substring(0, priceText.IndexOf(Regex.Match(priceText, @"\d+.+\d").Value)).Trim();
+            // price = float.Parse(Regex.Match(priceText, @"\d+.+\d").Value);
+
+            //Reset values
+            GemsButtons.GetChild(i).GetComponent<Shadow>().enabled = true;
+            GemsButtons.GetChild(i).GetComponent<Outline>().enabled = false;
+            GemsButtons.GetChild(i).Find("DiscountBadge").gameObject.SetActive(false);
+            GemsButtons.GetChild(i).Find("DiscountPrice").gameObject.SetActive(false);
+
+            if ((currency == "" || currency == "$" || currency == "R$")
+            && price < defaultGemsPrices[i])
+            {
+                GemsButtons.GetChild(i).GetComponent<Shadow>().enabled = false;
+                GemsButtons.GetChild(i).GetComponent<Outline>().enabled = true;
+                GemsButtons.GetChild(i).Find("DiscountBadge").gameObject.SetActive(true);
+
+                oldPrice = defaultGemsPrices[i].ToString();
+
+                if (currency == "$")
+                    oldPrice = oldPrice.Replace(',', '.');
+                else if (currency == "R$")
+                    oldPrice = oldPrice.Replace('.', ',');
+
+                GemsButtons.GetChild(i).Find("DiscountPrice").GetComponent<Text>().text = currency + " " + oldPrice;
+                GemsButtons.GetChild(i).Find("DiscountPrice").gameObject.SetActive(true);
+            }       
+        }
     }
 }
