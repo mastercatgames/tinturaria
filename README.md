@@ -1,3 +1,7 @@
+<h1>Trello</h1>
+Our Trello sharing details of the project: https://trello.com/b/uepgAFQz/tinturaria-hp
+
+<h1>Trailer</h1>
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=cgjj337HBmc">
